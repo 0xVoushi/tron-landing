@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Targo Hero — Text Legibility Options</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111; color: #fff; font-family: system-ui, sans-serif; padding: 24px; }
+  h2 { font-size: 18px; font-weight: 600; margin-bottom: 6px; color: #fff; }
+  .subtitle { font-size: 13px; color: #888; margin-bottom: 24px; }
+
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .option-wrap { cursor: pointer; border-radius: 8px; border: 2px solid transparent; transition: border-color 0.15s; }
+  .option-wrap:hover { border-color: #EE3F2C55; }
+  .option-wrap.selected { border-color: #EE3F2C; }
+
+  .option-label { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 6px 6px 0 0; background: #1a1a1a; }
+  .option-letter { background: #EE3F2C; color: white; font-weight: 700; font-size: 12px; width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .option-letter.b { background: #555; }
+  .option-name { font-size: 13px; font-weight: 600; }
+  .option-desc { font-size: 11px; color: #888; margin-left: auto; }
+
+  /* Hero mockup */
+  .hero-mock {
+    position: relative;
+    height: 340px;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  /* Video placeholder */
+  .video-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #533483 100%);
+  }
+  /* Simulate a truck/road scene with CSS */
+  .video-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 60%, rgba(100,80,40,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 30% 80%, rgba(60,40,20,0.3) 0%, transparent 40%);
+  }
+  .road {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+    background: linear-gradient(180deg, transparent, rgba(30,20,10,0.5));
+  }
+
+  /* Option A: No overlay */
+  .no-overlay .overlay { display: none; }
+
+  /* Option B: Subtle left gradient */
+  .with-gradient .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  }
+
+  /* Nav */
+  .nav-mock {
+    position: absolute; top: 0; left: 0; right: 0;
+    display: flex; align-items: center; padding: 16px 24px; gap: 20px;
+    z-index: 10;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 100%);
+  }
+  .logo-mock { display: flex; align-items: center; gap: 6px; }
+  .logo-icon { width: 24px; height: 24px; background: white; border-radius: 3px; opacity: 0.9; }
+  .logo-text { color: white; font-weight: 700; font-size: 15px; letter-spacing: 1px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 16px; margin-left: 20px; }
+  .nav-link { color: rgba(255,255,255,0.85); font-size: 11px; font-weight: 500; }
+  .nav-btn {
+    margin-left: auto;
+    background: #EE3F2C; color: white; font-size: 10px; font-weight: 600;
+    padding: 5px 12px; letter-spacing: 0.5px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+
+  /* Hero text */
+  .hero-content {
+    position: absolute; top: 70px; left: 24px; z-index: 10;
+    max-width: 380px;
+  }
+  .hero-headline {
+    font-family: 'Rubik', system-ui, sans-serif;
+    font-size: 36px; font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    margin-bottom: 18px;
+  }
+
+  /* Option A headline */
+  .no-overlay .hero-headline {
+    color: white;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.8);
+  }
+  /* Option B headline */
+  .with-gradient .hero-headline {
+    color: white;
+    text-shadow: none;
+  }
+
+  .hero-btn {
+    background: #EE3F2C; color: white;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 9px 20px; text-transform: uppercase;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    display: inline-block;
+  }
+
+  /* Consultation card */
+  .consult-card {
+    position: absolute; bottom: 16px; left: 20px; z-index: 10;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .consult-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: white; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .consult-icon svg { width: 14px; height: 14px; }
+  .consult-text .label { font-size: 9px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px; display: block; }
+  .consult-text .main { font-size: 11px; font-weight: 600; color: white; }
+  .consult-btn {
+    margin-left: 8px;
+    background: white; color: #000;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 5px 10px; text-transform: uppercase;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    white-space: nowrap;
+  }
+
+  .verdict {
+    margin-top: 10px; padding: 8px 12px;
+    background: #1a1a1a; border-radius: 0 0 6px 6px;
+    font-size: 11px; color: #888;
+    border-top: 1px solid #222;
+  }
+  .verdict strong { color: #ccc; }
+
+  .selection-bar {
+    margin-top: 20px; padding: 12px 16px;
+    background: #1a1a1a; border-radius: 8px;
+    font-size: 13px; color: #888;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .selection-bar #selection-text { color: #ccc; }
+</style>
+<script>
+  function select(el, choice) {
+    document.querySelectorAll('.option-wrap').forEach(w => w.classList.remove('selected'));
+    el.closest('.option-wrap').classList.add('selected');
+    document.getElementById('selection-text').textContent = choice === 'a'
+      ? 'Option A selected — No overlay (pure video, text-shadow for legibility)'
+      : 'Option B selected — Subtle left gradient (natural legibility boost)';
+    // record for server
+    if (window.recordChoice) window.recordChoice(choice, el.closest('.option-wrap').querySelector('.option-name').textContent);
+  }
+</script>
+</head>
+<body>
+
+<h2>Text Legibility Approach</h2>
+<p class="subtitle">The brief says "100% opacity, no dark overlay" — but a pure video background can make white text hard to read. Which approach do you prefer?</p>
+
+<div class="comparison">
+
+  <!-- Option A: No overlay -->
+  <div class="option-wrap" onclick="select(this, 'a')">
+    <div class="option-label">
+      <div class="option-letter">A</div>
+      <span class="option-name">Strict — No overlay</span>
+      <span class="option-desc">As briefed</span>
+    </div>
+    <div class="hero-mock no-overlay">
+      <div class="video-bg"></div>
+      <div class="road"></div>
+      <div class="nav-mock">
+        <div class="logo-mock">
+          <div class="logo-icon"></div>
+          <span class="logo-text">targo</span>
+        </div>
+        <div class="nav-links">
+          <span class="nav-link">Home</span>
+          <span class="nav-link">About</span>
+          <span class="nav-link">Contact Us</span>
+        </div>
+        <div class="nav-btn">Contact Us</div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-headline">Swift and<br>Simple<br>Transport</div>
+        <div class="hero-btn">Get Started</div>
+      </div>
+      <div class="consult-card">
+        <div class="consult-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="consult-text">
+          <span class="label">Free</span>
+          <span class="main">Book a Consultation</span>
+        </div>
+        <div class="consult-btn">Book a Call</div>
+      </div>
+    </div>
+    <div class="verdict">Text uses <strong>heavy text-shadow</strong> to carve out from video. Works if the video has naturally darker areas behind the text.</div>
+  </div>
+
+  <!-- Option B: Subtle gradient -->
+  <div class="option-wrap" onclick="select(this, 'b')">
+    <div class="option-label">
+      <div class="option-letter b">B</div>
+      <span class="option-name">Practical — Subtle left gradient</span>
+      <span class="option-desc">Slight compromise</span>
+    </div>
+    <div class="hero-mock with-gradient">
+      <div class="video-bg"></div>
+      <div class="overlay"></div>
+      <div class="road"></div>
+      <div class="nav-mock">
+        <div class="logo-mock">
+          <div class="logo-icon"></div>
+          <span class="logo-text">targo</span>
+        </div>
+        <div class="nav-links">
+          <span class="nav-link">Home</span>
+          <span class="nav-link">About</span>
+          <span class="nav-link">Contact Us</span>
+        </div>
+        <div class="nav-btn">Contact Us</div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-headline">Swift and<br>Simple<br>Transport</div>
+        <div class="hero-btn">Get Started</div>
+      </div>
+      <div class="consult-card">
+        <div class="consult-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="consult-text">
+          <span class="label">Free</span>
+          <span class="main">Book a Consultation</span>
+        </div>
+        <div class="consult-btn">Book a Call</div>
+      </div>
+    </div>
+    <div class="verdict">A <strong>very subtle left-to-right gradient</strong> (55% black → transparent) preserves video feel but ensures clean text at any video frame.</div>
+  </div>
+
+</div>
+
+<div class="selection-bar">
+  → <span id="selection-text">Click an option above to select it</span>
+</div>
+
+</body>
+</html>

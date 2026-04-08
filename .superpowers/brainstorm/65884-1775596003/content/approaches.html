@@ -1,0 +1,49 @@
+<h2>Three Approaches for the Hero Section Architecture</h2>
+<p class="subtitle">All use Next.js 15 + Tailwind CSS + TypeScript. Differences are in component structure and CSS strategy.</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Single-File Component <span style="font-size:11px;color:#aaa;font-weight:400;margin-left:6px">Recommended</span></h3>
+      <p>One <code>HeroSection.tsx</code> with all sub-elements inline. Clip-path and glassmorphism live in <code>globals.css</code> as utility classes. Tailwind handles everything else.</p>
+      <div class="pros-cons" style="margin-top:10px">
+        <div class="pros"><h4>Pros</h4><ul><li>Fast to build</li><li>Easy to hand off</li><li>Low overhead for a single page</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>File grows if more sections are added later</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Decomposed Components</h3>
+      <p>Split into <code>Navbar</code>, <code>VideoBackground</code>, <code>HeroContent</code>, <code>ConsultationCard</code>, and a shared <code>ClippedButton</code> — each in its own file under <code>components/</code>.</p>
+      <div class="pros-cons" style="margin-top:10px">
+        <div class="pros"><h4>Pros</h4><ul><li>Clean separation of concerns</li><li>ClippedButton reusable across future sections</li><li>Easier to test individually</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>More files for the same output</li><li>Slight over-engineering for a hero-only build</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>CSS Modules for Specialised Effects</h3>
+      <p>Tailwind for layout/spacing, <code>HeroSection.module.css</code> for the clip-path and glassmorphism. Keeps Tailwind classes clean and avoids <code>arbitrary-value</code> verbosity.</p>
+      <div class="pros-cons" style="margin-top:10px">
+        <div class="pros"><h4>Pros</h4><ul><li>Custom effects stay scoped and readable</li><li>No Tailwind <code>[]</code> hack for complex clip-path</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Mixes two styling systems</li><li>Extra context-switching during development</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:16px;background:#1a1a1a;border-radius:8px;padding:14px 16px">
+  <p class="label">My recommendation</p>
+  <p style="font-size:13px;color:#ccc;margin-top:6px">
+    <strong style="color:white">Option A</strong> for now. The clip-path and glassmorphism are just two CSS utility classes — not enough complexity to justify a separate module. If more sections are added later, we can split components out without rewriting anything.
+  </p>
+</div>

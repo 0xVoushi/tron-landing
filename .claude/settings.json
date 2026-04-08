@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:21st.dev)",
+      "mcp__magic__21st_magic_component_inspiration",
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__evaluate_script",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)"
+    ]
+  },
+  "mcpServers": {
+    "Figma": {
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "MCP_DOCKER": {
+      "command": "docker",
+      "args": [
+        "mcp",
+        "gateway",
+        "run"
+      ]
+    },
+    "chrome-devtools": {
+      "command": "npx -y chrome-devtools-mcp@latest",
+      "env": {},
+      "args": []
+    }
+  }
+}
