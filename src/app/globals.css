@@ -12,3 +12,57 @@
   --color-brand-black: #000000;
   --font-rubik: var(--font-rubik);
 }
+
+/* ── Clip-path button utilities ─────────────────── */
+@layer utilities {
+  .btn-clipped-sm {
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .btn-clipped-md {
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  }
+  .btn-clipped-lg {
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+}
+
+/* ── Glassmorphism card ─────────────────────────── */
+@layer utilities {
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+}
+
+/* ── Hero headline text-shadow ──────────────────── */
+@layer utilities {
+  .hero-headline-shadow {
+    text-shadow:
+      1px 1px 0 rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(0, 0, 0, 0.8),
+      0 0 120px rgba(0, 0, 0, 0.6);
+  }
+}
