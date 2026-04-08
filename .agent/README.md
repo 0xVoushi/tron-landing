@@ -1,6 +1,6 @@
 # Targo Landing — Agent Documentation
 
-**Last Updated**: 2026-04-08
+**Last Updated**: 2026-04-08 (onboarding guide rewritten for Next.js/React stack)
 
 ## Project
 
