@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <nav
-      className="absolute top-0 left-0 right-0 z-20 flex items-center py-[22px] px-12 md:px-10 sm:px-8"
+      className="absolute top-0 left-0 right-0 z-20 flex items-center py-4 px-8 md:py-[22px] md:px-10 lg:px-12"
       style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, transparent 100%)' }}
     >
       {/* Logo */}

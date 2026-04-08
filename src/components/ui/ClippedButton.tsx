@@ -31,6 +31,7 @@ export function ClippedButton({
 }: ClippedButtonProps) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={[
         variantClasses[variant],
