@@ -2,25 +2,23 @@ import { render, screen } from '@testing-library/react'
 import { ConsultationCard } from './ConsultationCard'
 
 describe('ConsultationCard', () => {
-  it('renders the "Free" label', () => {
+  it('renders the Verified label', () => {
     render(<ConsultationCard />)
-    expect(screen.getByText('Free')).toBeInTheDocument()
+    expect(screen.getByText(/Verified/i)).toBeInTheDocument()
   })
 
-  it('renders "Book a Consultation" title', () => {
+  it('renders Official Tron Multisender text', () => {
     render(<ConsultationCard />)
-    expect(screen.getByText('Book a Consultation')).toBeInTheDocument()
+    expect(screen.getByText(/Official Tron Multisender/i)).toBeInTheDocument()
   })
 
-  it('renders the Book a Call button', () => {
+  it('renders the shield icon container', () => {
     render(<ConsultationCard />)
-    expect(screen.getByRole('button', { name: 'Book a Call' })).toBeInTheDocument()
+    expect(screen.getByTestId('shield-icon')).toBeInTheDocument()
   })
 
-  it('renders the phone icon wrapper', () => {
-    const { container } = render(<ConsultationCard />)
-    const iconWrapper = container.querySelector('[data-testid="phone-icon"]')
-    expect(iconWrapper).toBeInTheDocument()
-    expect(iconWrapper!.querySelector('svg')).toBeInTheDocument()
+  it('renders Launch App button', () => {
+    render(<ConsultationCard />)
+    expect(screen.getByRole('button', { name: /Launch App/i })).toBeInTheDocument()
   })
 })
