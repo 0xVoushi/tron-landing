@@ -3,40 +3,36 @@ import userEvent from '@testing-library/user-event'
 import { Navbar } from './Navbar'
 
 describe('Navbar', () => {
-  it('renders the targo wordmark', () => {
+  it('renders the brand name', () => {
     render(<Navbar />)
-    expect(screen.getByText('targo')).toBeInTheDocument()
+    expect(screen.getByText('TRON MULTISENDER')).toBeInTheDocument()
   })
 
-  it('renders Home nav link', () => {
+  it('renders desktop nav links', () => {
     render(<Navbar />)
-    expect(screen.getByText('Home')).toBeInTheDocument()
+    const links = screen.getAllByRole('link', { name: /Home|How It Works|Features|FAQ/i })
+    expect(links.length).toBeGreaterThanOrEqual(4)
   })
 
-  it('renders About nav link', () => {
+  it('renders Launch App button in desktop nav', () => {
     render(<Navbar />)
-    expect(screen.getByText('About')).toBeInTheDocument()
+    const buttons = screen.getAllByRole('button', { name: /Launch App/i })
+    expect(buttons.length).toBeGreaterThanOrEqual(1)
   })
 
-  it('renders at least one Contact Us element', () => {
-    render(<Navbar />)
-    expect(screen.getAllByText('Contact Us').length).toBeGreaterThanOrEqual(1)
-  })
-
-  it('renders the CTA button', () => {
-    render(<Navbar />)
-    expect(screen.getByRole('button', { name: 'Contact Us' })).toBeInTheDocument()
-  })
-
-  it('renders hamburger button on initial load', () => {
-    render(<Navbar />)
-    expect(screen.getByRole('button', { name: /open menu/i })).toBeInTheDocument()
-  })
-
-  it('toggles mobile menu open when hamburger is clicked', async () => {
+  it('toggles mobile menu on button click', async () => {
     const user = userEvent.setup()
     render(<Navbar />)
-    await user.click(screen.getByRole('button', { name: /open menu/i }))
-    expect(screen.getByRole('button', { name: /close menu/i })).toBeInTheDocument()
+    const menuButton = screen.getByRole('button', { name: /Open menu/i })
+    await user.click(menuButton)
+    expect(screen.getByRole('button', { name: /Close menu/i })).toBeInTheDocument()
+  })
+
+  it('shows mobile nav links when menu is open', async () => {
+    const user = userEvent.setup()
+    render(<Navbar />)
+    await user.click(screen.getByRole('button', { name: /Open menu/i }))
+    const faqLinks = screen.getAllByRole('link', { name: /FAQ/i })
+    expect(faqLinks.length).toBeGreaterThan(0)
   })
 })
