@@ -64,4 +64,24 @@ export const FAQ_ITEMS: FaqItem[] = [
     answer:
       'Yes. Tron Multisender is widely used for crypto payroll — upload a CSV with recipient wallets and USDT amounts, confirm one transaction, and all payments are sent instantly.',
   },
+  {
+    question: 'Can I do a USDT airdrop on TRON?',
+    answer:
+      'Yes. Tron Multisender is widely used for USDT airdrops on the TRON network. Upload a CSV with recipient wallet addresses and USDT amounts, confirm one transaction, and all airdrop recipients receive their tokens instantly.',
+  },
+  {
+    question: 'How do I batch send TRC-20 tokens to multiple wallets?',
+    answer:
+      'Connect your TRON wallet, select TRC-20 as the token type and paste the contract address, then add recipient addresses and amounts via manual input or CSV upload. One transaction sends to all wallets simultaneously.',
+  },
+  {
+    question: 'Is there a minimum amount to use Tron Multisender?',
+    answer:
+      'There is no minimum token amount per recipient. You do need enough TRX in your wallet to cover the TRON network bandwidth and energy costs for the batch transaction.',
+  },
+  {
+    question: 'What is the difference between TRC-10 and TRC-20 tokens?',
+    answer:
+      'TRC-10 tokens are issued via the TRON protocol itself (like BTT), while TRC-20 tokens run on smart contracts (like USDT, USDC). Tron Multisender supports both types along with native TRX.',
+  },
 ]
