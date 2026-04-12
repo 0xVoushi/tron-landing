@@ -11,7 +11,7 @@ export function StatsBar() {
       aria-label="Key statistics"
       className="bg-black border-y border-white/[0.07] py-8 px-8 md:px-10 lg:px-12"
     >
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
         {STATS.map((stat) => (
           <div
             key={stat.label}

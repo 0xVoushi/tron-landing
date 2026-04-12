@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 import { FAQ_ITEMS } from '@/data/faq'
+import { MobileLaunchButton } from '@/components/ui/MobileLaunchButton'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
 
 const rubik = Rubik({
@@ -76,7 +78,7 @@ function getFaqSchema() {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={rubik.variable}>
+    <html lang="en" className={`${rubik.variable} scroll-smooth`}>
       <body className="bg-black font-rubik antialiased">
         <script
           type="application/ld+json"
@@ -91,7 +93,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqSchema()) }}
         />
         {children}
+        <MobileLaunchButton />
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   )
 }

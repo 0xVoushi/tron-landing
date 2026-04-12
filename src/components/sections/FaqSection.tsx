@@ -15,7 +15,7 @@ export function FaqSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-black py-16 md:py-24 px-8 md:px-10 lg:px-12"
+      className="bg-black py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-3xl mx-auto">
         <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">

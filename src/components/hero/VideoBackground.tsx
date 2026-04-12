@@ -16,14 +16,21 @@ export function VideoBackground() {
   }, [])
 
   return (
-    <video
-      ref={videoRef}
-      src={VIDEO_SRC}
-      autoPlay
-      loop
-      playsInline
-      aria-hidden="true"
-      className="absolute inset-0 w-full h-full object-cover"
-    />
+    <div className="absolute inset-y-0 w-full max-w-[1440px] left-1/2 -translate-x-1/2">
+      <video
+        ref={videoRef}
+        src={VIDEO_SRC}
+        autoPlay
+        loop
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(to right, #000 0%, transparent 8%, transparent 92%, #000 100%)' }}
+      />
+    </div>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import { ClippedButton } from '@/components/ui/ClippedButton'
 
@@ -22,43 +22,55 @@ function LogoMark() {
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <nav
-      className="absolute top-0 left-0 right-0 z-20 flex items-center py-4 px-8 md:py-[22px] md:px-10 lg:px-12"
-      style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, transparent 100%)' }}
+      className={[
+        'fixed top-0 left-0 right-0 z-50 py-4 px-8 md:py-[22px] md:px-10 lg:px-12',
+        'transition-all duration-300',
+        scrolled ? 'bg-black/90 backdrop-blur-md' : 'bg-transparent',
+      ].join(' ')}
     >
-      <div className="flex items-center gap-[10px] flex-shrink-0">
-        <LogoMark />
-        <span className="font-rubik font-bold text-[14px] text-white uppercase tracking-[3px]">
-          TRON MULTISENDER
-        </span>
-      </div>
+      <div className="max-w-7xl mx-auto flex items-center">
+        <div className="flex items-center gap-[10px] flex-shrink-0">
+          <LogoMark />
+          <span className="font-rubik font-bold text-[14px] text-white uppercase tracking-[3px]">
+            TRON MULTISENDER
+          </span>
+        </div>
 
-      <div className="hidden md:flex items-center gap-8 ml-12">
-        {NAV_LINKS.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="font-rubik font-medium text-[13px] text-white/75 hover:text-white transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
+        <div className="hidden md:flex items-center gap-8 ml-12">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="font-rubik font-medium text-[13px] text-white/75 hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-      <div className="hidden md:block ml-auto">
-        <ClippedButton variant="red" size="sm">Launch App</ClippedButton>
-      </div>
+        <div className="hidden md:block ml-auto">
+          <ClippedButton variant="red" size="sm">Launch App</ClippedButton>
+        </div>
 
-      <button
-        type="button"
-        className="md:hidden ml-auto text-white"
-        onClick={() => setIsOpen((prev) => !prev)}
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        <button
+          type="button"
+          className="md:hidden ml-auto text-white"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm flex flex-col p-6 gap-4 md:hidden">

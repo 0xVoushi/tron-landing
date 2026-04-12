@@ -18,7 +18,7 @@ export function SupportedTokens() {
       aria-labelledby="tokens-heading"
       className="bg-[#050505] py-16 md:py-24 px-8 md:px-10 lg:px-12"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">
           Multi-Token Support
         </p>
@@ -56,7 +56,7 @@ export function SupportedTokens() {
           ))}
         </div>
 
-        <p className="font-rubik text-[13px] text-white/40 text-center">
+        <p className="font-rubik text-[13px] text-white/50 text-center">
           Any TRC-20 contract address is supported. Paste the contract address to get started.
         </p>
       </div>
