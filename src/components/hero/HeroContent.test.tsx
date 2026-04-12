@@ -19,8 +19,8 @@ describe('HeroContent', () => {
     expect(screen.getByText(/1,000\+ addresses/i)).toBeInTheDocument()
   })
 
-  it('renders Launch App button', () => {
+  it('renders Launch dApp button', () => {
     render(<HeroContent />)
-    expect(screen.getByRole('button', { name: /Launch App/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Launch dApp/i })).toBeInTheDocument()
   })
 })

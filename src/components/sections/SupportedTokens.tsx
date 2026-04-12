@@ -15,8 +15,9 @@ const TOKENS: Token[] = [
 export function SupportedTokens() {
   return (
     <section
+      id="tokens"
       aria-labelledby="tokens-heading"
-      className="bg-[#050505] py-16 md:py-24 px-8 md:px-10 lg:px-12"
+      className="bg-[#050505] py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">

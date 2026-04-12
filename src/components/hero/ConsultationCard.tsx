@@ -25,12 +25,12 @@ export function ConsultationCard() {
           Verified
         </span>
         <span className="font-rubik font-semibold text-[14px] text-white tracking-[-0.2px]">
-          Official Tron Multisender
+          Tron Multisender
         </span>
       </div>
 
       <ClippedButton variant="white" size="sm" className="ml-2 whitespace-nowrap">
-        Launch App
+        Launch dApp
       </ClippedButton>
     </div>
   )

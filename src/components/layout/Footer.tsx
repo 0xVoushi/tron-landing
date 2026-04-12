@@ -1,4 +1,4 @@
-import { GitBranch, Send, Share2 } from 'lucide-react'
+import { BookOpen, Send, Share2 } from 'lucide-react'
 
 function LogoMark() {
   return (
@@ -23,17 +23,17 @@ export function Footer() {
               </span>
             </div>
             <p className="font-rubik text-[13px] text-white/50 leading-relaxed mb-5 max-w-[220px]">
-              The official batch transfer tool for the TRON blockchain.
+              Batch transfer tool for the TRON blockchain.
             </p>
             <div className="flex items-center gap-3">
-              <a href="#" aria-label="Twitter / X" className="text-white/30 hover:text-white/70 transition-colors">
+              <a href="https://x.com/multi_sender" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-white/30 hover:text-white/70 transition-colors">
                 <Share2 size={16} />
               </a>
-              <a href="#" aria-label="Telegram" className="text-white/30 hover:text-white/70 transition-colors">
+              <a href="https://t.me/MultiSender" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-white/30 hover:text-white/70 transition-colors">
                 <Send size={16} />
               </a>
-              <a href="#" aria-label="GitHub" className="text-white/30 hover:text-white/70 transition-colors">
-                <GitBranch size={16} />
+              <a href="https://medium.com/@MultiSenderApp" target="_blank" rel="noopener noreferrer" aria-label="Medium" className="text-white/30 hover:text-white/70 transition-colors">
+                <BookOpen size={16} />
               </a>
             </div>
           </div>
@@ -47,7 +47,7 @@ export function Footer() {
               {[
                 { label: 'How It Works', href: '#how-it-works' },
                 { label: 'Features', href: '#features' },
-                { label: 'Supported Tokens', href: '#' },
+                { label: 'Perks', href: '#pricing' },
                 { label: 'FAQ', href: '#faq' },
               ].map((link) => (
                 <li key={link.label}>

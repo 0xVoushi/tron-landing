@@ -10,6 +10,16 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Tron Multisender is an official on-chain tool that lets you send TRX or TRC-20 tokens to multiple wallet addresses in a single blockchain transaction on the TRON network.',
   },
   {
+    question: 'How do I send USDT to multiple addresses on TRON?',
+    answer:
+      'Connect your TronLink wallet, select TRC-20 as the token type and enter the USDT contract address, then add recipient addresses and amounts — or upload a CSV file. Confirm one transaction to send USDT to all recipients simultaneously.',
+  },
+  {
+    question: 'Can I send different amounts to each address?',
+    answer:
+      'Yes. You can set a custom amount per address, or choose to send equal amounts to all recipients. Both manual entry and CSV upload support per-address custom amounts.',
+  },
+  {
     question: 'Is Tron Multisender safe to use?',
     answer:
       'Yes. Tron Multisender is fully non-custodial — your private keys never leave your wallet. All transfers happen directly on-chain via smart contract. There is no registration or account required.',
@@ -43,5 +53,15 @@ export const FAQ_ITEMS: FaqItem[] = [
     question: 'What is the difference vs manual sending?',
     answer:
       'Sending manually requires one transaction per recipient — time-consuming and expensive. Tron Multisender batches all transfers into one transaction, saving up to 90% in fees and completing in seconds.',
+  },
+  {
+    question: 'Does Tron Multisender require registration or KYC?',
+    answer:
+      'No. There is no registration, account creation, or KYC required. Just connect your TRON wallet and start sending.',
+  },
+  {
+    question: 'Can I use Tron Multisender to pay salaries or rewards in USDT?',
+    answer:
+      'Yes. Tron Multisender is widely used for crypto payroll — upload a CSV with recipient wallets and USDT amounts, confirm one transaction, and all payments are sent instantly.',
   },
 ]

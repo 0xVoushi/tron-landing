@@ -30,7 +30,7 @@ const STEPS: Step[] = [
     number: '04',
     icon: Zap,
     title: 'Send',
-    description: 'One transaction. One confirmation. All recipients receive funds instantly.',
+    description: 'Review and confirm. All recipients receive funds within 3–5 minutes via TRON\'s fast block time.',
   },
 ]
 

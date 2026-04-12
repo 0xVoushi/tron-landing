@@ -8,6 +8,8 @@ const NAV_LINKS = [
   { label: 'Home', href: '#' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Features', href: '#features' },
+  { label: 'Tokens', href: '#tokens' },
+  { label: 'Perks', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ] as const
 
@@ -46,7 +48,7 @@ export function Navbar() {
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-8 ml-12">
+        <div className="hidden md:flex items-center gap-6 ml-10">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
@@ -59,7 +61,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:block ml-auto">
-          <ClippedButton variant="red" size="sm">Launch App</ClippedButton>
+          <ClippedButton variant="red" size="sm">Launch dApp</ClippedButton>
         </div>
 
         <button
@@ -84,7 +86,7 @@ export function Navbar() {
             </a>
           ))}
           <div className="pt-2">
-            <ClippedButton variant="red" size="md">Launch App</ClippedButton>
+            <ClippedButton variant="red" size="md">Launch dApp</ClippedButton>
           </div>
         </div>
       )}

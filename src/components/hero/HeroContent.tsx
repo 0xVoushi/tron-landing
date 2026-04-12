@@ -4,7 +4,7 @@ export function HeroContent() {
   return (
     <div className="absolute top-[80px] left-8 z-10 max-w-[540px] md:top-[90px] md:left-10 lg:top-[108px] lg:left-12">
       <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-[14px]">
-        Tron Blockchain Tool
+        TRON Batch Transfer Tool
       </p>
 
       <h1
@@ -20,10 +20,10 @@ export function HeroContent() {
       </h1>
 
       <p className="font-rubik text-[14px] md:text-[15px] text-white/65 leading-relaxed mb-7 max-w-[420px]">
-        Send to 1,000+ addresses in a single on-chain transaction. Save time and fees.
+        Send USDT, TRX, or any TRC-20 token to 1,000+ addresses in one transaction — no registration, fully non-custodial.
       </p>
 
-      <ClippedButton variant="red" size="lg">Launch App</ClippedButton>
+      <ClippedButton variant="red" size="lg">Launch dApp</ClippedButton>
     </div>
   )
 }

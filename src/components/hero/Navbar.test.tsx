@@ -14,9 +14,9 @@ describe('Navbar', () => {
     expect(links.length).toBeGreaterThanOrEqual(4)
   })
 
-  it('renders Launch App button in desktop nav', () => {
+  it('renders Launch dApp button in desktop nav', () => {
     render(<Navbar />)
-    const buttons = screen.getAllByRole('button', { name: /Launch App/i })
+    const buttons = screen.getAllByRole('button', { name: /Launch dApp/i })
     expect(buttons.length).toBeGreaterThanOrEqual(1)
   })
 

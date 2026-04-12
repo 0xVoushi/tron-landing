@@ -17,8 +17,8 @@ describe('ConsultationCard', () => {
     expect(screen.getByTestId('shield-icon')).toBeInTheDocument()
   })
 
-  it('renders Launch App button', () => {
+  it('renders Launch dApp button', () => {
     render(<ConsultationCard />)
-    expect(screen.getByRole('button', { name: /Launch App/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Launch dApp/i })).toBeInTheDocument()
   })
 })

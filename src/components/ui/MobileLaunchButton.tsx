@@ -24,7 +24,7 @@ export function MobileLaunchButton() {
       href="#"
       className="md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-brand-red text-white btn-clipped-lg py-[14px] px-[28px] text-[13px] font-rubik font-bold uppercase tracking-[0.05em] shadow-lg"
     >
-      Launch App
+      Launch dApp
     </a>
   )
 }
