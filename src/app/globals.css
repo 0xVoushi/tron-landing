@@ -8,7 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-red: #DF3424;
+  --color-brand-red: #EE3F2C;
   --color-brand-black: #000000;
   --font-rubik: var(--font-rubik);
 }
@@ -54,6 +54,18 @@
       transparent 60%
     );
     pointer-events: none;
+  }
+}
+
+/* ── Hero background animations ────────────────── */
+@keyframes saturate-pulse {
+  0%, 100% { filter: saturate(0.8) brightness(0.95); }
+  50%       { filter: saturate(1.5) brightness(1.05); }
+}
+
+@layer utilities {
+  .animate-saturate-pulse {
+    animation: saturate-pulse 6s ease-in-out infinite;
   }
 }
 
