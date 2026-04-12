@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Crown, Star, Zap, ArrowRight } from 'lucide-react'
 
 const CARDS = [
@@ -8,7 +9,7 @@ const CARDS = [
     description:
       'Upgrade to VIP and skip the per-batch service fee entirely. Pay only standard TRON network costs. Plans from 1,000 TRX/day.',
     ctaLabel: 'Get VIP',
-    ctaHref: 'https://tron.multisender.app/vip',
+    ctaHref: '/vip',
   },
   {
     icon: Star,
@@ -17,7 +18,7 @@ const CARDS = [
     description:
       'Invite others to Tron Multisender and earn rewards for every active referral. No limit on earnings.',
     ctaLabel: 'View Referral Program',
-    ctaHref: 'https://tron.multisender.app/referral',
+    ctaHref: '/referral',
   },
   {
     icon: Zap,
@@ -35,10 +36,10 @@ export function PricingSection() {
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="bg-[#050505] py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
+      className="relative bg-[#111111] py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">
+        <p className="font-rubik font-semibold text-[11px] uppercase tracking-[3px] mb-3 text-center" style={{ color: '#FF5040' }}>
           Access & Perks
         </p>
         <h2
@@ -57,7 +58,7 @@ export function PricingSection() {
             return (
               <div
                 key={card.label}
-                className="glass-card rounded-xl p-6 flex flex-col"
+                className="relative overflow-hidden glass-card rounded-xl p-6 flex flex-col"
               >
                 <div className="w-10 h-10 rounded-full bg-brand-red/10 flex items-center justify-center mb-4">
                   <Icon size={20} className="text-brand-red" />
@@ -71,15 +72,13 @@ export function PricingSection() {
                 <p className="font-rubik text-[13px] text-white/55 leading-relaxed flex-1 mb-6">
                   {card.description}
                 </p>
-                <a
+                <Link
                   href={card.ctaHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 font-rubik font-semibold text-[12px] text-brand-red uppercase tracking-[0.05em] hover:opacity-80 transition-opacity"
                 >
                   {card.ctaLabel}
                   <ArrowRight size={13} />
-                </a>
+                </Link>
               </div>
             )
           })}
