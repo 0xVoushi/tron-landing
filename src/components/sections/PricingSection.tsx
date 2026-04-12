@@ -39,7 +39,7 @@ export function PricingSection() {
       className="relative bg-[#111111] py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <p className="font-rubik font-semibold text-[11px] uppercase tracking-[3px] mb-3 text-center" style={{ color: '#FF5040' }}>
+        <p className="font-rubik font-semibold text-[11px] text-[#FF5040] uppercase tracking-[3px] mb-3 text-center">
           Access & Perks
         </p>
         <h2
