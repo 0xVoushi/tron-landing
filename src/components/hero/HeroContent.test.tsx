@@ -4,7 +4,7 @@ import { HeroContent } from './HeroContent'
 describe('HeroContent', () => {
   it('renders eyebrow text', () => {
     render(<HeroContent />)
-    expect(screen.getByText(/Tron Blockchain Tool/i)).toBeInTheDocument()
+    expect(screen.getByText(/Batch Transfer/i)).toBeInTheDocument()
   })
 
   it('renders the main heading', () => {

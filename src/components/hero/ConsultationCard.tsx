@@ -1,5 +1,5 @@
 import { ShieldCheck } from 'lucide-react'
-import { ClippedButton } from '@/components/ui/ClippedButton'
+import { PillButton } from '@/components/ui/PillButton'
 
 export function ConsultationCard() {
   return (
@@ -10,18 +10,18 @@ export function ConsultationCard() {
         'flex items-center gap-[14px]',
         'py-[14px] px-[18px]',
         'rounded-[10px]',
-        'glass-card',
+        'glass-card-dark',
       ].join(' ')}
     >
       <div
         data-testid="shield-icon"
-        className="w-10 h-10 rounded-full bg-white/[.92] flex items-center justify-center flex-shrink-0 shadow-md"
+        className="w-10 h-10 rounded-full bg-white-10 flex items-center justify-center flex-shrink-0 shadow-md"
       >
-        <ShieldCheck size={18} stroke="#111" strokeWidth={2} />
+        <ShieldCheck size={18} stroke="#fafafa" strokeWidth={2} />
       </div>
 
       <div className="flex flex-col">
-        <span className="font-rubik font-medium text-[10px] text-white/50 uppercase tracking-[1.5px] mb-0.5">
+        <span className="font-rubik font-medium text-[10px] text-white-40 uppercase tracking-[1.5px] mb-0.5">
           Verified
         </span>
         <span className="font-rubik font-semibold text-[14px] text-white tracking-[-0.2px]">
@@ -29,9 +29,9 @@ export function ConsultationCard() {
         </span>
       </div>
 
-      <ClippedButton variant="white" size="sm" className="ml-2 whitespace-nowrap">
+      <PillButton variant="secondary" size="sm" className="ml-2 whitespace-nowrap">
         Launch dApp
-      </ClippedButton>
+      </PillButton>
     </div>
   )
 }
