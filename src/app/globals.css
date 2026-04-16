@@ -1,63 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #fafafa;
+  --foreground: #161616;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-red: #DF3424;
+
+  /* Primary (Red) */
+  --color-primary: hsla(2, 60%, 48%, 1);
+  --color-primary-light: hsla(2, 82%, 58%, 1);
+  --color-primary-medium: hsla(2, 67%, 62%, 1);
+  --color-primary-pale: hsla(353, 100%, 68%, 1);
+  --color-primary-dark: hsla(2, 36%, 38%, 1);
+  --color-primary-heavy: hsla(2, 60%, 35%, 1);
+  --color-primary-ghost: hsla(2, 60%, 48%, 0.1);
+
+  /* Status */
+  --color-success: hsla(166, 83%, 47%, 1);
+  --color-warning: hsla(36, 100%, 65%, 1);
+
+  /* Neutrals */
+  --color-dark: #313131;
+  --color-dark-hard: #161616;
+  --color-grey: #aaaaaa;
+  --color-grey-light: #fafafa;
+  --color-grey-medium: #bbbbbb33;
+
+  /* White with opacity */
+  --color-white-3: rgba(255, 255, 255, 0.03);
+  --color-white-5: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+
+  /* Black with opacity */
+  --color-black-4: rgba(0, 0, 0, 0.04);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-20: rgba(0, 0, 0, 0.2);
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-black-60: rgba(0, 0, 0, 0.6);
+  --color-black-80: rgba(0, 0, 0, 0.8);
+
+  /* Backward-compat alias */
+  --color-brand-red: hsla(2, 60%, 48%, 1);
   --color-brand-black: #000000;
+
+  /* Font */
   --font-rubik: var(--font-rubik);
 }
 
-/* ── Clip-path button utilities ─────────────────── */
+/* -- Card ------------------------------------------------- */
 @layer utilities {
-  .btn-clipped-sm {
-    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  .glass-card {
+    background: #ffffff;
+    border: 1px solid #bbbbbb33;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      0 4px 16px rgba(0, 0, 0, 0.03);
   }
-  .btn-clipped-md {
-    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-  }
-  .btn-clipped-lg {
-    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  .glass-card-dark {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      0 4px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
   }
 }
 
-/* ── Glassmorphism card ─────────────────────────── */
+/* -- Shimmer button effect -------------------------------- */
 @layer utilities {
-  .glass-card {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0.03) 100%
-    );
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-      0 8px 32px rgba(0, 0, 0, 0.3);
+  .btn-shimmer {
+    position: relative;
+    overflow: hidden;
   }
-  .glass-card::before {
+  .btn-shimmer::before {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: inherit;
     background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.02) 40%,
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.2) 50%,
       transparent 60%
     );
-    pointer-events: none;
+    transform: translateX(-100%);
+    transition: transform 600ms ease-out;
+  }
+  .btn-shimmer:hover::before {
+    transform: translateX(100%);
   }
 }
 
-/* ── Hero background animations ────────────────── */
+/* -- Hero background animations --------------------------- */
 @keyframes saturate-pulse {
   0%, 100% { filter: saturate(0.8) brightness(0.95); }
   50%       { filter: saturate(1.5) brightness(1.05); }
@@ -69,12 +109,31 @@
   }
 }
 
-/* ── Hero headline text-shadow ──────────────────── */
+/* -- Hero headline text-shadow ---------------------------- */
 @layer utilities {
   .hero-headline-shadow {
     text-shadow:
       1px 1px 0 rgba(0, 0, 0, 0.5),
       0 0 60px rgba(0, 0, 0, 0.8),
       0 0 120px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* -- Floating decorative animations ----------------------- */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(-1.5deg); }
+}
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+  .animate-float-medium {
+    animation: float-medium 4s ease-in-out infinite;
   }
 }

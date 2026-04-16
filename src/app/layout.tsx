@@ -7,7 +7,7 @@ import './globals.css'
 
 const rubik = Rubik({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-rubik',
   display: 'swap',
 })
@@ -141,7 +141,7 @@ function getFaqSchema() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${rubik.variable} scroll-smooth`}>
-      <body className="bg-black font-rubik antialiased">
+      <body className="bg-grey-light font-rubik antialiased text-dark">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
