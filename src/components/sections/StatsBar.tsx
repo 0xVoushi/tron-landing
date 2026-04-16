@@ -9,21 +9,21 @@ export function StatsBar() {
   return (
     <section
       aria-label="Key statistics"
-      className="bg-black border-y border-white/[0.07] py-8 px-8 md:px-10 lg:px-12"
+      className="relative bg-white border-y border-grey-medium py-8 px-8 md:px-10 lg:px-12"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="relative overflow-hidden glass-card rounded-xl p-5 text-center"
+            className="relative overflow-hidden glass-card rounded-xl p-5 text-center group hover:shadow-md hover:scale-[1.02] transition-all duration-500"
           >
-            <div className="font-rubik font-extrabold text-[34px] md:text-[40px] text-brand-red leading-none mb-2">
+            <div className="font-rubik font-light text-[34px] md:text-[40px] text-primary leading-none mb-2 tracking-[-0.04em]">
               {stat.value}
             </div>
-            <div className="font-rubik font-semibold text-[11px] text-white uppercase tracking-[2px] mb-1">
+            <div className="font-rubik font-semibold text-[11px] text-dark-hard uppercase tracking-[2px] mb-1">
               {stat.label}
             </div>
-            <div className="font-rubik text-[11px] text-white/40">
+            <div className="font-rubik text-[11px] text-grey">
               {stat.sublabel}
             </div>
           </div>
