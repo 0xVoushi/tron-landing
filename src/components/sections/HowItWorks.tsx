@@ -43,7 +43,7 @@ export function HowItWorks() {
     >
       <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-          Multisender <span className="text-primary font-light">[ </span>Process<span className="text-primary font-light"> ]</span>
+          TRON Multisender <span className="text-primary font-light">[ </span>Process<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="how-it-works-heading"
@@ -97,7 +97,7 @@ export function HowItWorks() {
 
 function TimelineCard({ step, Icon }: { step: Step; Icon: LucideIcon }) {
   return (
-    <div className="relative overflow-hidden glass-card rounded-xl p-6 group hover:shadow-md hover:-translate-y-1 transition-all duration-500">
+    <div className="relative overflow-hidden glass-card rounded-lg p-6 group hover:shadow-md hover:-translate-y-1 transition-all duration-500">
       <span className="absolute -top-3 -right-1 font-rubik font-extrabold text-[72px] text-black-4 leading-none select-none pointer-events-none">
         {step.number}
       </span>

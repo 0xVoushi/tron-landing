@@ -3,9 +3,9 @@ import userEvent from '@testing-library/user-event'
 import { Navbar } from './Navbar'
 
 describe('Navbar', () => {
-  it('renders the brand name', () => {
+  it('renders the brand logo', () => {
     render(<Navbar />)
-    expect(screen.getByText('TRON MULTISENDER')).toBeInTheDocument()
+    expect(screen.getByLabelText('Home')).toBeInTheDocument()
   })
 
   it('renders desktop nav links', () => {

@@ -15,7 +15,7 @@ export function StatsBar() {
         {STATS.map((stat) => (
           <div
             key={stat.label}
-            className="relative overflow-hidden glass-card rounded-xl p-5 text-center group hover:shadow-md hover:scale-[1.02] transition-all duration-500"
+            className="relative overflow-hidden glass-card rounded-lg p-5 text-center group hover:shadow-md hover:scale-[1.02] transition-all duration-500"
           >
             <div className="font-rubik font-light text-[34px] md:text-[40px] text-primary leading-none mb-2 tracking-[-0.04em]">
               {stat.value}

@@ -5,8 +5,8 @@ import { Navbar } from '@/components/hero/Navbar'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'Referral Program — Tron Multisender',
-  description: 'Invite users to Tron Multisender and earn 10% of the service fee for every referral. Your referrals get a 5% discount.',
+  title: 'Referral Program — TRON Multisender',
+  description: 'Invite users to TRON Multisender and earn 10% of the service fee for every referral. Your referrals get a 5% discount.',
 }
 
 const STEPS = [
@@ -52,13 +52,13 @@ export default function ReferralPage() {
               Back to Home
             </Link>
             <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4">
-              Multisender <span className="text-primary font-light">[ </span>Referral<span className="text-primary font-light"> ]</span>
+              TRON Multisender <span className="text-primary font-light">[ </span>Referral<span className="text-primary font-light"> ]</span>
             </p>
             <h1 className="font-rubik font-light text-[38px] md:text-[52px] text-dark-hard tracking-[-0.04em] leading-[1.0] mb-5">
               Earn by Sharing.<br />Your Network Pays You.
             </h1>
             <p className="font-rubik text-[15px] text-dark leading-relaxed max-w-lg">
-              Invite users to Tron Multisender and earn 10% of the service fee on every transaction they make. Your referrals get a 5% discount.
+              Invite users to TRON Multisender and earn 10% of the service fee on every transaction they make. Your referrals get a 5% discount.
             </p>
           </div>
         </section>
@@ -67,7 +67,7 @@ export default function ReferralPage() {
         <section className="relative bg-white py-12 px-8 md:px-10 lg:px-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
             {STATS.map((stat) => (
-              <div key={stat.label} className="relative overflow-hidden glass-card rounded-xl p-6 text-center">
+              <div key={stat.label} className="relative overflow-hidden glass-card rounded-lg p-6 text-center">
                 <div className="h-[52px] flex items-center justify-center mb-2">
                   {stat.value === null ? (
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="40" viewBox="0 0 32 32" aria-hidden="true" className="text-primary">
@@ -88,7 +88,7 @@ export default function ReferralPage() {
         <section className="relative bg-grey-light py-16 md:py-20 px-8 md:px-10 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-              Multisender <span className="text-primary font-light">[ </span>How It Works<span className="text-primary font-light"> ]</span>
+              TRON Multisender <span className="text-primary font-light">[ </span>How It Works<span className="text-primary font-light"> ]</span>
             </p>
             <h2 className="font-rubik font-light text-[30px] md:text-[38px] text-dark-hard tracking-[-0.04em] mb-12 text-center">
               3 Steps to Start Earning
@@ -97,7 +97,7 @@ export default function ReferralPage() {
               {STEPS.map((step) => {
                 const Icon = step.icon
                 return (
-                  <div key={step.number} className="relative overflow-hidden glass-card rounded-xl p-6 group hover:border-primary/30 hover:scale-[1.02] transition-all duration-500">
+                  <div key={step.number} className="relative overflow-hidden glass-card rounded-lg p-6 group hover:border-primary/30 hover:scale-[1.02] transition-all duration-500">
                     <span className="absolute -top-3 -right-1 font-rubik font-extrabold text-[72px] text-black-4 leading-none select-none pointer-events-none">
                       {step.number}
                     </span>
@@ -117,7 +117,7 @@ export default function ReferralPage() {
             </div>
 
             {/* CTA */}
-            <div className="relative overflow-hidden glass-card rounded-xl p-8 md:p-10 text-center">
+            <div className="relative overflow-hidden glass-card rounded-lg p-8 md:p-10 text-center">
               <div className="w-12 h-12 rounded-full bg-primary-ghost flex items-center justify-center mb-4 mx-auto">
                 <Gift size={22} className="text-primary" />
               </div>
@@ -134,7 +134,7 @@ export default function ReferralPage() {
                 Open Referral Dashboard
               </a>
               <p className="font-rubik text-[11px] text-grey mt-4">
-                * Payout is made for each invited user who completes a transaction via Tron Multisender.
+                * Payout is made for each invited user who completes a transaction via TRON Multisender.
               </p>
             </div>
           </div>

@@ -15,7 +15,7 @@ describe('FAQ_ITEMS', () => {
     })
   })
 
-  it('has exactly 8 items', () => {
-    expect(FAQ_ITEMS.length).toBe(8)
+  it('has exactly 17 items', () => {
+    expect(FAQ_ITEMS.length).toBe(16)
   })
 })

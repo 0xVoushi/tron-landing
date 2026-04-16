@@ -46,20 +46,22 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
         className={[
           'mx-auto flex items-center transition-all duration-500',
           showPill
-            ? 'max-w-5xl bg-white/90 backdrop-blur-xl rounded-full border border-grey-medium shadow-sm px-6 py-2'
+            ? 'max-w-5xl bg-white/90 backdrop-blur-xl rounded-full shadow-sm px-6 py-2'
             : 'max-w-7xl',
         ].join(' ')}
       >
         <Logo dark={showPill} />
 
-        <div className="hidden md:flex items-center gap-6 ml-10">
+        <div className="hidden md:flex items-center gap-2 ml-10">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={resolveHref(link.href)}
               className={[
-                'font-rubik font-medium text-[13px] transition-colors',
-                showPill ? 'text-dark hover:text-dark-hard' : 'text-white-40 hover:text-white',
+                'font-rubik font-medium text-[13px] px-3 py-1.5 rounded-full transition-colors',
+                showPill
+                  ? 'text-dark hover:bg-black-4 hover:text-dark-hard'
+                  : 'bg-dark-hard text-white-80 hover:bg-dark hover:text-white',
               ].join(' ')}
             >
               {link.label}

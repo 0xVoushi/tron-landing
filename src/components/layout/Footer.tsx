@@ -77,10 +77,7 @@ export function Footer() {
 
         <div className="border-t border-grey-medium pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
           <span className="font-rubik text-[12px] text-grey">
-            © 2026 Tron Multisender
-          </span>
-          <span className="font-rubik text-[11px] text-grey max-w-md md:text-right">
-            Not affiliated with TRON Foundation. This tool is provided as-is. Use at your own risk.
+            © 2022-{new Date().getFullYear()} TRON Multisender
           </span>
         </div>
       </div>

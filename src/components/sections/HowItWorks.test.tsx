@@ -9,10 +9,11 @@ describe('HowItWorks', () => {
 
   it('renders all 4 step titles', () => {
     render(<HowItWorks />)
-    expect(screen.getByText('Connect Wallet')).toBeInTheDocument()
-    expect(screen.getByText('Add Recipients')).toBeInTheDocument()
-    expect(screen.getByText('Set Amounts')).toBeInTheDocument()
-    expect(screen.getByText('Send')).toBeInTheDocument()
+    // Timeline renders each card twice (mobile + desktop)
+    expect(screen.getAllByText('Connect Wallet').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Add Recipients').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Set Amounts').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Send').length).toBeGreaterThanOrEqual(1)
   })
 
   it('renders step numbers 01 through 04', () => {

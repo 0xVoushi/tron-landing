@@ -16,7 +16,7 @@ const CARDS = [
     label: 'Referral Program',
     title: 'Earn by Referring',
     description:
-      'Invite others to Tron Multisender and earn rewards for every active referral. No limit on earnings.',
+      'Invite others to TRON Multisender and earn rewards for every active referral. No limit on earnings.',
     ctaLabel: 'View Referral Program',
     ctaHref: '/referral',
   },
@@ -40,13 +40,13 @@ export function PricingSection() {
     >
       <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-          Multisender <span className="text-primary font-light">[ </span>Perks<span className="text-primary font-light"> ]</span>
+          TRON Multisender <span className="text-primary font-light">[ </span>Perks<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="pricing-heading"
           className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-4 text-center"
         >
-          More Ways To Use Multisender
+          More Ways To Use TRON Multisender
         </h2>
         <p className="font-rubik text-[14px] md:text-[15px] text-grey text-center mb-12 md:mb-16 max-w-lg mx-auto leading-relaxed">
           VIP plans, referral rewards, and a free testnet — built for every type of user.
@@ -58,7 +58,7 @@ export function PricingSection() {
             return (
               <div
                 key={card.label}
-                className="relative overflow-hidden glass-card rounded-xl p-6 flex flex-col group hover:shadow-md transition-all duration-500"
+                className="relative overflow-hidden glass-card rounded-lg p-6 flex flex-col group hover:shadow-md transition-all duration-500"
               >
                 <div className="w-10 h-10 rounded-full bg-primary-ghost flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
                   <Icon size={20} className="text-primary" />

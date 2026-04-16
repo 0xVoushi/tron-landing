@@ -22,7 +22,7 @@ export const GUIDE_SECTIONS: GuideSection[] = [
     title: 'Step 2 — Approve',
     steps: [
       { text: 'Accept the terms of service and click Continue.' },
-      { text: 'Approve the token allowance transaction in your wallet. This gives the Multisender contract permission to transfer your tokens.' },
+      { text: 'Approve the token allowance transaction in your wallet. This gives the TRON Multisender contract permission to transfer your tokens.' },
       { text: 'Wait for the approval transaction to confirm. You will be automatically redirected to the final step.' },
     ],
   },

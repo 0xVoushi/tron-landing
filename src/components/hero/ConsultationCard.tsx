@@ -5,11 +5,11 @@ export function ConsultationCard() {
   return (
     <div
       className={[
-        'absolute bottom-6 left-8 z-20',
-        'lg:bottom-9 lg:left-12',
+        'absolute bottom-6 left-1/2 -translate-x-1/2 z-20',
+        'lg:bottom-9',
         'flex items-center gap-[14px]',
         'py-[14px] px-[18px]',
-        'rounded-[10px]',
+        'rounded-lg',
         'glass-card-dark',
       ].join(' ')}
     >
@@ -25,7 +25,7 @@ export function ConsultationCard() {
           Verified
         </span>
         <span className="font-rubik font-semibold text-[14px] text-white tracking-[-0.2px]">
-          Tron Multisender
+          TRON Multisender
         </span>
       </div>
 

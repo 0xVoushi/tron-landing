@@ -4,7 +4,7 @@ import { HeroContent } from './HeroContent'
 describe('HeroContent', () => {
   it('renders eyebrow text', () => {
     render(<HeroContent />)
-    expect(screen.getByText(/Batch Transfer/i)).toBeInTheDocument()
+    expect(screen.getByText(/TRON Multisender/i)).toBeInTheDocument()
   })
 
   it('renders the main heading', () => {

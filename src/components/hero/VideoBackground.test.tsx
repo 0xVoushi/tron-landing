@@ -2,23 +2,19 @@ import { render } from '@testing-library/react'
 import { VideoBackground } from './VideoBackground'
 
 describe('VideoBackground', () => {
-  it('renders a video element', () => {
+  it('renders the hero background image', () => {
     const { container } = render(<VideoBackground />)
-    expect(container.querySelector('video')).toBeInTheDocument()
+    expect(container.querySelector('img')).toBeInTheDocument()
   })
 
-  it('video has aria-hidden', () => {
+  it('image has aria-hidden', () => {
     const { container } = render(<VideoBackground />)
-    expect(container.querySelector('video')).toHaveAttribute('aria-hidden', 'true')
+    expect(container.querySelector('img')).toHaveAttribute('aria-hidden', 'true')
   })
 
-  it('video has loop attribute', () => {
+  it('renders dark overlay', () => {
     const { container } = render(<VideoBackground />)
-    expect(container.querySelector('video')).toHaveAttribute('loop')
-  })
-
-  it('video has playsInline attribute', () => {
-    const { container } = render(<VideoBackground />)
-    expect(container.querySelector('video')).toHaveAttribute('playsInline')
+    const overlays = container.querySelectorAll('[aria-hidden="true"]')
+    expect(overlays.length).toBeGreaterThanOrEqual(2)
   })
 })

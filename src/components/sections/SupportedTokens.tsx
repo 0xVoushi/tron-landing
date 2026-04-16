@@ -21,7 +21,7 @@ export function SupportedTokens() {
     >
       <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-          Multisender <span className="text-primary font-light">[ </span>Tokens<span className="text-primary font-light"> ]</span>
+          TRON Multisender <span className="text-primary font-light">[ </span>Tokens<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="tokens-heading"
@@ -37,7 +37,7 @@ export function SupportedTokens() {
           {TOKENS.map((token) => (
             <div
               key={token.symbol}
-              className="relative overflow-hidden glass-card rounded-xl p-5 text-center hover:scale-105 hover:shadow-md transition-all duration-500"
+              className="relative overflow-hidden glass-card rounded-lg p-5 text-center hover:scale-105 hover:shadow-md transition-all duration-500"
             >
               <div className="font-rubik font-extrabold text-[22px] text-dark-hard mb-1">
                 {token.symbol}

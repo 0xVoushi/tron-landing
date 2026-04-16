@@ -7,9 +7,9 @@ describe('ConsultationCard', () => {
     expect(screen.getByText(/Verified/i)).toBeInTheDocument()
   })
 
-  it('renders Official Tron Multisender text', () => {
+  it('renders Tron Multisender text', () => {
     render(<ConsultationCard />)
-    expect(screen.getByText(/Official Tron Multisender/i)).toBeInTheDocument()
+    expect(screen.getByText(/Tron Multisender/i)).toBeInTheDocument()
   })
 
   it('renders the shield icon container', () => {

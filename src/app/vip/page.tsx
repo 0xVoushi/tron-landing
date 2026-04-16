@@ -5,7 +5,7 @@ import { Navbar } from '@/components/hero/Navbar'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'VIP Access — Tron Multisender',
+  title: 'VIP Access — TRON Multisender',
   description: 'Upgrade to VIP and skip the per-batch service fee. Pay only TRON network costs. Plans from 1,000 TRX/day.',
 }
 
@@ -60,7 +60,7 @@ export default function VipPage() {
               Back to Home
             </Link>
             <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4">
-              Multisender <span className="text-primary font-light">[ </span>VIP<span className="text-primary font-light"> ]</span>
+              TRON Multisender <span className="text-primary font-light">[ </span>VIP<span className="text-primary font-light"> ]</span>
             </p>
             <h1 className="font-rubik font-light text-[38px] md:text-[52px] text-dark-hard tracking-[-0.04em] leading-[1.0] mb-5">
               No Service Fee.<br />Pay Only Network Costs.
@@ -78,7 +78,7 @@ export default function VipPage() {
               {PLANS.map((plan) => {
                 const Icon = plan.icon
                 return (
-                  <div key={plan.name} className="relative overflow-hidden glass-card rounded-xl p-6 flex flex-col group hover:border-primary/20 hover:scale-[1.02] transition-all duration-500">
+                  <div key={plan.name} className="relative overflow-hidden glass-card rounded-lg p-6 flex flex-col group hover:border-primary/20 hover:scale-[1.02] transition-all duration-500">
                     <div className="w-10 h-10 rounded-full bg-primary-ghost flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
                       <Icon size={20} className="text-primary" />
                     </div>
@@ -108,7 +108,7 @@ export default function VipPage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4">
-                Multisender <span className="text-primary font-light">[ </span>Benefits<span className="text-primary font-light"> ]</span>
+                TRON Multisender <span className="text-primary font-light">[ </span>Benefits<span className="text-primary font-light"> ]</span>
               </p>
               <h2 className="font-rubik font-light text-[30px] md:text-[38px] text-dark-hard tracking-[-0.04em] mb-8">
                 VIP Benefits
@@ -124,9 +124,9 @@ export default function VipPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative overflow-hidden glass-card rounded-xl p-8">
+            <div className="relative overflow-hidden glass-card rounded-lg p-8">
               <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4">
-                Multisender <span className="text-primary font-light">[ </span>For You<span className="text-primary font-light"> ]</span>
+                TRON Multisender <span className="text-primary font-light">[ </span>For You<span className="text-primary font-light"> ]</span>
               </p>
               <h3 className="font-rubik font-bold text-[20px] text-dark-hard mb-4">
                 Best for high-volume senders

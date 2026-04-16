@@ -13,7 +13,7 @@ const rubik = Rubik({
 })
 
 export const metadata: Metadata = {
-  title: 'Tron Multisender — Official TRX & TRC-20 Batch Transfer Tool',
+  title: 'TRON Multisender — Official TRX & TRC-20 Batch Transfer Tool',
   description:
     'Send TRX and TRC-20 tokens to 1,000+ addresses in one TRON transaction. Official non-custodial batch transfer tool. No registration required.',
   keywords: [
@@ -25,24 +25,24 @@ export const metadata: Metadata = {
     'tron bulk transfer',
   ],
   openGraph: {
-    title: 'Tron Multisender — Official Batch Transfer Tool',
+    title: 'TRON Multisender — Official Batch Transfer Tool',
     description:
       'Send TRX and TRC-20 tokens to 1,000+ addresses in one transaction. Non-custodial.',
     type: 'website',
     url: 'https://tronmultisender.io',
-    siteName: 'Tron Multisender',
+    siteName: 'TRON Multisender',
     images: [
       {
         url: 'https://tronmultisender.io/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Tron Multisender — Official Batch Transfer Tool',
+        alt: 'TRON Multisender — Official Batch Transfer Tool',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tron Multisender',
+    title: 'TRON Multisender',
     description: 'Official batch transfer tool for TRON. Send to 1,000+ addresses in one tx.',
     images: ['https://tronmultisender.io/og-image.png'],
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Tron Multisender',
+  name: 'TRON Multisender',
   url: 'https://tronmultisender.io',
   logo: 'https://tronmultisender.io/logo.svg',
   sameAs: [
@@ -66,7 +66,7 @@ const organizationSchema = {
 const softwareSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Tron Multisender',
+  name: 'TRON Multisender',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Web Browser',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -77,7 +77,7 @@ const softwareSchema = {
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How to Batch Send TRX and TRC-20 Tokens with Tron Multisender',
+  name: 'How to Batch Send TRX and TRC-20 Tokens with TRON Multisender',
   description:
     'Step-by-step guide to sending TRX or TRC-20 tokens to multiple addresses in one TRON transaction.',
   step: [
@@ -111,7 +111,7 @@ const howToSchema = {
 const webSiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Tron Multisender',
+  name: 'TRON Multisender',
   url: 'https://tronmultisender.io',
   potentialAction: {
     '@type': 'SearchAction',

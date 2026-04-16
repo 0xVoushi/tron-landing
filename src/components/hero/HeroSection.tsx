@@ -1,16 +1,30 @@
-import { VideoBackground } from './VideoBackground'
+import { PixelBlast } from './PixelBlast'
 import { Navbar } from './Navbar'
 import { HeroContent } from './HeroContent'
-import { ConsultationCard } from './ConsultationCard'
 
 export function HeroSection() {
   return (
-    <section id="hero" className="relative overflow-hidden w-full h-screen min-h-[700px] lg:h-[calc(100vh-200px)] bg-black">
-      <VideoBackground />
+    <section id="hero" className="relative overflow-hidden w-full h-dvh bg-dark-hard">
+      <div className="absolute inset-0 z-0">
+        <PixelBlast
+          variant="square"
+          pixelSize={3}
+          color="#c43631"
+          patternScale={2}
+          patternDensity={0.95}
+          pixelSizeJitter={0.65}
+          enableRipples
+          rippleSpeed={0.4}
+          rippleThickness={0.12}
+          rippleIntensityScale={1.5}
+          speed={0.5}
+          edgeFade={0}
+          transparent
+        />
+      </div>
       <Navbar />
-      <div className="absolute inset-y-0 w-full max-w-7xl left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute inset-y-0 w-full max-w-7xl left-1/2 -translate-x-1/2 z-20 pointer-events-none">
         <HeroContent />
-        <ConsultationCard />
       </div>
     </section>
   )

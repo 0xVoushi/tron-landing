@@ -19,7 +19,7 @@ export function FaqSection() {
     >
       <div className="max-w-3xl mx-auto">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-          Multisender <span className="text-primary font-light">[ </span>FAQ<span className="text-primary font-light"> ]</span>
+          TRON Multisender <span className="text-primary font-light">[ </span>FAQ<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="faq-heading"
@@ -30,7 +30,7 @@ export function FaqSection() {
 
         <div className="space-y-2">
           {FAQ_ITEMS.map((item, i) => (
-            <div key={i} className="relative overflow-hidden glass-card rounded-xl">
+            <div key={i} className="relative overflow-hidden glass-card rounded-lg">
               <button
                 type="button"
                 className="w-full flex items-center justify-between p-5 text-left"
