@@ -15,15 +15,15 @@ export function FaqSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-black py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
+      className="relative bg-grey-light py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-3xl mx-auto">
-        <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">
-          Got Questions?
+        <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
+          Multisender <span className="text-primary font-light">[ </span>FAQ<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="faq-heading"
-          className="font-rubik font-extrabold text-[32px] md:text-[40px] text-white uppercase tracking-[-0.02em] mb-12 md:mb-16 text-center"
+          className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-12 md:mb-16 text-center"
         >
           Frequently Asked Questions
         </h2>
@@ -38,14 +38,14 @@ export function FaqSection() {
                 aria-expanded={openIndex === i}
                 aria-controls={`faq-answer-${i}`}
               >
-                <span className="font-rubik font-semibold text-[14px] md:text-[15px] text-white pr-4">
+                <span className="font-rubik font-semibold text-[14px] md:text-[15px] text-dark-hard pr-4">
                   {item.question}
                 </span>
                 <ChevronDown
                   size={18}
                   aria-hidden="true"
                   className={[
-                    'text-white/40 flex-shrink-0 transition-transform duration-200',
+                    'text-grey flex-shrink-0 transition-transform duration-200',
                     openIndex === i ? 'rotate-180' : '',
                   ].join(' ')}
                 />
@@ -53,7 +53,7 @@ export function FaqSection() {
 
               {openIndex === i && (
                 <div id={`faq-answer-${i}`} className="px-5 pb-5">
-                  <p className="font-rubik text-[13px] md:text-[14px] text-white/55 leading-relaxed">
+                  <p className="font-rubik text-[13px] md:text-[14px] text-dark leading-relaxed">
                     {item.answer}
                   </p>
                 </div>

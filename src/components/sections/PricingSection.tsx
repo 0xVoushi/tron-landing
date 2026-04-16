@@ -36,19 +36,19 @@ export function PricingSection() {
     <section
       id="pricing"
       aria-labelledby="pricing-heading"
-      className="relative bg-[#111111] py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
+      className="relative bg-white py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <p className="font-rubik font-semibold text-[11px] text-[#FF5040] uppercase tracking-[3px] mb-3 text-center">
-          Access & Perks
+        <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
+          Multisender <span className="text-primary font-light">[ </span>Perks<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="pricing-heading"
-          className="font-rubik font-extrabold text-[32px] md:text-[40px] text-white uppercase tracking-[-0.02em] mb-4 text-center"
+          className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-4 text-center"
         >
           More Ways To Use Multisender
         </h2>
-        <p className="font-rubik text-[14px] md:text-[15px] text-white/50 text-center mb-12 md:mb-16 max-w-lg mx-auto leading-relaxed">
+        <p className="font-rubik text-[14px] md:text-[15px] text-grey text-center mb-12 md:mb-16 max-w-lg mx-auto leading-relaxed">
           VIP plans, referral rewards, and a free testnet — built for every type of user.
         </p>
 
@@ -58,23 +58,23 @@ export function PricingSection() {
             return (
               <div
                 key={card.label}
-                className="relative overflow-hidden glass-card rounded-xl p-6 flex flex-col"
+                className="relative overflow-hidden glass-card rounded-xl p-6 flex flex-col group hover:shadow-md transition-all duration-500"
               >
-                <div className="w-10 h-10 rounded-full bg-brand-red/10 flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-brand-red" />
+                <div className="w-10 h-10 rounded-full bg-primary-ghost flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
+                  <Icon size={20} className="text-primary" />
                 </div>
-                <div className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[2px] mb-2">
+                <div className="font-rubik font-semibold text-[11px] text-primary-medium uppercase tracking-[2px] mb-2">
                   {card.label}
                 </div>
-                <h3 className="font-rubik font-bold text-[20px] text-white mb-3">
+                <h3 className="font-rubik font-bold text-[20px] text-dark-hard mb-3">
                   {card.title}
                 </h3>
-                <p className="font-rubik text-[13px] text-white/55 leading-relaxed flex-1 mb-6">
+                <p className="font-rubik text-[13px] text-grey leading-relaxed flex-1 mb-6">
                   {card.description}
                 </p>
                 <Link
                   href={card.ctaHref}
-                  className="inline-flex items-center gap-1.5 font-rubik font-semibold text-[12px] text-brand-red uppercase tracking-[0.05em] hover:opacity-80 transition-opacity"
+                  className="inline-flex items-center gap-1.5 font-rubik font-semibold text-[12px] text-primary-medium uppercase tracking-[0.05em] hover:text-primary-light transition-colors"
                 >
                   {card.ctaLabel}
                   <ArrowRight size={13} />

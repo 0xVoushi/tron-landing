@@ -1,38 +1,27 @@
 import { BookOpen, Send, Share2 } from 'lucide-react'
-
-function LogoMark() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-      <path d="M14 2L26 14L14 26L2 14L14 2Z" fill="rgba(255,255,255,0.12)" stroke="white" strokeWidth="1.5"/>
-      <path d="M14 8L20 14L14 20L8 14L14 8Z" fill="white" opacity="0.85"/>
-    </svg>
-  )
-}
+import { Logo } from '@/components/ui/Logo'
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-white/[0.07] px-8 md:px-10 lg:px-12 pt-12 pb-8">
+    <footer className="bg-white border-t border-grey-medium px-8 md:px-10 lg:px-12 pt-12 pb-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <LogoMark />
-              <span className="font-rubik font-bold text-[13px] text-white uppercase tracking-[2px]">
-                TRON MULTISENDER
-              </span>
+            <div className="mb-3">
+              <Logo dark />
             </div>
-            <p className="font-rubik text-[13px] text-white/50 leading-relaxed mb-5 max-w-[220px]">
+            <p className="font-rubik text-[13px] text-dark leading-relaxed mb-5 max-w-[220px]">
               Batch transfer tool for the TRON blockchain.
             </p>
             <div className="flex items-center gap-3">
-              <a href="https://x.com/multi_sender" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-white/30 hover:text-white/70 transition-colors">
+              <a href="https://x.com/multi_sender" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-grey hover:text-primary transition-colors">
                 <Share2 size={16} />
               </a>
-              <a href="https://t.me/MultiSender" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-white/30 hover:text-white/70 transition-colors">
+              <a href="https://t.me/MultiSender" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-grey hover:text-primary transition-colors">
                 <Send size={16} />
               </a>
-              <a href="https://medium.com/@MultiSenderApp" target="_blank" rel="noopener noreferrer" aria-label="Medium" className="text-white/30 hover:text-white/70 transition-colors">
+              <a href="https://medium.com/@MultiSenderApp" target="_blank" rel="noopener noreferrer" aria-label="Medium" className="text-grey hover:text-primary transition-colors">
                 <BookOpen size={16} />
               </a>
             </div>
@@ -40,7 +29,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <div className="font-rubik font-semibold text-[11px] text-white/50 uppercase tracking-[2px] mb-4">
+            <div className="font-rubik font-semibold text-[11px] text-grey uppercase tracking-[2px] mb-4">
               Navigation
             </div>
             <ul className="space-y-2">
@@ -53,7 +42,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-rubik text-[13px] text-white/50 hover:text-white transition-colors"
+                    className="font-rubik text-[13px] text-dark hover:text-dark-hard transition-colors"
                   >
                     {link.label}
                   </a>
@@ -64,7 +53,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <div className="font-rubik font-semibold text-[11px] text-white/50 uppercase tracking-[2px] mb-4">
+            <div className="font-rubik font-semibold text-[11px] text-grey uppercase tracking-[2px] mb-4">
               Legal
             </div>
             <ul className="space-y-2">
@@ -76,7 +65,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-rubik text-[13px] text-white/50 hover:text-white transition-colors"
+                    className="font-rubik text-[13px] text-dark hover:text-dark-hard transition-colors"
                   >
                     {link.label}
                   </a>
@@ -86,11 +75,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/[0.07] pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-          <span className="font-rubik text-[12px] text-white/50">
+        <div className="border-t border-grey-medium pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
+          <span className="font-rubik text-[12px] text-grey">
             © 2026 Tron Multisender
           </span>
-          <span className="font-rubik text-[11px] text-white/50 max-w-md md:text-right">
+          <span className="font-rubik text-[11px] text-grey max-w-md md:text-right">
             Not affiliated with TRON Foundation. This tool is provided as-is. Use at your own risk.
           </span>
         </div>
