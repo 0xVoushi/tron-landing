@@ -52,15 +52,15 @@ export function Features() {
     <section
       id="features"
       aria-labelledby="features-heading"
-      className="bg-black py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
+      className="relative bg-grey-light py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">
-          Built for Power Users
+        <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
+          Multisender <span className="text-primary font-light">[ </span>Features<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="features-heading"
-          className="font-rubik font-extrabold text-[32px] md:text-[40px] text-white uppercase tracking-[-0.02em] mb-12 md:mb-16 text-center"
+          className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-12 md:mb-16 text-center"
         >
           Why Tron Multisender
         </h2>
@@ -71,15 +71,15 @@ export function Features() {
             return (
               <div
                 key={feature.title}
-                className="relative overflow-hidden glass-card rounded-xl p-6"
+                className="relative overflow-hidden glass-card rounded-xl p-6 group hover:shadow-md hover:-translate-y-1 hover:scale-[1.01] transition-all duration-500"
               >
-                <div className="w-10 h-10 rounded-full bg-brand-red/10 flex items-center justify-center mb-4">
-                  <Icon size={20} className="text-brand-red" />
+                <div className="w-10 h-10 rounded-full bg-primary-ghost flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
+                  <Icon size={20} className="text-primary" />
                 </div>
-                <h3 className="font-rubik font-bold text-[15px] text-white mb-2">
+                <h3 className="font-rubik font-bold text-[15px] text-dark-hard mb-2">
                   {feature.title}
                 </h3>
-                <p className="font-rubik text-[13px] text-white/55 leading-relaxed">
+                <p className="font-rubik text-[13px] text-dark leading-relaxed tracking-[-0.01em]">
                   {feature.description}
                 </p>
               </div>

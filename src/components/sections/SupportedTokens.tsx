@@ -17,19 +17,19 @@ export function SupportedTokens() {
     <section
       id="tokens"
       aria-labelledby="tokens-heading"
-      className="bg-[#050505] py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
+      className="relative bg-white py-16 md:py-24 px-8 md:px-10 lg:px-12 scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto">
-        <p className="font-rubik font-semibold text-[11px] text-brand-red uppercase tracking-[3px] mb-3 text-center">
-          Multi-Token Support
+        <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
+          Multisender <span className="text-primary font-light">[ </span>Tokens<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="tokens-heading"
-          className="font-rubik font-extrabold text-[32px] md:text-[40px] text-white uppercase tracking-[-0.02em] mb-4 text-center"
+          className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-4 text-center"
         >
           Supported Tokens
         </h2>
-        <p className="font-rubik text-[14px] text-white/50 text-center mb-12 md:mb-16 max-w-lg mx-auto">
+        <p className="font-rubik text-[14px] text-dark text-center mb-12 md:mb-16 max-w-lg mx-auto tracking-[-0.01em]">
           Send any TRC-20 token or native TRX to multiple recipients simultaneously.
         </p>
 
@@ -37,18 +37,18 @@ export function SupportedTokens() {
           {TOKENS.map((token) => (
             <div
               key={token.symbol}
-              className="relative overflow-hidden glass-card rounded-xl p-5 text-center"
+              className="relative overflow-hidden glass-card rounded-xl p-5 text-center hover:scale-105 hover:shadow-md transition-all duration-500"
             >
-              <div className="font-rubik font-extrabold text-[22px] text-white mb-1">
+              <div className="font-rubik font-extrabold text-[22px] text-dark-hard mb-1">
                 {token.symbol}
               </div>
-              <div className="font-rubik text-[11px] text-white/45 mb-3">{token.name}</div>
+              <div className="font-rubik text-[11px] text-grey mb-3">{token.name}</div>
               <span
                 className={[
                   'font-rubik font-semibold text-[10px] uppercase tracking-[1.5px] px-2 py-0.5 rounded-full',
                   token.type === 'Native'
-                    ? 'bg-brand-red/20 text-brand-red'
-                    : 'bg-white/[0.07] text-white/50',
+                    ? 'bg-primary-ghost text-primary'
+                    : 'bg-black-4 text-grey',
                 ].join(' ')}
               >
                 {token.type}
@@ -57,7 +57,7 @@ export function SupportedTokens() {
           ))}
         </div>
 
-        <p className="font-rubik text-[13px] text-white/50 text-center">
+        <p className="font-rubik text-[13px] text-grey text-center">
           Any TRC-20 contract address is supported. Paste the contract address to get started.
         </p>
       </div>
