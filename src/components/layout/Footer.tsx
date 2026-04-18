@@ -1,5 +1,5 @@
-import { BookOpen, Send, Share2 } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
+import { SocialLinks } from '@/components/footer/SocialLinks'
 
 export function Footer() {
   return (
@@ -14,17 +14,7 @@ export function Footer() {
             <p className="font-rubik text-[13px] text-dark leading-relaxed mb-5 max-w-[220px]">
               Batch transfer tool for the TRON blockchain.
             </p>
-            <div className="flex items-center gap-3">
-              <a href="https://x.com/multi_sender" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="text-grey hover:text-primary transition-colors">
-                <Share2 size={16} />
-              </a>
-              <a href="https://t.me/MultiSender" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-grey hover:text-primary transition-colors">
-                <Send size={16} />
-              </a>
-              <a href="https://medium.com/@MultiSenderApp" target="_blank" rel="noopener noreferrer" aria-label="Medium" className="text-grey hover:text-primary transition-colors">
-                <BookOpen size={16} />
-              </a>
-            </div>
+            <SocialLinks />
           </div>
 
           {/* Navigation */}
@@ -42,7 +32,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-rubik text-[13px] text-dark hover:text-dark-hard transition-colors"
+                    className="font-rubik text-[13px] text-dark hover:text-brand-red transition-colors"
                   >
                     {link.label}
                   </a>
@@ -65,7 +55,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-rubik text-[13px] text-dark hover:text-dark-hard transition-colors"
+                    className="font-rubik text-[13px] text-dark hover:text-brand-red transition-colors"
                   >
                     {link.label}
                   </a>

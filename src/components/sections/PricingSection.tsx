@@ -1,33 +1,43 @@
 import Link from 'next/link'
-import { Crown, Star, Zap, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 
-const CARDS = [
+type Card = {
+  label: string
+  title: string
+  description: string
+  ctaLabel: string
+  ctaHref: string
+  image: string | null
+}
+
+const CARDS: Card[] = [
   {
-    icon: Crown,
     label: 'VIP Access',
     title: 'No Service Fee',
     description:
-      'Upgrade to VIP and skip the per-batch service fee entirely. Pay only standard TRON network costs. Plans from 1,000 TRX/day.',
+      'Upgrade to VIP and skip the per-batch service fee entirely. Pay only standard TRON network costs.',
     ctaLabel: 'Get VIP',
     ctaHref: '/vip',
+    image: '/images/crown.webp',
   },
   {
-    icon: Star,
     label: 'Referral Program',
     title: 'Earn by Referring',
     description:
       'Invite others to TRON Multisender and earn rewards for every active referral. No limit on earnings.',
     ctaLabel: 'View Referral Program',
     ctaHref: '/referral',
+    image: '/images/percents.webp',
   },
   {
-    icon: Zap,
     label: 'Testnet',
     title: 'Try for Free',
     description:
       'Not ready for mainnet? Run the full batch transfer flow on Shasta or Nile Testnet — no real funds needed.',
-    ctaLabel: 'Open dApp on Testnet',
+    ctaLabel: 'Try dApp on Testnet now',
     ctaHref: 'https://tron.multisender.app',
+    image: null,
   },
 ]
 
@@ -53,35 +63,48 @@ export function PricingSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {CARDS.map((card) => {
-            const Icon = card.icon
-            return (
-              <div
-                key={card.label}
-                className="relative overflow-hidden glass-card rounded-lg p-6 flex flex-col group hover:shadow-md transition-all duration-500"
-              >
-                <div className="w-10 h-10 rounded-full bg-primary-ghost flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
-                  <Icon size={20} className="text-primary" />
-                </div>
+          {CARDS.map((card) => (
+            <div
+              key={card.label}
+              className="relative overflow-hidden glass-card rounded-lg p-6 min-h-[320px] flex flex-col group cursor-pointer transition-colors duration-200 hover:bg-grey-light"
+            >
+              {/* Decorative art — top right */}
+              {card.image && (
+                <Image
+                  src={card.image}
+                  alt=""
+                  aria-hidden
+                  width={220}
+                  height={220}
+                  className="pointer-events-none select-none absolute -top-4 -right-4 w-[140px] h-[140px] md:w-[160px] md:h-[160px] object-contain opacity-95 transition-transform duration-300 group-hover:scale-105"
+                />
+              )}
+
+              {/* Top-left: label + title */}
+              <div className="relative z-10 max-w-[70%]">
                 <div className="font-rubik font-semibold text-[11px] text-primary-medium uppercase tracking-[2px] mb-2">
                   {card.label}
                 </div>
-                <h3 className="font-rubik font-bold text-[20px] text-dark-hard mb-3">
+                <h3 className="font-rubik font-bold text-[20px] text-dark-hard tracking-[-0.01em]">
                   {card.title}
                 </h3>
-                <p className="font-rubik text-[13px] text-grey leading-relaxed flex-1 mb-6">
+              </div>
+
+              {/* Bottom-left: description + CTA */}
+              <div className="relative z-10 mt-auto pt-8">
+                <p className="font-rubik text-[13px] text-grey leading-relaxed mb-5">
                   {card.description}
                 </p>
                 <Link
                   href={card.ctaHref}
-                  className="inline-flex items-center gap-1.5 font-rubik font-semibold text-[12px] text-primary-medium uppercase tracking-[0.05em] hover:text-primary-light transition-colors"
+                  className="inline-flex items-center gap-1.5 font-rubik font-semibold text-[12px] text-primary-medium uppercase tracking-[0.05em] hover:text-primary-light transition-colors after:absolute after:inset-0 after:content-[''] after:z-20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 >
                   {card.ctaLabel}
-                  <ArrowRight size={13} />
+                  <ArrowRight size={13} className="-rotate-45" aria-hidden />
                 </Link>
               </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -18,28 +18,30 @@ describe('FaqSection', () => {
     })
   })
 
-  it('all answers are hidden initially', () => {
+  it('all answers are collapsed initially', () => {
     render(<FaqSection />)
     FAQ_ITEMS.forEach((item) => {
-      expect(screen.queryByText(item.answer)).not.toBeInTheDocument()
+      const button = screen.getByRole('button', { name: item.question })
+      expect(button).toHaveAttribute('aria-expanded', 'false')
     })
   })
 
-  it('shows answer when question button is clicked', async () => {
+  it('expands answer when question button is clicked', async () => {
     const user = userEvent.setup()
     render(<FaqSection />)
     const button = screen.getByRole('button', { name: FAQ_ITEMS[0].question })
     await user.click(button)
+    expect(button).toHaveAttribute('aria-expanded', 'true')
     expect(screen.getByText(FAQ_ITEMS[0].answer)).toBeInTheDocument()
   })
 
-  it('hides answer when question is clicked again', async () => {
+  it('collapses answer when question is clicked again', async () => {
     const user = userEvent.setup()
     render(<FaqSection />)
     const button = screen.getByRole('button', { name: FAQ_ITEMS[0].question })
     await user.click(button)
     await user.click(button)
-    expect(screen.queryByText(FAQ_ITEMS[0].answer)).not.toBeInTheDocument()
+    expect(button).toHaveAttribute('aria-expanded', 'false')
   })
 
   it('closes previous answer when a different question is clicked', async () => {
@@ -49,7 +51,7 @@ describe('FaqSection', () => {
     const second = screen.getByRole('button', { name: FAQ_ITEMS[1].question })
     await user.click(first)
     await user.click(second)
-    expect(screen.queryByText(FAQ_ITEMS[0].answer)).not.toBeInTheDocument()
-    expect(screen.getByText(FAQ_ITEMS[1].answer)).toBeInTheDocument()
+    expect(first).toHaveAttribute('aria-expanded', 'false')
+    expect(second).toHaveAttribute('aria-expanded', 'true')
   })
 })

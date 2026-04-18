@@ -1,15 +1,24 @@
+type TokenType = 'Native' | 'TRC-20' | 'TRC-10'
+
 type Token = {
   symbol: string
   name: string
-  type: 'Native' | 'TRC-20' | 'TRC-10'
+  type: TokenType
+  icon: string
+}
+
+const TYPE_STYLES: Record<TokenType, string> = {
+  Native: 'bg-primary-ghost text-primary',
+  'TRC-20': 'bg-[hsla(156,70%,90%,1)] text-[hsla(160,80%,26%,1)]',
+  'TRC-10': 'bg-[hsla(42,95%,88%,1)] text-[hsla(35,85%,32%,1)]',
 }
 
 const TOKENS: Token[] = [
-  { symbol: 'TRX', name: 'TRON', type: 'Native' },
-  { symbol: 'USDT', name: 'Tether USD', type: 'TRC-20' },
-  { symbol: 'USDC', name: 'USD Coin', type: 'TRC-20' },
-  { symbol: 'WTRX', name: 'Wrapped TRX', type: 'TRC-20' },
-  { symbol: 'BTT', name: 'BitTorrent', type: 'TRC-10' },
+  { symbol: 'TRX', name: 'TRON', type: 'Native', icon: '/tokens/TRON-Coin.svg' },
+  { symbol: 'USDT', name: 'Tether USD', type: 'TRC-20', icon: '/tokens/Tether.svg' },
+  { symbol: 'USDC', name: 'USD Coin', type: 'TRC-20', icon: '/tokens/USD-Coin.svg' },
+  { symbol: 'WTRX', name: 'Wrapped TRX', type: 'TRC-20', icon: '/tokens/TRON-Coin.svg' },
+  { symbol: 'BTT', name: 'BitTorrent', type: 'TRC-10', icon: '/tokens/BitTorrent-Coin.svg' },
 ]
 
 export function SupportedTokens() {
@@ -37,18 +46,26 @@ export function SupportedTokens() {
           {TOKENS.map((token) => (
             <div
               key={token.symbol}
-              className="relative overflow-hidden glass-card rounded-lg p-5 text-center hover:scale-105 hover:shadow-md transition-all duration-500"
+              className="relative overflow-hidden glass-card rounded-lg p-5 text-center transition-colors duration-200 hover:bg-grey-light"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={token.icon}
+                alt=""
+                aria-hidden="true"
+                className="w-12 h-12 mx-auto mb-3"
+                loading="lazy"
+                decoding="async"
+              />
               <div className="font-rubik font-extrabold text-[22px] text-dark-hard mb-1">
                 {token.symbol}
               </div>
-              <div className="font-rubik text-[11px] text-grey mb-3">{token.name}</div>
+              <div className="font-rubik text-[11px] text-grey">{token.name}</div>
               <span
                 className={[
-                  'font-rubik font-semibold text-[10px] uppercase tracking-[1.5px] px-2 py-0.5 rounded-full',
-                  token.type === 'Native'
-                    ? 'bg-primary-ghost text-primary'
-                    : 'bg-black-4 text-grey',
+                  'absolute top-2.5 right-2.5 z-10',
+                  'font-rubik font-semibold text-[9px] uppercase tracking-[1.2px] px-2 py-0.5 rounded-full',
+                  TYPE_STYLES[token.type],
                 ].join(' ')}
               >
                 {token.type}

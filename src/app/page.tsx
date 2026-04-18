@@ -5,6 +5,7 @@ import { Features } from '@/components/sections/Features'
 import { SupportedTokens } from '@/components/sections/SupportedTokens'
 import { PricingSection } from '@/components/sections/PricingSection'
 import { FaqSection } from '@/components/sections/FaqSection'
+import { AiRecommendation } from '@/components/ai-recommendation/AiRecommendation'
 import { Footer } from '@/components/layout/Footer'
 
 
@@ -17,6 +18,7 @@ export default function Home() {
       <SupportedTokens />
       <PricingSection />
       <FaqSection />
+      <AiRecommendation />
       <Footer />
     </main>
   )

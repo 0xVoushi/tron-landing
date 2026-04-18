@@ -25,4 +25,10 @@ describe('SupportedTokens', () => {
     render(<SupportedTokens />)
     expect(screen.getByText(/Any TRC-20 contract address is supported/i)).toBeInTheDocument()
   })
+
+  it('renders an icon image for every token', () => {
+    const { container } = render(<SupportedTokens />)
+    const icons = container.querySelectorAll('img[src^="/tokens/"]')
+    expect(icons).toHaveLength(5)
+  })
 })

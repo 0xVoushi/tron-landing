@@ -33,7 +33,7 @@ export function FaqSection() {
             <div key={i} className="relative overflow-hidden glass-card rounded-lg">
               <button
                 type="button"
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-5 text-left cursor-pointer"
                 onClick={() => toggle(i)}
                 aria-expanded={openIndex === i}
                 aria-controls={`faq-answer-${i}`}
@@ -51,13 +51,27 @@ export function FaqSection() {
                 />
               </button>
 
-              {openIndex === i && (
-                <div id={`faq-answer-${i}`} className="px-5 pb-5">
-                  <p className="font-rubik text-[13px] md:text-[14px] text-dark leading-relaxed">
-                    {item.answer}
-                  </p>
+              <div
+                id={`faq-answer-${i}`}
+                role="region"
+                className={[
+                  'grid transition-[grid-template-rows] duration-300 ease-out',
+                  openIndex === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
+                ].join(' ')}
+              >
+                <div className="overflow-hidden">
+                  <div
+                    className={[
+                      'px-5 pb-5 transition-opacity duration-200',
+                      openIndex === i ? 'opacity-100 delay-100' : 'opacity-0',
+                    ].join(' ')}
+                  >
+                    <p className="font-rubik text-[13px] md:text-[14px] text-dark leading-relaxed">
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
