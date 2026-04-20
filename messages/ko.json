@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "home": {
+      "title": "TRON Multisender — 공식 TRX 및 TRC-20 일괄 전송 도구",
+      "description": "한 번의 TRON 트랜잭션으로 1,000개 이상의 주소에 TRX 및 TRC-20 토큰을 전송하세요. 공식 비수탁 일괄 전송 도구입니다. 회원가입이 필요 없습니다.",
+      "ogTitle": "TRON Multisender — 공식 일괄 전송 도구",
+      "ogDescription": "한 번의 트랜잭션으로 1,000개 이상의 주소에 TRX 및 TRC-20 토큰을 전송하세요. 비수탁 방식.",
+      "twitterDescription": "TRON용 공식 일괄 전송 도구. 한 번의 트랜잭션으로 1,000개 이상의 주소에 전송.",
+      "ogAlt": "TRON Multisender — 공식 일괄 전송 도구"
+    },
+    "guide": {
+      "title": "TRON Multisender 사용법 — 단계별 가이드",
+      "description": "한 번의 트랜잭션으로 여러 주소에 TRX 및 TRC-20 토큰을 일괄 전송하는 방법을 알아보세요. 단계별 가이드: 지갑 연결, 수신자 추가, 승인 및 전송.",
+      "ogDescription": "한 번의 트랜잭션으로 여러 주소에 TRX 및 TRC-20 토큰을 일괄 전송하는 방법을 알아보세요.",
+      "ogAlt": "TRON Multisender 가이드"
+    },
+    "vip": {
+      "title": "VIP 액세스 — TRON Multisender",
+      "description": "VIP로 업그레이드하고 배치당 서비스 수수료를 건너뛰세요. TRON 네트워크 비용만 지불합니다. 일 1,000 TRX부터 시작하는 플랜.",
+      "ogAlt": "TRON Multisender VIP"
+    },
+    "referral": {
+      "title": "추천 프로그램 — TRON Multisender",
+      "description": "TRON Multisender에 사용자를 초대하고 추천마다 서비스 수수료의 10%를 받으세요. 추천받은 사용자는 5% 할인을 받습니다.",
+      "ogAlt": "TRON Multisender 추천 프로그램"
+    }
+  },
+  "brand": {
+    "name": "TRON Multisender",
+    "description": "TRON 블록체인용 일괄 전송 도구."
+  },
+  "nav": {
+    "home": "홈",
+    "howItWorks": "작동 방식",
+    "features": "기능",
+    "tokens": "토큰",
+    "perks": "혜택",
+    "faq": "FAQ",
+    "launchApp": "dApp 실행",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기"
+  },
+  "hero": {
+    "eyebrow": "일괄 전송",
+    "headline": "TRX 및 TRC-20 토큰 일괄 전송",
+    "subheadline": "한 번의 트랜잭션으로 USDT, TRX 또는 모든 TRC-20 토큰을 1,000개 이상의 주소로 전송하세요 — 회원가입 없이, 완전한 비수탁 방식으로.",
+    "cta": "dApp 실행",
+    "stats": {
+      "recipients": { "value": "1,000+", "label": "트랜잭션당 수신자 수", "sub": "트랜잭션당" },
+      "tokenTypes": { "value": "3", "label": "토큰 유형", "sub": "TRX / TRC-20 / TRC-10" },
+      "feeSavings": { "value": "~90%", "label": "수수료 절감", "sub": "수동 전송 대비" },
+      "custody": { "value": "제로", "label": "수탁", "sub": "완전 온체인" }
+    }
+  },
+  "consultationCard": {
+    "verified": "인증됨",
+    "brand": "TRON Multisender",
+    "cta": "dApp 실행"
+  },
+  "stats": {
+    "ariaLabel": "주요 통계",
+    "recipients": { "value": "1,000+", "label": "트랜잭션당 수신자 수", "sublabel": "트랜잭션당" },
+    "tokenTypes": { "value": "3", "label": "토큰 유형", "sublabel": "TRX / TRC-20 / TRC-10" },
+    "feeSavings": { "value": "~90%", "label": "수수료 절감", "sublabel": "수동 전송 대비" },
+    "custody": { "value": "제로", "label": "수탁", "sublabel": "완전 온체인" }
+  },
+  "howItWorks": {
+    "eyebrow": "프로세스",
+    "title": "작동 방식",
+    "steps": {
+      "connect": {
+        "title": "지갑 연결",
+        "description": "TronLink 또는 호환되는 TRON 지갑을 한 번의 클릭으로 연결하세요. 계정이 필요 없습니다."
+      },
+      "recipients": {
+        "title": "수신자 추가",
+        "description": "주소를 수동으로 붙여넣거나 주소와 금액이 포함된 CSV 파일을 업로드하세요."
+      },
+      "amounts": {
+        "title": "금액 설정",
+        "description": "모든 수신자에게 동일한 금액을 할당하거나 주소별로 맞춤 금액을 설정하세요."
+      },
+      "send": {
+        "title": "전송",
+        "description": "검토 후 확인하세요. TRON의 빠른 블록 타임 덕분에 모든 수신자가 3~5분 이내에 자금을 받습니다."
+      }
+    }
+  },
+  "features": {
+    "eyebrow": "기능",
+    "title": "TRON Multisender를 선택하는 이유",
+    "visualLabel": "[ visual ]",
+    "items": {
+      "batchTrx": {
+        "tag": "Hero",
+        "title": "TRX 일괄 전송",
+        "description": "한 번의 트랜잭션으로 수백 개의 지갑에 TRX를 전송하세요. 수신자 수에 제한이 없습니다."
+      },
+      "trc20": {
+        "tag": "02",
+        "title": "TRC-20 토큰 지원",
+        "description": "USDT, USDC, WTRX, BTT 및 모든 TRC-20 토큰을 지원합니다. 컨트랙트 주소만 붙여넣으면 됩니다."
+      },
+      "onChain": {
+        "tag": "03",
+        "title": "완전 온체인",
+        "description": "수탁 없음, 회원가입 없음. 당신의 키, 당신의 자금. 모든 것이 온체인에서 이루어집니다."
+      },
+      "csv": {
+        "tag": "04",
+        "title": "CSV 업로드",
+        "description": "스프레드시트 파일에서 수신자 목록과 금액을 직접 가져오세요."
+      },
+      "fees": {
+        "tag": "05",
+        "title": "수수료 절감",
+        "description": "일괄 트랜잭션은 개별 전송보다 훨씬 적은 대역폭과 에너지를 사용합니다."
+      },
+      "instant": {
+        "tag": "Hero",
+        "title": "즉각적인 확인",
+        "description": "TRON의 3초 블록 타임으로 모든 수신자에게 거의 즉시 전달됩니다."
+      }
+    }
+  },
+  "supportedTokens": {
+    "eyebrow": "토큰",
+    "title": "지원되는 토큰",
+    "subtitle": "모든 TRC-20 토큰 또는 네이티브 TRX를 여러 수신자에게 동시에 전송하세요.",
+    "footnote": "모든 TRC-20 컨트랙트 주소가 지원됩니다. 컨트랙트 주소를 붙여넣고 시작하세요.",
+    "types": {
+      "native": "네이티브",
+      "trc20": "TRC-20",
+      "trc10": "TRC-10"
+    },
+    "tokens": {
+      "trx": "TRON",
+      "usdt": "Tether USD",
+      "usdc": "USD Coin",
+      "wtrx": "Wrapped TRX",
+      "btt": "BitTorrent"
+    }
+  },
+  "pricing": {
+    "eyebrow": "혜택",
+    "title": "TRON Multisender를 활용하는 더 많은 방법",
+    "subtitle": "VIP 플랜, 추천 보상, 무료 테스트넷 — 모든 유형의 사용자를 위해 설계되었습니다.",
+    "cards": {
+      "vip": {
+        "label": "VIP 액세스",
+        "title": "서비스 수수료 없음",
+        "description": "VIP로 업그레이드하고 배치당 서비스 수수료를 완전히 건너뛰세요. 표준 TRON 네트워크 비용만 지불합니다.",
+        "cta": "VIP 가입"
+      },
+      "referral": {
+        "label": "추천 프로그램",
+        "title": "추천으로 수익 창출",
+        "description": "다른 사람을 TRON Multisender에 초대하고 활성 추천마다 보상을 받으세요. 수익에 제한이 없습니다.",
+        "cta": "추천 프로그램 보기"
+      },
+      "testnet": {
+        "label": "Testnet",
+        "title": "무료로 체험",
+        "description": "Mainnet을 사용할 준비가 되지 않았나요? Shasta 또는 Nile Testnet에서 전체 일괄 전송 흐름을 실행해 보세요 — 실제 자금이 필요하지 않습니다.",
+        "cta": "지금 Testnet에서 dApp 체험하기"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "자주 묻는 질문",
+    "items": {
+      "whatIs": {
+        "question": "TRON Multisender란 무엇인가요?",
+        "answer": "TRON Multisender는 TRON 네트워크의 단일 블록체인 트랜잭션으로 여러 지갑 주소에 TRX 또는 TRC-20 토큰을 전송할 수 있는 공식 온체인 도구입니다."
+      },
+      "howToSendUsdt": {
+        "question": "TRON에서 여러 주소로 USDT를 어떻게 전송하나요?",
+        "answer": "TronLink 지갑을 연결하고 토큰 유형으로 TRC-20을 선택한 후 USDT 컨트랙트 주소를 입력하고, 수신자 주소와 금액을 추가하거나 CSV 파일을 업로드하세요. 하나의 트랜잭션을 확인하면 모든 수신자에게 USDT가 동시에 전송됩니다."
+      },
+      "customAmounts": {
+        "question": "각 주소에 다른 금액을 전송할 수 있나요?",
+        "answer": "네. 주소별로 맞춤 금액을 설정하거나 모든 수신자에게 동일한 금액을 전송할 수 있습니다. 수동 입력과 CSV 업로드 모두 주소별 맞춤 금액을 지원합니다."
+      },
+      "safety": {
+        "question": "TRON Multisender를 사용하는 것은 안전한가요?",
+        "answer": "네. TRON Multisender는 완전한 비수탁 방식이며, 귀하의 개인 키는 지갑을 벗어나지 않습니다. 모든 전송은 스마트 컨트랙트를 통해 직접 온체인에서 이루어집니다. 회원가입이나 계정이 필요하지 않습니다."
+      },
+      "supportedTokens": {
+        "question": "TRON Multisender는 어떤 토큰을 지원하나요?",
+        "answer": "TRON Multisender는 TRX(네이티브 TRON), TRC-10 토큰, 그리고 USDT, USDC, WTRX, BTT를 포함한 모든 TRC-20 토큰을 지원합니다. 유효한 모든 TRC-20 컨트랙트 주소를 사용할 수 있습니다."
+      },
+      "addressLimit": {
+        "question": "한 번에 몇 개의 주소로 전송할 수 있나요?",
+        "answer": "한 번의 트랜잭션으로 최대 1,000개의 주소로 전송할 수 있습니다. 더 큰 규모의 배포는 여러 배치로 나눌 수 있습니다."
+      },
+      "cost": {
+        "question": "TRON Multisender 사용 비용은 얼마인가요?",
+        "answer": "트랜잭션당 소정의 서비스 수수료가 부과됩니다. 일괄 전송을 사용하면 개별 전송에 비해 총 대역폭 및 에너지 비용이 크게 절감되며, 일반적으로 약 90%의 수수료를 절약할 수 있습니다."
+      },
+      "csvUpload": {
+        "question": "CSV 업로드는 어떻게 작동하나요?",
+        "answer": "지갑 주소와 금액 두 개의 열이 포함된 CSV 파일을 준비하세요. 앱에서 업로드하면 TRON Multisender가 트랜잭션을 확인하기 전에 모든 항목을 파싱하고 검증합니다."
+      },
+      "wallet": {
+        "question": "어떤 지갑이 필요한가요?",
+        "answer": "TronLink(브라우저 확장 프로그램 또는 모바일), TokenPocket 또는 TronWeb을 지원하는 모든 지갑과 같은 TRON 호환 지갑이 필요합니다. 새 지갑을 만들 필요는 없습니다."
+      },
+      "vsManual": {
+        "question": "수동 전송과 어떤 차이가 있나요?",
+        "answer": "수동 전송은 수신자당 하나의 트랜잭션이 필요하여 시간과 비용이 많이 듭니다. TRON Multisender는 모든 전송을 하나의 트랜잭션으로 묶어 최대 90%의 수수료를 절약하고 몇 초 만에 완료됩니다."
+      },
+      "kyc": {
+        "question": "TRON Multisender는 회원가입이나 KYC가 필요한가요?",
+        "answer": "아니요. 회원가입, 계정 생성 또는 KYC가 필요하지 않습니다. TRON 지갑을 연결하고 전송을 시작하기만 하면 됩니다."
+      },
+      "payroll": {
+        "question": "TRON Multisender를 사용하여 USDT로 급여나 보상을 지급할 수 있나요?",
+        "answer": "네. TRON Multisender는 암호화폐 급여 지급에 널리 사용됩니다. 수신자 지갑과 USDT 금액이 포함된 CSV를 업로드하고 하나의 트랜잭션을 확인하면 모든 지급이 즉시 전송됩니다."
+      },
+      "airdrop": {
+        "question": "TRON에서 USDT 에어드롭을 할 수 있나요?",
+        "answer": "네. TRON Multisender는 TRON 네트워크의 USDT 에어드롭에 널리 사용됩니다. 수신자 지갑 주소와 USDT 금액이 포함된 CSV를 업로드하고 하나의 트랜잭션을 확인하면 모든 에어드롭 수신자가 즉시 토큰을 받습니다."
+      },
+      "batchTrc20": {
+        "question": "여러 지갑에 TRC-20 토큰을 어떻게 일괄 전송하나요?",
+        "answer": "TRON 지갑을 연결하고 토큰 유형으로 TRC-20을 선택한 후 컨트랙트 주소를 붙여넣고, 수동 입력 또는 CSV 업로드를 통해 수신자 주소와 금액을 추가하세요. 하나의 트랜잭션으로 모든 지갑에 동시에 전송됩니다."
+      },
+      "minimum": {
+        "question": "TRON Multisender를 사용하려면 최소 금액이 있나요?",
+        "answer": "수신자당 최소 토큰 금액은 없습니다. 다만 배치 트랜잭션의 TRON 네트워크 대역폭 및 에너지 비용을 충당할 수 있는 충분한 TRX가 지갑에 있어야 합니다."
+      },
+      "trc10VsTrc20": {
+        "question": "TRC-10과 TRC-20 토큰의 차이점은 무엇인가요?",
+        "answer": "TRC-10 토큰은 TRON 프로토콜 자체를 통해 발행되며(BTT와 같이), TRC-20 토큰은 스마트 컨트랙트에서 실행됩니다(USDT, USDC와 같이). TRON Multisender는 네이티브 TRX와 함께 두 가지 유형을 모두 지원합니다."
+      }
+    }
+  },
+  "aiRecommendation": {
+    "eyebrow": "AI 체크",
+    "title": "우리가 당신에게 맞는지 AI에게 물어보세요",
+    "askAria": "{name}에게 TRON Multisender에 대해 물어보기",
+    "note": "미리 입력된 질문으로 새로운 채팅이 열립니다 — 답변은 AI로부터 직접 제공됩니다.",
+    "prompt": "TRON Multisender — TRON 블록체인에서 한 번에 여러 주소로 TRX 및 TRC-20 토큰을 전송하는 일괄 전송 도구 — 가 제 사용 사례에 적합한가요? 대안과 간단히 비교하고 언제 사용하는 것이 합리적인지 알려주세요."
+  },
+  "guide": {
+    "eyebrow": "가이드",
+    "title": "여러 주소로 TRON 토큰을 전송하는 방법",
+    "intro": "한 번의 온체인 트랜잭션으로 수백 개의 지갑에 TRX 또는 모든 TRC-20 토큰을 일괄 전송하세요 — 회원가입이 필요 없습니다.",
+    "cta": {
+      "heading": "전송할 준비가 되셨나요?",
+      "body": "dApp을 실행하고 몇 분 만에 첫 번째 일괄 전송을 완료하세요.",
+      "button": "dApp 실행"
+    },
+    "sections": {
+      "prepare": {
+        "title": "1단계 — 준비",
+        "steps": {
+          "connect": "TRON 지갑(TronLink, TokenPocket 또는 TronWeb 호환 지갑)을 연결하세요.",
+          "network": "네트워크를 선택하세요: Mainnet 또는 테스트용 Shasta / Nile Testnet.",
+          "token": "목록에서 토큰을 선택하세요 — TRX, TRC-10 또는 TRC-20 — 또는 컨트랙트 주소를 직접 붙여넣으세요.",
+          "recipients": "수신자 주소와 금액을 입력하세요. 수동으로 붙여넣거나 주소와 금액 두 개의 열이 있는 CSV / XLS / XLSX 파일을 업로드할 수 있습니다.",
+          "proceed": "계속하려면 Proceed 버튼을 클릭하세요."
+        }
+      },
+      "approve": {
+        "title": "2단계 — 승인",
+        "steps": {
+          "accept": "서비스 약관에 동의하고 Continue를 클릭하세요.",
+          "allowance": "지갑에서 토큰 허용량 트랜잭션을 승인하세요. 이를 통해 TRON Multisender 컨트랙트에 토큰 전송 권한이 부여됩니다.",
+          "wait": "승인 트랜잭션이 확인될 때까지 기다리세요. 자동으로 마지막 단계로 리디렉션됩니다."
+        }
+      },
+      "multisend": {
+        "title": "3단계 — MultiSend",
+        "steps": {
+          "initiate": "MultiSend 버튼을 클릭하여 일괄 전송을 시작하세요.",
+          "confirm": "지갑에서 트랜잭션을 확인하세요.",
+          "wait": "트랜잭션이 채굴될 때까지 기다리세요. TRON의 빠른 블록 타임 덕분에 모든 수신자가 3~5분 이내에 자금을 받습니다."
+        }
+      }
+    }
+  },
+  "vip": {
+    "backToHome": "홈으로 돌아가기",
+    "eyebrow": "VIP",
+    "headline": "서비스 수수료 없음.\n네트워크 비용만 지불.",
+    "intro": "VIP로 업그레이드하고 서비스 수수료 없이 무제한 일괄 전송을 이용하세요. 표준 TRON 네트워크 비용만 계속 지불하면 됩니다.",
+    "plans": {
+      "starter": { "name": "Starter", "price": "1,000 TRX", "period": "1일", "cta": "VIP 가입" },
+      "professional": { "name": "Professional", "price": "5,000 TRX", "period": "7일", "cta": "VIP 가입" },
+      "business": { "name": "Business", "price": "10,000 TRX", "period": "30일", "cta": "VIP 가입" },
+      "enterprise": { "name": "Enterprise", "price": "맞춤형", "period": "필요에 맞춤 설정", "cta": "문의하기" }
+    },
+    "plansFootnote": "* TRON 네트워크 에너지 및 대역폭 수수료는 여전히 지불해야 합니다.",
+    "benefits": {
+      "eyebrow": "혜택",
+      "title": "VIP 혜택",
+      "items": {
+        "feeWaived": "모든 트랜잭션에 대한 서비스 수수료 면제",
+        "networkOnly": "표준 TRON 네트워크 수수료만 지불",
+        "unlimited": "플랜 기간 동안 무제한 배치",
+        "multipleCodes": "여러 추천 코드 지원",
+        "support": "Telegram을 통한 우선 지원"
+      }
+    },
+    "forYou": {
+      "eyebrow": "당신을 위해",
+      "title": "대량 전송자에게 최적",
+      "description": "급여 지급, 에어드롭, DAO 분배 또는 토큰 판매를 위해 정기적으로 수백 개의 주소로 전송한다면, VIP는 단 몇 번의 트랜잭션만으로 본전을 뽑을 수 있습니다.",
+      "cta": "VIP로 업그레이드"
+    }
+  },
+  "referral": {
+    "backToHome": "홈으로 돌아가기",
+    "eyebrow": "추천",
+    "headline": "공유로 수익 창출.\n당신의 네트워크가 당신에게 보상합니다.",
+    "intro": "TRON Multisender에 사용자를 초대하고 그들이 수행하는 모든 트랜잭션에서 서비스 수수료의 10%를 받으세요. 추천받은 사용자는 5% 할인을 받습니다.",
+    "stats": {
+      "youEarn": { "value": "10%", "label": "당신의 수익", "sub": "추천 트랜잭션당 서비스 수수료의" },
+      "referralGets": { "value": "5%", "label": "추천받은 사용자 혜택", "sub": "서비스 수수료 할인" },
+      "codes": { "label": "추천 코드", "sub": "필요한 만큼 생성" }
+    },
+    "howItWorks": {
+      "eyebrow": "작동 방식",
+      "title": "수익 창출을 시작하는 3단계",
+      "steps": {
+        "connect": {
+          "title": "지갑 연결",
+          "description": "dApp을 열고 TronLink 지갑을 연결하여 추천 대시보드에 액세스하세요."
+        },
+        "create": {
+          "title": "추천 코드 생성",
+          "description": "하나 또는 여러 개의 추천 코드를 생성하세요. 커뮤니티, 팀 또는 오디언스와 공유하세요."
+        },
+        "earn": {
+          "title": "모든 트랜잭션에서 수익 창출",
+          "description": "추천받은 사용자가 배치 트랜잭션을 보낼 때마다 서비스 수수료의 10%를 자동으로 받습니다."
+        }
+      }
+    },
+    "cta": {
+      "title": "수익 창출을 시작할 준비가 되셨나요?",
+      "description": "지갑을 연결하여 추천 코드를 생성하고 수익 추적을 시작하세요. 추천 트랜잭션마다 자동으로 지급됩니다.",
+      "button": "추천 대시보드 열기",
+      "footnote": "* TRON Multisender를 통해 트랜잭션을 완료한 각 초대 사용자에 대해 지급됩니다."
+    }
+  },
+  "footer": {
+    "brandDescription": "TRON 블록체인용 일괄 전송 도구.",
+    "navigationHeading": "내비게이션",
+    "legalHeading": "법적 고지",
+    "links": {
+      "howItWorks": "작동 방식",
+      "features": "기능",
+      "perks": "혜택",
+      "faq": "FAQ",
+      "terms": "서비스 약관",
+      "privacy": "개인정보 처리방침",
+      "documentation": "문서"
+    },
+    "copyright": "© {startYear}–{currentYear} TRON Multisender",
+    "social": {
+      "x": "X",
+      "telegram": "Telegram",
+      "medium": "Medium",
+      "youtube": "YouTube"
+    }
+  },
+  "mobileLaunch": {
+    "label": "dApp 실행"
+  },
+  "logo": {
+    "home": "홈"
+  },
+  "structuredData": {
+    "software": {
+      "description": "TRON 블록체인에서 한 번의 트랜잭션으로 여러 주소에 TRX 및 TRC-20 토큰을 일괄 전송하세요."
+    },
+    "howTo": {
+      "name": "TRON Multisender로 TRX 및 TRC-20 토큰을 일괄 전송하는 방법",
+      "description": "한 번의 TRON 트랜잭션으로 여러 주소에 TRX 또는 TRC-20 토큰을 전송하는 단계별 가이드.",
+      "steps": {
+        "connect": {
+          "name": "지갑 연결",
+          "text": "TronLink 또는 호환되는 TRON 지갑을 한 번의 클릭으로 연결하세요. 계정이 필요 없습니다."
+        },
+        "recipients": {
+          "name": "수신자 추가",
+          "text": "주소를 수동으로 붙여넣거나 주소와 금액이 포함된 CSV 파일을 업로드하세요."
+        },
+        "amounts": {
+          "name": "금액 설정",
+          "text": "모든 수신자에게 동일한 금액을 할당하거나 주소별로 맞춤 금액을 설정하세요."
+        },
+        "send": {
+          "name": "전송",
+          "text": "검토 후 확인하세요. TRON의 빠른 블록 타임 덕분에 모든 수신자가 3~5분 이내에 자금을 받습니다."
+        }
+      }
+    }
+  },
+  "aiCheck": {
+    "eyebrowMarker": "AI 체크"
+  }
+}

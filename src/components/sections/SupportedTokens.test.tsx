@@ -1,14 +1,15 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl } from '@/test/render'
 import { SupportedTokens } from './SupportedTokens'
 
 describe('SupportedTokens', () => {
   it('renders the section heading', () => {
-    render(<SupportedTokens />)
+    renderWithIntl(<SupportedTokens />)
     expect(screen.getByRole('heading', { name: /Supported Tokens/i })).toBeInTheDocument()
   })
 
   it('renders all token symbols', () => {
-    render(<SupportedTokens />)
+    renderWithIntl(<SupportedTokens />)
     expect(screen.getByText('TRX')).toBeInTheDocument()
     expect(screen.getByText('USDT')).toBeInTheDocument()
     expect(screen.getByText('USDC')).toBeInTheDocument()
@@ -17,17 +18,17 @@ describe('SupportedTokens', () => {
   })
 
   it('renders the Native badge for TRX', () => {
-    render(<SupportedTokens />)
+    renderWithIntl(<SupportedTokens />)
     expect(screen.getByText('Native')).toBeInTheDocument()
   })
 
   it('renders the any TRC-20 note', () => {
-    render(<SupportedTokens />)
+    renderWithIntl(<SupportedTokens />)
     expect(screen.getByText(/Any TRC-20 contract address is supported/i)).toBeInTheDocument()
   })
 
   it('renders an icon image for every token', () => {
-    const { container } = render(<SupportedTokens />)
+    const { container } = renderWithIntl(<SupportedTokens />)
     const icons = container.querySelectorAll('img[src^="/tokens/"]')
     expect(icons).toHaveLength(5)
   })

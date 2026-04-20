@@ -1,40 +1,27 @@
+import { useTranslations } from 'next-intl'
 import { Wallet, Upload, SlidersHorizontal, Zap, type LucideIcon } from 'lucide-react'
 
-type Step = {
-  number: string
-  icon: LucideIcon
-  title: string
-  description: string
+const STEP_KEYS = ['connect', 'recipients', 'amounts', 'send'] as const
+type StepKey = (typeof STEP_KEYS)[number]
+
+const STEP_ICONS: Record<StepKey, LucideIcon> = {
+  connect: Wallet,
+  recipients: Upload,
+  amounts: SlidersHorizontal,
+  send: Zap,
 }
 
-const STEPS: Step[] = [
-  {
-    number: '01',
-    icon: Wallet,
-    title: 'Connect Wallet',
-    description: 'Connect TronLink or any compatible TRON wallet in one click. No account needed.',
-  },
-  {
-    number: '02',
-    icon: Upload,
-    title: 'Add Recipients',
-    description: 'Paste addresses manually or upload a CSV file with addresses and amounts.',
-  },
-  {
-    number: '03',
-    icon: SlidersHorizontal,
-    title: 'Set Amounts',
-    description: 'Assign the same amount to all recipients or set custom amounts per address.',
-  },
-  {
-    number: '04',
-    icon: Zap,
-    title: 'Send',
-    description: 'Review and confirm. All recipients receive funds within 3\u20135 minutes via TRON\u2019s fast block time.',
-  },
-]
+const STEP_NUMBERS: Record<StepKey, string> = {
+  connect: '01',
+  recipients: '02',
+  amounts: '03',
+  send: '04',
+}
 
 export function HowItWorks() {
+  const t = useTranslations('howItWorks')
+  const tBrand = useTranslations('brand')
+
   return (
     <section
       id="how-it-works"
@@ -43,48 +30,42 @@ export function HowItWorks() {
     >
       <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-          TRON Multisender <span className="text-primary font-light">[ </span>Process<span className="text-primary font-light"> ]</span>
+          {tBrand('name')} <span className="text-primary font-light">[ </span>{t('eyebrow')}<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="how-it-works-heading"
           className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-12 md:mb-16 text-center"
         >
-          How It Works
+          {t('title')}
         </h2>
 
-        {/* Timeline layout */}
         <div className="relative">
-          {/* Vertical center line (desktop) */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-grey-medium to-primary/30" />
-
-          {/* Vertical left line (mobile) */}
           <div className="md:hidden absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-grey-medium to-primary/30" />
 
-          {STEPS.map((step, i) => {
-            const Icon = step.icon
+          {STEP_KEYS.map((stepKey, i) => {
+            const Icon = STEP_ICONS[stepKey]
+            const number = STEP_NUMBERS[stepKey]
+            const title = t(`steps.${stepKey}.title`)
+            const description = t(`steps.${stepKey}.description`)
             const isLeft = i % 2 === 0
 
             return (
-              <div key={step.number} className="relative flex items-start mb-12 last:mb-0">
-                {/* Dot — mobile (left) */}
+              <div key={stepKey} className="relative flex items-start mb-12 last:mb-0">
                 <div className="md:hidden absolute left-5 top-6 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-2 border-grey-light z-10" />
-
-                {/* Dot — desktop (center) */}
                 <div className="hidden md:flex absolute left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-2 border-grey-light z-10" />
 
-                {/* Mobile: single column with left offset */}
                 <div className="md:hidden pl-10 w-full">
-                  <TimelineCard step={step} Icon={Icon} />
+                  <TimelineCard number={number} title={title} description={description} Icon={Icon} />
                 </div>
 
-                {/* Desktop: alternating left/right */}
                 <div
                   className={[
                     'hidden md:block w-[calc(50%-2rem)]',
                     isLeft ? 'mr-auto pr-8' : 'ml-auto pl-8',
                   ].join(' ')}
                 >
-                  <TimelineCard step={step} Icon={Icon} />
+                  <TimelineCard number={number} title={title} description={description} Icon={Icon} />
                 </div>
               </div>
             )
@@ -95,24 +76,34 @@ export function HowItWorks() {
   )
 }
 
-function TimelineCard({ step, Icon }: { step: Step; Icon: LucideIcon }) {
+function TimelineCard({
+  number,
+  title,
+  description,
+  Icon,
+}: {
+  number: string
+  title: string
+  description: string
+  Icon: LucideIcon
+}) {
   return (
     <div className="relative overflow-hidden glass-card rounded-lg p-6 group hover:shadow-md hover:-translate-y-1 transition-all duration-500">
       <span className="absolute -top-3 -right-1 font-rubik font-extrabold text-[72px] text-black-4 leading-none select-none pointer-events-none">
-        {step.number}
+        {number}
       </span>
       <div className="relative z-10">
         <div className="w-10 h-10 rounded-full bg-primary-ghost flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-500">
           <Icon size={20} className="text-primary" />
         </div>
         <div className="font-rubik font-bold text-[11px] text-primary-medium uppercase tracking-[2px] mb-2">
-          {step.number}
+          {number}
         </div>
         <h3 className="font-rubik font-bold text-[16px] text-dark-hard mb-2">
-          {step.title}
+          {title}
         </h3>
         <p className="font-rubik text-[13px] text-dark leading-relaxed tracking-[-0.01em]">
-          {step.description}
+          {description}
         </p>
       </div>
     </div>

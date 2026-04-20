@@ -1,14 +1,15 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl } from '@/test/render'
 import { Features } from './Features'
 
 describe('Features', () => {
   it('renders the section heading', () => {
-    render(<Features />)
-    expect(screen.getByRole('heading', { name: /Why Tron Multisender/i })).toBeInTheDocument()
+    renderWithIntl(<Features />)
+    expect(screen.getByRole('heading', { name: /Why TRON Multisender/i })).toBeInTheDocument()
   })
 
   it('renders all 6 feature titles', () => {
-    render(<Features />)
+    renderWithIntl(<Features />)
     expect(screen.getByText('Batch TRX Transfer')).toBeInTheDocument()
     expect(screen.getByText('TRC-20 Token Support')).toBeInTheDocument()
     expect(screen.getByText('CSV Upload')).toBeInTheDocument()

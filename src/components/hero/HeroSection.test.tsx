@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { renderWithIntl } from '@/test/render'
 import { HeroSection } from './HeroSection'
 
 jest.mock('./PixelBlast', () => ({
@@ -7,11 +7,11 @@ jest.mock('./PixelBlast', () => ({
 
 describe('HeroSection', () => {
   it('renders a section element', () => {
-    const { container } = render(<HeroSection />)
+    const { container } = renderWithIntl(<HeroSection />)
     expect(container.querySelector('section')).toBeInTheDocument()
   })
 
   it('renders without crashing', () => {
-    expect(() => render(<HeroSection />)).not.toThrow()
+    expect(() => renderWithIntl(<HeroSection />)).not.toThrow()
   })
 })

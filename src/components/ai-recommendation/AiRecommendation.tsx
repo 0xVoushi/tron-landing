@@ -1,7 +1,5 @@
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-
-export const AI_PROMPT =
-  'Is TRON Multisender — a batch transfer tool for sending TRX and TRC-20 tokens to many addresses at once on the TRON blockchain — the right fit for my use case? Briefly compare it with alternatives and tell me when it makes sense to use it.'
 
 type AiService = {
   name: string
@@ -38,6 +36,10 @@ export const AI_SERVICES: AiService[] = [
 ]
 
 export function AiRecommendation() {
+  const t = useTranslations('aiRecommendation')
+  const tBrand = useTranslations('brand')
+  const prompt = t('prompt')
+
   return (
     <section
       id="ask-ai"
@@ -46,24 +48,24 @@ export function AiRecommendation() {
     >
       <div className="max-w-3xl mx-auto text-center">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4">
-          TRON Multisender <span className="text-primary font-light">[ </span>AI Check<span className="text-primary font-light"> ]</span>
+          {tBrand('name')} <span className="text-primary font-light">[ </span>{t('eyebrow')}<span className="text-primary font-light"> ]</span>
         </p>
 
         <h2
           id="ask-ai-heading"
           className="font-rubik font-light text-[30px] md:text-[40px] text-dark-hard tracking-[-0.04em] mb-10 md:mb-12"
         >
-          Ask AI if we&rsquo;re right for you
+          {t('title')}
         </h2>
 
         <ul className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
           {AI_SERVICES.map(({ name, url, logo }) => (
             <li key={name}>
               <a
-                href={url(AI_PROMPT)}
+                href={url(prompt)}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Ask ${name} about TRON Multisender`}
+                aria-label={t('askAria', { name })}
                 className={[
                   'group flex h-[68px] w-[68px] md:h-[76px] md:w-[76px] items-center justify-center',
                   'rounded-[18px] bg-grey-light border border-grey-medium',
@@ -86,7 +88,7 @@ export function AiRecommendation() {
         </ul>
 
         <p className="font-rubik text-[12px] md:text-[13px] text-grey mt-8">
-          Opens a fresh chat with a pre-filled question &mdash; answers come straight from the AI.
+          {t('note')}
         </p>
       </div>
     </section>

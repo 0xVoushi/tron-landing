@@ -47,7 +47,10 @@
       "mcp__MCP_DOCKER__browser_press_key",
       "mcp__chrome-devtools__take_screenshot",
       "mcp__chrome-devtools__evaluate_script",
-      "mcp__chrome-devtools__navigate_page"
+      "mcp__chrome-devtools__navigate_page",
+      "Bash(npm install *)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(npm --version)"
     ],
     "defaultMode": "bypassPermissions"
   },

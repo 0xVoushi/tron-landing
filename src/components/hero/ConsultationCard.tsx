@@ -1,7 +1,10 @@
+import { useTranslations } from 'next-intl'
 import { ShieldCheck } from 'lucide-react'
 import { PillButton } from '@/components/ui/PillButton'
 
 export function ConsultationCard() {
+  const t = useTranslations('consultationCard')
+
   return (
     <div
       className={[
@@ -22,15 +25,15 @@ export function ConsultationCard() {
 
       <div className="flex flex-col">
         <span className="font-rubik font-medium text-[10px] text-white-40 uppercase tracking-[1.5px] mb-0.5">
-          Verified
+          {t('verified')}
         </span>
         <span className="font-rubik font-semibold text-[14px] text-white tracking-[-0.2px]">
-          TRON Multisender
+          {t('brand')}
         </span>
       </div>
 
       <PillButton variant="secondary" size="sm" className="ml-2 whitespace-nowrap">
-        Launch dApp
+        {t('cta')}
       </PillButton>
     </div>
   )

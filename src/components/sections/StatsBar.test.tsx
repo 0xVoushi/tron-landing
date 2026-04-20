@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl } from '@/test/render'
 import { StatsBar } from './StatsBar'
 
 describe('StatsBar', () => {
   it('renders all 4 stat values', () => {
-    render(<StatsBar />)
+    renderWithIntl(<StatsBar />)
     expect(screen.getByText('1,000+')).toBeInTheDocument()
     expect(screen.getByText('3')).toBeInTheDocument()
     expect(screen.getByText('~90%')).toBeInTheDocument()
@@ -11,7 +12,7 @@ describe('StatsBar', () => {
   })
 
   it('renders stat labels', () => {
-    render(<StatsBar />)
+    renderWithIntl(<StatsBar />)
     expect(screen.getByText('Recipients per Tx')).toBeInTheDocument()
     expect(screen.getByText('Token Types')).toBeInTheDocument()
     expect(screen.getByText('Fee Savings')).toBeInTheDocument()

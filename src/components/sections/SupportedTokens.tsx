@@ -1,27 +1,25 @@
-type TokenType = 'Native' | 'TRC-20' | 'TRC-10'
+import { useTranslations } from 'next-intl'
 
-type Token = {
-  symbol: string
-  name: string
-  type: TokenType
-  icon: string
+type TokenTypeKey = 'native' | 'trc20' | 'trc10'
+
+const TYPE_STYLES: Record<TokenTypeKey, string> = {
+  native: 'bg-primary-ghost text-primary',
+  trc20: 'bg-[hsla(156,70%,90%,1)] text-[hsla(160,80%,26%,1)]',
+  trc10: 'bg-[hsla(42,95%,88%,1)] text-[hsla(35,85%,32%,1)]',
 }
 
-const TYPE_STYLES: Record<TokenType, string> = {
-  Native: 'bg-primary-ghost text-primary',
-  'TRC-20': 'bg-[hsla(156,70%,90%,1)] text-[hsla(160,80%,26%,1)]',
-  'TRC-10': 'bg-[hsla(42,95%,88%,1)] text-[hsla(35,85%,32%,1)]',
-}
-
-const TOKENS: Token[] = [
-  { symbol: 'TRX', name: 'TRON', type: 'Native', icon: '/tokens/TRON-Coin.svg' },
-  { symbol: 'USDT', name: 'Tether USD', type: 'TRC-20', icon: '/tokens/Tether.svg' },
-  { symbol: 'USDC', name: 'USD Coin', type: 'TRC-20', icon: '/tokens/USD-Coin.svg' },
-  { symbol: 'WTRX', name: 'Wrapped TRX', type: 'TRC-20', icon: '/tokens/TRON-Coin.svg' },
-  { symbol: 'BTT', name: 'BitTorrent', type: 'TRC-10', icon: '/tokens/BitTorrent-Coin.svg' },
-]
+const TOKENS = [
+  { symbol: 'TRX', key: 'trx', typeKey: 'native' as TokenTypeKey, icon: '/tokens/TRON-Coin.svg' },
+  { symbol: 'USDT', key: 'usdt', typeKey: 'trc20' as TokenTypeKey, icon: '/tokens/Tether.svg' },
+  { symbol: 'USDC', key: 'usdc', typeKey: 'trc20' as TokenTypeKey, icon: '/tokens/USD-Coin.svg' },
+  { symbol: 'WTRX', key: 'wtrx', typeKey: 'trc20' as TokenTypeKey, icon: '/tokens/TRON-Coin.svg' },
+  { symbol: 'BTT', key: 'btt', typeKey: 'trc10' as TokenTypeKey, icon: '/tokens/BitTorrent-Coin.svg' },
+] as const
 
 export function SupportedTokens() {
+  const t = useTranslations('supportedTokens')
+  const tBrand = useTranslations('brand')
+
   return (
     <section
       id="tokens"
@@ -30,16 +28,16 @@ export function SupportedTokens() {
     >
       <div className="max-w-7xl mx-auto">
         <p className="font-rubik font-normal text-[15px] md:text-[17px] text-dark-hard tracking-[-0.02em] mb-4 text-center">
-          TRON Multisender <span className="text-primary font-light">[ </span>Tokens<span className="text-primary font-light"> ]</span>
+          {tBrand('name')} <span className="text-primary font-light">[ </span>{t('eyebrow')}<span className="text-primary font-light"> ]</span>
         </p>
         <h2
           id="tokens-heading"
           className="font-rubik font-light text-[34px] md:text-[44px] text-dark-hard tracking-[-0.04em] mb-4 text-center"
         >
-          Supported Tokens
+          {t('title')}
         </h2>
         <p className="font-rubik text-[14px] text-dark text-center mb-12 md:mb-16 max-w-lg mx-auto tracking-[-0.01em]">
-          Send any TRC-20 token or native TRX to multiple recipients simultaneously.
+          {t('subtitle')}
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
@@ -60,22 +58,22 @@ export function SupportedTokens() {
               <div className="font-rubik font-extrabold text-[22px] text-dark-hard mb-1">
                 {token.symbol}
               </div>
-              <div className="font-rubik text-[11px] text-grey">{token.name}</div>
+              <div className="font-rubik text-[11px] text-grey">{t(`tokens.${token.key}`)}</div>
               <span
                 className={[
                   'absolute top-2.5 right-2.5 z-10',
                   'font-rubik font-semibold text-[9px] uppercase tracking-[1.2px] px-2 py-0.5 rounded-full',
-                  TYPE_STYLES[token.type],
+                  TYPE_STYLES[token.typeKey],
                 ].join(' ')}
               >
-                {token.type}
+                {t(`types.${token.typeKey}`)}
               </span>
             </div>
           ))}
         </div>
 
         <p className="font-rubik text-[13px] text-grey text-center">
-          Any TRC-20 contract address is supported. Paste the contract address to get started.
+          {t('footnote')}
         </p>
       </div>
     </section>

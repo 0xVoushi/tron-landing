@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "home": {
+      "title": "TRON Multisender — Official TRX & TRC-20 Batch Transfer Tool",
+      "description": "Send TRX and TRC-20 tokens to 1,000+ addresses in one TRON transaction. Official non-custodial batch transfer tool. No registration required.",
+      "ogTitle": "TRON Multisender — Official Batch Transfer Tool",
+      "ogDescription": "Send TRX and TRC-20 tokens to 1,000+ addresses in one transaction. Non-custodial.",
+      "twitterDescription": "Official batch transfer tool for TRON. Send to 1,000+ addresses in one tx.",
+      "ogAlt": "TRON Multisender — Official Batch Transfer Tool"
+    },
+    "guide": {
+      "title": "How to Use TRON Multisender — Step-by-Step Guide",
+      "description": "Learn how to batch send TRX and TRC-20 tokens to multiple addresses in one transaction. Step-by-step guide: connect wallet, add recipients, approve and send.",
+      "ogDescription": "Learn how to batch send TRX and TRC-20 tokens to multiple addresses in one transaction.",
+      "ogAlt": "TRON Multisender Guide"
+    },
+    "vip": {
+      "title": "VIP Access — TRON Multisender",
+      "description": "Upgrade to VIP and skip the per-batch service fee. Pay only TRON network costs. Plans from 1,000 TRX/day.",
+      "ogAlt": "TRON Multisender VIP"
+    },
+    "referral": {
+      "title": "Referral Program — TRON Multisender",
+      "description": "Invite users to TRON Multisender and earn 10% of the service fee for every referral. Your referrals get a 5% discount.",
+      "ogAlt": "TRON Multisender Referral Program"
+    }
+  },
+  "brand": {
+    "name": "TRON Multisender",
+    "description": "Batch transfer tool for the TRON blockchain."
+  },
+  "nav": {
+    "home": "Home",
+    "howItWorks": "How It Works",
+    "features": "Features",
+    "tokens": "Tokens",
+    "perks": "Perks",
+    "faq": "FAQ",
+    "launchApp": "Launch dApp",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "Batch Transfer",
+    "headline": "Batch Send TRX & TRC-20 Tokens",
+    "subheadline": "Send USDT, TRX, or any TRC-20 token to 1,000+ addresses in one transaction — no registration, fully non-custodial.",
+    "cta": "Launch dApp",
+    "stats": {
+      "recipients": { "value": "1,000+", "label": "Recipients per Tx", "sub": "Per transaction" },
+      "tokenTypes": { "value": "3", "label": "Token Types", "sub": "TRX / TRC-20 / TRC-10" },
+      "feeSavings": { "value": "~90%", "label": "Fee Savings", "sub": "vs manual sending" },
+      "custody": { "value": "Zero", "label": "Custody", "sub": "Fully on-chain" }
+    }
+  },
+  "consultationCard": {
+    "verified": "Verified",
+    "brand": "TRON Multisender",
+    "cta": "Launch dApp"
+  },
+  "stats": {
+    "ariaLabel": "Key statistics",
+    "recipients": { "value": "1,000+", "label": "Recipients per Tx", "sublabel": "Per transaction" },
+    "tokenTypes": { "value": "3", "label": "Token Types", "sublabel": "TRX / TRC-20 / TRC-10" },
+    "feeSavings": { "value": "~90%", "label": "Fee Savings", "sublabel": "vs manual sending" },
+    "custody": { "value": "Zero", "label": "Custody", "sublabel": "Fully on-chain" }
+  },
+  "howItWorks": {
+    "eyebrow": "Process",
+    "title": "How It Works",
+    "steps": {
+      "connect": {
+        "title": "Connect Wallet",
+        "description": "Connect TronLink or any compatible TRON wallet in one click. No account needed."
+      },
+      "recipients": {
+        "title": "Add Recipients",
+        "description": "Paste addresses manually or upload a CSV file with addresses and amounts."
+      },
+      "amounts": {
+        "title": "Set Amounts",
+        "description": "Assign the same amount to all recipients or set custom amounts per address."
+      },
+      "send": {
+        "title": "Send",
+        "description": "Review and confirm. All recipients receive funds within 3–5 minutes via TRON's fast block time."
+      }
+    }
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title": "Why TRON Multisender",
+    "visualLabel": "[ visual ]",
+    "items": {
+      "batchTrx": {
+        "tag": "Hero",
+        "title": "Batch TRX Transfer",
+        "description": "Send TRX to hundreds of wallets in a single transaction. No limit on recipients."
+      },
+      "trc20": {
+        "tag": "02",
+        "title": "TRC-20 Token Support",
+        "description": "USDT, USDC, WTRX, BTT and any TRC-20 token. Just paste the contract address."
+      },
+      "onChain": {
+        "tag": "03",
+        "title": "Fully On-Chain",
+        "description": "No custody, no registration. Your keys, your funds. Everything on-chain."
+      },
+      "csv": {
+        "tag": "04",
+        "title": "CSV Upload",
+        "description": "Import your recipient list and amounts directly from a spreadsheet file."
+      },
+      "fees": {
+        "tag": "05",
+        "title": "Save on Fees",
+        "description": "Batch transactions use significantly less bandwidth and energy than sending one by one."
+      },
+      "instant": {
+        "tag": "Hero",
+        "title": "Instant Confirmation",
+        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
+      }
+    }
+  },
+  "supportedTokens": {
+    "eyebrow": "Tokens",
+    "title": "Supported Tokens",
+    "subtitle": "Send any TRC-20 token or native TRX to multiple recipients simultaneously.",
+    "footnote": "Any TRC-20 contract address is supported. Paste the contract address to get started.",
+    "types": {
+      "native": "Native",
+      "trc20": "TRC-20",
+      "trc10": "TRC-10"
+    },
+    "tokens": {
+      "trx": "TRON",
+      "usdt": "Tether USD",
+      "usdc": "USD Coin",
+      "wtrx": "Wrapped TRX",
+      "btt": "BitTorrent"
+    }
+  },
+  "pricing": {
+    "eyebrow": "Perks",
+    "title": "More Ways To Use TRON Multisender",
+    "subtitle": "VIP plans, referral rewards, and a free testnet — built for every type of user.",
+    "cards": {
+      "vip": {
+        "label": "VIP Access",
+        "title": "No Service Fee",
+        "description": "Upgrade to VIP and skip the per-batch service fee entirely. Pay only standard TRON network costs.",
+        "cta": "Get VIP"
+      },
+      "referral": {
+        "label": "Referral Program",
+        "title": "Earn by Referring",
+        "description": "Invite others to TRON Multisender and earn rewards for every active referral. No limit on earnings.",
+        "cta": "View Referral Program"
+      },
+      "testnet": {
+        "label": "Testnet",
+        "title": "Try for Free",
+        "description": "Not ready for mainnet? Run the full batch transfer flow on Shasta or Nile Testnet — no real funds needed.",
+        "cta": "Try dApp on Testnet now"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": {
+      "whatIs": {
+        "question": "What is TRON Multisender?",
+        "answer": "TRON Multisender is an official on-chain tool that lets you send TRX or TRC-20 tokens to multiple wallet addresses in a single blockchain transaction on the TRON network."
+      },
+      "howToSendUsdt": {
+        "question": "How do I send USDT to multiple addresses on TRON?",
+        "answer": "Connect your TronLink wallet, select TRC-20 as the token type and enter the USDT contract address, then add recipient addresses and amounts — or upload a CSV file. Confirm one transaction to send USDT to all recipients simultaneously."
+      },
+      "customAmounts": {
+        "question": "Can I send different amounts to each address?",
+        "answer": "Yes. You can set a custom amount per address, or choose to send equal amounts to all recipients. Both manual entry and CSV upload support per-address custom amounts."
+      },
+      "safety": {
+        "question": "Is TRON Multisender safe to use?",
+        "answer": "Yes. TRON Multisender is fully non-custodial — your private keys never leave your wallet. All transfers happen directly on-chain via smart contract. There is no registration or account required."
+      },
+      "supportedTokens": {
+        "question": "What tokens does TRON Multisender support?",
+        "answer": "TRON Multisender supports TRX (native TRON), TRC-10 tokens, and any TRC-20 token including USDT, USDC, WTRX, and BTT. Any valid TRC-20 contract address can be used."
+      },
+      "addressLimit": {
+        "question": "How many addresses can I send to at once?",
+        "answer": "You can send to up to 1,000 addresses in a single transaction. For larger distributions, you can split into multiple batches."
+      },
+      "cost": {
+        "question": "How much does it cost to use TRON Multisender?",
+        "answer": "A small service fee applies per transaction. Using batch transfer also significantly reduces the total bandwidth and energy cost compared to sending individually — typically saving around 90% in fees."
+      },
+      "csvUpload": {
+        "question": "How does CSV upload work?",
+        "answer": "Prepare a CSV file with two columns: wallet address and amount. Upload it in the app and TRON Multisender will parse and validate all entries before you confirm the transaction."
+      },
+      "wallet": {
+        "question": "What wallet do I need?",
+        "answer": "You need a TRON-compatible wallet such as TronLink (browser extension or mobile), TokenPocket, or any wallet that supports TronWeb. No new wallet creation is needed."
+      },
+      "vsManual": {
+        "question": "What is the difference vs manual sending?",
+        "answer": "Sending manually requires one transaction per recipient — time-consuming and expensive. TRON Multisender batches all transfers into one transaction, saving up to 90% in fees and completing in seconds."
+      },
+      "kyc": {
+        "question": "Does TRON Multisender require registration or KYC?",
+        "answer": "No. There is no registration, account creation, or KYC required. Just connect your TRON wallet and start sending."
+      },
+      "payroll": {
+        "question": "Can I use TRON Multisender to pay salaries or rewards in USDT?",
+        "answer": "Yes. TRON Multisender is widely used for crypto payroll — upload a CSV with recipient wallets and USDT amounts, confirm one transaction, and all payments are sent instantly."
+      },
+      "airdrop": {
+        "question": "Can I do a USDT airdrop on TRON?",
+        "answer": "Yes. TRON Multisender is widely used for USDT airdrops on the TRON network. Upload a CSV with recipient wallet addresses and USDT amounts, confirm one transaction, and all airdrop recipients receive their tokens instantly."
+      },
+      "batchTrc20": {
+        "question": "How do I batch send TRC-20 tokens to multiple wallets?",
+        "answer": "Connect your TRON wallet, select TRC-20 as the token type and paste the contract address, then add recipient addresses and amounts via manual input or CSV upload. One transaction sends to all wallets simultaneously."
+      },
+      "minimum": {
+        "question": "Is there a minimum amount to use TRON Multisender?",
+        "answer": "There is no minimum token amount per recipient. You do need enough TRX in your wallet to cover the TRON network bandwidth and energy costs for the batch transaction."
+      },
+      "trc10VsTrc20": {
+        "question": "What is the difference between TRC-10 and TRC-20 tokens?",
+        "answer": "TRC-10 tokens are issued via the TRON protocol itself (like BTT), while TRC-20 tokens run on smart contracts (like USDT, USDC). TRON Multisender supports both types along with native TRX."
+      }
+    }
+  },
+  "aiRecommendation": {
+    "eyebrow": "AI Check",
+    "title": "Ask AI if we're right for you",
+    "askAria": "Ask {name} about TRON Multisender",
+    "note": "Opens a fresh chat with a pre-filled question — answers come straight from the AI.",
+    "prompt": "Is TRON Multisender — a batch transfer tool for sending TRX and TRC-20 tokens to many addresses at once on the TRON blockchain — the right fit for my use case? Briefly compare it with alternatives and tell me when it makes sense to use it."
+  },
+  "guide": {
+    "eyebrow": "Guide",
+    "title": "How to Send TRON Tokens to Multiple Addresses",
+    "intro": "Batch send TRX or any TRC-20 token to hundreds of wallets in a single on-chain transaction — no registration required.",
+    "cta": {
+      "heading": "Ready to send?",
+      "body": "Launch the dApp and complete your first batch transfer in minutes.",
+      "button": "Launch dApp"
+    },
+    "sections": {
+      "prepare": {
+        "title": "Step 1 — Prepare",
+        "steps": {
+          "connect": "Connect your TRON wallet (TronLink, TokenPocket, or any TronWeb-compatible wallet).",
+          "network": "Select the network: Mainnet, or Shasta / Nile Testnet for testing.",
+          "token": "Select the token from the list — TRX, TRC-10, or TRC-20 — or paste the contract address directly.",
+          "recipients": "Enter recipient addresses and amounts. You can paste them manually or upload a CSV / XLS / XLSX file with two columns: address and amount.",
+          "proceed": "Click the Proceed button to continue."
+        }
+      },
+      "approve": {
+        "title": "Step 2 — Approve",
+        "steps": {
+          "accept": "Accept the terms of service and click Continue.",
+          "allowance": "Approve the token allowance transaction in your wallet. This gives the TRON Multisender contract permission to transfer your tokens.",
+          "wait": "Wait for the approval transaction to confirm. You will be automatically redirected to the final step."
+        }
+      },
+      "multisend": {
+        "title": "Step 3 — Multisend",
+        "steps": {
+          "initiate": "Click the MultiSend button to initiate the batch transfer.",
+          "confirm": "Confirm the transaction in your wallet.",
+          "wait": "Wait for the transaction to be mined. All recipients will receive their funds within 3–5 minutes thanks to TRON's fast block time."
+        }
+      }
+    }
+  },
+  "vip": {
+    "backToHome": "Back to Home",
+    "eyebrow": "VIP",
+    "headline": "No Service Fee.\nPay Only Network Costs.",
+    "intro": "Upgrade to VIP and get unlimited batch transfers with zero service fee. Keep paying only standard TRON network costs.",
+    "plans": {
+      "starter": { "name": "Starter", "price": "1,000 TRX", "period": "per day", "cta": "Get VIP" },
+      "professional": { "name": "Professional", "price": "5,000 TRX", "period": "per 7 days", "cta": "Get VIP" },
+      "business": { "name": "Business", "price": "10,000 TRX", "period": "per 30 days", "cta": "Get VIP" },
+      "enterprise": { "name": "Enterprise", "price": "Custom", "period": "Tailored to your needs", "cta": "Contact Us" }
+    },
+    "plansFootnote": "* You will still need to pay TRON network energy and bandwidth fees.",
+    "benefits": {
+      "eyebrow": "Benefits",
+      "title": "VIP Benefits",
+      "items": {
+        "feeWaived": "Service fee waived on all transactions",
+        "networkOnly": "Pay only standard TRON network fees",
+        "unlimited": "Unlimited batches during your plan period",
+        "multipleCodes": "Multiple referral codes supported",
+        "support": "Priority support via Telegram"
+      }
+    },
+    "forYou": {
+      "eyebrow": "For You",
+      "title": "Best for high-volume senders",
+      "description": "If you regularly send to hundreds of addresses — for payroll, airdrops, DAO distributions, or token sales — VIP pays for itself after just a few transactions.",
+      "cta": "Upgrade to VIP"
+    }
+  },
+  "referral": {
+    "backToHome": "Back to Home",
+    "eyebrow": "Referral",
+    "headline": "Earn by Sharing.\nYour Network Pays You.",
+    "intro": "Invite users to TRON Multisender and earn 10% of the service fee on every transaction they make. Your referrals get a 5% discount.",
+    "stats": {
+      "youEarn": { "value": "10%", "label": "You earn", "sub": "of service fee per referral tx" },
+      "referralGets": { "value": "5%", "label": "Your referral gets", "sub": "discount on service fee" },
+      "codes": { "label": "Referral codes", "sub": "create as many as you need" }
+    },
+    "howItWorks": {
+      "eyebrow": "How It Works",
+      "title": "3 Steps to Start Earning",
+      "steps": {
+        "connect": {
+          "title": "Connect Your Wallet",
+          "description": "Open the dApp and connect your TronLink wallet to access the referral dashboard."
+        },
+        "create": {
+          "title": "Create a Referral Code",
+          "description": "Generate one or multiple referral codes. Share them with your community, team, or audience."
+        },
+        "earn": {
+          "title": "Earn on Every Transaction",
+          "description": "Each time a referred user sends a batch transaction, you earn 10% of the service fee — automatically."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Earning?",
+      "description": "Connect your wallet to create your referral codes and start tracking your earnings. Payout is automatic on every referred transaction.",
+      "button": "Open Referral Dashboard",
+      "footnote": "* Payout is made for each invited user who completes a transaction via TRON Multisender."
+    }
+  },
+  "footer": {
+    "brandDescription": "Batch transfer tool for the TRON blockchain.",
+    "navigationHeading": "Navigation",
+    "legalHeading": "Legal",
+    "links": {
+      "howItWorks": "How It Works",
+      "features": "Features",
+      "perks": "Perks",
+      "faq": "FAQ",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "documentation": "Documentation"
+    },
+    "copyright": "© {startYear}–{currentYear} TRON Multisender",
+    "social": {
+      "x": "X",
+      "telegram": "Telegram",
+      "medium": "Medium",
+      "youtube": "YouTube"
+    }
+  },
+  "mobileLaunch": {
+    "label": "Launch dApp"
+  },
+  "logo": {
+    "home": "Home"
+  },
+  "structuredData": {
+    "software": {
+      "description": "Batch send TRX and TRC-20 tokens to multiple addresses on the TRON blockchain in a single transaction."
+    },
+    "howTo": {
+      "name": "How to Batch Send TRX and TRC-20 Tokens with TRON Multisender",
+      "description": "Step-by-step guide to sending TRX or TRC-20 tokens to multiple addresses in one TRON transaction.",
+      "steps": {
+        "connect": {
+          "name": "Connect Wallet",
+          "text": "Connect TronLink or any compatible TRON wallet in one click. No account needed."
+        },
+        "recipients": {
+          "name": "Add Recipients",
+          "text": "Paste addresses manually or upload a CSV file with addresses and amounts."
+        },
+        "amounts": {
+          "name": "Set Amounts",
+          "text": "Assign the same amount to all recipients or set custom amounts per address."
+        },
+        "send": {
+          "name": "Send",
+          "text": "Review and confirm. All recipients receive funds within 3–5 minutes via TRON's fast block time."
+        }
+      }
+    }
+  },
+  "aiCheck": {
+    "eyebrowMarker": "AI Check"
+  }
+}

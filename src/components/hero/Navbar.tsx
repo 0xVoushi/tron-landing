@@ -1,22 +1,24 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { Menu, X } from 'lucide-react'
 import { PillButton } from '@/components/ui/PillButton'
 import { Logo } from '@/components/ui/Logo'
+import { LocaleSwitcher } from '@/components/locale-switcher/LocaleSwitcher'
+import { Link, usePathname } from '@/i18n/routing'
 
-const NAV_LINKS = [
-  { label: 'Home', href: '#' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Features', href: '#features' },
-  { label: 'Tokens', href: '#tokens' },
-  { label: 'Perks', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
+const NAV_LINK_KEYS = [
+  { key: 'home', href: '#' },
+  { key: 'howItWorks', href: '#how-it-works' },
+  { key: 'features', href: '#features' },
+  { key: 'tokens', href: '#tokens' },
+  { key: 'perks', href: '#pricing' },
+  { key: 'faq', href: '#faq' },
 ] as const
 
-
 export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
+  const t = useTranslations('nav')
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
@@ -53,9 +55,9 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
         <Logo dark={showPill} />
 
         <div className="hidden md:flex items-center gap-2 ml-10">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
+          {NAV_LINK_KEYS.map((link) => (
+            <Link
+              key={link.key}
               href={resolveHref(link.href)}
               className={[
                 'font-rubik font-medium text-[13px] px-3 py-1.5 rounded-full transition-colors',
@@ -64,20 +66,21 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
                   : 'bg-dark-hard text-white-80 hover:bg-dark hover:text-white',
               ].join(' ')}
             >
-              {link.label}
-            </a>
+              {t(link.key)}
+            </Link>
           ))}
         </div>
 
-        <div className="hidden md:block ml-auto">
-          <PillButton variant="primary" size="sm">Launch dApp</PillButton>
+        <div className="hidden md:flex items-center gap-2 ml-auto">
+          <LocaleSwitcher variant={showPill ? 'light' : 'dark'} />
+          <PillButton variant="primary" size="sm">{t('launchApp')}</PillButton>
         </div>
 
         <button
           type="button"
           className={['md:hidden ml-auto', showPill ? 'text-dark' : 'text-white'].join(' ')}
           onClick={() => setIsOpen((prev) => !prev)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? t('closeMenu') : t('openMenu')}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -85,17 +88,18 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
 
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-grey-medium flex flex-col p-6 gap-4 md:hidden">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
+          {NAV_LINK_KEYS.map((link) => (
+            <Link
+              key={link.key}
               href={resolveHref(link.href)}
               className="font-rubik font-medium text-[15px] transition-colors text-dark hover:text-dark-hard"
             >
-              {link.label}
-            </a>
+              {t(link.key)}
+            </Link>
           ))}
-          <div className="pt-2">
-            <PillButton variant="primary" size="md">Launch dApp</PillButton>
+          <div className="pt-2 flex flex-col gap-3">
+            <LocaleSwitcher variant="light" />
+            <PillButton variant="primary" size="md">{t('launchApp')}</PillButton>
           </div>
         </div>
       )}

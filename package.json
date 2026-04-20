@@ -7,13 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "i18n:check": "ts-node --project tsconfig.scripts.json scripts/i18n-check.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.3",
     "lucide-react": "^1.7.0",
     "next": "16.2.2",
+    "next-intl": "^4.9.1",
     "postprocessing": "^6.39.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
