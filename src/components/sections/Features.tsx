@@ -1,22 +1,37 @@
+import type { ComponentType } from 'react'
 import { useTranslations } from 'next-intl'
+import {
+  BatchTrxIllustration,
+  CsvUploadIllustration,
+  FeesIllustration,
+  InstantConfirmationIllustration,
+  OnChainIllustration,
+  Trc20Illustration,
+} from './FeatureIllustrations'
 
 type Variant = 'hero' | 'standard' | 'dark'
 
-type FeatureCard = { key: string; variant: Variant; wide?: boolean }
+type FeatureCard = {
+  key: string
+  variant: Variant
+  wide?: boolean
+  ghostNum: string
+  Illustration: ComponentType
+}
 
-const FEATURE_KEYS: readonly FeatureCard[] = [
-  { key: 'batchTrx', variant: 'hero', wide: true },
-  { key: 'trc20', variant: 'standard' },
-  { key: 'onChain', variant: 'dark' },
-  { key: 'csv', variant: 'standard' },
-  { key: 'fees', variant: 'standard' },
-  { key: 'instant', variant: 'hero', wide: true },
+const FEATURE_CARDS: readonly FeatureCard[] = [
+  { key: 'batchTrx', variant: 'hero', wide: true, ghostNum: '01', Illustration: BatchTrxIllustration },
+  { key: 'trc20', variant: 'standard', ghostNum: '02', Illustration: Trc20Illustration },
+  { key: 'onChain', variant: 'dark', ghostNum: '03', Illustration: OnChainIllustration },
+  { key: 'csv', variant: 'standard', ghostNum: '04', Illustration: CsvUploadIllustration },
+  { key: 'fees', variant: 'standard', ghostNum: '05', Illustration: FeesIllustration },
+  { key: 'instant', variant: 'hero', wide: true, ghostNum: '06', Illustration: InstantConfirmationIllustration },
 ]
 
 const VARIANT_CLASSES: Record<Variant, string> = {
-  standard: 'glass-card',
-  hero: 'border border-primary/20 bg-gradient-to-br from-white to-[#fff8f6] shadow-[0_1px_3px_rgba(0,0,0,0.06)]',
-  dark: 'border border-dark bg-dark-hard text-grey-light',
+  standard: 'bg-white border border-[#bbbbbb33] shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.03)] hover:border-primary/25',
+  hero: 'bg-gradient-to-br from-white to-[#fff6f4] border border-primary/20 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.03)] hover:border-primary/35',
+  dark: 'bg-[#161616] border border-[#2a2a2a] text-grey-light hover:border-[#3a3a3a]',
 }
 
 export function Features() {
@@ -40,55 +55,58 @@ export function Features() {
           {t('title')}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          {FEATURE_KEYS.map((feature) => {
-            const isDark = feature.variant === 'dark'
-            const className = [
-              'group flex flex-col rounded-lg p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-md',
-              VARIANT_CLASSES[feature.variant],
-              feature.wide ? 'md:col-span-2' : '',
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {FEATURE_CARDS.map(({ key, variant, wide, ghostNum, Illustration }) => {
+            const isDark = variant === 'dark'
+            const cardClass = [
+              'group relative flex flex-col rounded-lg p-6 overflow-hidden min-h-[360px] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_4px_12px_rgba(0,0,0,0.08),0_12px_32px_rgba(0,0,0,0.05)]',
+              VARIANT_CLASSES[variant],
+              wide ? 'md:col-span-2' : '',
             ]
               .filter(Boolean)
               .join(' ')
 
             return (
-              <article key={feature.key} className={className}>
+              <article key={key} className={cardClass}>
                 <span
-                  className={`self-start inline-block font-rubik text-[10px] font-semibold uppercase tracking-[0.06em] rounded-full px-2.5 py-0.5 border ${
-                    isDark ? 'text-white border-white/40' : 'text-primary border-primary/40'
+                  aria-hidden="true"
+                  className={`feat-ghost-num font-rubik ${isDark ? 'feat-ghost-num-dark' : ''}`}
+                >
+                  {ghostNum}
+                </span>
+
+                <span
+                  className={`self-start inline-flex items-center gap-1.5 font-rubik text-[10px] font-semibold uppercase tracking-[0.12em] rounded-full px-2.5 py-[3px] border backdrop-blur-sm ${
+                    isDark
+                      ? 'text-white border-white/25 bg-white/5'
+                      : 'text-primary border-primary/40 bg-white/60'
                   }`}
                 >
-                  [ {t(`items.${feature.key}.tag`)} ]
+                  [ {t(`items.${key}.tag`)} ]
                 </span>
 
                 <div
-                  className={`mt-5 mb-5 flex-1 min-h-[140px] rounded-lg border border-dashed flex items-center justify-center ${
-                    isDark ? 'border-white/20' : 'border-primary/30'
-                  }`}
                   aria-hidden="true"
+                  className={`relative flex-1 mx-[-8px] mt-4 mb-5 min-h-[180px] overflow-hidden rounded-md ${
+                    isDark ? 'feat-grid-bg-dark' : 'feat-grid-bg'
+                  }`}
                 >
-                  <span
-                    className={`font-mono text-[11px] tracking-[0.04em] ${
-                      isDark ? 'text-white/40' : 'text-grey'
-                    }`}
-                  >
-                    {t('visualLabel')}
-                  </span>
+                  <Illustration />
                 </div>
 
                 <h3
-                  className={`font-rubik font-bold text-[15px] mb-2 ${
-                    isDark ? 'text-grey-light' : 'text-dark-hard'
+                  className={`font-rubik font-bold text-[17px] leading-tight tracking-[-0.01em] mb-2 ${
+                    isDark ? 'text-[#fafafa]' : 'text-dark-hard'
                   }`}
                 >
-                  {t(`items.${feature.key}.title`)}
+                  {t(`items.${key}.title`)}
                 </h3>
                 <p
-                  className={`font-rubik text-[13px] leading-relaxed tracking-[-0.01em] ${
-                    isDark ? 'text-grey' : 'text-dark'
+                  className={`font-rubik text-[13px] leading-[1.65] tracking-[-0.01em] max-w-[52ch] ${
+                    isDark ? 'text-[#c7c7c7]' : 'text-dark'
                   }`}
                 >
-                  {t(`items.${feature.key}.description`)}
+                  {t(`items.${key}.description`)}
                 </p>
               </article>
             )
