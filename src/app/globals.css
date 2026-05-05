@@ -159,6 +159,16 @@
   50%      { transform: scale(1.06); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  [class*="feat-"],
+  [style*="feat-"] {
+    animation: none !important;
+  }
+  svg animate {
+    display: none;
+  }
+}
+
 @layer utilities {
   .feat-grid-bg {
     background-image:

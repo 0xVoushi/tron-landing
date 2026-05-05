@@ -46,10 +46,26 @@
     "subheadline": "Envoyez des USDT, des TRX ou n'importe quel jeton TRC-20 à plus de 1 000 adresses en une seule transaction — sans inscription, entièrement non-custodial.",
     "cta": "Lancer la dApp",
     "stats": {
-      "recipients": { "value": "1,000+", "label": "Destinataires par tx", "sub": "Par transaction" },
-      "tokenTypes": { "value": "3", "label": "Types de jetons", "sub": "TRX / TRC-20 / TRC-10" },
-      "feeSavings": { "value": "~90%", "label": "Économies de frais", "sub": "vs envoi manuel" },
-      "custody": { "value": "Zéro", "label": "Conservation", "sub": "Entièrement on-chain" }
+      "recipients": {
+        "value": "1,000+",
+        "label": "Destinataires par tx",
+        "sub": "Par transaction"
+      },
+      "tokenTypes": {
+        "value": "3",
+        "label": "Types de jetons",
+        "sub": "TRX / TRC-20 / TRC-10"
+      },
+      "feeSavings": {
+        "value": "~90%",
+        "label": "Économies de frais",
+        "sub": "vs envoi manuel"
+      },
+      "custody": {
+        "value": "Zéro",
+        "label": "Conservation",
+        "sub": "Entièrement on-chain"
+      }
     }
   },
   "consultationCard": {
@@ -59,10 +75,26 @@
   },
   "stats": {
     "ariaLabel": "Statistiques clés",
-    "recipients": { "value": "1,000+", "label": "Destinataires par tx", "sublabel": "Par transaction" },
-    "tokenTypes": { "value": "3", "label": "Types de jetons", "sublabel": "TRX / TRC-20 / TRC-10" },
-    "feeSavings": { "value": "~90%", "label": "Économies de frais", "sublabel": "vs envoi manuel" },
-    "custody": { "value": "Zéro", "label": "Conservation", "sublabel": "Entièrement on-chain" }
+    "recipients": {
+      "value": "1,000+",
+      "label": "Destinataires par tx",
+      "sublabel": "Par transaction"
+    },
+    "tokenTypes": {
+      "value": "3",
+      "label": "Types de jetons",
+      "sublabel": "TRX / TRC-20 / TRC-10"
+    },
+    "feeSavings": {
+      "value": "~90%",
+      "label": "Économies de frais",
+      "sublabel": "vs envoi manuel"
+    },
+    "custody": {
+      "value": "Zéro",
+      "label": "Conservation",
+      "sublabel": "Entièrement on-chain"
+    }
   },
   "howItWorks": {
     "eyebrow": "Processus",
@@ -87,39 +119,51 @@
     }
   },
   "features": {
-    "eyebrow": "Fonctionnalités",
-    "title": "Pourquoi TRON Multisender",
-    "visualLabel": "[ visual ]",
+    "eyebrow": "Features",
+    "title": "Why TRON Multisender",
+    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
+    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
     "items": {
       "batchTrx": {
-        "tag": "Hero",
-        "title": "Transfert TRX en lot",
-        "description": "Envoyez des TRX à des centaines de portefeuilles en une seule transaction. Aucune limite de destinataires."
+        "tag": "Batch",
+        "title": "Send to 1,000+ wallets in one transaction",
+        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
+        "cta": "Learn more",
+        "stats": {
+          "recipients": "1,000+ Recipients",
+          "transaction": "1 Transaction",
+          "onchain": "100% On-chain"
+        }
       },
       "trc20": {
-        "tag": "02",
-        "title": "Prise en charge des jetons TRC-20",
-        "description": "USDT, USDC, WTRX, BTT et n'importe quel jeton TRC-20. Il suffit de coller l'adresse du contrat."
+        "tag": "Tokens",
+        "title": "Works with any TRC-20 token",
+        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
       },
       "onChain": {
-        "tag": "03",
-        "title": "Entièrement on-chain",
-        "description": "Sans conservation, sans inscription. Vos clés, vos fonds. Tout se passe on-chain."
+        "tag": "Custody",
+        "title": "Your keys. Your funds.",
+        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "pills": {
+          "custody": "No custody",
+          "signup": "No sign-up",
+          "kyc": "No KYC"
+        }
       },
       "csv": {
-        "tag": "04",
-        "title": "Import CSV",
-        "description": "Importez votre liste de destinataires et de montants directement depuis un fichier tableur."
+        "tag": "Upload",
+        "title": "Upload recipients in seconds",
+        "description": "Import your list and amounts directly from a CSV file."
       },
       "fees": {
-        "tag": "05",
-        "title": "Économisez sur les frais",
-        "description": "Les transactions en lot consomment beaucoup moins de bande passante et d'énergie que des envois un par un."
+        "tag": "Costs",
+        "title": "Spend less on network costs",
+        "description": "Batch transactions use less bandwidth and energy than sending one by one."
       },
       "instant": {
-        "tag": "Hero",
-        "title": "Confirmation instantanée",
-        "description": "Le temps de bloc de 3 secondes de TRON garantit une livraison quasi-instantanée à tous les destinataires."
+        "tag": "Speed",
+        "title": "Near-instant finality",
+        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
       }
     }
   },
@@ -287,10 +331,30 @@
     "headline": "Aucun frais de service.\nNe payez que le réseau.",
     "intro": "Passez au VIP et profitez de transferts groupés illimités sans aucun frais de service. Ne payez que les coûts standard du réseau TRON.",
     "plans": {
-      "starter": { "name": "Starter", "price": "1,000 TRX", "period": "par jour", "cta": "Obtenir le VIP" },
-      "professional": { "name": "Professional", "price": "5,000 TRX", "period": "par 7 jours", "cta": "Obtenir le VIP" },
-      "business": { "name": "Business", "price": "10,000 TRX", "period": "par 30 jours", "cta": "Obtenir le VIP" },
-      "enterprise": { "name": "Enterprise", "price": "Sur mesure", "period": "Adapté à vos besoins", "cta": "Contactez-nous" }
+      "starter": {
+        "name": "Starter",
+        "price": "1,000 TRX",
+        "period": "par jour",
+        "cta": "Obtenir le VIP"
+      },
+      "professional": {
+        "name": "Professional",
+        "price": "5,000 TRX",
+        "period": "par 7 jours",
+        "cta": "Obtenir le VIP"
+      },
+      "business": {
+        "name": "Business",
+        "price": "10,000 TRX",
+        "period": "par 30 jours",
+        "cta": "Obtenir le VIP"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Sur mesure",
+        "period": "Adapté à vos besoins",
+        "cta": "Contactez-nous"
+      }
     },
     "plansFootnote": "* Vous devrez toujours payer les frais d'énergie et de bande passante du réseau TRON.",
     "benefits": {
@@ -317,9 +381,20 @@
     "headline": "Gagnez en partageant.\nVotre réseau vous rémunère.",
     "intro": "Invitez des utilisateurs sur TRON Multisender et gagnez 10 % des frais de service sur chacune de leurs transactions. Vos filleuls bénéficient de 5 % de réduction.",
     "stats": {
-      "youEarn": { "value": "10%", "label": "Vous gagnez", "sub": "des frais de service par tx parrainée" },
-      "referralGets": { "value": "5%", "label": "Votre filleul reçoit", "sub": "de réduction sur les frais de service" },
-      "codes": { "label": "Codes de parrainage", "sub": "créez-en autant que nécessaire" }
+      "youEarn": {
+        "value": "10%",
+        "label": "Vous gagnez",
+        "sub": "des frais de service par tx parrainée"
+      },
+      "referralGets": {
+        "value": "5%",
+        "label": "Votre filleul reçoit",
+        "sub": "de réduction sur les frais de service"
+      },
+      "codes": {
+        "label": "Codes de parrainage",
+        "sub": "créez-en autant que nécessaire"
+      }
     },
     "howItWorks": {
       "eyebrow": "Fonctionnement",

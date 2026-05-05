@@ -46,10 +46,26 @@
     "subheadline": "一笔交易即可将 USDT、TRX 或任意 TRC-20 代币发送到 1,000+ 个地址 —— 无需注册，完全非托管。",
     "cta": "启动 dApp",
     "stats": {
-      "recipients": { "value": "1,000+", "label": "每笔收款人数", "sub": "单笔交易" },
-      "tokenTypes": { "value": "3", "label": "代币类型", "sub": "TRX / TRC-20 / TRC-10" },
-      "feeSavings": { "value": "~90%", "label": "节省手续费", "sub": "相较于逐笔发送" },
-      "custody": { "value": "零", "label": "托管", "sub": "完全链上运行" }
+      "recipients": {
+        "value": "1,000+",
+        "label": "每笔收款人数",
+        "sub": "单笔交易"
+      },
+      "tokenTypes": {
+        "value": "3",
+        "label": "代币类型",
+        "sub": "TRX / TRC-20 / TRC-10"
+      },
+      "feeSavings": {
+        "value": "~90%",
+        "label": "节省手续费",
+        "sub": "相较于逐笔发送"
+      },
+      "custody": {
+        "value": "零",
+        "label": "托管",
+        "sub": "完全链上运行"
+      }
     }
   },
   "consultationCard": {
@@ -59,10 +75,26 @@
   },
   "stats": {
     "ariaLabel": "核心数据",
-    "recipients": { "value": "1,000+", "label": "每笔收款人数", "sublabel": "单笔交易" },
-    "tokenTypes": { "value": "3", "label": "代币类型", "sublabel": "TRX / TRC-20 / TRC-10" },
-    "feeSavings": { "value": "~90%", "label": "节省手续费", "sublabel": "相较于逐笔发送" },
-    "custody": { "value": "零", "label": "托管", "sublabel": "完全链上运行" }
+    "recipients": {
+      "value": "1,000+",
+      "label": "每笔收款人数",
+      "sublabel": "单笔交易"
+    },
+    "tokenTypes": {
+      "value": "3",
+      "label": "代币类型",
+      "sublabel": "TRX / TRC-20 / TRC-10"
+    },
+    "feeSavings": {
+      "value": "~90%",
+      "label": "节省手续费",
+      "sublabel": "相较于逐笔发送"
+    },
+    "custody": {
+      "value": "零",
+      "label": "托管",
+      "sublabel": "完全链上运行"
+    }
   },
   "howItWorks": {
     "eyebrow": "流程",
@@ -87,39 +119,51 @@
     }
   },
   "features": {
-    "eyebrow": "功能特性",
-    "title": "为什么选择 TRON Multisender",
-    "visualLabel": "[ visual ]",
+    "eyebrow": "Features",
+    "title": "Why TRON Multisender",
+    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
+    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
     "items": {
       "batchTrx": {
-        "tag": "Hero",
-        "title": "批量 TRX 转账",
-        "description": "一笔交易即可将 TRX 发送到数百个钱包，收款人数量不设上限。"
+        "tag": "Batch",
+        "title": "Send to 1,000+ wallets in one transaction",
+        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
+        "cta": "Learn more",
+        "stats": {
+          "recipients": "1,000+ Recipients",
+          "transaction": "1 Transaction",
+          "onchain": "100% On-chain"
+        }
       },
       "trc20": {
-        "tag": "02",
-        "title": "TRC-20 代币支持",
-        "description": "支持 USDT、USDC、WTRX、BTT 以及任意 TRC-20 代币。只需粘贴合约地址即可。"
+        "tag": "Tokens",
+        "title": "Works with any TRC-20 token",
+        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
       },
       "onChain": {
-        "tag": "03",
-        "title": "完全链上运行",
-        "description": "无托管、无需注册。您的私钥，您的资产。一切皆在链上完成。"
+        "tag": "Custody",
+        "title": "Your keys. Your funds.",
+        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "pills": {
+          "custody": "No custody",
+          "signup": "No sign-up",
+          "kyc": "No KYC"
+        }
       },
       "csv": {
-        "tag": "04",
-        "title": "CSV 文件导入",
-        "description": "直接从表格文件中导入收款人列表与金额。"
+        "tag": "Upload",
+        "title": "Upload recipients in seconds",
+        "description": "Import your list and amounts directly from a CSV file."
       },
       "fees": {
-        "tag": "05",
-        "title": "节省手续费",
-        "description": "批量交易所消耗的带宽与能量远低于逐笔发送。"
+        "tag": "Costs",
+        "title": "Spend less on network costs",
+        "description": "Batch transactions use less bandwidth and energy than sending one by one."
       },
       "instant": {
-        "tag": "Hero",
-        "title": "即时确认",
-        "description": "TRON 3 秒的出块时间意味着所有收款人几乎可以即时到账。"
+        "tag": "Speed",
+        "title": "Near-instant finality",
+        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
       }
     }
   },
@@ -287,10 +331,30 @@
     "headline": "免服务费。\n只付网络费用。",
     "intro": "升级为 VIP，享受零服务费的无限批量转账，只需支付标准的 TRON 网络费用。",
     "plans": {
-      "starter": { "name": "入门版", "price": "1,000 TRX", "period": "每日", "cta": "开通 VIP" },
-      "professional": { "name": "专业版", "price": "5,000 TRX", "period": "每 7 天", "cta": "开通 VIP" },
-      "business": { "name": "商务版", "price": "10,000 TRX", "period": "每 30 天", "cta": "开通 VIP" },
-      "enterprise": { "name": "企业版", "price": "定制", "period": "按需定制", "cta": "联系我们" }
+      "starter": {
+        "name": "入门版",
+        "price": "1,000 TRX",
+        "period": "每日",
+        "cta": "开通 VIP"
+      },
+      "professional": {
+        "name": "专业版",
+        "price": "5,000 TRX",
+        "period": "每 7 天",
+        "cta": "开通 VIP"
+      },
+      "business": {
+        "name": "商务版",
+        "price": "10,000 TRX",
+        "period": "每 30 天",
+        "cta": "开通 VIP"
+      },
+      "enterprise": {
+        "name": "企业版",
+        "price": "定制",
+        "period": "按需定制",
+        "cta": "联系我们"
+      }
     },
     "plansFootnote": "* 您仍需支付 TRON 网络的能量和带宽费用。",
     "benefits": {
@@ -317,9 +381,20 @@
     "headline": "分享即可赚取。\n您的人脉为您创造收益。",
     "intro": "邀请用户使用 TRON Multisender，他们每笔交易您都可获得 10% 的服务费分成。被推荐用户享 5% 优惠。",
     "stats": {
-      "youEarn": { "value": "10%", "label": "您的收益", "sub": "每笔推荐交易的服务费" },
-      "referralGets": { "value": "5%", "label": "被推荐用户享", "sub": "服务费优惠" },
-      "codes": { "label": "推荐码", "sub": "想创建多少就创建多少" }
+      "youEarn": {
+        "value": "10%",
+        "label": "您的收益",
+        "sub": "每笔推荐交易的服务费"
+      },
+      "referralGets": {
+        "value": "5%",
+        "label": "被推荐用户享",
+        "sub": "服务费优惠"
+      },
+      "codes": {
+        "label": "推荐码",
+        "sub": "想创建多少就创建多少"
+      }
     },
     "howItWorks": {
       "eyebrow": "使用方法",

@@ -89,36 +89,48 @@
   "features": {
     "eyebrow": "Features",
     "title": "Why TRON Multisender",
-    "visualLabel": "[ visual ]",
+    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
+    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
     "items": {
       "batchTrx": {
-        "tag": "Hero",
-        "title": "Batch TRX Transfer",
-        "description": "Send TRX to hundreds of wallets in a single transaction. No limit on recipients."
+        "tag": "Batch",
+        "title": "Send to 1,000+ wallets in one transaction",
+        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
+        "cta": "Learn more",
+        "stats": {
+          "recipients": "1,000+ Recipients",
+          "transaction": "1 Transaction",
+          "onchain": "100% On-chain"
+        }
       },
       "trc20": {
-        "tag": "02",
-        "title": "TRC-20 Token Support",
-        "description": "USDT, USDC, WTRX, BTT and any TRC-20 token. Just paste the contract address."
+        "tag": "Tokens",
+        "title": "Works with any TRC-20 token",
+        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
       },
       "onChain": {
-        "tag": "03",
-        "title": "Fully On-Chain",
-        "description": "No custody, no registration. Your keys, your funds. Everything on-chain."
+        "tag": "Custody",
+        "title": "Your keys. Your funds.",
+        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "pills": {
+          "custody": "No custody",
+          "signup": "No sign-up",
+          "kyc": "No KYC"
+        }
       },
       "csv": {
-        "tag": "04",
-        "title": "CSV Upload",
-        "description": "Import your recipient list and amounts directly from a spreadsheet file."
+        "tag": "Upload",
+        "title": "Upload recipients in seconds",
+        "description": "Import your list and amounts directly from a CSV file."
       },
       "fees": {
-        "tag": "05",
-        "title": "Save on Fees",
-        "description": "Batch transactions use significantly less bandwidth and energy than sending one by one."
+        "tag": "Costs",
+        "title": "Spend less on network costs",
+        "description": "Batch transactions use less bandwidth and energy than sending one by one."
       },
       "instant": {
-        "tag": "Hero",
-        "title": "Instant Confirmation",
+        "tag": "Speed",
+        "title": "Near-instant finality",
         "description": "TRON's 3-second block time means near-instant delivery to all recipients."
       }
     }
