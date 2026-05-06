@@ -10,7 +10,7 @@ describe('Features', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders all 6 feature titles', () => {
+  it('renders all 5 feature titles', () => {
     renderWithIntl(<Features />)
     expect(
       screen.getByText('Send to 1,000+ wallets in one transaction'),
@@ -19,7 +19,6 @@ describe('Features', () => {
     expect(screen.getByText('Your keys. Your funds.')).toBeInTheDocument()
     expect(screen.getByText('Upload recipients in seconds')).toBeInTheDocument()
     expect(screen.getByText('Spend less on network costs')).toBeInTheDocument()
-    expect(screen.getByText('Near-instant finality')).toBeInTheDocument()
   })
 
   it('renders subtitle, bottom line, and CTA', () => {

@@ -3,7 +3,6 @@ const INK = '#161616'
 const INK_SOFT = '#ececec'
 const INK_FAINT = '#f4f4f4'
 const SUCCESS = '#22C55E'
-const SUCCESS_FAINT = '#DCFCE7'
 
 function TronMark({ size = 56 }: { size?: number }) {
   const inner = size * 0.72
@@ -226,19 +225,6 @@ export function Trc20Illustration() {
       </g>
       <circle cx={cx} cy={cy} r="82" fill="url(#trc20-glow)" />
 
-      {/* Red accent dots */}
-      {[
-        { a: -60, r: rOuter + 8 },
-        { a: 30, r: rOuter + 8 },
-        { a: 120, r: rOuter + 8 },
-        { a: 210, r: rOuter + 8 },
-      ].map(({ a, r }, i) => {
-        const rad = (a * Math.PI) / 180
-        const x = cx + r * Math.cos(rad)
-        const y = cy + r * Math.sin(rad)
-        return <circle key={i} cx={x} cy={y} r="2.5" fill={TRON_RED} opacity="0.6" />
-      })}
-
       {/* Center disk */}
       <g transform={`translate(${cx} ${cy})`}>
         <circle r="46" fill="#ffffff" stroke="#e4e4e4" />
@@ -309,16 +295,17 @@ export function OnChainIllustration() {
       className="block w-full h-full"
     >
       <defs>
-        <radialGradient id="oc-glow" cx="40%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={TRON_RED} stopOpacity="0.12" />
-          <stop offset="80%" stopColor={TRON_RED} stopOpacity="0" />
+        <radialGradient id="oc-glow" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stopColor={TRON_RED} stopOpacity="0.2" />
+          <stop offset="50%" stopColor={TRON_RED} stopOpacity="0.06" />
+          <stop offset="100%" stopColor={TRON_RED} stopOpacity="0" />
         </radialGradient>
         <linearGradient id="oc-shield-body" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#ffffff" />
           <stop offset="100%" stopColor="#f2f2f2" />
         </linearGradient>
       </defs>
-      <circle cx="120" cy="110" r="110" fill="url(#oc-glow)" />
+      <circle cx="110" cy="108" r="100" fill="url(#oc-glow)" />
 
       {/* Shield */}
       <g transform="translate(62 44)">
@@ -394,14 +381,32 @@ export function CsvUploadIllustration() {
     { addr: 'TQ4r…60ab', amount: '5.250' },
     { addr: 'TV8m…11df', amount: '100.00' },
   ]
+  const doubled = [...rows, ...rows]
+  const ROW_START = 30
+  const ROW_STRIDE = 28
+
   return (
     <svg
-      viewBox="0 0 200 140"
+      viewBox="0 0 200 130"
       preserveAspectRatio="xMidYMid meet"
       className="block w-full h-full"
     >
-      {/* Header */}
-      <g transform="translate(0 0)">
+      <defs>
+        <linearGradient id="csv-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+          <stop offset="70%" stopColor="#ffffff" stopOpacity="1" />
+          <stop offset="100%" stopColor="#000000" stopOpacity="1" />
+        </linearGradient>
+        <mask id="csv-rows-mask">
+          <rect x="0" y="26" width="200" height="106" fill="url(#csv-fade)" />
+        </mask>
+        <clipPath id="csv-rows-clip">
+          <rect x="0" y="26" width="200" height="106" />
+        </clipPath>
+      </defs>
+
+      {/* Header — static */}
+      <g>
         <rect x="0" y="0" width="200" height="22" rx="4" fill={INK} />
         <text
           x="14"
@@ -428,68 +433,98 @@ export function CsvUploadIllustration() {
         </text>
       </g>
 
-      {rows.map((r, i) => (
-        <g key={r.addr} transform={`translate(0 ${30 + i * 28})`}>
-          <rect width="200" height="22" rx="4" fill="#ffffff" stroke={INK_SOFT} />
-          <text
-            x="14"
-            y="15"
-            fontFamily="ui-monospace,Menlo,Consolas,monospace"
-            fontSize="10"
-            fill={INK}
-          >
-            {r.addr}
-          </text>
-          <text
-            x="150"
-            y="15"
-            textAnchor="end"
-            fontFamily="Rubik"
-            fontSize="10"
-            fontWeight="600"
-            fill={INK}
-          >
-            {r.amount}
-          </text>
-          {/* Green check */}
-          <g transform="translate(180 11)">
-            <circle r="8" fill={SUCCESS} />
-            <path
-              d="M -3 0 L -1 2 L 3.5 -2.5"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </g>
+      {/* Scrolling rows — clipped + bottom-faded */}
+      <g clipPath="url(#csv-rows-clip)" mask="url(#csv-rows-mask)">
+        <g style={{ animation: 'feat-row-scroll 8s linear infinite' }}>
+          {doubled.map((r, i) => (
+            <g key={i} transform={`translate(0 ${ROW_START + i * ROW_STRIDE})`}>
+              <rect width="200" height="22" rx="4" fill="#ffffff" stroke={INK_SOFT} />
+              <text
+                x="14"
+                y="15"
+                fontFamily="ui-monospace,Menlo,Consolas,monospace"
+                fontSize="10"
+                fill={INK}
+              >
+                {r.addr}
+              </text>
+              <text
+                x="150"
+                y="15"
+                textAnchor="end"
+                fontFamily="Rubik"
+                fontSize="10"
+                fontWeight="600"
+                fill={INK}
+              >
+                {r.amount}
+              </text>
+              <g transform="translate(180 11)">
+                <circle r="8" fill={SUCCESS} />
+                <path
+                  d="M -3 0 L -1 2 L 3.5 -2.5"
+                  fill="none"
+                  stroke="#ffffff"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </g>
+            </g>
+          ))}
         </g>
-      ))}
+      </g>
     </svg>
   )
 }
 
 export function CsvFileChip() {
   return (
-    <div className="inline-flex items-center gap-2.5 rounded-xl border border-[#e6e6e6] bg-white px-3 py-2 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-      <div className="w-6 h-8 rounded bg-primary flex items-center justify-center shrink-0">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <div className="flex items-center gap-3 w-full rounded-xl border border-[#ececec] bg-white px-3 py-2.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
+      <div className="w-8 h-8 rounded-lg bg-[#f6f6f6] flex items-center justify-center shrink-0 text-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
-            d="M12 4v12m0-12-4 4m4-4 4 4M5 18h14"
-            stroke="#fff"
+            d="M12 3v11"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="m8 7 4-4 4 4"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"
+            stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg>
       </div>
-      <div className="flex flex-col leading-tight whitespace-nowrap">
-        <span className="font-rubik text-[12px] font-bold text-dark-hard">recipients.csv</span>
-        <span className="font-rubik text-[10px] text-dark/55 mt-0.5">3,482 rows · 145 KB</span>
+      <div className="flex flex-col leading-tight min-w-0 flex-1">
+        <span className="font-rubik text-[13px] font-bold text-dark-hard truncate">
+          recipients.csv
+        </span>
+        <span className="font-rubik text-[10.5px] text-dark/55 mt-0.5 truncate">
+          3,482 rows · 145 KB
+        </span>
       </div>
-      <span className="inline-flex w-3.5 h-3.5 rounded-full items-center justify-center shrink-0" style={{ background: '#22C55E' }}>
-        <svg width="8" height="8" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-          <path d="M2 6.5L4.5 9L10 3" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <span
+        className="inline-flex w-4 h-4 rounded-full items-center justify-center shrink-0"
+        style={{ background: '#22C55E' }}
+      >
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path
+            d="M2 6.5L4.5 9L10 3"
+            stroke="#fff"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </span>
     </div>
@@ -700,107 +735,3 @@ export function FeesIllustration() {
   )
 }
 
-/* ---------------------------------------------------------------- */
-/* 06 — InstantConfirmationIllustration (TRON + ring of 8 checks)   */
-/* ---------------------------------------------------------------- */
-export function InstantConfirmationIllustration() {
-  const cx = 160
-  const cy = 110
-  const rRing = 86
-  const nodes = Array.from({ length: 8 }, (_, i) => {
-    const angle = (i / 8) * Math.PI * 2 - Math.PI / 2
-    return {
-      x: cx + Math.cos(angle) * rRing,
-      y: cy + Math.sin(angle) * rRing,
-      delay: (i * 0.12).toFixed(2),
-    }
-  })
-
-  return (
-    <svg
-      viewBox="60 10 200 200"
-      preserveAspectRatio="xMidYMid meet"
-      className="block w-full h-full"
-    >
-      <defs>
-        <radialGradient id="inst-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={TRON_RED} stopOpacity="0.14" />
-          <stop offset="80%" stopColor={TRON_RED} stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx={cx} cy={cy} r="100" fill="url(#inst-glow)" />
-
-      {/* Outer dashed ring */}
-      <circle cx={cx} cy={cy} r={rRing} fill="none" stroke={SUCCESS} strokeOpacity="0.3" strokeDasharray="2 6" />
-
-      {/* Dashed connections from center to nodes */}
-      {nodes.map((n, i) => {
-        const rad = Math.atan2(n.y - cy, n.x - cx)
-        const x1 = cx + Math.cos(rad) * 30
-        const y1 = cy + Math.sin(rad) * 30
-        const x2 = n.x - Math.cos(rad) * 12
-        const y2 = n.y - Math.sin(rad) * 12
-        return (
-          <line
-            key={i}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke={TRON_RED}
-            strokeOpacity="0.35"
-            strokeWidth="1"
-            strokeDasharray="3 3"
-            style={{ animation: `feat-dash-flow 3s linear infinite ${i * 0.15}s` }}
-          />
-        )
-      })}
-
-      {/* Check nodes */}
-      {nodes.map((n, i) => (
-        <g key={`n-${i}`} transform={`translate(${n.x} ${n.y})`}>
-          <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: `feat-float-y 4s ease-in-out infinite ${n.delay}s` }}>
-            <circle r="12" fill="#ffffff" stroke={SUCCESS} strokeWidth="1.2" />
-            <circle r="10" fill={SUCCESS_FAINT} />
-            <path
-              d="M -3.5 0 L -1 2.5 L 3.5 -2.5"
-              fill="none"
-              stroke={SUCCESS}
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </g>
-        </g>
-      ))}
-
-      {/* Center TRON disk */}
-      <g transform={`translate(${cx} ${cy})`}>
-        <circle r="32" fill="#ffffff" stroke={TRON_RED} strokeOpacity="0.25" />
-        <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'feat-beat 4s ease-in-out infinite' }}>
-          <circle r="26" fill={TRON_RED} />
-          <g transform="translate(-9.5 -9.5) scale(0.194)">
-            <path fill="#ffffff" d="M78.20 42.34C75.33 39.69 71.36 35.64 68.13 32.77L67.93 32.64C67.62 32.38 67.26 32.18 66.87 32.05C59.07 30.59 22.77 23.81 22.06 23.89C21.87 23.92 21.68 23.99 21.51 24.10L21.33 24.25C21.10 24.47 20.93 24.75 20.83 25.05L20.78 25.17V25.85V25.96C24.87 37.34 41.00 74.61 44.18 83.36C44.37 83.95 44.74 85.08 45.42 85.14H45.57C45.93 85.14 47.48 83.09 47.48 83.09S75.20 49.48 78.00 45.90C78.37 45.46 78.69 44.99 78.96 44.49C79.03 44.09 79.00 43.69 78.86 43.32C78.73 42.94 78.50 42.60 78.20 42.34Z" />
-          </g>
-        </g>
-      </g>
-
-    </svg>
-  )
-}
-
-export function BlockTimeChip() {
-  return (
-    <div className="inline-flex items-center gap-3 rounded-xl border border-[#e6e6e6] bg-white px-3.5 py-2 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
-      <div className="flex flex-col leading-none">
-        <span className="font-rubik text-[9px] font-bold tracking-[0.16em] text-dark/55">BLOCK TIME</span>
-        <span className="font-rubik text-[22px] font-light text-primary mt-1 tracking-[-0.02em]">~3s</span>
-      </div>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="13" r="8" stroke="#EE3F2C" strokeWidth="1.5" />
-        <path d="M12 9v4l3 2" stroke="#EE3F2C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M9 3l-2 2M15 3l2 2" stroke="#EE3F2C" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    </div>
-  )
-}

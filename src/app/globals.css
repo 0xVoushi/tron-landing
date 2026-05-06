@@ -158,6 +158,10 @@
   0%, 100% { transform: scale(1); }
   50%      { transform: scale(1.06); }
 }
+@keyframes feat-row-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-112px); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   [class*="feat-"],

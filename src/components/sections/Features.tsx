@@ -3,18 +3,16 @@ import { PillButton } from '@/components/ui/PillButton'
 import { FeatureCard } from './FeatureCard'
 import {
   BatchTrxIllustration,
-  BlockTimeChip,
   CsvFileChip,
   CsvUploadIllustration,
   FeesIllustration,
-  InstantConfirmationIllustration,
   OnChainIllustration,
   Trc20Illustration,
 } from './FeatureIllustrations'
 
-function UsersIcon() {
+function UsersIcon({ size = 18 }: { size?: number }) {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm8 2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-8 2c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4Zm8 1c-.8 0-1.6.1-2.3.3 1.1.8 1.8 1.9 2.1 2.9h7v-.7c0-1.7-2.3-2.5-6.8-2.5Z"
         fill="currentColor"
@@ -23,19 +21,19 @@ function UsersIcon() {
   )
 }
 
-function BoltIcon() {
+function BoltIcon({ size = 18 }: { size?: number }) {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" fill="currentColor" />
     </svg>
   )
 }
 
-function ShieldIcon({ className = '' }: { className?: string }) {
+function ShieldIcon({ className = '', size = 18 }: { className?: string; size?: number }) {
   return (
     <svg
-      width="18"
-      height="18"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
@@ -44,6 +42,27 @@ function ShieldIcon({ className = '' }: { className?: string }) {
       <path
         d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3Z"
         fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+function ClockIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="13" r="8" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M12 9v4l3 2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 3l-2 2M15 3l2 2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
       />
     </svg>
   )
@@ -62,33 +81,39 @@ function StatsRow({
   recipients,
   transaction,
   onchain,
+  blockTime,
 }: {
   recipients: string
   transaction: string
   onchain: string
+  blockTime: string
 }) {
   const stats = [
-    { label: recipients, icon: <UsersIcon /> },
-    { label: transaction, icon: <BoltIcon /> },
-    { label: onchain, icon: <ShieldIcon /> },
+    { label: recipients, icon: <UsersIcon size={22} /> },
+    { label: transaction, icon: <BoltIcon size={22} /> },
+    { label: onchain, icon: <ShieldIcon size={22} /> },
+    { label: blockTime, icon: <ClockIcon size={22} /> },
   ]
   return (
-    <dl className="grid grid-cols-3 gap-4">
+    <dl className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {stats.map(({ label, icon }) => {
         const [value, ...rest] = label.split(' ')
         const suffix = rest.join(' ')
         return (
-          <div key={label} className="flex items-center gap-3">
-            <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-primary-ghost text-primary">
+          <div
+            key={label}
+            className="flex items-center gap-3 rounded-xl bg-[#fafafa] px-3.5 py-3 transition-colors hover:bg-primary/5"
+          >
+            <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary">
               {icon}
             </span>
-            <div className="flex flex-col leading-tight">
+            <div className="flex flex-col leading-tight min-w-0">
               <dt className="sr-only">{suffix || value}</dt>
-              <dd className="font-rubik text-[16px] font-semibold text-dark-hard tracking-[-0.01em]">
+              <dd className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
                 {value}
               </dd>
               {suffix ? (
-                <span className="font-rubik text-[11px] text-dark/55 tracking-[0.02em]">
+                <span className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate">
                   {suffix}
                 </span>
               ) : null}
@@ -147,7 +172,6 @@ export function Features() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           <FeatureCard
-            number="01"
             title={t('items.batchTrx.title')}
             description={t('items.batchTrx.description')}
             illustration={<BatchTrxIllustration />}
@@ -161,6 +185,7 @@ export function Features() {
                 recipients={t('items.batchTrx.stats.recipients')}
                 transaction={t('items.batchTrx.stats.transaction')}
                 onchain={t('items.batchTrx.stats.onchain')}
+                blockTime={t('items.batchTrx.stats.blockTime')}
               />
             }
             className="md:col-span-2 lg:col-span-2 lg:row-span-2"
@@ -169,7 +194,6 @@ export function Features() {
             illustrationClassName="self-stretch"
           />
           <FeatureCard
-            number="02"
             title={t('items.trc20.title')}
             description={t('items.trc20.description')}
             illustration={<Trc20Illustration />}
@@ -178,7 +202,6 @@ export function Features() {
             textColClassName="justify-center"
           />
           <FeatureCard
-            number="03"
             title={t('items.onChain.title')}
             description={t('items.onChain.description')}
             illustration={<OnChainIllustration />}
@@ -198,22 +221,20 @@ export function Features() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <FeatureCard
-            number="04"
             title={t('items.csv.title')}
             description={t('items.csv.description')}
             illustration={<CsvUploadIllustration />}
             extras={<CsvFileChip />}
             footer={<ProgressRow />}
             titleClassName="text-[18px] md:text-[19px]"
-            descriptionClassName="text-[12.5px] max-w-[28ch]"
-            bodyClassName="grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-4 items-center flex-1"
-            textColClassName="justify-center"
-            className="md:min-h-[340px]"
+            descriptionClassName="text-[12.5px]"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4 flex-1 items-start"
+            textColClassName="self-stretch"
+            illustrationClassName="h-[160px] self-start"
           />
           <FeatureCard
-            number="05"
             title={t('items.fees.title')}
             description={t('items.fees.description')}
             illustration={<FeesIllustration />}
@@ -223,19 +244,9 @@ export function Features() {
               </p>
             }
             noFooterBorder
-            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-5 items-center flex-1"
-            textColClassName="justify-center"
-            className="md:min-h-[340px]"
-          />
-          <FeatureCard
-            number="06"
-            title={t('items.instant.title')}
-            description={t('items.instant.description')}
-            illustration={<InstantConfirmationIllustration />}
-            extras={<BlockTimeChip />}
-            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4 items-center flex-1"
-            textColClassName="justify-center"
-            className="md:min-h-[340px]"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[2fr_5fr] gap-4 flex-1 items-stretch"
+            textColClassName="self-center"
+            illustrationClassName="h-[200px] self-stretch"
           />
         </div>
 
@@ -250,16 +261,14 @@ export function Features() {
 
 function ProgressRow() {
   return (
-    <div aria-hidden="true" className="flex items-center gap-3">
-      <div className="relative flex-1 h-[6px] rounded-full bg-[#f0f0f0] overflow-hidden">
+    <div aria-hidden="true" className="flex flex-col gap-2 w-full">
+      <div className="relative w-full h-[8px] rounded-full bg-[#f0f0f0] overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-[72%] rounded-full bg-gradient-to-r from-[#10b981] to-[#34d399]" />
       </div>
-      <span className="font-rubik text-[11px] font-semibold tracking-[0.04em] text-dark/55 whitespace-nowrap">
-        All rows validated
-      </span>
-      <span className="font-rubik text-[11px] font-bold tracking-[0.04em] text-[#10b981] whitespace-nowrap">
-        100%
-      </span>
+      <div className="flex items-center justify-between">
+        <span className="font-rubik text-[12px] text-dark/55">All rows validated</span>
+        <span className="font-rubik text-[12px] font-bold text-[#10b981]">100%</span>
+      </div>
     </div>
   )
 }

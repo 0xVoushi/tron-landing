@@ -100,7 +100,8 @@
         "stats": {
           "recipients": "1,000+ Recipients",
           "transaction": "1 Transaction",
-          "onchain": "100% On-chain"
+          "onchain": "100% On-chain",
+          "blockTime": "~3s Block Time"
         }
       },
       "trc20": {

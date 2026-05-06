@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react'
 
 interface FeatureCardProps {
-  number: string
   title: string
   description: string
   illustration: ReactNode
@@ -29,7 +28,6 @@ const ROW_DEFAULT = 'grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-5 md:gap-6 item
 const COL_DEFAULT = 'grid grid-rows-[auto_1fr] gap-5'
 
 export function FeatureCard({
-  number,
   title,
   description,
   illustration,
@@ -49,16 +47,7 @@ export function FeatureCard({
 
   return (
     <article className={`${BASE_CLASSES} ${className}`}>
-      <div className="flex items-center">
-        <span
-          aria-hidden="true"
-          className="inline-flex items-center justify-center font-rubik text-[11px] font-medium tracking-[0.08em] rounded-md px-2 py-[3px] border border-primary/35 bg-white text-primary"
-        >
-          {number}
-        </span>
-      </div>
-
-      <div className={`mt-5 min-h-0 ${bodyClasses}`}>
+      <div className={`min-h-0 ${bodyClasses}`}>
         <div className={`flex flex-col min-w-0 ${textColClassName}`}>
           <h3
             className={`font-rubik font-semibold leading-[1.2] tracking-[-0.015em] text-dark-hard mb-3 ${
