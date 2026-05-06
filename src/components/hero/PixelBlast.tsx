@@ -435,7 +435,8 @@ export function PixelBlast({
       const quadGeom = new THREE.PlaneGeometry(2, 2)
       const quad = new THREE.Mesh(quadGeom, material)
       scene.add(quad)
-      const clock = new THREE.Clock()
+      let elapsed = 0
+      let prevTs: number | null = null
       const setSize = () => {
         const w = container.clientWidth || 1
         const h = container.clientHeight || 1
@@ -542,7 +543,6 @@ export function PixelBlast({
       const recomputeVisible = () => {
         visibilityRef.current.visible =
           visState.intersecting && visState.documentVisible && !visState.reducedMotion
-        if (visibilityRef.current.visible) clock.getDelta() // discard accumulated paused time
       }
       recomputeVisible()
 
@@ -568,12 +568,15 @@ export function PixelBlast({
       reducedMotionMq?.addEventListener('change', onReducedMotionChange)
 
       let raf = 0
-      const animate = () => {
+      const animate: FrameRequestCallback = ts => {
         if (autoPauseOffscreen && !visibilityRef.current.visible) {
+          prevTs = null
           raf = requestAnimationFrame(animate)
           return
         }
-        uniforms.uTime.value = timeOffset + clock.getElapsedTime() * speedRef.current
+        if (prevTs !== null) elapsed += (ts - prevTs) / 1000
+        prevTs = ts
+        uniforms.uTime.value = timeOffset + elapsed * speedRef.current
         if (liquidEffect) liquidEffect.uniforms.get('uTime')!.value = uniforms.uTime.value
         if (composer) {
           if (touch) touch.update()
@@ -597,7 +600,6 @@ export function PixelBlast({
         scene,
         camera,
         material,
-        clock,
         clickIx: 0,
         uniforms,
         resizeObserver: ro,
