@@ -196,8 +196,8 @@
           "batch": "ПАКЕТОМ",
           "txCount300": "300 tx",
           "txCount1": "1 tx",
-          "higherCost": "выше стоимость",
-          "lowerCost": "ниже стоимость"
+          "higherCost": "дороже",
+          "lowerCost": "дешевле"
         }
       }
     }

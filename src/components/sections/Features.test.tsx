@@ -15,8 +15,8 @@ describe('Features', () => {
     expect(
       screen.getByText('Send to 1,000+ wallets in one transaction'),
     ).toBeInTheDocument()
-    expect(screen.getByText('Works with any TRC-20 token')).toBeInTheDocument()
-    expect(screen.getByText('Your keys. Your funds.')).toBeInTheDocument()
+    expect(screen.getByText(/Works with any TRC.20 token/)).toBeInTheDocument()
+    expect(screen.getByText(/Your keys\.\s+Your funds\./)).toBeInTheDocument()
     expect(screen.getByText('Upload recipients in seconds')).toBeInTheDocument()
     expect(screen.getByText('Spend less on network costs')).toBeInTheDocument()
   })

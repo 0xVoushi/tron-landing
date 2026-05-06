@@ -129,7 +129,7 @@
     "items": {
       "batchTrx": {
         "tag": "Lot",
-        "title": "Envoyez à plus de 1 000 wallets en une transaction",
+        "title": "Envoyez à plus de 1 000 portefeuilles en une transaction",
         "description": "Envoyez TRX ou tout token TRC-20 à des centaines ou milliers de destinataires en une seule transaction.",
         "cta": "En savoir plus",
         "stats": {

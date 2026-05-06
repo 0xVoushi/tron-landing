@@ -139,7 +139,7 @@
           },
           "transaction": {
             "value": "1",
-            "label": "笔交易"
+            "label": "交易"
           },
           "onchain": {
             "value": "100%",
