@@ -77,50 +77,48 @@ function CircleXIcon() {
   )
 }
 
+interface Stat {
+  value: string
+  label: string
+}
 function StatsRow({
   recipients,
   transaction,
   onchain,
   blockTime,
 }: {
-  recipients: string
-  transaction: string
-  onchain: string
-  blockTime: string
+  recipients: Stat
+  transaction: Stat
+  onchain: Stat
+  blockTime: Stat
 }) {
   const stats = [
-    { label: recipients, icon: <UsersIcon size={22} /> },
-    { label: transaction, icon: <BoltIcon size={22} /> },
-    { label: onchain, icon: <ShieldIcon size={22} /> },
-    { label: blockTime, icon: <ClockIcon size={22} /> },
+    { ...recipients, icon: <UsersIcon size={22} /> },
+    { ...transaction, icon: <BoltIcon size={22} /> },
+    { ...onchain, icon: <ShieldIcon size={22} /> },
+    { ...blockTime, icon: <ClockIcon size={22} /> },
   ]
   return (
     <dl className="grid grid-cols-2 md:grid-cols-4 gap-3">
-      {stats.map(({ label, icon }) => {
-        const [value, ...rest] = label.split(' ')
-        const suffix = rest.join(' ')
-        return (
-          <div
-            key={label}
-            className="flex items-center gap-3 rounded-xl bg-[#fafafa] px-3.5 py-3 transition-colors hover:bg-primary/5"
-          >
-            <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary">
-              {icon}
+      {stats.map(({ value, label, icon }) => (
+        <div
+          key={label}
+          className="flex items-center gap-3 rounded-xl bg-[#fafafa] px-3.5 py-3 transition-colors hover:bg-primary/5"
+        >
+          <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary">
+            {icon}
+          </span>
+          <div className="flex flex-col leading-tight min-w-0">
+            <dt className="sr-only">{label}</dt>
+            <dd className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
+              {value}
+            </dd>
+            <span className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate">
+              {label}
             </span>
-            <div className="flex flex-col leading-tight min-w-0">
-              <dt className="sr-only">{suffix || value}</dt>
-              <dd className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
-                {value}
-              </dd>
-              {suffix ? (
-                <span className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate">
-                  {suffix}
-                </span>
-              ) : null}
-            </div>
           </div>
-        )
-      })}
+        </div>
+      ))}
     </dl>
   )
 }
@@ -174,7 +172,12 @@ export function Features() {
           <FeatureCard
             title={t('items.batchTrx.title')}
             description={t('items.batchTrx.description')}
-            illustration={<BatchTrxIllustration />}
+            illustration={
+              <BatchTrxIllustration
+                recipientsLabel={t('items.batchTrx.illustration.recipients')}
+                moreLabel={t('items.batchTrx.illustration.more')}
+              />
+            }
             extras={
               <PillButton variant="primary" size="sm">
                 {t('items.batchTrx.cta')} ›
@@ -182,27 +185,42 @@ export function Features() {
             }
             footer={
               <StatsRow
-                recipients={t('items.batchTrx.stats.recipients')}
-                transaction={t('items.batchTrx.stats.transaction')}
-                onchain={t('items.batchTrx.stats.onchain')}
-                blockTime={t('items.batchTrx.stats.blockTime')}
+                recipients={{
+                  value: t('items.batchTrx.stats.recipients.value'),
+                  label: t('items.batchTrx.stats.recipients.label'),
+                }}
+                transaction={{
+                  value: t('items.batchTrx.stats.transaction.value'),
+                  label: t('items.batchTrx.stats.transaction.label'),
+                }}
+                onchain={{
+                  value: t('items.batchTrx.stats.onchain.value'),
+                  label: t('items.batchTrx.stats.onchain.label'),
+                }}
+                blockTime={{
+                  value: t('items.batchTrx.stats.blockTime.value'),
+                  label: t('items.batchTrx.stats.blockTime.label'),
+                }}
               />
             }
             className="md:col-span-2 lg:col-span-2 lg:row-span-2"
-            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_2.4fr] gap-6 md:gap-8 items-stretch flex-1"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1.7fr_2.4fr] gap-6 md:gap-8 items-stretch flex-1"
             textColClassName="justify-center"
+            titleClassName="text-[20px] md:text-[22px] md:[text-wrap:balance]"
             illustrationClassName="self-stretch"
           />
           <FeatureCard
             title={t('items.trc20.title')}
+            titleClassName="text-[20px] md:text-[22px] md:[text-wrap:balance]"
             description={t('items.trc20.description')}
-            illustration={<Trc20Illustration />}
+            illustration={<Trc20Illustration anyLabel={t('items.trc20.illustration.any')} />}
             className="md:col-span-1 h-full"
-            bodyClassName="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-4 items-center flex-1"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-4 items-center flex-1"
             textColClassName="justify-center"
           />
           <FeatureCard
-            title={t('items.onChain.title')}
+            title={t('items.onChain.title').replace('. ', '.\n')}
+            titleClassName="text-[20px] md:text-[22px] whitespace-pre-line"
             description={t('items.onChain.description')}
             illustration={<OnChainIllustration />}
             footer={
@@ -225,11 +243,21 @@ export function Features() {
           <FeatureCard
             title={t('items.csv.title')}
             description={t('items.csv.description')}
-            illustration={<CsvUploadIllustration />}
-            extras={<CsvFileChip />}
-            footer={<ProgressRow />}
+            illustration={
+              <CsvUploadIllustration
+                addressLabel={t('items.csv.table.address')}
+                amountLabel={t('items.csv.table.amount')}
+              />
+            }
+            extras={
+              <CsvFileChip
+                name={t('items.csv.file.name')}
+                meta={t('items.csv.file.meta')}
+              />
+            }
+            footer={<ProgressRow label={t('progress.validated')} />}
             titleClassName="text-[18px] md:text-[19px]"
-            descriptionClassName="text-[12.5px]"
+            descriptionClassName="text-[12.5px] md:max-w-[24ch]"
             bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4 flex-1 items-start"
             textColClassName="self-stretch"
             illustrationClassName="h-[160px] self-start"
@@ -237,16 +265,25 @@ export function Features() {
           <FeatureCard
             title={t('items.fees.title')}
             description={t('items.fees.description')}
-            illustration={<FeesIllustration />}
+            illustration={
+              <FeesIllustration
+                oneByOneLabel={t('items.fees.illustration.oneByOne')}
+                batchLabel={t('items.fees.illustration.batch')}
+                txCount300={t('items.fees.illustration.txCount300')}
+                txCount1={t('items.fees.illustration.txCount1')}
+                higherCostLabel={t('items.fees.illustration.higherCost')}
+                lowerCostLabel={t('items.fees.illustration.lowerCost')}
+              />
+            }
             footer={
               <p className="font-rubik text-[12px] text-dark/55 text-center">
-                Save bandwidth. Save energy. Save more.
+                {t('items.fees.subline')}
               </p>
             }
             noFooterBorder
-            bodyClassName="grid grid-cols-1 md:grid-cols-[2fr_5fr] gap-4 flex-1 items-stretch"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-4 flex-1 items-stretch"
             textColClassName="self-center"
-            illustrationClassName="h-[200px] self-stretch"
+            illustrationClassName="h-[200px] self-stretch justify-end"
           />
         </div>
 
@@ -259,14 +296,14 @@ export function Features() {
   )
 }
 
-function ProgressRow() {
+function ProgressRow({ label }: { label: string }) {
   return (
     <div aria-hidden="true" className="flex flex-col gap-2 w-full">
       <div className="relative w-full h-[8px] rounded-full bg-[#f0f0f0] overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-[72%] rounded-full bg-gradient-to-r from-[#10b981] to-[#34d399]" />
       </div>
       <div className="flex items-center justify-between">
-        <span className="font-rubik text-[12px] text-dark/55">All rows validated</span>
+        <span className="font-rubik text-[12px] text-dark/55">{label}</span>
         <span className="font-rubik text-[12px] font-bold text-[#10b981]">100%</span>
       </div>
     </div>

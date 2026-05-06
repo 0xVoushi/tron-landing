@@ -22,7 +22,14 @@ function TronMark({ size = 56 }: { size?: number }) {
 /* ---------------------------------------------------------------- */
 /* 01 — BatchTrxIllustration (TRON disk on pedestal → pills)        */
 /* ---------------------------------------------------------------- */
-export function BatchTrxIllustration() {
+interface BatchTrxIllustrationProps {
+  recipientsLabel: string
+  moreLabel: string
+}
+export function BatchTrxIllustration({
+  recipientsLabel,
+  moreLabel,
+}: BatchTrxIllustrationProps) {
   const targets = [
     { y: 40, addr: 'TX7fh…a19c', amount: '42.000', strong: false },
     { y: 78, addr: 'TN2b…84d0', amount: '12.500', strong: false },
@@ -75,7 +82,7 @@ export function BatchTrxIllustration() {
         letterSpacing="2"
         fill={TRON_RED}
       >
-        RECIPIENTS
+        {recipientsLabel}
       </text>
 
       <circle cx={sourceX} cy={sourceY} r="118" fill="url(#bt-glow)" />
@@ -190,7 +197,7 @@ export function BatchTrxIllustration() {
           letterSpacing="1.2"
           fill={TRON_RED}
         >
-          + 994 MORE
+          {moreLabel}
         </text>
       </g>
     </svg>
@@ -200,7 +207,10 @@ export function BatchTrxIllustration() {
 /* ---------------------------------------------------------------- */
 /* 02 — Trc20Illustration (central disk + 4 brand tokens)           */
 /* ---------------------------------------------------------------- */
-export function Trc20Illustration() {
+interface Trc20IllustrationProps {
+  anyLabel: string
+}
+export function Trc20Illustration({ anyLabel }: Trc20IllustrationProps) {
   const cx = 130
   const cy = 130
   const rOuter = 96
@@ -238,7 +248,7 @@ export function Trc20Illustration() {
           letterSpacing="1.4"
           fill="#9a9a9a"
         >
-          ANY
+          {anyLabel}
         </text>
         <text
           y="13"
@@ -374,7 +384,14 @@ export function OnChainIllustration() {
 /* ---------------------------------------------------------------- */
 /* 04 — CsvUploadIllustration (static table)                        */
 /* ---------------------------------------------------------------- */
-export function CsvUploadIllustration() {
+interface CsvUploadIllustrationProps {
+  addressLabel: string
+  amountLabel: string
+}
+export function CsvUploadIllustration({
+  addressLabel,
+  amountLabel,
+}: CsvUploadIllustrationProps) {
   const rows = [
     { addr: 'TX7fh…a19c', amount: '42.000' },
     { addr: 'TN2b…84d0', amount: '12.500' },
@@ -417,7 +434,7 @@ export function CsvUploadIllustration() {
           letterSpacing="1.4"
           fill="#ffffff"
         >
-          ADDRESS
+          {addressLabel}
         </text>
         <text
           x="186"
@@ -429,7 +446,7 @@ export function CsvUploadIllustration() {
           letterSpacing="1.4"
           fill="#ffffff"
         >
-          AMOUNT
+          {amountLabel}
         </text>
       </g>
 
@@ -478,7 +495,11 @@ export function CsvUploadIllustration() {
   )
 }
 
-export function CsvFileChip() {
+interface CsvFileChipProps {
+  name: string
+  meta: string
+}
+export function CsvFileChip({ name, meta }: CsvFileChipProps) {
   return (
     <div className="flex items-center gap-3 w-full rounded-xl border border-[#ececec] bg-white px-3 py-2.5 shadow-[0_1px_4px_rgba(0,0,0,0.03)]">
       <div className="w-8 h-8 rounded-lg bg-[#f6f6f6] flex items-center justify-center shrink-0 text-primary">
@@ -507,10 +528,10 @@ export function CsvFileChip() {
       </div>
       <div className="flex flex-col leading-tight min-w-0 flex-1">
         <span className="font-rubik text-[13px] font-bold text-dark-hard truncate">
-          recipients.csv
+          {name}
         </span>
         <span className="font-rubik text-[10.5px] text-dark/55 mt-0.5 truncate">
-          3,482 rows · 145 KB
+          {meta}
         </span>
       </div>
       <span
@@ -534,7 +555,22 @@ export function CsvFileChip() {
 /* ---------------------------------------------------------------- */
 /* 05 — FeesIllustration (one-by-one vs batch, big %)               */
 /* ---------------------------------------------------------------- */
-export function FeesIllustration() {
+interface FeesIllustrationProps {
+  oneByOneLabel: string
+  batchLabel: string
+  txCount300: string
+  txCount1: string
+  higherCostLabel: string
+  lowerCostLabel: string
+}
+export function FeesIllustration({
+  oneByOneLabel,
+  batchLabel,
+  txCount300,
+  txCount1,
+  higherCostLabel,
+  lowerCostLabel,
+}: FeesIllustrationProps) {
   return (
     <svg
       viewBox="0 0 320 200"
@@ -553,7 +589,7 @@ export function FeesIllustration() {
           letterSpacing="1.6"
           fill="#8a8a8a"
         >
-          ONE-BY-ONE
+          {oneByOneLabel}
         </text>
         <text
           x="14"
@@ -562,7 +598,7 @@ export function FeesIllustration() {
           fontSize="11"
           fill="#8a8a8a"
         >
-          300 tx
+          {txCount300}
         </text>
         <text
           x="14"
@@ -583,7 +619,7 @@ export function FeesIllustration() {
           fontWeight="600"
           fill={TRON_RED}
         >
-          higher cost
+          {higherCostLabel}
         </text>
         {/* Red bars */}
         <g transform="translate(14 140)">
@@ -655,7 +691,7 @@ export function FeesIllustration() {
           letterSpacing="1.6"
           fill="#8a8a8a"
         >
-          BATCH
+          {batchLabel}
         </text>
         <text
           x="14"
@@ -664,7 +700,7 @@ export function FeesIllustration() {
           fontSize="11"
           fill="#8a8a8a"
         >
-          1 tx
+          {txCount1}
         </text>
         <text
           x="14"
@@ -685,7 +721,7 @@ export function FeesIllustration() {
           fontWeight="600"
           fill={SUCCESS}
         >
-          lower cost
+          {lowerCostLabel}
         </text>
         {/* Green bars */}
         <g transform="translate(14 140)">

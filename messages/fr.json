@@ -119,52 +119,86 @@
     }
   },
   "features": {
-    "eyebrow": "Features",
-    "title": "Why TRON Multisender",
-    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
-    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
+    "eyebrow": "Fonctionnalités",
+    "title": "Pourquoi TRON Multisender",
+    "subtitle": "Paiements groupés sur TRON — rapides, peu coûteux, non custodial.",
+    "bottomLine": "Rapide. Sécurisé. Non custodial. Conçu pour les paiements à fort volume sur TRON.",
+    "progress": {
+      "validated": "Toutes les lignes validées"
+    },
     "items": {
       "batchTrx": {
-        "tag": "Batch",
-        "title": "Send to 1,000+ wallets in one transaction",
-        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
-        "cta": "Learn more",
+        "tag": "Lot",
+        "title": "Envoyez à plus de 1 000 wallets en une transaction",
+        "description": "Envoyez TRX ou tout token TRC-20 à des centaines ou milliers de destinataires en une seule transaction.",
+        "cta": "En savoir plus",
         "stats": {
-          "recipients": "1,000+ Recipients",
-          "transaction": "1 Transaction",
-          "onchain": "100% On-chain",
-          "blockTime": "~3s Block Time"
+          "recipients": {
+            "value": "1 000+",
+            "label": "Destinataires"
+          },
+          "transaction": {
+            "value": "1",
+            "label": "Transaction"
+          },
+          "onchain": {
+            "value": "100%",
+            "label": "On-chain"
+          },
+          "blockTime": {
+            "value": "~3s",
+            "label": "Temps de bloc"
+          }
+        },
+        "illustration": {
+          "recipients": "DESTINATAIRES",
+          "more": "+ 994 PLUS"
         }
       },
       "trc20": {
         "tag": "Tokens",
-        "title": "Works with any TRC-20 token",
-        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
+        "title": "Compatible avec tout token TRC‑20",
+        "description": "USDT, USDC, BTT, WTRX et tout autre token TRC-20.",
+        "illustration": {
+          "any": "TOUT"
+        }
       },
       "onChain": {
-        "tag": "Custody",
-        "title": "Your keys. Your funds.",
-        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "tag": "Custodie",
+        "title": "Vos clés. Vos fonds.",
+        "description": "Entièrement on-chain. Pas de custodie, pas d'inscription, pas de KYC. Vous gardez le contrôle.",
         "pills": {
-          "custody": "No custody",
-          "signup": "No sign-up",
-          "kyc": "No KYC"
+          "custody": "Sans custodie",
+          "signup": "Sans inscription",
+          "kyc": "Sans KYC"
         }
       },
       "csv": {
-        "tag": "Upload",
-        "title": "Upload recipients in seconds",
-        "description": "Import your list and amounts directly from a CSV file."
+        "tag": "Import",
+        "title": "Importez les destinataires en quelques secondes",
+        "description": "Importez votre liste et montants directement depuis un fichier CSV.",
+        "file": {
+          "name": "recipients.csv",
+          "meta": "3 482 lignes · 145 Ko"
+        },
+        "table": {
+          "address": "ADRESSE",
+          "amount": "MONTANT"
+        }
       },
       "fees": {
-        "tag": "Costs",
-        "title": "Spend less on network costs",
-        "description": "Batch transactions use less bandwidth and energy than sending one by one."
-      },
-      "instant": {
-        "tag": "Speed",
-        "title": "Near-instant finality",
-        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
+        "tag": "Coûts",
+        "title": "Dépensez moins en coûts réseau",
+        "description": "Les transactions groupées utilisent moins de bandwidth et d'energy que les envois un par un.",
+        "subline": "Économisez bandwidth. Économisez energy. Économisez plus.",
+        "illustration": {
+          "oneByOne": "UN PAR UN",
+          "batch": "LOT",
+          "txCount300": "300 tx",
+          "txCount1": "1 tx",
+          "higherCost": "coût plus élevé",
+          "lowerCost": "coût plus faible"
+        }
       }
     }
   },

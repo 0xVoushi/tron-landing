@@ -119,52 +119,86 @@
     }
   },
   "features": {
-    "eyebrow": "Features",
-    "title": "Why TRON Multisender",
-    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
-    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
+    "eyebrow": "Funktionen",
+    "title": "Warum TRON Multisender",
+    "subtitle": "Stapelauszahlungen auf TRON — schnell, günstig, non-custodial.",
+    "bottomLine": "Schnell. Sicher. Non-custodial. Gebaut für volumenstarke TRON-Auszahlungen.",
+    "progress": {
+      "validated": "Alle Zeilen validiert"
+    },
     "items": {
       "batchTrx": {
-        "tag": "Batch",
-        "title": "Send to 1,000+ wallets in one transaction",
-        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
-        "cta": "Learn more",
+        "tag": "Stapel",
+        "title": "Senden Sie an 1.000+ Wallets in einer Transaktion",
+        "description": "Senden Sie TRX oder jeden TRC-20-Token an Hunderte oder Tausende Empfänger in einer einzigen Transaktion.",
+        "cta": "Mehr erfahren",
         "stats": {
-          "recipients": "1,000+ Recipients",
-          "transaction": "1 Transaction",
-          "onchain": "100% On-chain",
-          "blockTime": "~3s Block Time"
+          "recipients": {
+            "value": "1.000+",
+            "label": "Empfänger"
+          },
+          "transaction": {
+            "value": "1",
+            "label": "Transaktion"
+          },
+          "onchain": {
+            "value": "100%",
+            "label": "On-chain"
+          },
+          "blockTime": {
+            "value": "~3s",
+            "label": "Blockzeit"
+          }
+        },
+        "illustration": {
+          "recipients": "EMPFÄNGER",
+          "more": "+ 994 MEHR"
         }
       },
       "trc20": {
         "tag": "Tokens",
-        "title": "Works with any TRC-20 token",
-        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
+        "title": "Funktioniert mit jedem TRC‑20-Token",
+        "description": "USDT, USDC, BTT, WTRX und jeder andere TRC-20-Token.",
+        "illustration": {
+          "any": "BELIEBIG"
+        }
       },
       "onChain": {
-        "tag": "Custody",
-        "title": "Your keys. Your funds.",
-        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "tag": "Verwahrung",
+        "title": "Deine Keys. Deine Mittel.",
+        "description": "Vollständig on-chain. Keine Verwahrung, keine Registrierung, kein KYC. Du behältst die Kontrolle.",
         "pills": {
-          "custody": "No custody",
-          "signup": "No sign-up",
-          "kyc": "No KYC"
+          "custody": "Keine Verwahrung",
+          "signup": "Keine Anmeldung",
+          "kyc": "Kein KYC"
         }
       },
       "csv": {
         "tag": "Upload",
-        "title": "Upload recipients in seconds",
-        "description": "Import your list and amounts directly from a CSV file."
+        "title": "Empfänger in Sekunden hochladen",
+        "description": "Importiere deine Liste und Beträge direkt aus einer CSV-Datei.",
+        "file": {
+          "name": "recipients.csv",
+          "meta": "3.482 Zeilen · 145 KB"
+        },
+        "table": {
+          "address": "ADRESSE",
+          "amount": "BETRAG"
+        }
       },
       "fees": {
-        "tag": "Costs",
-        "title": "Spend less on network costs",
-        "description": "Batch transactions use less bandwidth and energy than sending one by one."
-      },
-      "instant": {
-        "tag": "Speed",
-        "title": "Near-instant finality",
-        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
+        "tag": "Kosten",
+        "title": "Weniger Netzwerkkosten",
+        "description": "Stapeltransaktionen verbrauchen weniger Bandbreite und Energie als einzelne Sendungen.",
+        "subline": "Bandbreite sparen. Energie sparen. Mehr sparen.",
+        "illustration": {
+          "oneByOne": "EINZELN",
+          "batch": "STAPEL",
+          "txCount300": "300 tx",
+          "txCount1": "1 tx",
+          "higherCost": "höhere Kosten",
+          "lowerCost": "niedrigere Kosten"
+        }
       }
     }
   },

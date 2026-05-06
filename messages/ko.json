@@ -119,52 +119,86 @@
     }
   },
   "features": {
-    "eyebrow": "Features",
-    "title": "Why TRON Multisender",
-    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
-    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
+    "eyebrow": "기능",
+    "title": "TRON Multisender를 선택하는 이유",
+    "subtitle": "TRON에서 일괄 송금 — 빠르고, 저렴하고, 비수탁식.",
+    "bottomLine": "빠름. 안전함. 비수탁식. TRON 대량 송금을 위해 설계되었습니다.",
+    "progress": {
+      "validated": "모든 행 검증됨"
+    },
     "items": {
       "batchTrx": {
-        "tag": "Batch",
-        "title": "Send to 1,000+ wallets in one transaction",
-        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
-        "cta": "Learn more",
+        "tag": "일괄",
+        "title": "한 번의 트랜잭션으로 1,000+ 지갑에 송금",
+        "description": "TRX 또는 TRC-20 토큰을 한 번의 트랜잭션으로 수백 또는 수천 명의 수신자에게 일괄 전송하세요.",
+        "cta": "자세히 보기",
         "stats": {
-          "recipients": "1,000+ Recipients",
-          "transaction": "1 Transaction",
-          "onchain": "100% On-chain",
-          "blockTime": "~3s Block Time"
+          "recipients": {
+            "value": "1,000+",
+            "label": "수신자"
+          },
+          "transaction": {
+            "value": "1",
+            "label": "트랜잭션"
+          },
+          "onchain": {
+            "value": "100%",
+            "label": "온체인"
+          },
+          "blockTime": {
+            "value": "~3초",
+            "label": "블록 시간"
+          }
+        },
+        "illustration": {
+          "recipients": "수신자",
+          "more": "+ 994 외"
         }
       },
       "trc20": {
-        "tag": "Tokens",
-        "title": "Works with any TRC-20 token",
-        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
+        "tag": "토큰",
+        "title": "모든 TRC‑20 토큰과 호환",
+        "description": "USDT, USDC, BTT, WTRX 및 기타 모든 TRC-20 토큰.",
+        "illustration": {
+          "any": "모든"
+        }
       },
       "onChain": {
-        "tag": "Custody",
-        "title": "Your keys. Your funds.",
-        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "tag": "수탁",
+        "title": "당신의 키. 당신의 자금.",
+        "description": "완전 온체인. 수탁 없음, 가입 없음, KYC 없음. 모든 권한은 당신에게.",
         "pills": {
-          "custody": "No custody",
-          "signup": "No sign-up",
-          "kyc": "No KYC"
+          "custody": "수탁 없음",
+          "signup": "가입 없음",
+          "kyc": "KYC 없음"
         }
       },
       "csv": {
-        "tag": "Upload",
-        "title": "Upload recipients in seconds",
-        "description": "Import your list and amounts directly from a CSV file."
+        "tag": "업로드",
+        "title": "몇 초만에 수신자 업로드",
+        "description": "CSV 파일에서 목록과 금액을 바로 가져오세요.",
+        "file": {
+          "name": "recipients.csv",
+          "meta": "3,482행 · 145 KB"
+        },
+        "table": {
+          "address": "주소",
+          "amount": "금액"
+        }
       },
       "fees": {
-        "tag": "Costs",
-        "title": "Spend less on network costs",
-        "description": "Batch transactions use less bandwidth and energy than sending one by one."
-      },
-      "instant": {
-        "tag": "Speed",
-        "title": "Near-instant finality",
-        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
+        "tag": "비용",
+        "title": "네트워크 비용 절감",
+        "description": "일괄 트랜잭션은 개별 전송보다 bandwidth와 energy를 덜 사용합니다.",
+        "subline": "bandwidth 절약. energy 절약. 더 많이 절약.",
+        "illustration": {
+          "oneByOne": "개별 전송",
+          "batch": "일괄",
+          "txCount300": "300 tx",
+          "txCount1": "1 tx",
+          "higherCost": "높은 비용",
+          "lowerCost": "낮은 비용"
+        }
       }
     }
   },

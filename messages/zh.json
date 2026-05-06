@@ -119,52 +119,86 @@
     }
   },
   "features": {
-    "eyebrow": "Features",
-    "title": "Why TRON Multisender",
-    "subtitle": "Batch payouts on TRON — fast, low-fee, non-custodial.",
-    "bottomLine": "Fast. Secure. Non-custodial. Built for high-volume payouts on TRON.",
+    "eyebrow": "功能",
+    "title": "为什么选择 TRON Multisender",
+    "subtitle": "TRON 上的批量支付 — 快速、低费、无托管。",
+    "bottomLine": "快速。安全。无托管。专为 TRON 大批量支付而构建。",
+    "progress": {
+      "validated": "所有行已验证"
+    },
     "items": {
       "batchTrx": {
-        "tag": "Batch",
-        "title": "Send to 1,000+ wallets in one transaction",
-        "description": "Batch TRX or any TRC-20 token to hundreds or thousands of recipients in a single tx.",
-        "cta": "Learn more",
+        "tag": "批量",
+        "title": "一次交易发送至 1,000+ 钱包",
+        "description": "在单笔交易中向数百或数千个接收者批量发送 TRX 或任何 TRC-20 代币。",
+        "cta": "了解更多",
         "stats": {
-          "recipients": "1,000+ Recipients",
-          "transaction": "1 Transaction",
-          "onchain": "100% On-chain",
-          "blockTime": "~3s Block Time"
+          "recipients": {
+            "value": "1,000+",
+            "label": "接收者"
+          },
+          "transaction": {
+            "value": "1",
+            "label": "笔交易"
+          },
+          "onchain": {
+            "value": "100%",
+            "label": "链上"
+          },
+          "blockTime": {
+            "value": "~3秒",
+            "label": "出块时间"
+          }
+        },
+        "illustration": {
+          "recipients": "接收者",
+          "more": "+ 994 更多"
         }
       },
       "trc20": {
-        "tag": "Tokens",
-        "title": "Works with any TRC-20 token",
-        "description": "USDT, USDC, BTT, WTRX and any other TRC-20 token."
+        "tag": "代币",
+        "title": "支持任何 TRC‑20 代币",
+        "description": "USDT、USDC、BTT、WTRX 以及任何其他 TRC-20 代币。",
+        "illustration": {
+          "any": "任意"
+        }
       },
       "onChain": {
-        "tag": "Custody",
-        "title": "Your keys. Your funds.",
-        "description": "Fully on-chain. No custody, no registration, no KYC. You stay in control.",
+        "tag": "托管",
+        "title": "您的密钥。您的资金。",
+        "description": "完全链上。无托管、无注册、无 KYC。您始终掌控。",
         "pills": {
-          "custody": "No custody",
-          "signup": "No sign-up",
-          "kyc": "No KYC"
+          "custody": "无托管",
+          "signup": "无注册",
+          "kyc": "无 KYC"
         }
       },
       "csv": {
-        "tag": "Upload",
-        "title": "Upload recipients in seconds",
-        "description": "Import your list and amounts directly from a CSV file."
+        "tag": "上传",
+        "title": "几秒内上传接收者列表",
+        "description": "直接从 CSV 文件导入您的列表和金额。",
+        "file": {
+          "name": "recipients.csv",
+          "meta": "3,482 行 · 145 KB"
+        },
+        "table": {
+          "address": "地址",
+          "amount": "金额"
+        }
       },
       "fees": {
-        "tag": "Costs",
-        "title": "Spend less on network costs",
-        "description": "Batch transactions use less bandwidth and energy than sending one by one."
-      },
-      "instant": {
-        "tag": "Speed",
-        "title": "Near-instant finality",
-        "description": "TRON's 3-second block time means near-instant delivery to all recipients."
+        "tag": "费用",
+        "title": "降低网络成本",
+        "description": "批量交易比逐笔发送使用更少的 bandwidth 和 energy。",
+        "subline": "节省 bandwidth。节省 energy。节省更多。",
+        "illustration": {
+          "oneByOne": "逐笔",
+          "batch": "批量",
+          "txCount300": "300 笔",
+          "txCount1": "1 笔",
+          "higherCost": "更高成本",
+          "lowerCost": "更低成本"
+        }
       }
     }
   },
