@@ -8,8 +8,13 @@ interface FeatureCardProps {
   extras?: ReactNode
   footer?: ReactNode
   className?: string
+  bodyClassName?: string
+  textColClassName?: string
   illustrationClassName?: string
+  titleClassName?: string
+  descriptionClassName?: string
   layout?: 'row' | 'column'
+  noFooterBorder?: boolean
 }
 
 const BASE_CLASSES =
@@ -20,6 +25,9 @@ const BASE_CLASSES =
   'hover:-translate-y-[2px] hover:border-primary/25 ' +
   'hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_12px_32px_rgba(0,0,0,0.04)]'
 
+const ROW_DEFAULT = 'grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-5 md:gap-6 items-start'
+const COL_DEFAULT = 'grid grid-rows-[auto_1fr] gap-5'
+
 export function FeatureCard({
   number,
   title,
@@ -28,10 +36,16 @@ export function FeatureCard({
   extras,
   footer,
   className = '',
+  bodyClassName = '',
+  textColClassName = '',
   illustrationClassName = '',
+  titleClassName = '',
+  descriptionClassName = '',
   layout = 'row',
+  noFooterBorder = false,
 }: FeatureCardProps) {
   const isRow = layout === 'row'
+  const bodyClasses = bodyClassName || (isRow ? ROW_DEFAULT : COL_DEFAULT)
 
   return (
     <article className={`${BASE_CLASSES} ${className}`}>
@@ -44,18 +58,20 @@ export function FeatureCard({
         </span>
       </div>
 
-      <div
-        className={
-          isRow
-            ? 'mt-5 flex-1 flex flex-col md:flex-row gap-4 md:gap-5'
-            : 'mt-5 flex-1 flex flex-col gap-4'
-        }
-      >
-        <div className={isRow ? 'md:w-[42%] md:shrink-0 flex flex-col' : 'flex flex-col'}>
-          <h3 className="font-rubik font-semibold text-[20px] md:text-[22px] leading-[1.2] tracking-[-0.015em] text-dark-hard mb-3">
+      <div className={`mt-5 min-h-0 ${bodyClasses}`}>
+        <div className={`flex flex-col min-w-0 ${textColClassName}`}>
+          <h3
+            className={`font-rubik font-semibold leading-[1.2] tracking-[-0.015em] text-dark-hard mb-3 ${
+              titleClassName || 'text-[20px] md:text-[22px]'
+            }`}
+          >
             {title}
           </h3>
-          <p className="font-rubik text-[13.5px] leading-[1.6] tracking-[-0.005em] text-dark/75 max-w-[44ch]">
+          <p
+            className={`font-rubik leading-[1.6] tracking-[-0.005em] text-dark/75 ${
+              descriptionClassName || 'text-[13.5px] max-w-[44ch]'
+            }`}
+          >
             {description}
           </p>
           {extras ? <div className="mt-5">{extras}</div> : null}
@@ -63,20 +79,20 @@ export function FeatureCard({
 
         <div
           aria-hidden="true"
-          className={
-            (isRow
-              ? 'relative flex-1 min-h-[180px] md:min-h-[200px] flex items-center justify-center'
-              : 'relative w-full min-h-[160px] flex items-center justify-center') +
-            ' ' +
-            illustrationClassName
-          }
+          className={`relative min-w-0 min-h-0 flex items-center justify-center ${illustrationClassName}`}
         >
           {illustration}
         </div>
       </div>
 
       {footer ? (
-        <div className="mt-6 pt-5 border-t border-[#ececec]">{footer}</div>
+        <div
+          className={`mt-auto pt-5 ${
+            noFooterBorder ? '' : 'border-t border-[#ececec]'
+          }`}
+        >
+          <div className="pt-1">{footer}</div>
+        </div>
       ) : null}
     </article>
   )

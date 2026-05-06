@@ -3,6 +3,8 @@ import { PillButton } from '@/components/ui/PillButton'
 import { FeatureCard } from './FeatureCard'
 import {
   BatchTrxIllustration,
+  BlockTimeChip,
+  CsvFileChip,
   CsvUploadIllustration,
   FeesIllustration,
   InstantConfirmationIllustration,
@@ -143,7 +145,7 @@ export function Features() {
           {t('subtitle')}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:auto-rows-fr gap-4 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           <FeatureCard
             number="01"
             title={t('items.batchTrx.title')}
@@ -161,8 +163,10 @@ export function Features() {
                 onchain={t('items.batchTrx.stats.onchain')}
               />
             }
-            className="md:col-span-2 lg:col-span-2 lg:row-span-2 md:min-h-[420px] lg:min-h-[560px]"
-            illustrationClassName="lg:min-h-[280px]"
+            className="md:col-span-2 lg:col-span-2 lg:row-span-2"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_2.4fr] gap-6 md:gap-8 items-stretch flex-1"
+            textColClassName="justify-center"
+            illustrationClassName="self-stretch"
           />
           <FeatureCard
             number="02"
@@ -170,13 +174,15 @@ export function Features() {
             description={t('items.trc20.description')}
             illustration={<Trc20Illustration />}
             className="md:col-span-1 h-full"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-4 items-center flex-1"
+            textColClassName="justify-center"
           />
           <FeatureCard
             number="03"
             title={t('items.onChain.title')}
             description={t('items.onChain.description')}
             illustration={<OnChainIllustration />}
-            extras={
+            footer={
               <PillTags
                 labels={[
                   t('items.onChain.pills.custody'),
@@ -185,6 +191,9 @@ export function Features() {
                 ]}
               />
             }
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-4 items-center flex-1"
+            textColClassName="justify-center"
+            noFooterBorder
             className="md:col-span-1 h-full"
           />
         </div>
@@ -195,7 +204,12 @@ export function Features() {
             title={t('items.csv.title')}
             description={t('items.csv.description')}
             illustration={<CsvUploadIllustration />}
+            extras={<CsvFileChip />}
             footer={<ProgressRow />}
+            titleClassName="text-[18px] md:text-[19px]"
+            descriptionClassName="text-[12.5px] max-w-[28ch]"
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1.05fr_1fr] gap-4 items-center flex-1"
+            textColClassName="justify-center"
             className="md:min-h-[340px]"
           />
           <FeatureCard
@@ -203,6 +217,14 @@ export function Features() {
             title={t('items.fees.title')}
             description={t('items.fees.description')}
             illustration={<FeesIllustration />}
+            footer={
+              <p className="font-rubik text-[12px] text-dark/55 text-center">
+                Save bandwidth. Save energy. Save more.
+              </p>
+            }
+            noFooterBorder
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-5 items-center flex-1"
+            textColClassName="justify-center"
             className="md:min-h-[340px]"
           />
           <FeatureCard
@@ -210,6 +232,9 @@ export function Features() {
             title={t('items.instant.title')}
             description={t('items.instant.description')}
             illustration={<InstantConfirmationIllustration />}
+            extras={<BlockTimeChip />}
+            bodyClassName="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-4 items-center flex-1"
+            textColClassName="justify-center"
             className="md:min-h-[340px]"
           />
         </div>

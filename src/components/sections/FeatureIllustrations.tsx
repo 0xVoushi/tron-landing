@@ -43,13 +43,26 @@ export function BatchTrxIllustration() {
     >
       <defs>
         <radialGradient id="bt-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={TRON_RED} stopOpacity="0.22" />
-          <stop offset="70%" stopColor={TRON_RED} stopOpacity="0" />
+          <stop offset="0%" stopColor={TRON_RED} stopOpacity="0.28" />
+          <stop offset="65%" stopColor={TRON_RED} stopOpacity="0" />
         </radialGradient>
-        <radialGradient id="bt-pedestal" cx="50%" cy="40%" r="55%">
+        <radialGradient id="bt-disk" cx="35%" cy="32%" r="75%">
+          <stop offset="0%" stopColor="#FF6A56" />
+          <stop offset="55%" stopColor={TRON_RED} />
+          <stop offset="100%" stopColor="#C8281B" />
+        </radialGradient>
+        <radialGradient id="bt-pedestal-top" cx="50%" cy="35%" r="60%">
           <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="60%" stopColor="#f5f5f5" />
-          <stop offset="100%" stopColor="#e7e7e7" />
+          <stop offset="65%" stopColor="#f6f6f6" />
+          <stop offset="100%" stopColor="#e4e4e4" />
+        </radialGradient>
+        <linearGradient id="bt-pedestal-side" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor="#f0f0f0" />
+          <stop offset="100%" stopColor="#d8d8d8" />
+        </linearGradient>
+        <radialGradient id="bt-pedestal-shadow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#000000" stopOpacity="0.18" />
+          <stop offset="80%" stopColor="#000000" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -66,22 +79,34 @@ export function BatchTrxIllustration() {
         RECIPIENTS
       </text>
 
-      <circle cx={sourceX} cy={sourceY} r="110" fill="url(#bt-glow)" />
+      <circle cx={sourceX} cy={sourceY} r="118" fill="url(#bt-glow)" />
 
-      {/* Pedestal */}
+      {/* Pedestal — 3D disc with shadow */}
       <g>
-        <ellipse cx={sourceX} cy={sourceY + 72} rx="96" ry="14" fill="url(#bt-pedestal)" />
-        <ellipse cx={sourceX} cy={sourceY + 70} rx="96" ry="14" fill="#ffffff" stroke="#e4e4e4" strokeWidth="1" />
-        <ellipse cx={sourceX} cy={sourceY + 64} rx="96" ry="14" fill="#ffffff" stroke="#efefef" strokeWidth="1" />
-        <rect x={sourceX - 96} y={sourceY + 64} width="192" height="6" fill="#f8f8f8" />
+        {/* Ground shadow */}
+        <ellipse cx={sourceX} cy={sourceY + 86} rx="104" ry="10" fill="url(#bt-pedestal-shadow)" />
+        {/* Side wall */}
+        <path
+          d={`M ${sourceX - 96} ${sourceY + 66} Q ${sourceX - 96} ${sourceY + 82} ${sourceX} ${sourceY + 82} Q ${sourceX + 96} ${sourceY + 82} ${sourceX + 96} ${sourceY + 66} Z`}
+          fill="url(#bt-pedestal-side)"
+        />
+        {/* Top surface */}
+        <ellipse cx={sourceX} cy={sourceY + 66} rx="96" ry="13" fill="url(#bt-pedestal-top)" />
+        {/* Top edge highlight */}
+        <ellipse cx={sourceX} cy={sourceY + 66} rx="96" ry="13" fill="none" stroke="#ffffff" strokeWidth="1" strokeOpacity="0.9" />
       </g>
 
       {/* TRON disk */}
       <g transform={`translate(${sourceX} ${sourceY})`}>
-        <circle r="54" fill="#ffffff" stroke={TRON_RED} strokeOpacity="0.18" strokeWidth="1" />
+        {/* Outer halo ring */}
+        <circle r="60" fill="none" stroke={TRON_RED} strokeOpacity="0.12" strokeWidth="1.5" />
+        {/* White coin edge */}
+        <circle r="54" fill="#ffffff" />
+        <circle r="54" fill="none" stroke="#f3d3ce" strokeWidth="1" />
         <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'feat-beat 4s ease-in-out infinite' }}>
-          <circle r="44" fill={TRON_RED} />
-          <g transform="translate(-16 -16) scale(0.327)">
+          {/* Solid red disk */}
+          <circle r="46" fill={TRON_RED} />
+          <g transform="translate(-41 -45) scale(0.84)">
             <path fill="#ffffff" d="M78.20 42.34C75.33 39.69 71.36 35.64 68.13 32.77L67.93 32.64C67.62 32.38 67.26 32.18 66.87 32.05C59.07 30.59 22.77 23.81 22.06 23.89C21.87 23.92 21.68 23.99 21.51 24.10L21.33 24.25C21.10 24.47 20.93 24.75 20.83 25.05L20.78 25.17V25.85V25.96C24.87 37.34 41.00 74.61 44.18 83.36C44.37 83.95 44.74 85.08 45.42 85.14H45.57C45.93 85.14 47.48 83.09 47.48 83.09S75.20 49.48 78.00 45.90C78.37 45.46 78.69 44.99 78.96 44.49C79.03 44.09 79.00 43.69 78.86 43.32C78.73 42.94 78.50 42.60 78.20 42.34ZM54.59 46.26L66.42 36.45L73.36 42.84L54.59 46.26ZM50.00 45.62L29.63 28.93L62.58 35.00L50.00 45.62ZM51.84 49.99L72.68 46.63L48.85 75.34L51.84 49.99ZM26.87 30.59L48.30 48.77L45.20 75.36L26.87 30.59Z" />
           </g>
         </g>
@@ -99,7 +124,7 @@ export function BatchTrxIllustration() {
         {targets.map((t, i) => (
           <path
             key={t.addr}
-            d={`M ${sourceX + 46} ${sourceY} C ${sourceX + 120} ${sourceY}, ${targetX - 30} ${t.y + 12}, ${targetX - 4} ${t.y + 12}`}
+            d={`M ${sourceX + 46} ${sourceY} C ${sourceX + 120} ${sourceY}, ${targetX - 30} ${t.y + 12}, ${targetX - 6} ${t.y + 12}`}
             style={{ animation: `feat-dash-flow 2.8s linear infinite ${i * 0.18}s` }}
           />
         ))}
@@ -108,7 +133,7 @@ export function BatchTrxIllustration() {
       {/* Recipient pills */}
       {targets.map((t) => (
         <g key={t.addr} transform={`translate(${targetX} ${t.y})`}>
-          <circle cx="-12" cy="12" r="3.5" fill={TRON_RED} />
+          <circle cx="-6" cy="12" r="3" fill={TRON_RED} />
           <rect
             x="0"
             y="0"
@@ -245,62 +270,28 @@ export function Trc20Illustration() {
       {/* TRX (top) */}
       <g transform={`translate(${cx} ${cy - rOuter})`}>
         <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'feat-float-y 5s ease-in-out infinite 0s' }}>
-          <circle r="24" fill={TRON_RED} />
-          <g transform="translate(-11 -11) scale(0.224)">
-            <path fill="#ffffff" d="M78.20 42.34C75.33 39.69 71.36 35.64 68.13 32.77L67.93 32.64C67.62 32.38 67.26 32.18 66.87 32.05C59.07 30.59 22.77 23.81 22.06 23.89C21.87 23.92 21.68 23.99 21.51 24.10L21.33 24.25C21.10 24.47 20.93 24.75 20.83 25.05L20.78 25.17V25.85V25.96C24.87 37.34 41.00 74.61 44.18 83.36C44.37 83.95 44.74 85.08 45.42 85.14H45.57C45.93 85.14 47.48 83.09 47.48 83.09S75.20 49.48 78.00 45.90C78.37 45.46 78.69 44.99 78.96 44.49C79.03 44.09 79.00 43.69 78.86 43.32C78.73 42.94 78.50 42.60 78.20 42.34Z" />
-          </g>
+          <image href="/tokens/TRON-Coin.svg" x="-24" y="-24" width="48" height="48" />
         </g>
       </g>
 
-      {/* USDT (right) — green with ₮ */}
+      {/* USDT (right) */}
       <g transform={`translate(${cx + rOuter} ${cy})`}>
         <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'feat-float-y 5s ease-in-out infinite 0.4s' }}>
-          <circle r="24" fill="#26A17B" />
-          <text
-            y="6"
-            textAnchor="middle"
-            fontFamily="Rubik"
-            fontSize="22"
-            fontWeight="800"
-            fill="#ffffff"
-          >
-            ₮
-          </text>
+          <image href="/tokens/Tether.svg" x="-24" y="-24" width="48" height="48" />
         </g>
       </g>
 
-      {/* USDC (left) — blue with $ */}
+      {/* USDC (left) */}
       <g transform={`translate(${cx - rOuter} ${cy})`}>
         <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'feat-float-y 5s ease-in-out infinite 1.2s' }}>
-          <circle r="24" fill="#2775CA" />
-          <text
-            y="6"
-            textAnchor="middle"
-            fontFamily="Rubik"
-            fontSize="20"
-            fontWeight="800"
-            fill="#ffffff"
-          >
-            $
-          </text>
+          <image href="/tokens/USD-Coin.svg" x="-24" y="-24" width="48" height="48" />
         </g>
       </g>
 
       {/* BTT (bottom) */}
       <g transform={`translate(${cx} ${cy + rOuter})`}>
         <g style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'feat-float-y 5s ease-in-out infinite 0.8s' }}>
-          <circle r="24" fill="#000000" />
-          <text
-            y="5"
-            textAnchor="middle"
-            fontFamily="Rubik"
-            fontSize="11"
-            fontWeight="700"
-            letterSpacing="0.3"
-            fill="#ffffff"
-          >
-            BTT
-          </text>
+          <image href="/tokens/BitTorrent-Coin.svg" x="-24" y="-24" width="48" height="48" />
         </g>
       </g>
     </svg>
@@ -394,7 +385,7 @@ export function OnChainIllustration() {
 }
 
 /* ---------------------------------------------------------------- */
-/* 04 — CsvUploadIllustration (static table + progress)             */
+/* 04 — CsvUploadIllustration (static table)                        */
 /* ---------------------------------------------------------------- */
 export function CsvUploadIllustration() {
   const rows = [
@@ -405,13 +396,13 @@ export function CsvUploadIllustration() {
   ]
   return (
     <svg
-      viewBox="0 0 320 220"
+      viewBox="0 0 200 140"
       preserveAspectRatio="xMidYMid meet"
       className="block w-full h-full"
     >
       {/* Header */}
-      <g transform="translate(140 0)">
-        <rect x="0" y="0" width="180" height="22" rx="4" fill={INK} />
+      <g transform="translate(0 0)">
+        <rect x="0" y="0" width="200" height="22" rx="4" fill={INK} />
         <text
           x="14"
           y="15"
@@ -424,7 +415,7 @@ export function CsvUploadIllustration() {
           ADDRESS
         </text>
         <text
-          x="166"
+          x="186"
           y="15"
           textAnchor="end"
           fontFamily="Rubik"
@@ -438,8 +429,8 @@ export function CsvUploadIllustration() {
       </g>
 
       {rows.map((r, i) => (
-        <g key={r.addr} transform={`translate(140 ${30 + i * 28})`}>
-          <rect width="180" height="22" rx="4" fill="#ffffff" stroke={INK_SOFT} />
+        <g key={r.addr} transform={`translate(0 ${30 + i * 28})`}>
+          <rect width="200" height="22" rx="4" fill="#ffffff" stroke={INK_SOFT} />
           <text
             x="14"
             y="15"
@@ -450,7 +441,7 @@ export function CsvUploadIllustration() {
             {r.addr}
           </text>
           <text
-            x="130"
+            x="150"
             y="15"
             textAnchor="end"
             fontFamily="Rubik"
@@ -461,7 +452,7 @@ export function CsvUploadIllustration() {
             {r.amount}
           </text>
           {/* Green check */}
-          <g transform="translate(160 11)">
+          <g transform="translate(180 11)">
             <circle r="8" fill={SUCCESS} />
             <path
               d="M -3 0 L -1 2 L 3.5 -2.5"
@@ -474,61 +465,34 @@ export function CsvUploadIllustration() {
           </g>
         </g>
       ))}
-
-      {/* CSV file chip (left side) */}
-      <g transform="translate(0 56)">
-        <rect
-          x="0"
-          y="0"
-          width="128"
-          height="76"
-          rx="10"
-          fill="#ffffff"
-          stroke="#e6e6e6"
-        />
-        <g transform="translate(14 16)">
-          <rect width="26" height="32" rx="4" fill={TRON_RED} />
-          <path
-            d="M 9 20 L 13 14 L 17 20 M 13 14 L 13 26"
-            stroke="#ffffff"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-          />
-        </g>
-        <text
-          x="52"
-          y="32"
-          fontFamily="Rubik"
-          fontSize="11"
-          fontWeight="700"
-          fill={INK}
-        >
-          recipients.csv
-        </text>
-        <text
-          x="52"
-          y="48"
-          fontFamily="Rubik"
-          fontSize="9"
-          fill="#8a8a8a"
-        >
-          3,482 rows · 145 KB
-        </text>
-        <g transform="translate(110 40)">
-          <circle r="8" fill={SUCCESS} />
-          <path
-            d="M -3 0 L -1 2 L 3.5 -2.5"
-            fill="none"
-            stroke="#ffffff"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </g>
-      </g>
     </svg>
+  )
+}
+
+export function CsvFileChip() {
+  return (
+    <div className="inline-flex items-center gap-2.5 rounded-xl border border-[#e6e6e6] bg-white px-3 py-2 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+      <div className="w-6 h-8 rounded bg-primary flex items-center justify-center shrink-0">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M12 4v12m0-12-4 4m4-4 4 4M5 18h14"
+            stroke="#fff"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+      <div className="flex flex-col leading-tight whitespace-nowrap">
+        <span className="font-rubik text-[12px] font-bold text-dark-hard">recipients.csv</span>
+        <span className="font-rubik text-[10px] text-dark/55 mt-0.5">3,482 rows · 145 KB</span>
+      </div>
+      <span className="inline-flex w-3.5 h-3.5 rounded-full items-center justify-center shrink-0" style={{ background: '#22C55E' }}>
+        <svg width="8" height="8" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+          <path d="M2 6.5L4.5 9L10 3" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </div>
   )
 }
 
@@ -754,7 +718,7 @@ export function InstantConfirmationIllustration() {
 
   return (
     <svg
-      viewBox="0 0 320 220"
+      viewBox="60 10 200 200"
       preserveAspectRatio="xMidYMid meet"
       className="block w-full h-full"
     >
@@ -821,38 +785,22 @@ export function InstantConfirmationIllustration() {
         </g>
       </g>
 
-      {/* BLOCK TIME chip */}
-      <g transform="translate(0 180)">
-        <rect x="0" y="0" width="132" height="30" rx="6" fill="#ffffff" stroke={INK_SOFT} />
-        <text
-          x="14"
-          y="13"
-          fontFamily="Rubik"
-          fontSize="8"
-          fontWeight="700"
-          letterSpacing="1.8"
-          fill="#8a8a8a"
-        >
-          BLOCK TIME
-        </text>
-        <text
-          x="14"
-          y="27"
-          fontFamily="Rubik"
-          fontSize="16"
-          fontWeight="700"
-          letterSpacing="-0.02em"
-          fill={TRON_RED}
-        >
-          ~3s
-        </text>
-        {/* Clock icon */}
-        <g transform="translate(112 15)">
-          <circle r="10" fill="none" stroke={TRON_RED} strokeWidth="1.4" />
-          <path d="M 0 -5 L 0 0 L 4 3" fill="none" stroke={TRON_RED} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M -3 -9 L -1 -11 M 1 -11 L 3 -9" stroke={TRON_RED} strokeWidth="1.2" strokeLinecap="round" />
-        </g>
-      </g>
     </svg>
+  )
+}
+
+export function BlockTimeChip() {
+  return (
+    <div className="inline-flex items-center gap-3 rounded-xl border border-[#e6e6e6] bg-white px-3.5 py-2 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+      <div className="flex flex-col leading-none">
+        <span className="font-rubik text-[9px] font-bold tracking-[0.16em] text-dark/55">BLOCK TIME</span>
+        <span className="font-rubik text-[22px] font-light text-primary mt-1 tracking-[-0.02em]">~3s</span>
+      </div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="13" r="8" stroke="#EE3F2C" strokeWidth="1.5" />
+        <path d="M12 9v4l3 2" stroke="#EE3F2C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9 3l-2 2M15 3l2 2" stroke="#EE3F2C" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </div>
   )
 }
