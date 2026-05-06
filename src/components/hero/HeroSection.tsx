@@ -1,6 +1,13 @@
-import { PixelBlast } from './PixelBlast'
+'use client'
+
+import dynamic from 'next/dynamic'
 import { Navbar } from './Navbar'
 import { HeroContent } from './HeroContent'
+
+const PixelBlast = dynamic(
+  () => import('./PixelBlast').then(m => ({ default: m.PixelBlast })),
+  { ssr: false, loading: () => null }
+)
 
 export function HeroSection() {
   return (

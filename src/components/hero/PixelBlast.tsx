@@ -392,13 +392,13 @@ export function PixelBlast({
       const canvas = document.createElement('canvas')
       const renderer = new THREE.WebGLRenderer({
         canvas,
-        antialias,
+        antialias: false,
         alpha: true,
         powerPreference: 'high-performance'
       })
       renderer.domElement.style.width = '100%'
       renderer.domElement.style.height = '100%'
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5))
       container.appendChild(renderer.domElement)
       if (transparent) renderer.setClearAlpha(0)
       else renderer.setClearColor(0x000000, 1)
@@ -523,9 +523,50 @@ export function PixelBlast({
       renderer.domElement.addEventListener('pointerdown', onPointerDown, {
         passive: true
       })
-      renderer.domElement.addEventListener('pointermove', onPointerMove, {
-        passive: true
-      })
+      if (touch) {
+        renderer.domElement.addEventListener('pointermove', onPointerMove, {
+          passive: true
+        })
+      }
+
+      const reducedMotionMq =
+        typeof window !== 'undefined' && window.matchMedia
+          ? window.matchMedia('(prefers-reduced-motion: reduce)')
+          : null
+      const visState = {
+        intersecting: true,
+        documentVisible:
+          typeof document !== 'undefined' ? document.visibilityState === 'visible' : true,
+        reducedMotion: !!reducedMotionMq?.matches
+      }
+      const recomputeVisible = () => {
+        visibilityRef.current.visible =
+          visState.intersecting && visState.documentVisible && !visState.reducedMotion
+        if (visibilityRef.current.visible) clock.getDelta() // discard accumulated paused time
+      }
+      recomputeVisible()
+
+      const intersectionObserver = new IntersectionObserver(
+        entries => {
+          for (const entry of entries) visState.intersecting = entry.isIntersecting
+          recomputeVisible()
+        },
+        { threshold: 0, rootMargin: '100px' }
+      )
+      intersectionObserver.observe(container)
+
+      const onDocVisibility = () => {
+        visState.documentVisible = document.visibilityState === 'visible'
+        recomputeVisible()
+      }
+      document.addEventListener('visibilitychange', onDocVisibility)
+
+      const onReducedMotionChange = (e: MediaQueryListEvent) => {
+        visState.reducedMotion = e.matches
+        recomputeVisible()
+      }
+      reducedMotionMq?.addEventListener('change', onReducedMotionChange)
+
       let raf = 0
       const animate = () => {
         if (autoPauseOffscreen && !visibilityRef.current.visible) {
@@ -560,6 +601,13 @@ export function PixelBlast({
         clickIx: 0,
         uniforms,
         resizeObserver: ro,
+        intersectionObserver,
+        onDocVisibility,
+        onReducedMotionChange,
+        reducedMotionMq,
+        onPointerDown,
+        onPointerMove,
+        hasPointerMove: !!touch,
         raf,
         quad,
         timeOffset,
@@ -596,6 +644,15 @@ export function PixelBlast({
       if (!threeRef.current) return
       const t = threeRef.current
       t.resizeObserver?.disconnect()
+      t.intersectionObserver?.disconnect()
+      if (t.onDocVisibility) document.removeEventListener('visibilitychange', t.onDocVisibility)
+      if (t.reducedMotionMq && t.onReducedMotionChange) {
+        t.reducedMotionMq.removeEventListener('change', t.onReducedMotionChange)
+      }
+      if (t.onPointerDown) t.renderer.domElement.removeEventListener('pointerdown', t.onPointerDown)
+      if (t.hasPointerMove && t.onPointerMove) {
+        t.renderer.domElement.removeEventListener('pointermove', t.onPointerMove)
+      }
       cancelAnimationFrame(t.raf)
       t.quad?.geometry.dispose()
       t.material.dispose()
