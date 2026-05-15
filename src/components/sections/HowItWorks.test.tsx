@@ -5,22 +5,32 @@ import { HowItWorks } from './HowItWorks'
 describe('HowItWorks', () => {
   it('renders the section heading', () => {
     renderWithIntl(<HowItWorks />)
-    expect(screen.getByRole('heading', { name: /How It Works/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /How It Works/i, level: 2 })).toBeInTheDocument()
   })
 
-  it('renders all 4 step titles', () => {
+  it('renders 4 step articles', () => {
     renderWithIntl(<HowItWorks />)
-    expect(screen.getAllByText('Connect Wallet').length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText('Add Recipients').length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText('Set Amounts').length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText('Send').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByRole('article')).toHaveLength(4)
+  })
+
+  it('renders all 4 step titles from i18n', () => {
+    renderWithIntl(<HowItWorks />)
+    expect(screen.getByText('Connect Wallet')).toBeInTheDocument()
+    expect(screen.getByText('Prepare Transfer')).toBeInTheDocument()
+    expect(screen.getByText('Approve')).toBeInTheDocument()
+    expect(screen.getByText('Multisend')).toBeInTheDocument()
   })
 
   it('renders step numbers 01 through 04', () => {
     renderWithIntl(<HowItWorks />)
-    expect(screen.getAllByText('01').length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText('02').length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText('03').length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText('04').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getByText('01')).toBeInTheDocument()
+    expect(screen.getByText('02')).toBeInTheDocument()
+    expect(screen.getByText('03')).toBeInTheDocument()
+    expect(screen.getByText('04')).toBeInTheDocument()
+  })
+
+  it('renders a video placeholder for each step', () => {
+    renderWithIntl(<HowItWorks />)
+    expect(screen.getAllByRole('img', { name: /video placeholder/i })).toHaveLength(4)
   })
 })
