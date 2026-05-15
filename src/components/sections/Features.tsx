@@ -287,7 +287,7 @@ export function Features() {
           />
         </div>
 
-        <p className="mt-12 md:mt-14 flex items-center justify-center gap-2 text-[13px] md:text-[14px] text-dark/60 font-rubik">
+        <p className="mt-4 md:mt-4 flex items-center justify-center gap-2 text-[13px] md:text-[14px] text-dark/60 font-rubik">
           <ShieldIcon className="text-primary" />
           {t('bottomLine')}
         </p>
