@@ -131,7 +131,7 @@
         "tag": "Lote",
         "title": "Envía a más de 1.000 wallets en una transacción",
         "description": "Envía TRX o cualquier token TRC-20 a cientos o miles de destinatarios en una sola transacción.",
-        "cta": "Más información",
+        "cta": "Abrir dApp",
         "stats": {
           "recipients": {
             "value": "1.000+",

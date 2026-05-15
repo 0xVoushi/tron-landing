@@ -28,8 +28,8 @@ describe('Features', () => {
       screen.getByText(/Built for high-volume payouts on TRON/i),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('button', { name: /Learn more/i }),
-    ).toBeInTheDocument()
+      screen.getAllByRole('button', { name: /Launch dApp/i }).length,
+    ).toBeGreaterThan(0)
   })
 
   it('renders the "No custody / No sign-up / No KYC" pill tags', () => {

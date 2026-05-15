@@ -131,7 +131,7 @@
         "tag": "批量",
         "title": "一次交易发送至 1,000+ 钱包",
         "description": "在单笔交易中向数百或数千个接收者批量发送 TRX 或任何 TRC-20 代币。",
-        "cta": "了解更多",
+        "cta": "启动 dApp",
         "stats": {
           "recipients": {
             "value": "1,000+",
