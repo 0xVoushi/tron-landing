@@ -102,19 +102,19 @@
     "steps": {
       "connect": {
         "title": "지갑 연결",
-        "description": "TronLink 또는 호환되는 TRON 지갑을 한 번의 클릭으로 연결하세요. 계정이 필요 없습니다."
+        "description": "TronLink 또는 호환되는 TRON 지갑을 한 번의 클릭으로 연결하세요. 가입이나 계정 생성이 필요 없습니다."
       },
-      "recipients": {
-        "title": "수신자 추가",
-        "description": "주소를 수동으로 붙여넣거나 주소와 금액이 포함된 CSV 파일을 업로드하세요."
+      "prepare": {
+        "title": "전송 준비",
+        "description": "토큰(TRX, TRC-20, TRC-10)을 선택하고 주소와 금액이 포함된 수신자 목록을 붙여넣기 또는 CSV로 불러옵니다."
       },
-      "amounts": {
-        "title": "금액 설정",
-        "description": "모든 수신자에게 동일한 금액을 할당하거나 주소별로 맞춤 금액을 설정하세요."
+      "approve": {
+        "title": "승인",
+        "description": "총액, 수신자 수, 네트워크 수수료가 포함된 요약을 검토하고 멀티센드를 승인하세요. 준비 단계는 자동으로 실행됩니다."
       },
-      "send": {
-        "title": "전송",
-        "description": "검토 후 확인하세요. TRON의 빠른 블록 타임 덕분에 모든 수신자가 3~5분 이내에 자금을 받습니다."
+      "multisend": {
+        "title": "멀티센드",
+        "description": "온체인에서 배치가 실행됩니다. 진행 상황과 각 수신자의 최종 전송 상태를 실시간으로 확인하세요."
       }
     }
   },

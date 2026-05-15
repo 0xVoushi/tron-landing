@@ -102,19 +102,19 @@
     "steps": {
       "connect": {
         "title": "Connect Wallet",
-        "description": "Connect TronLink or any compatible TRON wallet in one click. No account needed."
+        "description": "Connect TronLink or any compatible TRON wallet in one click. No registration, no account creation."
       },
-      "recipients": {
-        "title": "Add Recipients",
-        "description": "Paste addresses manually or upload a CSV file with addresses and amounts."
+      "prepare": {
+        "title": "Prepare Transfer",
+        "description": "Pick the token — TRX, TRC-20, or TRC-10 — and load your recipient list with per-address amounts via paste or CSV."
       },
-      "amounts": {
-        "title": "Set Amounts",
-        "description": "Assign the same amount to all recipients or set custom amounts per address."
+      "approve": {
+        "title": "Approve",
+        "description": "Review the full summary — total amount, recipient count, network fee — and approve the multisend. Preparation runs programmatically."
       },
-      "send": {
-        "title": "Send",
-        "description": "Review and confirm. All recipients receive funds within 3–5 minutes via TRON's fast block time."
+      "multisend": {
+        "title": "Multisend",
+        "description": "The batch executes on-chain. Watch live progress and the final delivery status for every recipient."
       }
     }
   },

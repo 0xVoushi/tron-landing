@@ -102,19 +102,19 @@
     "steps": {
       "connect": {
         "title": "连接钱包",
-        "description": "一键连接 TronLink 或任意兼容的 TRON 钱包，无需注册账户。"
+        "description": "一键连接 TronLink 或任何兼容的 TRON 钱包。无需注册，无需账户。"
       },
-      "recipients": {
-        "title": "添加收款人",
-        "description": "手动粘贴地址，或上传包含地址与金额的 CSV 文件。"
+      "prepare": {
+        "title": "准备转账",
+        "description": "选择代币（TRX、TRC-20 或 TRC-10），通过粘贴或 CSV 加载包含地址和金额的收款人列表。"
       },
-      "amounts": {
-        "title": "设置金额",
-        "description": "为所有收款人分配相同金额，或为每个地址设置独立金额。"
+      "approve": {
+        "title": "授权",
+        "description": "查看摘要——总金额、收款人数量、网络手续费——然后授权 Multisend。准备步骤自动完成。"
       },
-      "send": {
-        "title": "发送",
-        "description": "确认无误后发送。凭借 TRON 的高速出块，所有收款人将在 3–5 分钟内到账。"
+      "multisend": {
+        "title": "Multisend",
+        "description": "批量在链上执行。实时查看进度和每位收款人的最终送达状态。"
       }
     }
   },

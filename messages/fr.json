@@ -101,20 +101,20 @@
     "title": "Fonctionnement",
     "steps": {
       "connect": {
-        "title": "Connectez votre portefeuille",
-        "description": "Connectez TronLink ou n'importe quel portefeuille TRON compatible en un clic. Aucun compte nécessaire."
+        "title": "Connecter le wallet",
+        "description": "Connectez TronLink ou tout wallet TRON compatible en un clic. Sans inscription, sans compte."
       },
-      "recipients": {
-        "title": "Ajoutez les destinataires",
-        "description": "Collez les adresses manuellement ou importez un fichier CSV contenant les adresses et les montants."
+      "prepare": {
+        "title": "Préparer le transfert",
+        "description": "Choisissez le token — TRX, TRC-20 ou TRC-10 — et chargez votre liste de destinataires avec les montants via collage ou CSV."
       },
-      "amounts": {
-        "title": "Définissez les montants",
-        "description": "Attribuez le même montant à tous les destinataires ou personnalisez le montant par adresse."
+      "approve": {
+        "title": "Approuver",
+        "description": "Vérifiez le récapitulatif — montant total, nombre de destinataires, frais réseau — et approuvez le multisend. La préparation s'exécute automatiquement."
       },
-      "send": {
-        "title": "Envoyez",
-        "description": "Vérifiez et confirmez. Tous les destinataires reçoivent les fonds en 3 à 5 minutes grâce au temps de bloc rapide de TRON."
+      "multisend": {
+        "title": "Multisend",
+        "description": "Le lot s'exécute on-chain. Suivez la progression en direct et le statut final pour chaque destinataire."
       }
     }
   },
