@@ -509,5 +509,10 @@
   },
   "aiCheck": {
     "eyebrowMarker": "AI-Check"
+  },
+  "consent": {
+    "label": "Cookie-Zustimmung",
+    "message": "Wir verwenden Cookies und Analyse-Tools, um zu verstehen, wie die Seite genutzt wird, und sie zu verbessern. Mit Klick auf OK stimmst du dem Analyse-Tracking zu.",
+    "accept": "OK"
   }
 }
