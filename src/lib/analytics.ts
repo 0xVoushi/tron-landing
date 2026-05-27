@@ -1,7 +1,6 @@
 import posthog from 'posthog-js'
 
-// Fires a custom event to PostHog and GA4. Consent is respected automatically:
-// PostHog drops events while opted-out, and gtag obeys Consent Mode (denied).
+// Fires a custom event to PostHog and GA4.
 export function trackEvent(name: string, payload: Record<string, unknown>): void {
   if (typeof window === 'undefined') return
 

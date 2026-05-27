@@ -509,10 +509,5 @@
   },
   "aiCheck": {
     "eyebrowMarker": "AI 체크"
-  },
-  "consent": {
-    "label": "쿠키 동의",
-    "message": "사이트 사용 방식을 파악하고 개선하기 위해 쿠키와 분석을 사용합니다. OK를 누르면 분석 추적에 동의하는 것입니다.",
-    "accept": "OK"
   }
 }
