@@ -1,80 +1,110 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { Menu, X } from 'lucide-react'
-import { ClippedButton } from '@/components/ui/ClippedButton'
+import { PillButton } from '@/components/ui/PillButton'
+import { LaunchDappButton } from '@/components/ui/LaunchDappButton'
+import { Logo } from '@/components/ui/Logo'
+import { LocaleSwitcher } from '@/components/locale-switcher/LocaleSwitcher'
+import { Link, usePathname } from '@/i18n/routing'
 
-const NAV_LINKS = ['Home', 'About', 'Contact Us'] as const
+const NAV_LINK_KEYS = [
+  { key: 'home', href: '#' },
+  { key: 'howItWorks', href: '#how-it-works' },
+  { key: 'features', href: '#features' },
+  { key: 'tokens', href: '#tokens' },
+  { key: 'perks', href: '#pricing' },
+  { key: 'faq', href: '#faq' },
+] as const
 
-function LogoMark() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M4 8h16l8 8-8 8H4l8-8L4 8z" fill="white" opacity="0.9" />
-      <path d="M10 8h10l6 8-6 8H10l6-8-6-8z" fill="white" opacity="0.3" />
-    </svg>
-  )
-}
-
-export function Navbar() {
+export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
+  const t = useTranslations('nav')
   const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+
+  function resolveHref(href: string) {
+    if (isHome) return href
+    return href === '#' ? '/' : `/${href}`
+  }
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const showPill = scrolled || alwaysOpaque
 
   return (
     <nav
-      className="absolute top-0 left-0 right-0 z-20 flex items-center py-4 px-8 md:py-[22px] md:px-10 lg:px-12"
-      style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, transparent 100%)' }}
+      className={[
+        'fixed top-0 left-0 right-0 z-50 py-4 px-8 md:py-[22px] md:px-10 lg:px-[1.6rem]',
+        'transition-all duration-500',
+      ].join(' ')}
     >
-      {/* Logo */}
-      <div className="flex items-center gap-[10px] flex-shrink-0">
-        <LogoMark />
-        <span className="font-rubik font-bold text-[18px] text-white uppercase tracking-[3px]">
-          targo
-        </span>
-      </div>
-
-      {/* Desktop nav links */}
-      <div className="hidden md:flex items-center gap-8 ml-12">
-        {NAV_LINKS.map((link) => (
-          <a
-            key={link}
-            href="#"
-            className="font-rubik font-medium text-[13px] text-white/75 hover:text-white transition-colors"
-          >
-            {link}
-          </a>
-        ))}
-      </div>
-
-      {/* Desktop CTA */}
-      <div className="hidden md:block ml-auto">
-        <ClippedButton variant="red" size="sm">Contact Us</ClippedButton>
-      </div>
-
-      {/* Mobile hamburger */}
-      <button
-        className="md:hidden ml-auto text-white"
-        onClick={() => setIsOpen((prev) => !prev)}
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      <div
+        className={[
+          'mx-auto flex items-center transition-all duration-500',
+          showPill
+            ? 'max-w-5xl lg:max-w-[128rem] bg-white/90 backdrop-blur-xl rounded-full shadow-sm px-6 py-2'
+            : 'max-w-7xl lg:max-w-[128rem]',
+        ].join(' ')}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        <Logo dark={showPill} />
 
-      {/* Mobile dropdown */}
-      {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm flex flex-col p-6 gap-4 md:hidden">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="font-rubik font-medium text-[15px] text-white/80 hover:text-white transition-colors"
+        <div className="hidden lg:flex items-center gap-2 ml-10">
+          {NAV_LINK_KEYS.map((link) => (
+            <Link
+              key={link.key}
+              href={resolveHref(link.href)}
+              className={[
+                'font-rubik font-medium text-[13px] px-3 py-1.5 rounded-full transition-colors',
+                showPill
+                  ? 'text-dark hover:bg-black-4 hover:text-dark-hard'
+                  : 'bg-dark-hard text-white-80 hover:bg-dark hover:text-white',
+              ].join(' ')}
             >
-              {link}
-            </a>
+              {t(link.key)}
+            </Link>
           ))}
-          <div className="pt-2">
-            <ClippedButton variant="red" size="md">Contact Us</ClippedButton>
+        </div>
+
+        <div className="hidden lg:flex items-center gap-2 ml-auto">
+          <LocaleSwitcher variant={showPill ? 'light' : 'dark'} />
+          <PillButton variant="primary" size="sm">{t('launchApp')}</PillButton>
+        </div>
+
+        <button
+          type="button"
+          className={['lg:hidden ml-auto', showPill ? 'text-dark' : 'text-white'].join(' ')}
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-label={isOpen ? t('closeMenu') : t('openMenu')}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-grey-medium flex flex-col p-6 gap-4 lg:hidden">
+          {NAV_LINK_KEYS.map((link) => (
+            <Link
+              key={link.key}
+              href={resolveHref(link.href)}
+              className="font-rubik font-medium text-[15px] transition-colors text-dark hover:text-dark-hard"
+            >
+              {t(link.key)}
+            </Link>
+          ))}
+          <div className="pt-2 flex flex-col gap-3">
+            <LocaleSwitcher variant="light" />
           </div>
         </div>
       )}
+
+      <LaunchDappButton />
     </nav>
   )
 }

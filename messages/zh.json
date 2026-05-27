@@ -1,0 +1,513 @@
+{
+  "meta": {
+    "home": {
+      "title": "TRON Multisender — 官方 TRX 与 TRC-20 批量转账工具",
+      "description": "在一笔 TRON 交易中将 TRX 和 TRC-20 代币发送到 1,000+ 个地址。官方非托管批量转账工具，无需注册。",
+      "ogTitle": "TRON Multisender — 官方批量转账工具",
+      "ogDescription": "在一笔交易中将 TRX 和 TRC-20 代币发送到 1,000+ 个地址。完全非托管。",
+      "twitterDescription": "TRON 官方批量转账工具。一笔交易即可发送至 1,000+ 个地址。",
+      "ogAlt": "TRON Multisender — 官方批量转账工具"
+    },
+    "guide": {
+      "title": "如何使用 TRON Multisender — 分步指南",
+      "description": "了解如何在一笔交易中将 TRX 和 TRC-20 代币批量发送到多个地址。分步指南：连接钱包、添加收款人、授权并发送。",
+      "ogDescription": "了解如何在一笔交易中将 TRX 和 TRC-20 代币批量发送到多个地址。",
+      "ogAlt": "TRON Multisender 使用指南"
+    },
+    "vip": {
+      "title": "VIP 权益 — TRON Multisender",
+      "description": "升级为 VIP，免除每批次服务费。仅支付 TRON 网络费用。套餐低至 1,000 TRX/天起。",
+      "ogAlt": "TRON Multisender VIP"
+    },
+    "referral": {
+      "title": "推荐计划 — TRON Multisender",
+      "description": "邀请用户使用 TRON Multisender，每笔推荐交易可获得 10% 服务费分成。被推荐用户享 5% 优惠。",
+      "ogAlt": "TRON Multisender 推荐计划"
+    }
+  },
+  "brand": {
+    "name": "TRON Multisender",
+    "description": "面向 TRON 区块链的批量转账工具。"
+  },
+  "nav": {
+    "home": "首页",
+    "howItWorks": "使用方法",
+    "features": "功能特性",
+    "tokens": "支持代币",
+    "perks": "专属权益",
+    "faq": "常见问题",
+    "launchApp": "启动 dApp",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单"
+  },
+  "hero": {
+    "eyebrow": "批量转账",
+    "headline": "批量发送 TRX 与 TRC-20 代币",
+    "subheadline": "一笔交易即可将 USDT、TRX 或任意 TRC-20 代币发送到 1,000+ 个地址 —— 无需注册，完全非托管。",
+    "cta": "启动 dApp",
+    "stats": {
+      "recipients": {
+        "value": "1,000+",
+        "label": "每笔收款人数",
+        "sub": "单笔交易"
+      },
+      "tokenTypes": {
+        "value": "3",
+        "label": "代币类型",
+        "sub": "TRX / TRC-20 / TRC-10"
+      },
+      "feeSavings": {
+        "value": "~90%",
+        "label": "节省手续费",
+        "sub": "相较于逐笔发送"
+      },
+      "custody": {
+        "value": "零",
+        "label": "托管",
+        "sub": "完全链上运行"
+      }
+    }
+  },
+  "consultationCard": {
+    "verified": "已认证",
+    "brand": "TRON Multisender",
+    "cta": "启动 dApp"
+  },
+  "stats": {
+    "ariaLabel": "核心数据",
+    "recipients": {
+      "value": "1,000+",
+      "label": "每笔收款人数",
+      "sublabel": "单笔交易"
+    },
+    "tokenTypes": {
+      "value": "3",
+      "label": "代币类型",
+      "sublabel": "TRX / TRC-20 / TRC-10"
+    },
+    "feeSavings": {
+      "value": "~90%",
+      "label": "节省手续费",
+      "sublabel": "相较于逐笔发送"
+    },
+    "custody": {
+      "value": "零",
+      "label": "托管",
+      "sublabel": "完全链上运行"
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "流程",
+    "title": "使用方法",
+    "steps": {
+      "connect": {
+        "title": "连接钱包",
+        "description": "一键连接 TronLink 或任何兼容的 TRON 钱包。无需注册，无需账户。"
+      },
+      "prepare": {
+        "title": "准备转账",
+        "description": "选择代币（TRX、TRC-20 或 TRC-10），通过粘贴或 CSV 加载包含地址和金额的收款人列表。"
+      },
+      "approve": {
+        "title": "授权",
+        "description": "查看摘要——总金额、收款人数量、网络手续费——然后授权 Multisend。准备步骤自动完成。"
+      },
+      "multisend": {
+        "title": "Multisend",
+        "description": "批量在链上执行。实时查看进度和每位收款人的最终送达状态。"
+      }
+    }
+  },
+  "features": {
+    "eyebrow": "功能",
+    "title": "为什么选择 TRON Multisender",
+    "subtitle": "TRON 上的批量支付 — 快速、低费、无托管。",
+    "bottomLine": "快速。安全。无托管。专为 TRON 大批量支付而构建。",
+    "progress": {
+      "validated": "所有行已验证"
+    },
+    "items": {
+      "batchTrx": {
+        "tag": "批量",
+        "title": "一次交易发送至 1,000+ 钱包",
+        "description": "在单笔交易中向数百或数千个接收者批量发送 TRX 或任何 TRC-20 代币。",
+        "cta": "启动 dApp",
+        "stats": {
+          "recipients": {
+            "value": "1,000+",
+            "label": "接收者"
+          },
+          "transaction": {
+            "value": "1",
+            "label": "交易"
+          },
+          "onchain": {
+            "value": "100%",
+            "label": "链上"
+          },
+          "blockTime": {
+            "value": "~3秒",
+            "label": "出块时间"
+          }
+        },
+        "illustration": {
+          "recipients": "接收者",
+          "more": "+ 994 更多"
+        }
+      },
+      "trc20": {
+        "tag": "代币",
+        "title": "支持任何 TRC‑20 代币",
+        "description": "USDT、USDC、BTT、WTRX 以及任何其他 TRC-20 代币。",
+        "illustration": {
+          "any": "任意"
+        }
+      },
+      "onChain": {
+        "tag": "托管",
+        "title": "您的密钥。您的资金。",
+        "description": "完全链上。无托管、无注册、无 KYC。您始终掌控。",
+        "pills": {
+          "custody": "无托管",
+          "signup": "无注册",
+          "kyc": "无 KYC"
+        }
+      },
+      "csv": {
+        "tag": "上传",
+        "title": "几秒内上传接收者列表",
+        "description": "直接从 CSV 文件导入您的列表和金额。",
+        "file": {
+          "name": "recipients.csv",
+          "meta": "3,482 行 · 145 KB"
+        },
+        "table": {
+          "address": "地址",
+          "amount": "金额"
+        }
+      },
+      "fees": {
+        "tag": "费用",
+        "title": "降低网络成本",
+        "description": "批量交易比逐笔发送使用更少的 bandwidth 和 energy。",
+        "subline": "节省 bandwidth。节省 energy。节省更多。",
+        "illustration": {
+          "oneByOne": "逐笔",
+          "batch": "批量",
+          "txCount300": "300 笔",
+          "txCount1": "1 笔",
+          "higherCost": "更高成本",
+          "lowerCost": "更低成本"
+        }
+      }
+    }
+  },
+  "supportedTokens": {
+    "eyebrow": "支持代币",
+    "title": "已支持代币",
+    "subtitle": "将任意 TRC-20 代币或原生 TRX 同时发送给多位收款人。",
+    "footnote": "支持任意 TRC-20 合约地址。粘贴合约地址即可开始使用。",
+    "types": {
+      "native": "原生代币",
+      "trc20": "TRC-20",
+      "trc10": "TRC-10"
+    },
+    "tokens": {
+      "trx": "TRON",
+      "usdt": "Tether USD",
+      "usdc": "USD Coin",
+      "wtrx": "Wrapped TRX",
+      "btt": "BitTorrent"
+    }
+  },
+  "pricing": {
+    "eyebrow": "专属权益",
+    "title": "更多使用 TRON Multisender 的方式",
+    "subtitle": "VIP 套餐、推荐奖励和免费测试网 —— 为每一类用户量身打造。",
+    "cards": {
+      "vip": {
+        "label": "VIP 权益",
+        "title": "免服务费",
+        "description": "升级为 VIP，彻底免除每批次服务费，仅需支付标准的 TRON 网络费用。",
+        "cta": "开通 VIP"
+      },
+      "referral": {
+        "label": "推荐计划",
+        "title": "推荐即可赚取奖励",
+        "description": "邀请他人使用 TRON Multisender，每位活跃用户都能为您带来奖励，收益无上限。",
+        "cta": "查看推荐计划"
+      },
+      "testnet": {
+        "label": "测试网",
+        "title": "免费试用",
+        "description": "尚未准备好使用主网？在 Shasta 或 Nile Testnet 上完整体验批量转账流程 —— 无需真实资金。",
+        "cta": "在 Testnet 上体验 dApp"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "常见问题",
+    "items": {
+      "whatIs": {
+        "question": "TRON Multisender 是什么？",
+        "answer": "TRON Multisender 是一款官方的链上工具，可在 TRON 网络上通过单笔区块链交易将 TRX 或 TRC-20 代币发送到多个钱包地址。"
+      },
+      "howToSendUsdt": {
+        "question": "如何在 TRON 上向多个地址发送 USDT？",
+        "answer": "连接您的 TronLink 钱包，选择代币类型为 TRC-20 并输入 USDT 合约地址，然后添加收款地址和金额 —— 或上传 CSV 文件。确认一笔交易即可同时向所有收款人发送 USDT。"
+      },
+      "customAmounts": {
+        "question": "能否为每个地址发送不同的金额？",
+        "answer": "可以。您可以为每个地址设置独立金额，也可以选择向所有收款人发送等额金额。手动输入和 CSV 上传均支持为每个地址指定自定义金额。"
+      },
+      "safety": {
+        "question": "使用 TRON Multisender 安全吗？",
+        "answer": "安全。TRON Multisender 完全非托管 —— 您的私钥绝不会离开钱包。所有转账通过智能合约直接在链上完成，无需注册或创建账户。"
+      },
+      "supportedTokens": {
+        "question": "TRON Multisender 支持哪些代币？",
+        "answer": "TRON Multisender 支持 TRX（TRON 原生代币）、TRC-10 代币以及任意 TRC-20 代币，包括 USDT、USDC、WTRX 和 BTT。可使用任意有效的 TRC-20 合约地址。"
+      },
+      "addressLimit": {
+        "question": "一次最多能向多少个地址发送？",
+        "answer": "单笔交易最多可发送至 1,000 个地址。如需更大规模的分发，可拆分为多个批次进行。"
+      },
+      "cost": {
+        "question": "使用 TRON Multisender 的费用是多少？",
+        "answer": "每笔交易会收取少量服务费。相较于逐笔发送，批量转账还能大幅降低带宽与能量消耗 —— 通常可节省约 90% 的费用。"
+      },
+      "csvUpload": {
+        "question": "CSV 上传如何使用？",
+        "answer": "准备一份包含两列的 CSV 文件：钱包地址和金额。在应用中上传后，TRON Multisender 会在您确认交易前解析并校验全部数据。"
+      },
+      "wallet": {
+        "question": "我需要什么钱包？",
+        "answer": "您需要一款兼容 TRON 的钱包，例如 TronLink（浏览器插件或手机版）、TokenPocket，或任何支持 TronWeb 的钱包。无需创建新钱包。"
+      },
+      "vsManual": {
+        "question": "与手动发送有何不同？",
+        "answer": "手动发送需要为每位收款人单独发起一笔交易 —— 既耗时又昂贵。TRON Multisender 将所有转账合并为一笔交易，最高可节省 90% 的手续费，并可在数秒内完成。"
+      },
+      "kyc": {
+        "question": "TRON Multisender 是否需要注册或 KYC？",
+        "answer": "不需要。无需注册、创建账户或进行 KYC。只需连接您的 TRON 钱包即可开始发送。"
+      },
+      "payroll": {
+        "question": "能否使用 TRON Multisender 以 USDT 发放工资或奖励？",
+        "answer": "可以。TRON Multisender 被广泛用于加密工资发放 —— 上传一份包含收款钱包和 USDT 金额的 CSV，确认一笔交易，所有款项即可即时发送。"
+      },
+      "airdrop": {
+        "question": "能否在 TRON 上进行 USDT 空投？",
+        "answer": "可以。TRON Multisender 被广泛用于 TRON 网络上的 USDT 空投。上传一份包含收款钱包地址和 USDT 金额的 CSV，确认一笔交易，所有空投收款人都能即时收到代币。"
+      },
+      "batchTrc20": {
+        "question": "如何将 TRC-20 代币批量发送到多个钱包？",
+        "answer": "连接您的 TRON 钱包，选择代币类型为 TRC-20 并粘贴合约地址，然后通过手动输入或 CSV 上传添加收款地址和金额。一笔交易即可同时发送到所有钱包。"
+      },
+      "minimum": {
+        "question": "使用 TRON Multisender 有最低金额要求吗？",
+        "answer": "每位收款人没有代币最低金额限制。但您的钱包中需要有足够的 TRX 来支付批量交易所需的 TRON 网络带宽与能量费用。"
+      },
+      "trc10VsTrc20": {
+        "question": "TRC-10 与 TRC-20 代币有什么区别？",
+        "answer": "TRC-10 代币由 TRON 协议本身发行（例如 BTT），而 TRC-20 代币运行于智能合约之上（例如 USDT、USDC）。TRON Multisender 同时支持这两种类型以及原生 TRX。"
+      }
+    }
+  },
+  "aiRecommendation": {
+    "eyebrow": "AI 审查",
+    "title": "问问 AI 我们是否适合您",
+    "askAria": "向 {name} 咨询 TRON Multisender",
+    "note": "打开一个带有预填问题的全新对话 —— 答案直接来自 AI。",
+    "prompt": "TRON Multisender 是一款在 TRON 区块链上可将 TRX 和 TRC-20 代币一次性发送到多个地址的批量转账工具，请问它是否适合我的使用场景？请简要将其与同类方案进行对比，并告诉我在哪些情况下使用它最合适。"
+  },
+  "guide": {
+    "eyebrow": "指南",
+    "title": "如何向多个地址发送 TRON 代币",
+    "intro": "仅需一笔链上交易，即可将 TRX 或任意 TRC-20 代币批量发送到数百个钱包 —— 无需注册。",
+    "cta": {
+      "heading": "准备发送了吗？",
+      "body": "启动 dApp，几分钟内完成您的首次批量转账。",
+      "button": "启动 dApp"
+    },
+    "sections": {
+      "prepare": {
+        "title": "第 1 步 —— 准备",
+        "steps": {
+          "connect": "连接您的 TRON 钱包（TronLink、TokenPocket 或任何兼容 TronWeb 的钱包）。",
+          "network": "选择网络：Mainnet，或使用 Shasta / Nile Testnet 进行测试。",
+          "token": "从列表中选择代币 —— TRX、TRC-10 或 TRC-20 —— 或直接粘贴合约地址。",
+          "recipients": "输入收款地址和金额。您可以手动粘贴，也可以上传包含两列（地址与金额）的 CSV / XLS / XLSX 文件。",
+          "proceed": "点击 Proceed 按钮继续。"
+        }
+      },
+      "approve": {
+        "title": "第 2 步 —— 授权",
+        "steps": {
+          "accept": "同意服务条款并点击 Continue。",
+          "allowance": "在您的钱包中确认代币授权交易。这将允许 TRON Multisender 合约代为转移您的代币。",
+          "wait": "等待授权交易确认。系统将自动跳转到最后一步。"
+        }
+      },
+      "multisend": {
+        "title": "第 3 步 —— 批量发送",
+        "steps": {
+          "initiate": "点击 MultiSend 按钮发起批量转账。",
+          "confirm": "在您的钱包中确认交易。",
+          "wait": "等待交易被打包。得益于 TRON 的高速出块，所有收款人将在 3–5 分钟内收到款项。"
+        }
+      }
+    }
+  },
+  "vip": {
+    "backToHome": "返回首页",
+    "eyebrow": "VIP",
+    "headline": "免服务费。\n只付网络费用。",
+    "intro": "升级为 VIP，享受零服务费的无限批量转账，只需支付标准的 TRON 网络费用。",
+    "plans": {
+      "starter": {
+        "name": "入门版",
+        "price": "1,000 TRX",
+        "period": "每日",
+        "cta": "开通 VIP"
+      },
+      "professional": {
+        "name": "专业版",
+        "price": "5,000 TRX",
+        "period": "每 7 天",
+        "cta": "开通 VIP"
+      },
+      "business": {
+        "name": "商务版",
+        "price": "10,000 TRX",
+        "period": "每 30 天",
+        "cta": "开通 VIP"
+      },
+      "enterprise": {
+        "name": "企业版",
+        "price": "定制",
+        "period": "按需定制",
+        "cta": "联系我们"
+      }
+    },
+    "plansFootnote": "* 您仍需支付 TRON 网络的能量和带宽费用。",
+    "benefits": {
+      "eyebrow": "权益",
+      "title": "VIP 专属权益",
+      "items": {
+        "feeWaived": "所有交易免除服务费",
+        "networkOnly": "仅支付标准的 TRON 网络费用",
+        "unlimited": "套餐有效期内批量转账无限次",
+        "multipleCodes": "支持多个推荐码",
+        "support": "通过 Telegram 享受优先支持"
+      }
+    },
+    "forYou": {
+      "eyebrow": "为您而设",
+      "title": "最适合高频大批量发送者",
+      "description": "如果您经常需要向数百个地址发送资金 —— 用于工资发放、空投、DAO 分发或代币销售 —— 只需几笔交易，VIP 即可回本。",
+      "cta": "升级为 VIP"
+    }
+  },
+  "referral": {
+    "backToHome": "返回首页",
+    "eyebrow": "推荐计划",
+    "headline": "分享即可赚取。\n您的人脉为您创造收益。",
+    "intro": "邀请用户使用 TRON Multisender，他们每笔交易您都可获得 10% 的服务费分成。被推荐用户享 5% 优惠。",
+    "stats": {
+      "youEarn": {
+        "value": "10%",
+        "label": "您的收益",
+        "sub": "每笔推荐交易的服务费"
+      },
+      "referralGets": {
+        "value": "5%",
+        "label": "被推荐用户享",
+        "sub": "服务费优惠"
+      },
+      "codes": {
+        "label": "推荐码",
+        "sub": "想创建多少就创建多少"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "使用方法",
+      "title": "3 步开启收益",
+      "steps": {
+        "connect": {
+          "title": "连接您的钱包",
+          "description": "打开 dApp 并连接 TronLink 钱包，即可进入推荐中心。"
+        },
+        "create": {
+          "title": "创建推荐码",
+          "description": "生成一个或多个推荐码。将其分享给您的社区、团队或受众。"
+        },
+        "earn": {
+          "title": "每笔交易都有收益",
+          "description": "每当被推荐用户发起批量转账，您即可自动获得 10% 的服务费分成。"
+        }
+      }
+    },
+    "cta": {
+      "title": "准备开始赚取收益了吗？",
+      "description": "连接您的钱包创建推荐码，并开始追踪您的收益。每笔被推荐的交易都会自动结算奖励。",
+      "button": "打开推荐中心",
+      "footnote": "* 每位被邀请用户通过 TRON Multisender 完成交易后，均可获得奖励结算。"
+    }
+  },
+  "footer": {
+    "brandDescription": "面向 TRON 区块链的批量转账工具。",
+    "navigationHeading": "导航",
+    "legalHeading": "法律条款",
+    "links": {
+      "howItWorks": "使用方法",
+      "features": "功能特性",
+      "perks": "专属权益",
+      "faq": "常见问题",
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "documentation": "使用文档"
+    },
+    "copyright": "© {startYear}–{currentYear} TRON Multisender",
+    "social": {
+      "x": "X",
+      "telegram": "Telegram",
+      "medium": "Medium",
+      "youtube": "YouTube"
+    }
+  },
+  "logo": {
+    "home": "首页"
+  },
+  "structuredData": {
+    "software": {
+      "description": "在 TRON 区块链上通过单笔交易将 TRX 和 TRC-20 代币批量发送到多个地址。"
+    },
+    "howTo": {
+      "name": "如何使用 TRON Multisender 批量发送 TRX 和 TRC-20 代币",
+      "description": "在一笔 TRON 交易中向多个地址发送 TRX 或 TRC-20 代币的分步指南。",
+      "steps": {
+        "connect": {
+          "name": "连接钱包",
+          "text": "一键连接 TronLink 或任意兼容的 TRON 钱包，无需注册账户。"
+        },
+        "recipients": {
+          "name": "添加收款人",
+          "text": "手动粘贴地址，或上传包含地址与金额的 CSV 文件。"
+        },
+        "amounts": {
+          "name": "设置金额",
+          "text": "为所有收款人分配相同金额，或为每个地址设置独立金额。"
+        },
+        "send": {
+          "name": "发送",
+          "text": "确认无误后发送。凭借 TRON 的高速出块，所有收款人将在 3–5 分钟内到账。"
+        }
+      }
+    }
+  },
+  "aiCheck": {
+    "eyebrowMarker": "AI 审查"
+  }
+}

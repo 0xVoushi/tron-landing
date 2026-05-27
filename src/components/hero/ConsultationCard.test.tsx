@@ -1,26 +1,25 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl } from '@/test/render'
 import { ConsultationCard } from './ConsultationCard'
 
 describe('ConsultationCard', () => {
-  it('renders the "Free" label', () => {
-    render(<ConsultationCard />)
-    expect(screen.getByText('Free')).toBeInTheDocument()
+  it('renders the Verified label', () => {
+    renderWithIntl(<ConsultationCard />)
+    expect(screen.getByText(/Verified/i)).toBeInTheDocument()
   })
 
-  it('renders "Book a Consultation" title', () => {
-    render(<ConsultationCard />)
-    expect(screen.getByText('Book a Consultation')).toBeInTheDocument()
+  it('renders TRON Multisender text', () => {
+    renderWithIntl(<ConsultationCard />)
+    expect(screen.getByText(/TRON Multisender/i)).toBeInTheDocument()
   })
 
-  it('renders the Book a Call button', () => {
-    render(<ConsultationCard />)
-    expect(screen.getByRole('button', { name: 'Book a Call' })).toBeInTheDocument()
+  it('renders the shield icon container', () => {
+    renderWithIntl(<ConsultationCard />)
+    expect(screen.getByTestId('shield-icon')).toBeInTheDocument()
   })
 
-  it('renders the phone icon wrapper', () => {
-    const { container } = render(<ConsultationCard />)
-    const iconWrapper = container.querySelector('[data-testid="phone-icon"]')
-    expect(iconWrapper).toBeInTheDocument()
-    expect(iconWrapper!.querySelector('svg')).toBeInTheDocument()
+  it('renders Launch dApp button', () => {
+    renderWithIntl(<ConsultationCard />)
+    expect(screen.getByRole('button', { name: /Launch dApp/i })).toBeInTheDocument()
   })
 })

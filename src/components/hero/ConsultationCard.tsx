@@ -1,40 +1,40 @@
-import { Phone } from 'lucide-react'
-import { ClippedButton } from '@/components/ui/ClippedButton'
+import { useTranslations } from 'next-intl'
+import { ShieldCheck } from 'lucide-react'
+import { PillButton } from '@/components/ui/PillButton'
 
 export function ConsultationCard() {
+  const t = useTranslations('consultationCard')
+
   return (
     <div
       className={[
-        'absolute bottom-6 left-8 z-20',
-        'lg:bottom-9 lg:left-12',
+        'absolute bottom-6 left-1/2 -translate-x-1/2 z-20',
+        'lg:bottom-9',
         'flex items-center gap-[14px]',
         'py-[14px] px-[18px]',
-        'rounded-[10px]',
-        'glass-card',
+        'rounded-lg',
+        'glass-card-dark',
       ].join(' ')}
     >
-      {/* Phone icon circle */}
       <div
-        data-testid="phone-icon"
-        className="w-10 h-10 rounded-full bg-white/[.92] flex items-center justify-center flex-shrink-0 shadow-md"
+        data-testid="shield-icon"
+        className="w-10 h-10 rounded-full bg-white-10 flex items-center justify-center flex-shrink-0 shadow-md"
       >
-        <Phone size={18} stroke="#111" strokeWidth={2} />
+        <ShieldCheck size={18} stroke="#fafafa" strokeWidth={2} />
       </div>
 
-      {/* Text */}
       <div className="flex flex-col">
-        <span className="font-rubik font-medium text-[10px] text-white/50 uppercase tracking-[1.5px] mb-0.5">
-          Free
+        <span className="font-rubik font-medium text-[10px] text-white-40 uppercase tracking-[1.5px] mb-0.5">
+          {t('verified')}
         </span>
         <span className="font-rubik font-semibold text-[14px] text-white tracking-[-0.2px]">
-          Book a Consultation
+          {t('brand')}
         </span>
       </div>
 
-      {/* CTA */}
-      <ClippedButton variant="white" size="sm" className="ml-2 whitespace-nowrap">
-        Book a Call
-      </ClippedButton>
+      <PillButton variant="secondary" size="sm" className="ml-2 whitespace-nowrap">
+        {t('cta')}
+      </PillButton>
     </div>
   )
 }

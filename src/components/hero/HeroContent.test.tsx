@@ -1,21 +1,27 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithIntl } from '@/test/render'
 import { HeroContent } from './HeroContent'
 
 describe('HeroContent', () => {
-  it('renders the eyebrow text', () => {
-    render(<HeroContent />)
-    expect(screen.getByText('Logistics & Transport')).toBeInTheDocument()
+  it('renders eyebrow text', () => {
+    renderWithIntl(<HeroContent />)
+    expect(screen.getByText(/TRON Multisender/i)).toBeInTheDocument()
   })
 
-  it('renders the headline as h1', () => {
-    render(<HeroContent />)
-    const heading = screen.getByRole('heading', { level: 1 })
-    expect(heading).toBeInTheDocument()
-    expect(heading).toHaveTextContent('Swift and Simple Transport')
+  it('renders the main heading', () => {
+    renderWithIntl(<HeroContent />)
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      /Batch Send TRX & TRC-20 Tokens/i
+    )
   })
 
-  it('renders the Get Started CTA button', () => {
-    render(<HeroContent />)
-    expect(screen.getByRole('button', { name: 'Get Started' })).toBeInTheDocument()
+  it('renders subheadline copy', () => {
+    renderWithIntl(<HeroContent />)
+    expect(screen.getByText(/1,000\+ addresses/i)).toBeInTheDocument()
+  })
+
+  it('renders Launch dApp button', () => {
+    renderWithIntl(<HeroContent />)
+    expect(screen.getByRole('button', { name: /Launch dApp/i })).toBeInTheDocument()
   })
 })

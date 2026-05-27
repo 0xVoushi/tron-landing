@@ -1,0 +1,38 @@
+.socialList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.8em;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socialItem {
+  display: inline-flex;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-grey, #aaaaaa);
+  transition: color 200ms ease;
+  text-decoration: none;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: var(--color-primary, #c54236);
+  outline: none;
+}
+
+.socialIcon {
+  display: inline-flex;
+  width: 1.6875rem;
+  height: 1.6875rem;
+  background-color: currentColor;
+  mask: var(--icon-url) no-repeat 50% 50% / contain;
+  -webkit-mask: var(--icon-url) no-repeat 50% 50% / contain;
+}

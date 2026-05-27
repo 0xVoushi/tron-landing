@@ -1,0 +1,513 @@
+{
+  "meta": {
+    "home": {
+      "title": "TRON Multisender — Transfert groupé de TRX et TRC-20",
+      "description": "Envoyez des TRX et jetons TRC-20 à plus de 1 000 adresses en une transaction. Transfert groupé non-custodial, sans inscription.",
+      "ogTitle": "TRON Multisender — Outil officiel de transfert groupé",
+      "ogDescription": "Envoyez des TRX et des jetons TRC-20 à plus de 1 000 adresses en une seule transaction. Non-custodial.",
+      "twitterDescription": "Outil officiel de transfert groupé pour TRON. Envoyez à plus de 1 000 adresses en une seule tx.",
+      "ogAlt": "TRON Multisender — Outil officiel de transfert groupé"
+    },
+    "guide": {
+      "title": "Comment utiliser TRON Multisender — Guide étape par étape",
+      "description": "Transfert groupé de TRX et jetons TRC-20 vers plusieurs adresses en une transaction. Guide : connectez le portefeuille, ajoutez les destinataires, envoyez.",
+      "ogDescription": "Apprenez à envoyer en lot des TRX et des jetons TRC-20 à plusieurs adresses en une seule transaction.",
+      "ogAlt": "Guide TRON Multisender"
+    },
+    "vip": {
+      "title": "Accès VIP — TRON Multisender",
+      "description": "Passez au VIP et évitez les frais de service par lot. Ne payez que les coûts du réseau TRON. Offres à partir de 1 000 TRX/jour.",
+      "ogAlt": "TRON Multisender VIP"
+    },
+    "referral": {
+      "title": "Programme de parrainage — TRON Multisender",
+      "description": "Invitez des utilisateurs sur TRON Multisender et gagnez 10 % des frais de service pour chaque parrainage. Vos filleuls bénéficient de 5 % de réduction.",
+      "ogAlt": "Programme de parrainage TRON Multisender"
+    }
+  },
+  "brand": {
+    "name": "TRON Multisender",
+    "description": "Outil de transfert groupé pour la blockchain TRON."
+  },
+  "nav": {
+    "home": "Accueil",
+    "howItWorks": "Fonctionnement",
+    "features": "Fonctionnalités",
+    "tokens": "Jetons",
+    "perks": "Avantages",
+    "faq": "FAQ",
+    "launchApp": "Lancer la dApp",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "eyebrow": "Transfert groupé",
+    "headline": "Envoyez en lot des TRX et des jetons TRC-20",
+    "subheadline": "Envoyez des USDT, des TRX ou n'importe quel jeton TRC-20 à plus de 1 000 adresses en une seule transaction — sans inscription, entièrement non-custodial.",
+    "cta": "Lancer la dApp",
+    "stats": {
+      "recipients": {
+        "value": "1,000+",
+        "label": "Destinataires par tx",
+        "sub": "Par transaction"
+      },
+      "tokenTypes": {
+        "value": "3",
+        "label": "Types de jetons",
+        "sub": "TRX / TRC-20 / TRC-10"
+      },
+      "feeSavings": {
+        "value": "~90%",
+        "label": "Économies de frais",
+        "sub": "vs envoi manuel"
+      },
+      "custody": {
+        "value": "Zéro",
+        "label": "Conservation",
+        "sub": "Entièrement on-chain"
+      }
+    }
+  },
+  "consultationCard": {
+    "verified": "Vérifié",
+    "brand": "TRON Multisender",
+    "cta": "Lancer la dApp"
+  },
+  "stats": {
+    "ariaLabel": "Statistiques clés",
+    "recipients": {
+      "value": "1,000+",
+      "label": "Destinataires par tx",
+      "sublabel": "Par transaction"
+    },
+    "tokenTypes": {
+      "value": "3",
+      "label": "Types de jetons",
+      "sublabel": "TRX / TRC-20 / TRC-10"
+    },
+    "feeSavings": {
+      "value": "~90%",
+      "label": "Économies de frais",
+      "sublabel": "vs envoi manuel"
+    },
+    "custody": {
+      "value": "Zéro",
+      "label": "Conservation",
+      "sublabel": "Entièrement on-chain"
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Processus",
+    "title": "Fonctionnement",
+    "steps": {
+      "connect": {
+        "title": "Connecter le wallet",
+        "description": "Connectez TronLink ou tout wallet TRON compatible en un clic. Sans inscription, sans compte."
+      },
+      "prepare": {
+        "title": "Préparer le transfert",
+        "description": "Choisissez le token — TRX, TRC-20 ou TRC-10 — et chargez votre liste de destinataires avec les montants via collage ou CSV."
+      },
+      "approve": {
+        "title": "Approuver",
+        "description": "Vérifiez le récapitulatif — montant total, nombre de destinataires, frais réseau — et approuvez le multisend. La préparation s'exécute automatiquement."
+      },
+      "multisend": {
+        "title": "Multisend",
+        "description": "Le lot s'exécute on-chain. Suivez la progression en direct et le statut final pour chaque destinataire."
+      }
+    }
+  },
+  "features": {
+    "eyebrow": "Fonctionnalités",
+    "title": "Pourquoi TRON Multisender",
+    "subtitle": "Paiements groupés sur TRON — rapides, peu coûteux, non custodial.",
+    "bottomLine": "Rapide. Sécurisé. Non custodial. Conçu pour les paiements à fort volume sur TRON.",
+    "progress": {
+      "validated": "Toutes les lignes validées"
+    },
+    "items": {
+      "batchTrx": {
+        "tag": "Lot",
+        "title": "Envoyez à plus de 1 000 portefeuilles en une transaction",
+        "description": "Envoyez TRX ou tout token TRC-20 à des centaines ou milliers de destinataires en une seule transaction.",
+        "cta": "Lancer la dApp",
+        "stats": {
+          "recipients": {
+            "value": "1 000+",
+            "label": "Destinataires"
+          },
+          "transaction": {
+            "value": "1",
+            "label": "Transaction"
+          },
+          "onchain": {
+            "value": "100%",
+            "label": "On-chain"
+          },
+          "blockTime": {
+            "value": "~3s",
+            "label": "Temps de bloc"
+          }
+        },
+        "illustration": {
+          "recipients": "DESTINATAIRES",
+          "more": "+ 994 PLUS"
+        }
+      },
+      "trc20": {
+        "tag": "Tokens",
+        "title": "Compatible avec tout token TRC‑20",
+        "description": "USDT, USDC, BTT, WTRX et tout autre token TRC-20.",
+        "illustration": {
+          "any": "TOUT"
+        }
+      },
+      "onChain": {
+        "tag": "Custodie",
+        "title": "Vos clés. Vos fonds.",
+        "description": "Entièrement on-chain. Pas de custodie, pas d'inscription, pas de KYC. Vous gardez le contrôle.",
+        "pills": {
+          "custody": "Sans custodie",
+          "signup": "Sans inscription",
+          "kyc": "Sans KYC"
+        }
+      },
+      "csv": {
+        "tag": "Import",
+        "title": "Importez les destinataires en quelques secondes",
+        "description": "Importez votre liste et montants directement depuis un fichier CSV.",
+        "file": {
+          "name": "recipients.csv",
+          "meta": "3 482 lignes · 145 Ko"
+        },
+        "table": {
+          "address": "ADRESSE",
+          "amount": "MONTANT"
+        }
+      },
+      "fees": {
+        "tag": "Coûts",
+        "title": "Dépensez moins en coûts réseau",
+        "description": "Les transactions groupées utilisent moins de bandwidth et d'energy que les envois un par un.",
+        "subline": "Économisez bandwidth. Économisez energy. Économisez plus.",
+        "illustration": {
+          "oneByOne": "UN PAR UN",
+          "batch": "LOT",
+          "txCount300": "300 tx",
+          "txCount1": "1 tx",
+          "higherCost": "coût plus élevé",
+          "lowerCost": "coût plus faible"
+        }
+      }
+    }
+  },
+  "supportedTokens": {
+    "eyebrow": "Jetons",
+    "title": "Jetons pris en charge",
+    "subtitle": "Envoyez n'importe quel jeton TRC-20 ou le TRX natif à plusieurs destinataires simultanément.",
+    "footnote": "Toute adresse de contrat TRC-20 est prise en charge. Collez l'adresse du contrat pour commencer.",
+    "types": {
+      "native": "Natif",
+      "trc20": "TRC-20",
+      "trc10": "TRC-10"
+    },
+    "tokens": {
+      "trx": "TRON",
+      "usdt": "Tether USD",
+      "usdc": "USD Coin",
+      "wtrx": "Wrapped TRX",
+      "btt": "BitTorrent"
+    }
+  },
+  "pricing": {
+    "eyebrow": "Avantages",
+    "title": "Plus de façons d'utiliser TRON Multisender",
+    "subtitle": "Offres VIP, récompenses de parrainage et testnet gratuit — conçus pour tous types d'utilisateurs.",
+    "cards": {
+      "vip": {
+        "label": "Accès VIP",
+        "title": "Aucun frais de service",
+        "description": "Passez au VIP et supprimez totalement les frais de service par lot. Ne payez que les coûts standard du réseau TRON.",
+        "cta": "Obtenir le VIP"
+      },
+      "referral": {
+        "label": "Programme de parrainage",
+        "title": "Gagnez en parrainant",
+        "description": "Invitez d'autres utilisateurs sur TRON Multisender et gagnez des récompenses pour chaque parrainage actif. Gains illimités.",
+        "cta": "Voir le programme de parrainage"
+      },
+      "testnet": {
+        "label": "Testnet",
+        "title": "Essayez gratuitement",
+        "description": "Pas encore prêt pour le Mainnet ? Exécutez tout le flux de transfert groupé sur Shasta ou Nile Testnet — sans fonds réels nécessaires.",
+        "cta": "Essayer la dApp sur Testnet maintenant"
+      }
+    }
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions fréquentes",
+    "items": {
+      "whatIs": {
+        "question": "Qu'est-ce que TRON Multisender ?",
+        "answer": "TRON Multisender est un outil on-chain officiel qui vous permet d'envoyer des TRX ou des jetons TRC-20 à plusieurs adresses de portefeuille en une seule transaction blockchain sur le réseau TRON."
+      },
+      "howToSendUsdt": {
+        "question": "Comment envoyer des USDT à plusieurs adresses sur TRON ?",
+        "answer": "Connectez votre portefeuille TronLink, sélectionnez TRC-20 comme type de jeton et saisissez l'adresse du contrat USDT, puis ajoutez les adresses des destinataires et les montants — ou importez un fichier CSV. Confirmez une seule transaction pour envoyer des USDT à tous les destinataires simultanément."
+      },
+      "customAmounts": {
+        "question": "Puis-je envoyer des montants différents à chaque adresse ?",
+        "answer": "Oui. Vous pouvez définir un montant personnalisé par adresse ou choisir d'envoyer des montants égaux à tous les destinataires. La saisie manuelle et l'import CSV prennent tous deux en charge les montants personnalisés par adresse."
+      },
+      "safety": {
+        "question": "TRON Multisender est-il sûr à utiliser ?",
+        "answer": "Oui. TRON Multisender est entièrement non-custodial — vos clés privées ne quittent jamais votre portefeuille. Tous les transferts se font directement on-chain via un smart contract. Aucune inscription ni création de compte n'est requise."
+      },
+      "supportedTokens": {
+        "question": "Quels jetons TRON Multisender prend-il en charge ?",
+        "answer": "TRON Multisender prend en charge le TRX (natif TRON), les jetons TRC-10 et n'importe quel jeton TRC-20, y compris USDT, USDC, WTRX et BTT. Toute adresse de contrat TRC-20 valide peut être utilisée."
+      },
+      "addressLimit": {
+        "question": "À combien d'adresses puis-je envoyer en une seule fois ?",
+        "answer": "Vous pouvez envoyer à jusqu'à 1 000 adresses en une seule transaction. Pour des distributions plus importantes, vous pouvez les répartir en plusieurs lots."
+      },
+      "cost": {
+        "question": "Combien coûte l'utilisation de TRON Multisender ?",
+        "answer": "Des frais de service modestes s'appliquent par transaction. L'utilisation du transfert groupé réduit aussi considérablement le coût total en bande passante et en énergie par rapport à des envois individuels — généralement environ 90 % d'économies sur les frais."
+      },
+      "csvUpload": {
+        "question": "Comment fonctionne l'import CSV ?",
+        "answer": "Préparez un fichier CSV avec deux colonnes : adresse du portefeuille et montant. Importez-le dans l'application et TRON Multisender analysera et validera toutes les entrées avant que vous ne confirmiez la transaction."
+      },
+      "wallet": {
+        "question": "De quel portefeuille ai-je besoin ?",
+        "answer": "Il vous faut un portefeuille compatible TRON comme TronLink (extension navigateur ou mobile), TokenPocket ou tout portefeuille prenant en charge TronWeb. Aucune création de nouveau portefeuille n'est nécessaire."
+      },
+      "vsManual": {
+        "question": "Quelle est la différence avec l'envoi manuel ?",
+        "answer": "Un envoi manuel nécessite une transaction par destinataire — chronophage et coûteux. TRON Multisender regroupe tous les transferts en une seule transaction, économisant jusqu'à 90 % de frais et se réalisant en quelques secondes."
+      },
+      "kyc": {
+        "question": "TRON Multisender exige-t-il une inscription ou un KYC ?",
+        "answer": "Non. Aucune inscription, création de compte ou KYC n'est requis. Connectez simplement votre portefeuille TRON et commencez à envoyer."
+      },
+      "payroll": {
+        "question": "Puis-je utiliser TRON Multisender pour payer des salaires ou des récompenses en USDT ?",
+        "answer": "Oui. TRON Multisender est largement utilisé pour la paie crypto — importez un CSV contenant les portefeuilles des destinataires et les montants en USDT, confirmez une seule transaction, et tous les paiements sont envoyés instantanément."
+      },
+      "airdrop": {
+        "question": "Puis-je réaliser un airdrop d'USDT sur TRON ?",
+        "answer": "Oui. TRON Multisender est largement utilisé pour les airdrops d'USDT sur le réseau TRON. Importez un CSV contenant les adresses des portefeuilles destinataires et les montants en USDT, confirmez une seule transaction, et tous les participants à l'airdrop reçoivent leurs jetons instantanément."
+      },
+      "batchTrc20": {
+        "question": "Comment envoyer en lot des jetons TRC-20 à plusieurs portefeuilles ?",
+        "answer": "Connectez votre portefeuille TRON, sélectionnez TRC-20 comme type de jeton et collez l'adresse du contrat, puis ajoutez les adresses des destinataires et les montants via saisie manuelle ou import CSV. Une seule transaction envoie à tous les portefeuilles simultanément."
+      },
+      "minimum": {
+        "question": "Y a-t-il un montant minimum pour utiliser TRON Multisender ?",
+        "answer": "Il n'y a pas de montant minimum de jetons par destinataire. Vous avez toutefois besoin de suffisamment de TRX dans votre portefeuille pour couvrir les coûts en bande passante et en énergie du réseau TRON pour la transaction en lot."
+      },
+      "trc10VsTrc20": {
+        "question": "Quelle est la différence entre les jetons TRC-10 et TRC-20 ?",
+        "answer": "Les jetons TRC-10 sont émis via le protocole TRON lui-même (comme BTT), tandis que les jetons TRC-20 fonctionnent grâce à des smart contracts (comme USDT, USDC). TRON Multisender prend en charge les deux types ainsi que le TRX natif."
+      }
+    }
+  },
+  "aiRecommendation": {
+    "eyebrow": "AI Check",
+    "title": "Demandez à l'AI si nous vous convenons",
+    "askAria": "Demander à {name} à propos de TRON Multisender",
+    "note": "Ouvre une nouvelle discussion avec une question pré-remplie — les réponses viennent directement de l'AI.",
+    "prompt": "TRON Multisender — un outil de transfert groupé pour envoyer des TRX et des jetons TRC-20 à de nombreuses adresses en une seule fois sur la blockchain TRON — est-il adapté à mon cas d'usage ? Comparez-le brièvement aux alternatives et dites-moi quand il est pertinent de l'utiliser."
+  },
+  "guide": {
+    "eyebrow": "Guide",
+    "title": "Comment envoyer des jetons TRON à plusieurs adresses",
+    "intro": "Envoyez en lot des TRX ou n'importe quel jeton TRC-20 à des centaines de portefeuilles en une seule transaction on-chain — aucune inscription requise.",
+    "cta": {
+      "heading": "Prêt à envoyer ?",
+      "body": "Lancez la dApp et réalisez votre premier transfert groupé en quelques minutes.",
+      "button": "Lancer la dApp"
+    },
+    "sections": {
+      "prepare": {
+        "title": "Étape 1 — Préparation",
+        "steps": {
+          "connect": "Connectez votre portefeuille TRON (TronLink, TokenPocket ou tout portefeuille compatible TronWeb).",
+          "network": "Sélectionnez le réseau : Mainnet, ou Shasta / Nile Testnet pour vos tests.",
+          "token": "Sélectionnez le jeton dans la liste — TRX, TRC-10 ou TRC-20 — ou collez directement l'adresse du contrat.",
+          "recipients": "Saisissez les adresses des destinataires et les montants. Vous pouvez les coller manuellement ou importer un fichier CSV / XLS / XLSX avec deux colonnes : adresse et montant.",
+          "proceed": "Cliquez sur le bouton Continuer pour poursuivre."
+        }
+      },
+      "approve": {
+        "title": "Étape 2 — Approbation",
+        "steps": {
+          "accept": "Acceptez les conditions d'utilisation et cliquez sur Continuer.",
+          "allowance": "Approuvez la transaction d'autorisation du jeton dans votre portefeuille. Cela donne au contrat TRON Multisender la permission de transférer vos jetons.",
+          "wait": "Attendez la confirmation de la transaction d'approbation. Vous serez automatiquement redirigé vers l'étape finale."
+        }
+      },
+      "multisend": {
+        "title": "Étape 3 — Multisend",
+        "steps": {
+          "initiate": "Cliquez sur le bouton MultiSend pour lancer le transfert groupé.",
+          "confirm": "Confirmez la transaction dans votre portefeuille.",
+          "wait": "Attendez que la transaction soit minée. Tous les destinataires recevront leurs fonds en 3 à 5 minutes grâce au temps de bloc rapide de TRON."
+        }
+      }
+    }
+  },
+  "vip": {
+    "backToHome": "Retour à l'accueil",
+    "eyebrow": "VIP",
+    "headline": "Aucun frais de service.\nNe payez que le réseau.",
+    "intro": "Passez au VIP et profitez de transferts groupés illimités sans aucun frais de service. Ne payez que les coûts standard du réseau TRON.",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "1,000 TRX",
+        "period": "par jour",
+        "cta": "Obtenir le VIP"
+      },
+      "professional": {
+        "name": "Professional",
+        "price": "5,000 TRX",
+        "period": "par 7 jours",
+        "cta": "Obtenir le VIP"
+      },
+      "business": {
+        "name": "Business",
+        "price": "10,000 TRX",
+        "period": "par 30 jours",
+        "cta": "Obtenir le VIP"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Sur mesure",
+        "period": "Adapté à vos besoins",
+        "cta": "Contactez-nous"
+      }
+    },
+    "plansFootnote": "* Vous devrez toujours payer les frais d'énergie et de bande passante du réseau TRON.",
+    "benefits": {
+      "eyebrow": "Avantages",
+      "title": "Avantages VIP",
+      "items": {
+        "feeWaived": "Frais de service offerts sur toutes les transactions",
+        "networkOnly": "Ne payez que les frais standard du réseau TRON",
+        "unlimited": "Lots illimités pendant toute la durée de votre offre",
+        "multipleCodes": "Plusieurs codes de parrainage pris en charge",
+        "support": "Support prioritaire via Telegram"
+      }
+    },
+    "forYou": {
+      "eyebrow": "Pour vous",
+      "title": "Idéal pour les envois en gros volume",
+      "description": "Si vous envoyez régulièrement à des centaines d'adresses — pour la paie, des airdrops, des distributions DAO ou des ventes de jetons — le VIP devient rentable après seulement quelques transactions.",
+      "cta": "Passer au VIP"
+    }
+  },
+  "referral": {
+    "backToHome": "Retour à l'accueil",
+    "eyebrow": "Parrainage",
+    "headline": "Gagnez en partageant.\nVotre réseau vous rémunère.",
+    "intro": "Invitez des utilisateurs sur TRON Multisender et gagnez 10 % des frais de service sur chacune de leurs transactions. Vos filleuls bénéficient de 5 % de réduction.",
+    "stats": {
+      "youEarn": {
+        "value": "10%",
+        "label": "Vous gagnez",
+        "sub": "des frais de service par tx parrainée"
+      },
+      "referralGets": {
+        "value": "5%",
+        "label": "Votre filleul reçoit",
+        "sub": "de réduction sur les frais de service"
+      },
+      "codes": {
+        "label": "Codes de parrainage",
+        "sub": "créez-en autant que nécessaire"
+      }
+    },
+    "howItWorks": {
+      "eyebrow": "Fonctionnement",
+      "title": "3 étapes pour commencer à gagner",
+      "steps": {
+        "connect": {
+          "title": "Connectez votre portefeuille",
+          "description": "Ouvrez la dApp et connectez votre portefeuille TronLink pour accéder au tableau de bord de parrainage."
+        },
+        "create": {
+          "title": "Créez un code de parrainage",
+          "description": "Générez un ou plusieurs codes de parrainage. Partagez-les avec votre communauté, votre équipe ou votre audience."
+        },
+        "earn": {
+          "title": "Gagnez sur chaque transaction",
+          "description": "Chaque fois qu'un utilisateur parrainé envoie une transaction en lot, vous gagnez 10 % des frais de service — automatiquement."
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à commencer à gagner ?",
+      "description": "Connectez votre portefeuille pour créer vos codes de parrainage et commencer à suivre vos gains. Le paiement est automatique pour chaque transaction parrainée.",
+      "button": "Ouvrir le tableau de bord de parrainage",
+      "footnote": "* Un paiement est effectué pour chaque utilisateur invité qui réalise une transaction via TRON Multisender."
+    }
+  },
+  "footer": {
+    "brandDescription": "Outil de transfert groupé pour la blockchain TRON.",
+    "navigationHeading": "Navigation",
+    "legalHeading": "Mentions légales",
+    "links": {
+      "howItWorks": "Fonctionnement",
+      "features": "Fonctionnalités",
+      "perks": "Avantages",
+      "faq": "FAQ",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "documentation": "Documentation"
+    },
+    "copyright": "© {startYear}–{currentYear} TRON Multisender",
+    "social": {
+      "x": "X",
+      "telegram": "Telegram",
+      "medium": "Medium",
+      "youtube": "YouTube"
+    }
+  },
+  "logo": {
+    "home": "Accueil"
+  },
+  "structuredData": {
+    "software": {
+      "description": "Envoyez en lot des TRX et des jetons TRC-20 à plusieurs adresses sur la blockchain TRON en une seule transaction."
+    },
+    "howTo": {
+      "name": "Comment envoyer en lot des TRX et des jetons TRC-20 avec TRON Multisender",
+      "description": "Guide étape par étape pour envoyer des TRX ou des jetons TRC-20 à plusieurs adresses en une seule transaction TRON.",
+      "steps": {
+        "connect": {
+          "name": "Connectez votre portefeuille",
+          "text": "Connectez TronLink ou n'importe quel portefeuille TRON compatible en un clic. Aucun compte nécessaire."
+        },
+        "recipients": {
+          "name": "Ajoutez les destinataires",
+          "text": "Collez les adresses manuellement ou importez un fichier CSV contenant les adresses et les montants."
+        },
+        "amounts": {
+          "name": "Définissez les montants",
+          "text": "Attribuez le même montant à tous les destinataires ou personnalisez le montant par adresse."
+        },
+        "send": {
+          "name": "Envoyez",
+          "text": "Vérifiez et confirmez. Tous les destinataires reçoivent les fonds en 3 à 5 minutes grâce au temps de bloc rapide de TRON."
+        }
+      }
+    }
+  },
+  "aiCheck": {
+    "eyebrowMarker": "AI Check"
+  }
+}
