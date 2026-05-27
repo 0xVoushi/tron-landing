@@ -509,5 +509,10 @@
   },
   "aiCheck": {
     "eyebrowMarker": "AI 审查"
+  },
+  "consent": {
+    "label": "Cookie 同意",
+    "message": "我们使用 cookie 和分析来了解访客如何使用本网站并加以改进。点击\"OK\"即表示您同意分析跟踪。",
+    "accept": "OK"
   }
 }

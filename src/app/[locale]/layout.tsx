@@ -10,6 +10,9 @@ import { formats } from '@/i18n/formats'
 import { buildMetadata } from '@/lib/metadata'
 import { getGlobalSchemas } from '@/lib/structured-data'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { ConsentDefault } from '@/components/analytics/ConsentDefault'
+import { PostHogProvider } from '@/components/analytics/PostHogProvider'
+import { ConsentBanner } from '@/components/consent/ConsentBanner'
 import '../globals.css'
 
 const rubik = Rubik({
@@ -59,10 +62,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={meta.dir} className={`${rubik.variable} scroll-smooth`}>
+      <ConsentDefault />
       <body className="bg-grey-light font-rubik antialiased text-dark">
         <JsonLd schemas={schemas} />
         <NextIntlClientProvider messages={messages} locale={locale} formats={formats}>
-          {children}
+          <PostHogProvider>{children}</PostHogProvider>
+          <ConsentBanner />
         </NextIntlClientProvider>
       </body>
       {process.env.NEXT_PUBLIC_GA_ID && (
