@@ -300,7 +300,7 @@ function ProgressRow({ label }: { label: string }) {
   return (
     <div aria-hidden="true" className="flex flex-col gap-2 w-full">
       <div className="relative w-full h-[8px] rounded-full bg-[#f0f0f0] overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-[72%] rounded-full bg-gradient-to-r from-[#10b981] to-[#34d399]" />
+        <div className="feat-progress-fill absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-[#10b981] to-[#34d399]" />
       </div>
       <div className="flex items-center justify-between">
         <span className="font-rubik text-[12px] text-dark/55">{label}</span>

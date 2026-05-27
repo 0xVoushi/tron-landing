@@ -1,6 +1,6 @@
 import { defaultLocale, type Locale } from '@/i18n/locales'
 
-export const SITE_URL = 'https://tronmultisender.io'
+export const SITE_URL = 'https://trxsend.com'
 export const SITE_OG_IMAGE = '/og-image.png'
 
 export function absoluteUrl(path: string): string {

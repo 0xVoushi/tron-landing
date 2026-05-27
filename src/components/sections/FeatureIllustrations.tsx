@@ -633,6 +633,7 @@ export function FeesIllustration({
               rx="3"
               fill={TRON_RED}
               fillOpacity={op}
+              style={{ animation: 'feat-cost-bar 10s linear infinite' }}
             />
           ))}
         </g>
@@ -647,6 +648,7 @@ export function FeesIllustration({
               rx="3"
               fill={TRON_RED}
               fillOpacity={op}
+              style={{ animation: 'feat-cost-bar 10s linear infinite' }}
             />
           ))}
         </g>
@@ -661,6 +663,7 @@ export function FeesIllustration({
               rx="3"
               fill={TRON_RED}
               fillOpacity={op}
+              style={{ animation: 'feat-cost-bar 10s linear infinite' }}
             />
           ))}
         </g>
@@ -735,6 +738,7 @@ export function FeesIllustration({
               rx="3"
               fill={SUCCESS}
               fillOpacity={op}
+              style={{ animation: 'feat-cost-bar 10s linear infinite' }}
             />
           ))}
         </g>
@@ -749,6 +753,7 @@ export function FeesIllustration({
               rx="3"
               fill={SUCCESS}
               fillOpacity={op}
+              style={{ animation: 'feat-cost-bar 10s linear infinite' }}
             />
           ))}
         </g>
@@ -763,6 +768,7 @@ export function FeesIllustration({
               rx="3"
               fill={SUCCESS}
               fillOpacity={op}
+              style={{ animation: 'feat-cost-bar 10s linear infinite' }}
             />
           ))}
         </g>

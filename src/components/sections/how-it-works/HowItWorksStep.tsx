@@ -15,11 +15,11 @@ export function HowItWorksStep({ number, title, description, videoSrc }: HowItWo
       aria-labelledby={titleId}
       className={[
         'grid grid-cols-1 gap-6',
-        'md:grid-cols-[2fr_3fr] md:gap-x-12 md:gap-y-5',
-        "md:[grid-template-areas:'title_video''description_video']",
+        'lg:grid-cols-[2fr_3fr] lg:gap-x-12 lg:gap-y-5',
+        "lg:[grid-template-areas:'title_video''description_video']",
       ].join(' ')}
     >
-      <div className="md:[grid-area:title] md:self-end">
+      <div className="lg:[grid-area:title] lg:self-end">
         <span
           aria-hidden="true"
           className="block font-rubik font-extrabold text-[72px] md:text-[96px] text-primary leading-none tracking-[-0.04em] mb-3 md:mb-4"
@@ -34,13 +34,13 @@ export function HowItWorksStep({ number, title, description, videoSrc }: HowItWo
         </h3>
       </div>
 
-      <div className="md:[grid-area:video]">
-        <HowItWorksVideo stepNumber={number} src={videoSrc} />
-      </div>
-
-      <p className="md:[grid-area:description] md:self-start font-rubik text-[15px] md:text-[16px] text-dark leading-relaxed tracking-[-0.01em]">
+      <p className="lg:[grid-area:description] lg:self-start font-rubik text-[15px] md:text-[16px] text-dark leading-relaxed tracking-[-0.01em]">
         {description}
       </p>
+
+      <div className="lg:[grid-area:video]">
+        <HowItWorksVideo stepNumber={number} src={videoSrc} />
+      </div>
     </article>
   )
 }

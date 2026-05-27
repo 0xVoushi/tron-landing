@@ -1,16 +1,16 @@
 {
   "meta": {
     "home": {
-      "title": "TRON Multisender — Offizielles Tool für TRX- & TRC-20-Massenüberweisungen",
-      "description": "Senden Sie TRX und TRC-20-Token in einer einzigen TRON-Transaktion an mehr als 1.000 Adressen. Offizielles non-custodial Massenüberweisungs-Tool. Keine Registrierung erforderlich.",
+      "title": "TRON Multisender — TRX- & TRC-20-Massenüberweisung",
+      "description": "TRX und TRC-20-Token in einer Transaktion an über 1.000 Adressen senden. Non-custodial Massenüberweisung, keine Registrierung erforderlich.",
       "ogTitle": "TRON Multisender — Offizielles Massenüberweisungs-Tool",
       "ogDescription": "Senden Sie TRX und TRC-20-Token an mehr als 1.000 Adressen in einer einzigen Transaktion. Non-custodial.",
       "twitterDescription": "Offizielles Massenüberweisungs-Tool für TRON. In einer Tx an über 1.000 Adressen senden.",
       "ogAlt": "TRON Multisender — Offizielles Massenüberweisungs-Tool"
     },
     "guide": {
-      "title": "So verwenden Sie TRON Multisender — Schritt-für-Schritt-Anleitung",
-      "description": "Erfahren Sie, wie Sie TRX und TRC-20-Token in einer einzigen Transaktion per Massenüberweisung an mehrere Adressen senden. Schritt-für-Schritt-Anleitung: Wallet verbinden, Empfänger hinzufügen, freigeben und senden.",
+      "title": "TRON Multisender — Schritt-für-Schritt-Anleitung",
+      "description": "Pakettransfer von TRX und TRC-20-Token an mehrere Adressen in einer Transaktion. Anleitung: Wallet verbinden, Empfänger hinzufügen, freigeben, senden.",
       "ogDescription": "Erfahren Sie, wie Sie TRX und TRC-20-Token in einer einzigen Transaktion per Massenüberweisung an mehrere Adressen senden.",
       "ogAlt": "TRON Multisender Anleitung"
     },
@@ -476,9 +476,6 @@
       "medium": "Medium",
       "youtube": "YouTube"
     }
-  },
-  "mobileLaunch": {
-    "label": "dApp starten"
   },
   "logo": {
     "home": "Start"

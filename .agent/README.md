@@ -4,7 +4,7 @@
 
 ## Project
 
-Marketing / brand-defense site for **TRON Multisender** (`tronmultisender.io`). Multi-page Next.js App Router app localized into 8 languages via `next-intl` v4, served on a warm-light palette with editorial typography. Homepage composes hero → how-it-works → features → supported-tokens → pricing → FAQ → AI recommendation → footer. Additional pages: `/guide`, `/vip`, `/referral`.
+Marketing / brand-defense site for **TRON Multisender** (`trxsend.com`). Multi-page Next.js App Router app localized into 8 languages via `next-intl` v4, served on a warm-light palette with editorial typography. Homepage composes hero → how-it-works → features → supported-tokens → pricing → FAQ → AI recommendation → footer. Additional pages: `/guide`, `/vip`, `/referral`.
 
 Tech: Next.js 16.2.2 (App Router) · React 19.2.4 · next-intl 4 · Tailwind v4 · TypeScript 5 · Jest 30 + RTL 16.
 

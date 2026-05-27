@@ -32,7 +32,7 @@ Tron Multisender is a non-custodial batch transfer tool built on the TRON blockc
 - No custody fees, no hidden charges
 
 ## URLs
-- Landing page: https://tronmultisender.io
+- Landing page: https://trxsend.com
 - Parent product: https://multisender.app (operating since 2018)
 
 ## FAQ

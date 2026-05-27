@@ -4,12 +4,12 @@ import { Rubik } from 'next/font/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { MobileLaunchButton } from '@/components/ui/MobileLaunchButton'
 import { routing } from '@/i18n/routing'
 import { getLocaleMeta, localeCodes, type Locale } from '@/i18n/locales'
 import { formats } from '@/i18n/formats'
 import { buildMetadata } from '@/lib/metadata'
-import { buildStructuredData } from '@/lib/structured-data'
+import { getGlobalSchemas } from '@/lib/structured-data'
+import { JsonLd } from '@/components/seo/JsonLd'
 import '../globals.css'
 
 const rubik = Rubik({
@@ -55,22 +55,14 @@ export default async function LocaleLayout({
   setRequestLocale(locale)
   const messages = await getMessages()
   const meta = getLocaleMeta(locale)
-  const schemas = await buildStructuredData(locale)
+  const schemas = await getGlobalSchemas(locale)
 
   return (
     <html lang={locale} dir={meta.dir} className={`${rubik.variable} scroll-smooth`}>
       <body className="bg-grey-light font-rubik antialiased text-dark">
-        {schemas.map((schema, i) => (
-          <script
-            // eslint-disable-next-line react/no-array-index-key
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        ))}
+        <JsonLd schemas={schemas} />
         <NextIntlClientProvider messages={messages} locale={locale} formats={formats}>
           {children}
-          <MobileLaunchButton />
         </NextIntlClientProvider>
       </body>
       {process.env.NEXT_PUBLIC_GA_ID && (

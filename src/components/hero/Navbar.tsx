@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Menu, X } from 'lucide-react'
 import { PillButton } from '@/components/ui/PillButton'
+import { LaunchDappButton } from '@/components/ui/LaunchDappButton'
 import { Logo } from '@/components/ui/Logo'
 import { LocaleSwitcher } from '@/components/locale-switcher/LocaleSwitcher'
 import { Link, usePathname } from '@/i18n/routing'
@@ -40,7 +41,7 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
   return (
     <nav
       className={[
-        'fixed top-0 left-0 right-0 z-50 py-4 px-8 md:py-[22px] md:px-10 lg:px-12',
+        'fixed top-0 left-0 right-0 z-50 py-4 px-8 md:py-[22px] md:px-10 lg:px-[1.6rem]',
         'transition-all duration-500',
       ].join(' ')}
     >
@@ -48,13 +49,13 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
         className={[
           'mx-auto flex items-center transition-all duration-500',
           showPill
-            ? 'max-w-5xl bg-white/90 backdrop-blur-xl rounded-full shadow-sm px-6 py-2'
-            : 'max-w-7xl',
+            ? 'max-w-5xl lg:max-w-[128rem] bg-white/90 backdrop-blur-xl rounded-full shadow-sm px-6 py-2'
+            : 'max-w-7xl lg:max-w-[128rem]',
         ].join(' ')}
       >
         <Logo dark={showPill} />
 
-        <div className="hidden md:flex items-center gap-2 ml-10">
+        <div className="hidden lg:flex items-center gap-2 ml-10">
           {NAV_LINK_KEYS.map((link) => (
             <Link
               key={link.key}
@@ -71,14 +72,14 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-2 ml-auto">
+        <div className="hidden lg:flex items-center gap-2 ml-auto">
           <LocaleSwitcher variant={showPill ? 'light' : 'dark'} />
           <PillButton variant="primary" size="sm">{t('launchApp')}</PillButton>
         </div>
 
         <button
           type="button"
-          className={['md:hidden ml-auto', showPill ? 'text-dark' : 'text-white'].join(' ')}
+          className={['lg:hidden ml-auto', showPill ? 'text-dark' : 'text-white'].join(' ')}
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? t('closeMenu') : t('openMenu')}
         >
@@ -87,7 +88,7 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
       </div>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-grey-medium flex flex-col p-6 gap-4 md:hidden">
+        <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-grey-medium flex flex-col p-6 gap-4 lg:hidden">
           {NAV_LINK_KEYS.map((link) => (
             <Link
               key={link.key}
@@ -99,10 +100,11 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
           ))}
           <div className="pt-2 flex flex-col gap-3">
             <LocaleSwitcher variant="light" />
-            <PillButton variant="primary" size="md">{t('launchApp')}</PillButton>
           </div>
         </div>
       )}
+
+      <LaunchDappButton />
     </nav>
   )
 }

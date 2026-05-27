@@ -162,6 +162,16 @@
   from { transform: translateY(0); }
   to   { transform: translateY(-112px); }
 }
+@keyframes feat-progress-fill {
+  0%    { width: 0%; }
+  62.5% { width: 100%; }
+  100%  { width: 100%; }
+}
+@keyframes feat-cost-bar {
+  0%   { opacity: 0; }
+  60%  { opacity: 1; }
+  100% { opacity: 1; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   [class*="feat-"],
@@ -200,5 +210,8 @@
   }
   .feat-ghost-num-dark {
     color: rgba(255, 255, 255, 0.05);
+  }
+  .feat-progress-fill {
+    animation: feat-progress-fill 8s linear infinite;
   }
 }

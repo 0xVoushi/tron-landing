@@ -4,7 +4,7 @@
 
 ## Overview
 
-Marketing / brand-defense site for **TRON Multisender** (`tronmultisender.io`). Multi-page Next.js App Router app, localized into 8 languages via `next-intl` v4, served on a warm-light brand palette with editorial typography. Homepage composes hero → how-it-works → features → supported-tokens → pricing → FAQ → AI recommendation → footer. Additional landing pages for `/guide`, `/vip`, and `/referral`.
+Marketing / brand-defense site for **TRON Multisender** (`trxsend.com`). Multi-page Next.js App Router app, localized into 8 languages via `next-intl` v4, served on a warm-light brand palette with editorial typography. Homepage composes hero → how-it-works → features → supported-tokens → pricing → FAQ → AI recommendation → footer. Additional landing pages for `/guide`, `/vip`, and `/referral`.
 
 Canonical coding rules: [../../AGENTS.md](../../AGENTS.md). Canonical i18n reference: [../../docs/i18n.md](../../docs/i18n.md). This file is the map; those two are the rulebooks.
 

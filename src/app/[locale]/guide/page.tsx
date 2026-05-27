@@ -4,7 +4,9 @@ import { GUIDE_SECTION_KEYS, GUIDE_STEP_KEYS } from '@/data/guide'
 import { PillButton } from '@/components/ui/PillButton'
 import { Navbar } from '@/components/hero/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { buildMetadata } from '@/lib/metadata'
+import { getGuideSchemas } from '@/lib/structured-data'
 import type { Locale } from '@/i18n/locales'
 
 export async function generateMetadata({
@@ -33,9 +35,11 @@ export default async function GuidePage({
   setRequestLocale(locale)
   const t = await getTranslations('guide')
   const tBrand = await getTranslations('brand')
+  const schemas = await getGuideSchemas(locale)
 
   return (
     <>
+      <JsonLd schemas={schemas} />
       <Navbar alwaysOpaque />
       <main className="bg-grey-light min-h-screen pt-24 pb-20 px-8 md:px-10 lg:px-12">
         <div className="max-w-3xl mx-auto">

@@ -328,6 +328,50 @@ interface PixelBlastProps {
   noiseAmount?: number
 }
 
+type VisualConfig = {
+  variant: PixelBlastProps['variant']
+  color: string
+  pixelSize: number
+  patternScale: number
+  patternDensity: number
+  pixelSizeJitter: number
+  enableRipples: boolean
+  rippleSpeed: number
+  rippleThickness: number
+  rippleIntensityScale: number
+  edgeFade: number
+  transparent: boolean
+  liquidStrength: number
+  liquidRadius: number
+  liquidWobbleSpeed: number
+}
+
+// Applies the in-place "visual" config onto an existing instance. Module-level
+// so it is a stable reference and not an effect dependency.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function applyVisualConfig(t: any, cfg: VisualConfig) {
+  t.uniforms.uShapeType.value = SHAPE_MAP[cfg.variant ?? 'square'] ?? 0
+  t.uniforms.uPixelSize.value = cfg.pixelSize * t.renderer.getPixelRatio()
+  t.uniforms.uColor.value.set(cfg.color)
+  t.uniforms.uScale.value = cfg.patternScale
+  t.uniforms.uDensity.value = cfg.patternDensity
+  t.uniforms.uPixelJitter.value = cfg.pixelSizeJitter
+  t.uniforms.uEnableRipples.value = cfg.enableRipples ? 1 : 0
+  t.uniforms.uRippleIntensity.value = cfg.rippleIntensityScale
+  t.uniforms.uRippleThickness.value = cfg.rippleThickness
+  t.uniforms.uRippleSpeed.value = cfg.rippleSpeed
+  t.uniforms.uEdgeFade.value = cfg.edgeFade
+  if (cfg.transparent) t.renderer.setClearAlpha(0)
+  else t.renderer.setClearColor(0x000000, 1)
+  if (t.liquidEffect) {
+    const uStrength = t.liquidEffect.uniforms.get('uStrength')
+    if (uStrength) uStrength.value = cfg.liquidStrength
+    const uFreq = t.liquidEffect.uniforms.get('uFreq')
+    if (uFreq) uFreq.value = cfg.liquidWobbleSpeed
+  }
+  if (t.touch) t.touch.radiusScale = cfg.liquidRadius
+}
+
 export function PixelBlast({
   variant = 'square',
   pixelSize = 3,
@@ -355,40 +399,37 @@ export function PixelBlast({
   const containerRef = useRef<HTMLDivElement>(null)
   const visibilityRef = useRef({ visible: true })
   const speedRef = useRef(speed)
+  const autoPauseRef = useRef(autoPauseOffscreen)
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const threeRef = useRef<any>(null)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const prevConfigRef = useRef<any>(null)
 
+  const latestVisualConfigRef = useRef<VisualConfig>({
+    variant,
+    color,
+    pixelSize,
+    patternScale,
+    patternDensity,
+    pixelSizeJitter,
+    enableRipples,
+    rippleSpeed,
+    rippleThickness,
+    rippleIntensityScale,
+    edgeFade,
+    transparent,
+    liquidStrength,
+    liquidRadius,
+    liquidWobbleSpeed,
+  })
+
+  // Lifecycle: create on mount / structural (reinit) change, fully dispose on
+  // cleanup. React runs this cleanup on both unmount and reinit-dep change.
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
-    speedRef.current = speed
-    const needsReinitKeys = ['antialias', 'liquid', 'noiseAmount'] as const
-    const cfg = { antialias, liquid, noiseAmount }
-    let mustReinit = false
-    if (!threeRef.current) mustReinit = true
-    else if (prevConfigRef.current) {
-      for (const k of needsReinitKeys)
-        if (prevConfigRef.current[k] !== cfg[k]) {
-          mustReinit = true
-          break
-        }
-    }
-    if (mustReinit) {
-      if (threeRef.current) {
-        const t = threeRef.current
-        t.resizeObserver?.disconnect()
-        cancelAnimationFrame(t.raf)
-        t.quad?.geometry.dispose()
-        t.material.dispose()
-        t.composer?.dispose()
-        t.renderer.dispose()
-        t.renderer.forceContextLoss()
-        if (t.renderer.domElement.parentElement === container) container.removeChild(t.renderer.domElement)
-        threeRef.current = null
-      }
+
+    const cfg = latestVisualConfigRef.current
+    {
       const canvas = document.createElement('canvas')
       const renderer = new THREE.WebGLRenderer({
         canvas,
@@ -400,26 +441,26 @@ export function PixelBlast({
       renderer.domElement.style.height = '100%'
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5))
       container.appendChild(renderer.domElement)
-      if (transparent) renderer.setClearAlpha(0)
+      if (cfg.transparent) renderer.setClearAlpha(0)
       else renderer.setClearColor(0x000000, 1)
       const uniforms = {
         uResolution: { value: new THREE.Vector2(0, 0) },
         uTime: { value: 0 },
-        uColor: { value: new THREE.Color(color) },
+        uColor: { value: new THREE.Color(cfg.color) },
         uClickPos: {
           value: Array.from({ length: MAX_CLICKS }, () => new THREE.Vector2(-1, -1))
         },
         uClickTimes: { value: new Float32Array(MAX_CLICKS) },
-        uShapeType: { value: SHAPE_MAP[variant] ?? 0 },
-        uPixelSize: { value: pixelSize * renderer.getPixelRatio() },
-        uScale: { value: patternScale },
-        uDensity: { value: patternDensity },
-        uPixelJitter: { value: pixelSizeJitter },
-        uEnableRipples: { value: enableRipples ? 1 : 0 },
-        uRippleSpeed: { value: rippleSpeed },
-        uRippleThickness: { value: rippleThickness },
-        uRippleIntensity: { value: rippleIntensityScale },
-        uEdgeFade: { value: edgeFade }
+        uShapeType: { value: SHAPE_MAP[cfg.variant ?? 'square'] ?? 0 },
+        uPixelSize: { value: cfg.pixelSize * renderer.getPixelRatio() },
+        uScale: { value: cfg.patternScale },
+        uDensity: { value: cfg.patternDensity },
+        uPixelJitter: { value: cfg.pixelSizeJitter },
+        uEnableRipples: { value: cfg.enableRipples ? 1 : 0 },
+        uRippleSpeed: { value: cfg.rippleSpeed },
+        uRippleThickness: { value: cfg.rippleThickness },
+        uRippleIntensity: { value: cfg.rippleIntensityScale },
+        uEdgeFade: { value: cfg.edgeFade }
       }
       const scene = new THREE.Scene()
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
@@ -444,7 +485,7 @@ export function PixelBlast({
         uniforms.uResolution.value.set(renderer.domElement.width, renderer.domElement.height)
         if (threeRef.current?.composer)
           threeRef.current.composer.setSize(renderer.domElement.width, renderer.domElement.height)
-        uniforms.uPixelSize.value = pixelSize * renderer.getPixelRatio()
+        uniforms.uPixelSize.value = latestVisualConfigRef.current.pixelSize * renderer.getPixelRatio()
       }
       setSize()
       const ro = new ResizeObserver(setSize)
@@ -463,12 +504,12 @@ export function PixelBlast({
       let liquidEffect: Effect | undefined
       if (liquid) {
         touch = createTouchTexture()
-        touch.radiusScale = liquidRadius
+        touch.radiusScale = cfg.liquidRadius
         composer = new EffectComposer(renderer)
         const renderPass = new RenderPass(scene, camera)
         liquidEffect = createLiquidEffect(touch.texture, {
-          strength: liquidStrength,
-          freq: liquidWobbleSpeed
+          strength: cfg.liquidStrength,
+          freq: cfg.liquidWobbleSpeed
         })
         const effectPass = new EffectPass(camera, liquidEffect)
         effectPass.renderToScreen = true
@@ -569,7 +610,7 @@ export function PixelBlast({
 
       let raf = 0
       const animate: FrameRequestCallback = ts => {
-        if (autoPauseOffscreen && !visibilityRef.current.visible) {
+        if (autoPauseRef.current && !visibilityRef.current.visible) {
           prevTs = null
           raf = requestAnimationFrame(animate)
           return
@@ -617,34 +658,12 @@ export function PixelBlast({
         touch,
         liquidEffect
       }
-    } else {
-      const t = threeRef.current
-      t.uniforms.uShapeType.value = SHAPE_MAP[variant] ?? 0
-      t.uniforms.uPixelSize.value = pixelSize * t.renderer.getPixelRatio()
-      t.uniforms.uColor.value.set(color)
-      t.uniforms.uScale.value = patternScale
-      t.uniforms.uDensity.value = patternDensity
-      t.uniforms.uPixelJitter.value = pixelSizeJitter
-      t.uniforms.uEnableRipples.value = enableRipples ? 1 : 0
-      t.uniforms.uRippleIntensity.value = rippleIntensityScale
-      t.uniforms.uRippleThickness.value = rippleThickness
-      t.uniforms.uRippleSpeed.value = rippleSpeed
-      t.uniforms.uEdgeFade.value = edgeFade
-      if (transparent) t.renderer.setClearAlpha(0)
-      else t.renderer.setClearColor(0x000000, 1)
-      if (t.liquidEffect) {
-        const uStrength = t.liquidEffect.uniforms.get('uStrength')
-        if (uStrength) uStrength.value = liquidStrength
-        const uFreq = t.liquidEffect.uniforms.get('uFreq')
-        if (uFreq) uFreq.value = liquidWobbleSpeed
-      }
-      if (t.touch) t.touch.radiusScale = liquidRadius
+      applyVisualConfig(threeRef.current, latestVisualConfigRef.current)
     }
-    prevConfigRef.current = cfg
+
     return () => {
-      if (threeRef.current && mustReinit) return
-      if (!threeRef.current) return
       const t = threeRef.current
+      if (!t) return
       t.resizeObserver?.disconnect()
       t.intersectionObserver?.disconnect()
       if (t.onDocVisibility) document.removeEventListener('visibilitychange', t.onDocVisibility)
@@ -664,27 +683,49 @@ export function PixelBlast({
       if (t.renderer.domElement.parentElement === container) container.removeChild(t.renderer.domElement)
       threeRef.current = null
     }
+  }, [antialias, liquid, noiseAmount])
+
+  // Visual updates: in-place uniform changes only, no teardown.
+  useEffect(() => {
+    speedRef.current = speed
+    autoPauseRef.current = autoPauseOffscreen
+    const config: VisualConfig = {
+      variant,
+      color,
+      pixelSize,
+      patternScale,
+      patternDensity,
+      pixelSizeJitter,
+      enableRipples,
+      rippleSpeed,
+      rippleThickness,
+      rippleIntensityScale,
+      edgeFade,
+      transparent,
+      liquidStrength,
+      liquidRadius,
+      liquidWobbleSpeed,
+    }
+    latestVisualConfigRef.current = config
+    if (threeRef.current) applyVisualConfig(threeRef.current, config)
   }, [
-    antialias,
-    liquid,
-    noiseAmount,
+    variant,
+    color,
     pixelSize,
     patternScale,
     patternDensity,
-    enableRipples,
-    rippleIntensityScale,
-    rippleThickness,
-    rippleSpeed,
     pixelSizeJitter,
+    enableRipples,
+    rippleSpeed,
+    rippleThickness,
+    rippleIntensityScale,
     edgeFade,
     transparent,
     liquidStrength,
     liquidRadius,
     liquidWobbleSpeed,
+    speed,
     autoPauseOffscreen,
-    variant,
-    color,
-    speed
   ])
 
   return (

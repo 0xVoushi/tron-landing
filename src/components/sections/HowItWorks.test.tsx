@@ -29,8 +29,8 @@ describe('HowItWorks', () => {
     expect(screen.getByText('04')).toBeInTheDocument()
   })
 
-  it('renders a video placeholder for each step', () => {
-    renderWithIntl(<HowItWorks />)
-    expect(screen.getAllByRole('img', { name: /video placeholder/i })).toHaveLength(4)
+  it('renders a demo video for each step', () => {
+    const { container } = renderWithIntl(<HowItWorks />)
+    expect(container.querySelectorAll('video')).toHaveLength(4)
   })
 })

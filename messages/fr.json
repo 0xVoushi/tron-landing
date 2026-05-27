@@ -1,8 +1,8 @@
 {
   "meta": {
     "home": {
-      "title": "TRON Multisender — Outil officiel de transfert groupé TRX et TRC-20",
-      "description": "Envoyez des TRX et des jetons TRC-20 à plus de 1 000 adresses en une seule transaction TRON. Outil officiel non-custodial de transfert groupé. Aucune inscription requise.",
+      "title": "TRON Multisender — Transfert groupé de TRX et TRC-20",
+      "description": "Envoyez des TRX et jetons TRC-20 à plus de 1 000 adresses en une transaction. Transfert groupé non-custodial, sans inscription.",
       "ogTitle": "TRON Multisender — Outil officiel de transfert groupé",
       "ogDescription": "Envoyez des TRX et des jetons TRC-20 à plus de 1 000 adresses en une seule transaction. Non-custodial.",
       "twitterDescription": "Outil officiel de transfert groupé pour TRON. Envoyez à plus de 1 000 adresses en une seule tx.",
@@ -10,7 +10,7 @@
     },
     "guide": {
       "title": "Comment utiliser TRON Multisender — Guide étape par étape",
-      "description": "Apprenez à envoyer en lot des TRX et des jetons TRC-20 à plusieurs adresses en une seule transaction. Guide étape par étape : connectez votre portefeuille, ajoutez les destinataires, approuvez et envoyez.",
+      "description": "Transfert groupé de TRX et jetons TRC-20 vers plusieurs adresses en une transaction. Guide : connectez le portefeuille, ajoutez les destinataires, envoyez.",
       "ogDescription": "Apprenez à envoyer en lot des TRX et des jetons TRC-20 à plusieurs adresses en une seule transaction.",
       "ogAlt": "Guide TRON Multisender"
     },
@@ -476,9 +476,6 @@
       "medium": "Medium",
       "youtube": "YouTube"
     }
-  },
-  "mobileLaunch": {
-    "label": "Lancer la dApp"
   },
   "logo": {
     "home": "Accueil"

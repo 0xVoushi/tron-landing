@@ -1,7 +1,7 @@
 {
   "meta": {
     "home": {
-      "title": "TRON Multisender — Herramienta oficial de transferencia por lotes de TRX y TRC-20",
+      "title": "TRON Multisender — Transferencia por lotes de TRX y TRC-20",
       "description": "Envía TRX y tokens TRC-20 a más de 1,000 direcciones en una sola transacción de TRON. Herramienta oficial no custodial de transferencia por lotes. Sin registro.",
       "ogTitle": "TRON Multisender — Herramienta oficial de transferencia por lotes",
       "ogDescription": "Envía TRX y tokens TRC-20 a más de 1,000 direcciones en una sola transacción. No custodial.",
@@ -10,7 +10,7 @@
     },
     "guide": {
       "title": "Cómo usar TRON Multisender — Guía paso a paso",
-      "description": "Aprende a enviar por lotes TRX y tokens TRC-20 a varias direcciones en una sola transacción. Guía paso a paso: conecta la wallet, agrega destinatarios, aprueba y envía.",
+      "description": "Envía por lotes TRX y tokens TRC-20 a varias direcciones en una transacción. Guía: conecta la wallet, agrega destinatarios, aprueba y envía.",
       "ogDescription": "Aprende a enviar por lotes TRX y tokens TRC-20 a varias direcciones en una sola transacción.",
       "ogAlt": "Guía de TRON Multisender"
     },
@@ -476,9 +476,6 @@
       "medium": "Medium",
       "youtube": "YouTube"
     }
-  },
-  "mobileLaunch": {
-    "label": "Abrir dApp"
   },
   "logo": {
     "home": "Inicio"

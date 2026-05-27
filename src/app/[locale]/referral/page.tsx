@@ -3,8 +3,10 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Share2, Wallet, Zap, ArrowLeft, Gift, type LucideIcon } from 'lucide-react'
 import { Navbar } from '@/components/hero/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { Link } from '@/i18n/routing'
 import { buildMetadata } from '@/lib/metadata'
+import { getReferralSchemas } from '@/lib/structured-data'
 import type { Locale } from '@/i18n/locales'
 
 const STAT_KEYS = ['youEarn', 'referralGets', 'codes'] as const
@@ -49,9 +51,11 @@ export default async function ReferralPage({
   setRequestLocale(locale)
   const t = await getTranslations('referral')
   const tBrand = await getTranslations('brand')
+  const schemas = await getReferralSchemas(locale)
 
   return (
     <>
+      <JsonLd schemas={schemas} />
       <Navbar alwaysOpaque />
       <main className="bg-grey-light min-h-screen">
         <section className="relative bg-grey-light pt-32 md:pt-40 pb-16 md:pb-20 px-8 md:px-10 lg:px-12">

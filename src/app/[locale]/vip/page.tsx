@@ -3,8 +3,10 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Zap, Star, Building2, Crown, Check, ArrowLeft, type LucideIcon } from 'lucide-react'
 import { Navbar } from '@/components/hero/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { Link } from '@/i18n/routing'
 import { buildMetadata } from '@/lib/metadata'
+import { getVipSchemas } from '@/lib/structured-data'
 import type { Locale } from '@/i18n/locales'
 
 const PLAN_KEYS = ['starter', 'professional', 'business', 'enterprise'] as const
@@ -43,9 +45,11 @@ export default async function VipPage({
   setRequestLocale(locale)
   const t = await getTranslations('vip')
   const tBrand = await getTranslations('brand')
+  const schemas = await getVipSchemas(locale)
 
   return (
     <>
+      <JsonLd schemas={schemas} />
       <Navbar alwaysOpaque />
       <main className="bg-grey-light min-h-screen">
         <section className="relative bg-grey-light pt-32 md:pt-40 pb-16 md:pb-20 px-8 md:px-10 lg:px-12">

@@ -11,6 +11,13 @@ const STEP_NUMBERS: Record<StepKey, string> = {
   multisend: '04',
 }
 
+const STEP_VIDEOS: Record<StepKey, string> = {
+  connect: '/videos/part1_0-6sec_web.mp4',
+  prepare: '/videos/part2_10-23sec_web.mp4',
+  approve: '/videos/part3_27sec-1m59sec_web.mp4',
+  multisend: '/videos/part4_2m06sec-3m33sec_web.mp4',
+}
+
 export function HowItWorks() {
   const t = useTranslations('howItWorks')
   const tBrand = useTranslations('brand')
@@ -42,6 +49,7 @@ export function HowItWorks() {
               number={STEP_NUMBERS[key]}
               title={t(`steps.${key}.title`)}
               description={t(`steps.${key}.description`)}
+              videoSrc={STEP_VIDEOS[key]}
             />
           ))}
         </div>
