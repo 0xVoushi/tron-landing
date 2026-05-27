@@ -28,7 +28,7 @@ describe('Features', () => {
       screen.getByText(/Built for high-volume payouts on TRON/i),
     ).toBeInTheDocument()
     expect(
-      screen.getAllByRole('button', { name: /Launch dApp/i }).length,
+      screen.getAllByRole('link', { name: /Launch dApp/i }).length,
     ).toBeGreaterThan(0)
   })
 

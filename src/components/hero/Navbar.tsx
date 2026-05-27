@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react'
 import { PillButton } from '@/components/ui/PillButton'
 import { LaunchDappButton } from '@/components/ui/LaunchDappButton'
 import { Logo } from '@/components/ui/Logo'
+import { launchDappUrl } from '@/lib/dapp'
 import { LocaleSwitcher } from '@/components/locale-switcher/LocaleSwitcher'
 import { Link, usePathname } from '@/i18n/routing'
 
@@ -74,7 +75,7 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
 
         <div className="hidden lg:flex items-center gap-2 ml-auto">
           <LocaleSwitcher variant={showPill ? 'light' : 'dark'} />
-          <PillButton variant="primary" size="sm">{t('launchApp')}</PillButton>
+          <PillButton variant="primary" size="sm" href={launchDappUrl('navbar')} newTab track="navbar">{t('launchApp')}</PillButton>
         </div>
 
         <button

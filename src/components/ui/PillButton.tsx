@@ -1,4 +1,7 @@
+'use client'
+
 import { ReactNode } from 'react'
+import { trackEvent } from '@/lib/analytics'
 
 type Variant = 'primary' | 'secondary' | 'ghost'
 type Size = 'sm' | 'md' | 'lg'
@@ -9,6 +12,12 @@ interface PillButtonProps {
   children: ReactNode
   onClick?: () => void
   className?: string
+  /** When set, renders an <a> link instead of a <button>. */
+  href?: string
+  /** Open the link in a new tab (only relevant with href). */
+  newTab?: boolean
+  /** Placement label; fires a `launch_dapp_click` event with `{ placement }` on click. */
+  track?: string
 }
 
 const variantClasses: Record<Variant, string> = {
@@ -32,22 +41,43 @@ export function PillButton({
   children,
   onClick,
   className = '',
+  href,
+  newTab = false,
+  track,
 }: PillButtonProps) {
+  const classes = [
+    variantClasses[variant],
+    sizeClasses[size],
+    'inline-block text-center no-underline',
+    'rounded-full font-rubik font-bold uppercase tracking-[0.05em]',
+    'border-none cursor-pointer',
+    'hover:scale-105 active:scale-95 transition-all duration-500 ease-out',
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ')
+
+  function handleClick() {
+    if (track) trackEvent('launch_dapp_click', { placement: track })
+    onClick?.()
+  }
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={newTab ? '_blank' : undefined}
+        rel={newTab ? 'noopener' : undefined}
+        onClick={handleClick}
+        className={classes}
+      >
+        {children}
+      </a>
+    )
+  }
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={[
-        variantClasses[variant],
-        sizeClasses[size],
-        'rounded-full font-rubik font-bold uppercase tracking-[0.05em]',
-        'border-none cursor-pointer',
-        'hover:scale-105 active:scale-95 transition-all duration-500 ease-out',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <button type="button" onClick={handleClick} className={classes}>
       {children}
     </button>
   )

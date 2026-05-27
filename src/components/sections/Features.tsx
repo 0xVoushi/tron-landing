@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { PillButton } from '@/components/ui/PillButton'
+import { launchDappUrl } from '@/lib/dapp'
 import { FeatureCard } from './FeatureCard'
 import {
   BatchTrxIllustration,
@@ -179,7 +180,7 @@ export function Features() {
               />
             }
             extras={
-              <PillButton variant="primary" size="sm">
+              <PillButton variant="primary" size="sm" href={launchDappUrl('features')} newTab track="features">
                 {t('items.batchTrx.cta')} ›
               </PillButton>
             }

@@ -69,7 +69,7 @@ export async function buildMetadata({
         {
           url: ogImageUrl,
           width: 1200,
-          height: 630,
+          height: 720,
           alt: ogAlt,
         },
       ],

@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { ShieldCheck } from 'lucide-react'
 import { PillButton } from '@/components/ui/PillButton'
+import { launchDappUrl } from '@/lib/dapp'
 
 export function ConsultationCard() {
   const t = useTranslations('consultationCard')
@@ -32,7 +33,14 @@ export function ConsultationCard() {
         </span>
       </div>
 
-      <PillButton variant="secondary" size="sm" className="ml-2 whitespace-nowrap">
+      <PillButton
+        variant="secondary"
+        size="sm"
+        className="ml-2 whitespace-nowrap"
+        href={launchDappUrl('consultation')}
+        newTab
+        track="consultation"
+      >
         {t('cta')}
       </PillButton>
     </div>

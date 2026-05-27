@@ -15,10 +15,15 @@ describe('Navbar', () => {
     expect(links.length).toBeGreaterThanOrEqual(4)
   })
 
-  it('renders Launch dApp button in desktop nav', () => {
+  it('renders Launch dApp link pointing to the dApp with tracking', () => {
     renderWithIntl(<Navbar />)
-    const buttons = screen.getAllByRole('button', { name: /Launch dApp/i })
-    expect(buttons.length).toBeGreaterThanOrEqual(1)
+    const links = screen.getAllByRole('link', { name: /Launch dApp/i })
+    expect(links.length).toBeGreaterThanOrEqual(1)
+    expect(links[0]).toHaveAttribute(
+      'href',
+      expect.stringContaining('tron.multisender.app')
+    )
+    expect(links.some((l) => l.getAttribute('href')?.includes('utm_content=navbar'))).toBe(true)
   })
 
   it('toggles mobile menu on button click', async () => {

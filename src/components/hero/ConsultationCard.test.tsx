@@ -18,8 +18,10 @@ describe('ConsultationCard', () => {
     expect(screen.getByTestId('shield-icon')).toBeInTheDocument()
   })
 
-  it('renders Launch dApp button', () => {
+  it('renders Launch dApp link to the dApp', () => {
     renderWithIntl(<ConsultationCard />)
-    expect(screen.getByRole('button', { name: /Launch dApp/i })).toBeInTheDocument()
+    const link = screen.getByRole('link', { name: /Launch dApp/i })
+    expect(link).toHaveAttribute('href', expect.stringContaining('tron.multisender.app'))
+    expect(link).toHaveAttribute('href', expect.stringContaining('utm_content=consultation'))
   })
 })
