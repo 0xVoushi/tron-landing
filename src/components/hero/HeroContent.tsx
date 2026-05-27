@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { PillButton } from '@/components/ui/PillButton'
+import { launchDappUrl } from '@/lib/dapp'
 
 const STAT_KEYS = ['recipients', 'tokenTypes', 'feeSavings', 'custody'] as const
 
@@ -29,7 +30,7 @@ export function HeroContent() {
         {t('subheadline')}
       </p>
 
-      <PillButton variant="primary" size="lg">{t('cta')}</PillButton>
+      <PillButton variant="primary" size="lg" href={launchDappUrl('hero')} newTab track="hero">{t('cta')}</PillButton>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-12 w-full max-w-3xl">
         {STAT_KEYS.map((statKey) => (

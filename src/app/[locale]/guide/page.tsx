@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/Footer'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { buildMetadata } from '@/lib/metadata'
 import { getGuideSchemas } from '@/lib/structured-data'
+import { launchDappUrl } from '@/lib/dapp'
 import type { Locale } from '@/i18n/locales'
 
 export async function generateMetadata({
@@ -91,7 +92,7 @@ export default async function GuidePage({
               </p>
             </div>
             <div>
-              <PillButton variant="primary" size="lg">{t('cta.button')}</PillButton>
+              <PillButton variant="primary" size="lg" href={launchDappUrl('guide')} newTab track="guide">{t('cta.button')}</PillButton>
             </div>
           </div>
         </div>
