@@ -29,8 +29,8 @@ function getDesktopServerSnapshot() {
 /**
  * Tier A WebGL gate: only mount the PixelBlast canvas (and trigger its
  * three.js + postprocessing chunk download) on desktop viewports. Mobile
- * users see only the static SVG noise from `StaticHeroBackground`, saving
- * ~140 KB gz / ~560 KB decoded.
+ * users see only the section's bg-dark-hard floor, saving ~140 KB gz /
+ * ~560 KB decoded.
  *
  * Verify after deploy via a mobile network trace — the dynamic chunk
  * (`_next/static/chunks/10v2swpoex55j.js` at audit time) should not be
