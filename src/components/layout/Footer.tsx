@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { Logo } from '@/components/ui/Logo'
 import { SocialLinks } from '@/components/footer/SocialLinks'
-import { Link } from '@/i18n/routing'
 
 const NAV_LINK_KEYS = [
   { key: 'howItWorks', href: '#how-it-works' },
@@ -43,12 +42,12 @@ export function Footer() {
             <ul className="space-y-2">
               {NAV_LINK_KEYS.map((link) => (
                 <li key={link.key}>
-                  <Link
+                  <a
                     href={link.href}
                     className="font-rubik text-[13px] text-dark hover:text-brand-red transition-colors"
                   >
                     {t(`links.${link.key}`)}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -61,12 +60,12 @@ export function Footer() {
             <ul className="space-y-2">
               {LEGAL_LINK_KEYS.map((link) => (
                 <li key={link.key}>
-                  <Link
+                  <a
                     href={link.href}
                     className="font-rubik text-[13px] text-dark hover:text-brand-red transition-colors"
                   >
                     {t(`links.${link.key}`)}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
