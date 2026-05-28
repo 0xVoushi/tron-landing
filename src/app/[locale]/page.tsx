@@ -26,7 +26,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       <PricingSection />
       <FaqSection />
       <AiRecommendation />
-      <Footer />
+      <Footer isHome />
     </main>
   )
 }

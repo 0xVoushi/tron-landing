@@ -1,0 +1,75 @@
+# DigitalOcean App Platform spec for tron-landing.
+#
+# Source of truth for production. Auto-pulled on every push to main via
+# deploy_on_push: true on the service's github block.
+#
+# For PR preview deploys this same file is the input — but it is
+# sanitised in-flight by .github/workflows/deploy-preview.yaml (yq
+# strips domains/alerts/ingress, sets a per-PR app name, overrides
+# the branch, disables deploy_on_push). The action's built-in
+# deploy_pr_preview mode is NOT used because its auto-generated name
+# starts with the lowercased GitHub owner "0xvoushi", which violates
+# DO's app name regex ^[a-z][a-z0-9-]{0,30}[a-z0-9]$.
+#
+# Exported from the live app via:
+#   doctl apps spec get 7743d591-2c8b-4470-bf62-4b1358fe5518
+#
+# Keep this file in sync with the prod app: if you edit settings in the
+# DO control panel, re-export the spec here so the file doesn't drift.
+
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+domains:
+- domain: trxsend.com
+  type: PRIMARY
+  zone: trxsend.com
+- domain: sendtron.org
+  type: ALIAS
+  zone: sendtron.org
+- domain: tronsend.org
+  type: ALIAS
+  zone: tronsend.org
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: tron-landing
+    match:
+      authority:
+        exact: ""
+      path:
+        prefix: /
+  - match:
+      authority:
+        exact: sendtron.org
+      path:
+        prefix: /
+    redirect:
+      authority: trxsend.com
+      redirect_code: 301
+      scheme: https
+  - match:
+      authority:
+        exact: tronsend.org
+      path:
+        prefix: /
+    redirect:
+      authority: trxsend.com
+      redirect_code: 301
+      scheme: https
+name: tron-landing
+region: fra
+services:
+- environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: 0xVoushi/tron-landing
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: tron-landing
+  run_command: npm start
+  source_dir: /

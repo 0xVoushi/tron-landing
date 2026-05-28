@@ -11,14 +11,35 @@ import { buildMetadata } from '@/lib/metadata'
 import { getGlobalSchemas } from '@/lib/structured-data'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { PostHogProvider } from '@/components/analytics/PostHogProvider'
+import { AnalyticsResourceHints } from '@/components/analytics/AnalyticsResourceHints'
 import '../globals.css'
 
-const rubik = Rubik({
+// next/font can't be invoked dynamically per request, so we define two
+// instances and pick by locale in the layout. Only `ru` needs the cyrillic
+// subset (zh/ko fall back to the user-agent's system CJK font regardless —
+// Rubik doesn't cover CJK), so the other seven locales ship latin-only and
+// save ~15 KB per requested weight.
+// next/font requires literal option values at build time (Turbopack
+// statically extracts them), so weights/variable/display are duplicated
+// across both instances instead of being shared from a const.
+const rubikLatin = Rubik({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-rubik',
+  display: 'swap',
+})
+const rubikLatinCyrillic = Rubik({
   subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-rubik',
   display: 'swap',
 })
+
+const CYRILLIC_LOCALES = new Set(['ru'])
+
+function rubikFor(locale: string) {
+  return CYRILLIC_LOCALES.has(locale) ? rubikLatinCyrillic : rubikLatin
+}
 
 export function generateStaticParams() {
   return localeCodes.map((locale) => ({ locale }))
@@ -58,9 +79,12 @@ export default async function LocaleLayout({
   const meta = getLocaleMeta(locale)
   const schemas = await getGlobalSchemas(locale)
 
+  const rubik = rubikFor(locale)
+
   return (
     <html lang={locale} dir={meta.dir} className={`${rubik.variable} scroll-smooth`}>
       <body className="bg-grey-light font-rubik antialiased text-dark">
+        <AnalyticsResourceHints />
         <JsonLd schemas={schemas} />
         <NextIntlClientProvider messages={messages} locale={locale} formats={formats}>
           <PostHogProvider>{children}</PostHogProvider>

@@ -733,7 +733,7 @@ export function PixelBlast({
       ref={containerRef}
       className={`pixel-blast-container ${className ?? ''}`}
       style={style}
-      aria-label="PixelBlast interactive background"
+      aria-hidden="true"
     />
   )
 }

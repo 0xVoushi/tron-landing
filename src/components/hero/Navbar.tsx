@@ -57,20 +57,31 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
         <Logo dark={showPill} />
 
         <div className="hidden lg:flex items-center gap-2 ml-10">
-          {NAV_LINK_KEYS.map((link) => (
-            <Link
-              key={link.key}
-              href={resolveHref(link.href)}
-              className={[
-                'font-rubik font-medium text-[13px] px-3 py-1.5 rounded-full transition-colors',
-                showPill
-                  ? 'text-dark hover:bg-black-4 hover:text-dark-hard'
-                  : 'bg-dark-hard text-white-80 hover:bg-dark hover:text-white',
-              ].join(' ')}
-            >
-              {t(link.key)}
-            </Link>
-          ))}
+          {NAV_LINK_KEYS.map((link) => {
+            const className = [
+              'font-rubik font-medium text-[13px] px-3 py-1.5 rounded-full transition-colors',
+              showPill
+                ? 'text-dark hover:bg-black-4 hover:text-dark-hard'
+                : 'bg-dark-hard text-white-80 hover:bg-dark hover:text-white',
+            ].join(' ')
+            if (isHome) {
+              return (
+                <a key={link.key} href={link.href} className={className}>
+                  {t(link.key)}
+                </a>
+              )
+            }
+            return (
+              <Link
+                key={link.key}
+                href={resolveHref(link.href)}
+                prefetch={false}
+                className={className}
+              >
+                {t(link.key)}
+              </Link>
+            )
+          })}
         </div>
 
         <div className="hidden lg:flex items-center gap-2 ml-auto">
@@ -90,15 +101,27 @@ export function Navbar({ alwaysOpaque = false }: { alwaysOpaque?: boolean }) {
 
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-grey-medium flex flex-col p-6 gap-4 lg:hidden">
-          {NAV_LINK_KEYS.map((link) => (
-            <Link
-              key={link.key}
-              href={resolveHref(link.href)}
-              className="font-rubik font-medium text-[15px] transition-colors text-dark hover:text-dark-hard"
-            >
-              {t(link.key)}
-            </Link>
-          ))}
+          {NAV_LINK_KEYS.map((link) => {
+            const className =
+              'font-rubik font-medium text-[15px] transition-colors text-dark hover:text-dark-hard'
+            if (isHome) {
+              return (
+                <a key={link.key} href={link.href} className={className}>
+                  {t(link.key)}
+                </a>
+              )
+            }
+            return (
+              <Link
+                key={link.key}
+                href={resolveHref(link.href)}
+                prefetch={false}
+                className={className}
+              >
+                {t(link.key)}
+              </Link>
+            )
+          })}
           <div className="pt-2 flex flex-col gap-3">
             <LocaleSwitcher variant="light" />
           </div>

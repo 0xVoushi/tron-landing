@@ -56,6 +56,7 @@ export default async function VipPage({
           <div className="max-w-7xl mx-auto">
             <Link
               href="/"
+              prefetch={false}
               className="inline-flex items-center gap-2 font-rubik text-[12px] text-grey hover:text-dark-hard transition-colors mb-8 uppercase tracking-[0.05em]"
             >
               <ArrowLeft size={13} />

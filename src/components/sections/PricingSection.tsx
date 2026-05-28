@@ -58,6 +58,7 @@ export function PricingSection() {
                     aria-hidden
                     width={220}
                     height={220}
+                    sizes="(min-width: 768px) 160px, 140px"
                     className="pointer-events-none select-none absolute -top-4 -right-4 w-[140px] h-[140px] md:w-[160px] md:h-[160px] object-contain opacity-95 transition-transform duration-300 group-hover:scale-105"
                   />
                 )}

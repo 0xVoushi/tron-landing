@@ -100,27 +100,33 @@ function StatsRow({
     { ...blockTime, icon: <ClockIcon size={22} /> },
   ]
   return (
-    <dl className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <ul role="list" className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {stats.map(({ value, label, icon }) => (
-        <div
+        <li
           key={label}
           className="flex items-center gap-3 rounded-xl bg-[#fafafa] px-3.5 py-3 transition-colors hover:bg-primary/5"
         >
-          <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary">
+          <span
+            aria-hidden="true"
+            className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary"
+          >
             {icon}
           </span>
           <div className="flex flex-col leading-tight min-w-0">
-            <dt className="sr-only">{label}</dt>
-            <dd className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
+            <span className="sr-only">{`${label}: `}</span>
+            <span className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
               {value}
-            </dd>
-            <span className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate">
+            </span>
+            <span
+              aria-hidden="true"
+              className="font-rubik text-[11.5px] font-medium text-dark/70 tracking-[0.005em] mt-0.5 truncate"
+            >
               {label}
             </span>
           </div>
-        </div>
+        </li>
       ))}
-    </dl>
+    </ul>
   )
 }
 
@@ -277,7 +283,7 @@ export function Features() {
               />
             }
             footer={
-              <p className="font-rubik text-[12px] text-dark/55 text-center">
+              <p className="font-rubik text-[12px] text-dark/70 text-center">
                 {t('items.fees.subline')}
               </p>
             }
@@ -288,7 +294,7 @@ export function Features() {
           />
         </div>
 
-        <p className="mt-4 md:mt-4 flex items-center justify-center gap-2 text-[13px] md:text-[14px] text-dark/60 font-rubik">
+        <p className="mt-4 md:mt-4 flex items-center justify-center gap-2 text-[13px] md:text-[14px] text-dark/70 font-rubik">
           <ShieldIcon className="text-primary" />
           {t('bottomLine')}
         </p>
@@ -304,8 +310,8 @@ function ProgressRow({ label }: { label: string }) {
         <div className="feat-progress-fill absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-[#10b981] to-[#34d399]" />
       </div>
       <div className="flex items-center justify-between">
-        <span className="font-rubik text-[12px] text-dark/55">{label}</span>
-        <span className="font-rubik text-[12px] font-bold text-[#10b981]">100%</span>
+        <span className="font-rubik text-[12px] text-dark/70">{label}</span>
+        <span className="font-rubik text-[12px] font-bold text-[#047857]">100%</span>
       </div>
     </div>
   )

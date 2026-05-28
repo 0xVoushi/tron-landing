@@ -1,10 +1,12 @@
 import { Navbar } from './Navbar'
 import { HeroContent } from './HeroContent'
 import { HeroVisual } from './HeroVisual'
+import { StaticHeroBackground } from './StaticHeroBackground'
 
 export function HeroSection() {
   return (
     <section id="hero" className="relative overflow-hidden w-full h-dvh bg-dark-hard">
+      <StaticHeroBackground />
       <div className="absolute inset-0 z-0">
         <HeroVisual />
       </div>

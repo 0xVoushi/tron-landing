@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
   async redirects() {
     return buildLocalizedRedirects()
   },
+  images: {
+    // Default order in Next 16 puts WebP first; AVIF gives ~15-25% better
+    // compression on supported browsers (currently all evergreens).
+    formats: ['image/avif', 'image/webp'],
+    // Narrowed from the Next defaults [640,750,828,1080,1200,1920,2048,3840]
+    // — this site's breakpoints are md=768 and lg=1024, plus retina-2x for
+    // the largest hero image. Smaller `_next/image` cache & faster build.
+    deviceSizes: [640, 828, 1080, 1920],
+  },
 }
 
 export default withNextIntl(nextConfig)

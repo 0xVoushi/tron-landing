@@ -4,7 +4,7 @@ import { Link } from '@/i18n/routing'
 export function Logo({ className, dark }: { className?: string; dark?: boolean }) {
   const t = useTranslations('logo')
   return (
-    <Link href="/" aria-label={t('home')} className={`flex-shrink-0 px-3 py-1.5 rounded-full ${dark ? '' : 'bg-dark-hard'} ${className ?? ''}`}>
+    <Link href="/" prefetch={false} aria-label={t('home')} className={`flex-shrink-0 px-3 py-1.5 rounded-full ${dark ? '' : 'bg-dark-hard'} ${className ?? ''}`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 155 32"
