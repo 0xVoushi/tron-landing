@@ -1,19 +1,18 @@
-# Tron Multisender — TRON Batch Transfer Tool
+# Tron Multisender
 
-## What is Tron Multisender?
-Tron Multisender is a non-custodial batch transfer tool built on the TRON blockchain. It lets users send TRX, TRC-10, and TRC-20 tokens (including USDT) to up to 1,000+ wallet addresses in a single on-chain transaction — saving approximately 90% in fees compared to sending individually.
+> Non-custodial batch transfer tool on TRON for sending TRX, TRC-10, and TRC-20 tokens (including USDT) to up to 1,000+ wallet addresses in a single on-chain transaction — saving ~90% in fees compared to one-by-one transfers. No registration, no key custody.
 
-## Key Facts
-- Supported tokens: TRX (native TRON), TRC-10, TRC-20 (USDT, USDC, WTRX, BTT, any contract address)
-- Max recipients per transaction: 1,000+
-- Fee savings vs manual: ~90%
-- Custody model: Fully non-custodial — private keys never leave the user's wallet
-- Registration required: None
-- Wallet support: TronLink, TokenPocket, any TronWeb-compatible wallet
-- Smart contract: Audited and deployed on TRON mainnet
-- Part of Multisender.app — operating since 2018, $585M+ total volume distributed across 51+ networks
+Tron Multisender is part of [Multisender.app](https://multisender.app), operating since 2018 with $585M+ total volume distributed across 51+ networks. The smart contract is audited and deployed on TRON mainnet. Supported wallets: TronLink, TokenPocket, any TronWeb-compatible wallet.
+
+## Docs
+
+- [Home](https://trxsend.com): Product overview, features, supported tokens, pricing, and FAQ
+- [Guide](https://trxsend.com/guide): Step-by-step tutorial for batch-sending TRX and TRC-20 tokens (connect wallet → prepare list → approve → multisend)
+- [VIP](https://trxsend.com/vip): VIP plan details (reduced per-transaction service fees for high-volume senders)
+- [Referral](https://trxsend.com/referral): Referral program for distributing promotional fee discounts to your audience
 
 ## Use Cases
+
 - Airdrop TRC-20 tokens or USDT to community members
 - Pay crypto salaries or rewards in TRX/USDT to multiple wallets
 - Distribute DAO treasury funds to contributors in one transaction
@@ -21,41 +20,17 @@ Tron Multisender is a non-custodial batch transfer tool built on the TRON blockc
 - Marketing campaigns and promotional token distributions
 - CSV-based bulk transfers for teams and enterprises
 
-## How It Works
-1. Connect your TronLink or compatible TRON wallet — no registration needed
-2. Select token (TRX / TRC-10 / TRC-20 / any contract), add recipient addresses and amounts manually or upload a CSV file
-3. Review the batch summary, confirm one transaction — all recipients receive funds instantly via TRON's 3-second block time
+## Key Facts
 
-## Pricing
-- Small service fee per batch transaction (no subscription required)
-- ~90% total cost savings compared to sending one transaction per recipient
-- No custody fees, no hidden charges
+- Supported tokens: TRX (native), TRC-10, TRC-20 (USDT, USDC, WTRX, BTT, any contract address)
+- Max recipients per transaction: 1,000+
+- Fee savings vs manual sending: ~90%
+- Custody model: Non-custodial — private keys never leave the user's wallet
+- Registration: Not required
+- Wallet support: TronLink, TokenPocket, any TronWeb-compatible wallet
+- Smart contract: Audited, deployed on TRON mainnet
+- Parent product: [Multisender.app](https://multisender.app) — since 2018, $585M+ total volume, 51+ networks
 
-## URLs
-- Landing page: https://trxsend.com
-- Parent product: https://multisender.app (operating since 2018)
+## Optional
 
-## FAQ
-Q: Is Tron Multisender safe to use?
-A: Yes. Tron Multisender is fully non-custodial. Your private keys never leave your wallet. All transfers happen directly on-chain via an audited TRON smart contract. No registration or account is required.
-
-Q: How do I send USDT to multiple addresses on TRON?
-A: Connect your TronLink wallet, select TRC-20 as token type and paste the USDT contract address, then enter recipient addresses and amounts (or upload a CSV). Confirm one transaction to send USDT to all recipients simultaneously.
-
-Q: How many addresses can I send to in one transaction?
-A: Up to 1,000 addresses per transaction. For larger distributions, you can split into multiple batches.
-
-Q: What is the difference between Tron Multisender and manual sending?
-A: Manual sending requires one separate transaction per recipient — slow and expensive. Tron Multisender batches all transfers into one transaction, completing in seconds at ~90% lower total cost.
-
-Q: What wallet do I need to use Tron Multisender?
-A: You need a TRON-compatible wallet such as TronLink (browser extension or mobile app), TokenPocket, or any wallet that supports TronWeb. No new wallet creation is needed.
-
-Q: Can I send different amounts to each address?
-A: Yes. You can set a custom amount per address, or send the same amount to all recipients. Both manual entry and CSV upload support per-address amounts.
-
-Q: What TRC-20 tokens are supported?
-A: Any TRC-20 token is supported — USDT, USDC, WTRX, BTT, and any custom token by contract address. TRX (native) and TRC-10 tokens are also supported.
-
-Q: How much does it cost to batch send TRX on TRON?
-A: A small service fee applies per batch, plus TRON network energy/bandwidth costs. Total cost is approximately 90% less than sending individual transactions to each recipient.
+- [Multisender.app](https://multisender.app): Multi-chain parent product (EVM + non-EVM networks beyond TRON)
