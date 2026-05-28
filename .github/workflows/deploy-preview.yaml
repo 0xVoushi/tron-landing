@@ -1,13 +1,18 @@
 name: App Platform Preview
 
 # On every PR opened/updated against main, spin up a per-PR ephemeral
-# DigitalOcean App Platform instance using the spec at .do/app.yaml.
-# The action transforms the spec for preview mode automatically:
-#   - strips the `domains` block (preview gets *.ondigitalocean.app)
-#   - overrides the source branch with the PR head ref
-#   - names the app uniquely per PR (so re-opening updates the same one)
-# A comment is posted on the PR with the preview URL. Closing the PR
-# deletes the preview app (see delete-preview.yaml).
+# DigitalOcean App Platform instance.
+#
+# We can't use the action's built-in `deploy_pr_preview: true` mode
+# because it generates the app name as <owner>-<repo>-<pr>-<hash>, and
+# the lowercased owner "0xvoushi" starts with a digit — that violates
+# DO's app name regex ^[a-z][a-z0-9-]{0,30}[a-z0-9]$. So we sanitise
+# the spec ourselves (set a valid name, strip domains/alerts/ingress,
+# override branch + disable deploy_on_push) and call the action with
+# our generated spec instead.
+#
+# Comments on the PR with the preview URL on success, or with build
+# and deploy logs on failure. Closing the PR triggers delete-preview.
 
 on:
   pull_request:
@@ -25,11 +30,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate preview spec
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          yq eval '
+            .name = "tron-landing-pr-" + strenv(PR_NUMBER) |
+            del(.domains) |
+            del(.alerts) |
+            del(.ingress) |
+            .services[].github.branch = strenv(HEAD_REF) |
+            .services[].github.deploy_on_push = false
+          ' .do/app.yaml > preview-spec.yaml
+          echo "--- preview-spec.yaml ---"
+          cat preview-spec.yaml
+
       - name: Deploy preview app
         id: deploy
         uses: digitalocean/app_action/deploy@v2
         with:
-          deploy_pr_preview: "true"
+          app_spec_location: preview-spec.yaml
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       - name: Comment with preview URL

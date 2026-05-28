@@ -2,8 +2,12 @@ name: Delete Preview
 
 # When a PR against main is closed (merged or not), tear down the
 # matching ephemeral preview app on DigitalOcean App Platform.
-# `ignore_not_found: true` keeps this from failing if the PR never
-# had a preview (e.g. closed before the deploy workflow ran).
+#
+# We pass app_name explicitly (instead of from_pr_preview: true)
+# because deploy-preview.yaml uses a custom naming scheme — see the
+# comment in that workflow for the why. ignore_not_found keeps this
+# safe for PRs that never had a preview (e.g. closed before the
+# deploy workflow ran).
 
 on:
   pull_request:
@@ -22,6 +26,6 @@ jobs:
       - name: Delete preview app
         uses: digitalocean/app_action/delete@v2
         with:
-          from_pr_preview: "true"
+          app_name: tron-landing-pr-${{ github.event.pull_request.number }}
           ignore_not_found: "true"
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
