@@ -19,24 +19,18 @@ import '../globals.css'
 // subset (zh/ko fall back to the user-agent's system CJK font regardless —
 // Rubik doesn't cover CJK), so the other seven locales ship latin-only and
 // save ~15 KB per requested weight.
-const RUBIK_WEIGHTS: Array<'300' | '400' | '500' | '600' | '700' | '800'> = [
-  '300',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-]
-
+// next/font requires literal option values at build time (Turbopack
+// statically extracts them), so weights/variable/display are duplicated
+// across both instances instead of being shared from a const.
 const rubikLatin = Rubik({
   subsets: ['latin'],
-  weight: RUBIK_WEIGHTS,
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-rubik',
   display: 'swap',
 })
 const rubikLatinCyrillic = Rubik({
   subsets: ['latin', 'cyrillic'],
-  weight: RUBIK_WEIGHTS,
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-rubik',
   display: 'swap',
 })
