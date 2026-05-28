@@ -43,3 +43,6 @@ next-env.d.ts
 # AI
 .superpowers
 .scratch
+
+# performance audit traces & lighthouse reports
+/.perf-audit/
