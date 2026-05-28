@@ -2,16 +2,13 @@
  * Mobile-only static hero background. Server component, no JS cost.
  *
  * Solid #161616 floor (bg-dark-hard) with a subtle SVG fractal noise
- * pattern overlaid via mix-blend-screen at 50% opacity, tinted toward
- * brand red so the hero has a textured feel where PixelBlast doesn't
- * mount.
+ * pattern overlaid via mix-blend-screen at 30% opacity, tinted toward
+ * brand red. Lighter overall feel than the original 50% / α 0.55 mix
+ * — the red is visible but doesn't dominate the hero.
  *
  * Hidden on desktop (`md:hidden`) — there the section's own
  * bg-dark-hard provides the dark floor and PixelBlast paints the red
- * pixel pattern on top. Layering the SVG noise under PixelBlast made
- * the desktop hero look brown/warm instead of clean dark; gating to
- * mobile only keeps the original desktop look while still giving
- * mobile a non-empty hero background.
+ * pixel pattern on top.
  */
 export function StaticHeroBackground() {
   return (
@@ -20,7 +17,7 @@ export function StaticHeroBackground() {
       className="absolute inset-0 bg-dark-hard overflow-hidden md:hidden"
     >
       <svg
-        className="absolute inset-0 w-full h-full opacity-50 mix-blend-screen"
+        className="absolute inset-0 w-full h-full opacity-30 mix-blend-screen"
         preserveAspectRatio="none"
       >
         <defs>
