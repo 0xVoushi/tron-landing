@@ -100,27 +100,33 @@ function StatsRow({
     { ...blockTime, icon: <ClockIcon size={22} /> },
   ]
   return (
-    <dl className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <ul role="list" className="grid grid-cols-2 md:grid-cols-4 gap-3">
       {stats.map(({ value, label, icon }) => (
-        <div
+        <li
           key={label}
           className="flex items-center gap-3 rounded-xl bg-[#fafafa] px-3.5 py-3 transition-colors hover:bg-primary/5"
         >
-          <span className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary">
+          <span
+            aria-hidden="true"
+            className="shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/8 text-primary"
+          >
             {icon}
           </span>
           <div className="flex flex-col leading-tight min-w-0">
-            <dt className="sr-only">{label}</dt>
-            <dd className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
+            <span className="sr-only">{`${label}: `}</span>
+            <span className="font-rubik font-bold text-[20px] md:text-[22px] text-dark-hard tracking-[-0.015em]">
               {value}
-            </dd>
-            <span className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate">
+            </span>
+            <span
+              aria-hidden="true"
+              className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate"
+            >
               {label}
             </span>
           </div>
-        </div>
+        </li>
       ))}
-    </dl>
+    </ul>
   )
 }
 
