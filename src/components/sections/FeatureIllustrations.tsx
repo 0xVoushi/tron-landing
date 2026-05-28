@@ -530,7 +530,7 @@ export function CsvFileChip({ name, meta }: CsvFileChipProps) {
         <span className="font-rubik text-[13px] font-bold text-dark-hard truncate">
           {name}
         </span>
-        <span className="font-rubik text-[10.5px] text-dark/55 mt-0.5 truncate">
+        <span className="font-rubik text-[10.5px] text-dark/70 mt-0.5 truncate">
           {meta}
         </span>
       </div>

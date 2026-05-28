@@ -119,7 +119,7 @@ function StatsRow({
             </span>
             <span
               aria-hidden="true"
-              className="font-rubik text-[11.5px] font-medium text-dark/55 tracking-[0.005em] mt-0.5 truncate"
+              className="font-rubik text-[11.5px] font-medium text-dark/70 tracking-[0.005em] mt-0.5 truncate"
             >
               {label}
             </span>
@@ -283,7 +283,7 @@ export function Features() {
               />
             }
             footer={
-              <p className="font-rubik text-[12px] text-dark/55 text-center">
+              <p className="font-rubik text-[12px] text-dark/70 text-center">
                 {t('items.fees.subline')}
               </p>
             }
@@ -294,7 +294,7 @@ export function Features() {
           />
         </div>
 
-        <p className="mt-4 md:mt-4 flex items-center justify-center gap-2 text-[13px] md:text-[14px] text-dark/60 font-rubik">
+        <p className="mt-4 md:mt-4 flex items-center justify-center gap-2 text-[13px] md:text-[14px] text-dark/70 font-rubik">
           <ShieldIcon className="text-primary" />
           {t('bottomLine')}
         </p>
@@ -310,8 +310,8 @@ function ProgressRow({ label }: { label: string }) {
         <div className="feat-progress-fill absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-[#10b981] to-[#34d399]" />
       </div>
       <div className="flex items-center justify-between">
-        <span className="font-rubik text-[12px] text-dark/55">{label}</span>
-        <span className="font-rubik text-[12px] font-bold text-[#10b981]">100%</span>
+        <span className="font-rubik text-[12px] text-dark/70">{label}</span>
+        <span className="font-rubik text-[12px] font-bold text-[#047857]">100%</span>
       </div>
     </div>
   )

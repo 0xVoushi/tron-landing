@@ -12,7 +12,8 @@
   /* Primary (Red) */
   --color-primary: hsla(2, 60%, 48%, 1);
   --color-primary-light: hsla(2, 82%, 58%, 1);
-  --color-primary-medium: hsla(2, 67%, 62%, 1);
+  /* WCAG AA: darkened from hsla(2,67%,62%,1) (≈#df625d, 3.47:1) for body text */
+  --color-primary-medium: hsla(2, 67%, 48%, 1);
   --color-primary-pale: hsla(353, 100%, 68%, 1);
   --color-primary-dark: hsla(2, 36%, 38%, 1);
   --color-primary-heavy: hsla(2, 60%, 35%, 1);
@@ -25,7 +26,8 @@
   /* Neutrals */
   --color-dark: #313131;
   --color-dark-hard: #161616;
-  --color-grey: #aaaaaa;
+  /* WCAG AA: darkened from #aaaaaa (2.32:1) so `text-grey` clears 4.5:1 on white */
+  --color-grey: #707070;
   --color-grey-light: #fafafa;
   --color-grey-medium: #bbbbbb33;
 
