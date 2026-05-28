@@ -1,0 +1,72 @@
+# DigitalOcean App Platform spec for tron-landing.
+#
+# Source of truth for both:
+# - production deploys (auto-pull on every push to main, via deploy_on_push)
+# - PR preview deploys (.github/workflows/deploy-preview.yaml, which uses
+#   digitalocean/app_action@v2 with deploy_pr_preview: true — that mode
+#   strips the `domains` block and overrides the source branch with the
+#   PR head, so previews get an ephemeral *.ondigitalocean.app URL and
+#   never collide with prod domains).
+#
+# Exported from the live app on 2026-05-28 via:
+#   doctl apps spec get 7743d591-2c8b-4470-bf62-4b1358fe5518
+#
+# Keep this file in sync with the prod app: if you edit settings in the
+# DO control panel, re-export the spec here so the file doesn't drift.
+
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+domains:
+- domain: trxsend.com
+  type: PRIMARY
+  zone: trxsend.com
+- domain: sendtron.org
+  type: ALIAS
+  zone: sendtron.org
+- domain: tronsend.org
+  type: ALIAS
+  zone: tronsend.org
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: tron-landing
+    match:
+      authority:
+        exact: ""
+      path:
+        prefix: /
+  - match:
+      authority:
+        exact: sendtron.org
+      path:
+        prefix: /
+    redirect:
+      authority: trxsend.com
+      redirect_code: 301
+      scheme: https
+  - match:
+      authority:
+        exact: tronsend.org
+      path:
+        prefix: /
+    redirect:
+      authority: trxsend.com
+      redirect_code: 301
+      scheme: https
+name: tron-landing
+region: fra
+services:
+- environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: 0xVoushi/tron-landing
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: tron-landing
+  run_command: npm start
+  source_dir: /

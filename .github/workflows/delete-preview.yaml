@@ -1,0 +1,27 @@
+name: Delete Preview
+
+# When a PR against main is closed (merged or not), tear down the
+# matching ephemeral preview app on DigitalOcean App Platform.
+# `ignore_not_found: true` keeps this from failing if the PR never
+# had a preview (e.g. closed before the deploy workflow ran).
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  cleanup:
+    name: delete preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete preview app
+        uses: digitalocean/app_action/delete@v2
+        with:
+          from_pr_preview: "true"
+          ignore_not_found: "true"
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
