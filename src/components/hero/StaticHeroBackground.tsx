@@ -1,23 +1,24 @@
 /**
- * Always-rendered static hero background. Server component, no JS cost.
+ * Mobile-only static hero background. Server component, no JS cost.
  *
  * Solid #161616 floor (bg-dark-hard) with a subtle SVG fractal noise
- * pattern overlaid via mix-blend-screen at 50% opacity. The noise is
- * tinted toward brand red so the hero has a textured feel even on
- * mobile, where PixelBlast doesn't mount.
+ * pattern overlaid via mix-blend-screen at 50% opacity, tinted toward
+ * brand red so the hero has a textured feel where PixelBlast doesn't
+ * mount.
  *
- * On mobile this is the ONLY background — `HeroVisual` does not mount
- * the WebGL PixelBlast on small viewports, so the three.js +
- * postprocessing chunk (140 KB gz / 560 KB decoded) is never requested.
- *
- * On desktop this renders first (instant), then PixelBlast paints on
- * top via `transparent: true`. The SVG noise + brand tint stays
- * visible through the transparent canvas, giving the WebGL output a
- * slightly richer base texture.
+ * Hidden on desktop (`md:hidden`) — there the section's own
+ * bg-dark-hard provides the dark floor and PixelBlast paints the red
+ * pixel pattern on top. Layering the SVG noise under PixelBlast made
+ * the desktop hero look brown/warm instead of clean dark; gating to
+ * mobile only keeps the original desktop look while still giving
+ * mobile a non-empty hero background.
  */
 export function StaticHeroBackground() {
   return (
-    <div aria-hidden="true" className="absolute inset-0 bg-dark-hard overflow-hidden">
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 bg-dark-hard overflow-hidden md:hidden"
+    >
       <svg
         className="absolute inset-0 w-full h-full opacity-50 mix-blend-screen"
         preserveAspectRatio="none"
