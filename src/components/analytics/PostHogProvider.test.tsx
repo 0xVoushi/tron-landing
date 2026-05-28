@@ -20,6 +20,18 @@ describe('PostHogProvider (always-on, no consent)', () => {
     jest.clearAllMocks()
     window.history.replaceState(null, '', '/')
     process.env.NEXT_PUBLIC_POSTHOG_KEY = 'phc_test'
+    // PostHogProvider defers init via requestIdleCallback; run it synchronously
+    // in tests so assertions don't have to wait for the idle callback.
+    ;(window as unknown as {
+      requestIdleCallback: (cb: IdleRequestCallback) => number
+    }).requestIdleCallback = (cb) => {
+      cb({ didTimeout: false, timeRemaining: () => 50 })
+      return 0
+    }
+  })
+
+  afterEach(() => {
+    delete (window as unknown as { requestIdleCallback?: unknown }).requestIdleCallback
   })
 
   it('initializes PostHog and captures a $pageview with query string', () => {
