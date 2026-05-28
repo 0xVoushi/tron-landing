@@ -14,12 +14,38 @@ import { PostHogProvider } from '@/components/analytics/PostHogProvider'
 import { AnalyticsResourceHints } from '@/components/analytics/AnalyticsResourceHints'
 import '../globals.css'
 
-const rubik = Rubik({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+// next/font can't be invoked dynamically per request, so we define two
+// instances and pick by locale in the layout. Only `ru` needs the cyrillic
+// subset (zh/ko fall back to the user-agent's system CJK font regardless —
+// Rubik doesn't cover CJK), so the other seven locales ship latin-only and
+// save ~15 KB per requested weight.
+const RUBIK_WEIGHTS: Array<'300' | '400' | '500' | '600' | '700' | '800'> = [
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+]
+
+const rubikLatin = Rubik({
+  subsets: ['latin'],
+  weight: RUBIK_WEIGHTS,
   variable: '--font-rubik',
   display: 'swap',
 })
+const rubikLatinCyrillic = Rubik({
+  subsets: ['latin', 'cyrillic'],
+  weight: RUBIK_WEIGHTS,
+  variable: '--font-rubik',
+  display: 'swap',
+})
+
+const CYRILLIC_LOCALES = new Set(['ru'])
+
+function rubikFor(locale: string) {
+  return CYRILLIC_LOCALES.has(locale) ? rubikLatinCyrillic : rubikLatin
+}
 
 export function generateStaticParams() {
   return localeCodes.map((locale) => ({ locale }))
@@ -58,6 +84,8 @@ export default async function LocaleLayout({
   const messages = await getMessages()
   const meta = getLocaleMeta(locale)
   const schemas = await getGlobalSchemas(locale)
+
+  const rubik = rubikFor(locale)
 
   return (
     <html lang={locale} dir={meta.dir} className={`${rubik.variable} scroll-smooth`}>
