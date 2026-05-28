@@ -11,6 +11,7 @@ import { buildMetadata } from '@/lib/metadata'
 import { getGlobalSchemas } from '@/lib/structured-data'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { PostHogProvider } from '@/components/analytics/PostHogProvider'
+import { AnalyticsResourceHints } from '@/components/analytics/AnalyticsResourceHints'
 import '../globals.css'
 
 const rubik = Rubik({
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={meta.dir} className={`${rubik.variable} scroll-smooth`}>
       <body className="bg-grey-light font-rubik antialiased text-dark">
+        <AnalyticsResourceHints />
         <JsonLd schemas={schemas} />
         <NextIntlClientProvider messages={messages} locale={locale} formats={formats}>
           <PostHogProvider>{children}</PostHogProvider>
