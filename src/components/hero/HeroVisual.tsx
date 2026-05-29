@@ -1,6 +1,6 @@
 'use client'
 
-import { useSyncExternalStore } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import dynamic from 'next/dynamic'
 
 const PixelBlast = dynamic(
@@ -27,15 +27,13 @@ function getDesktopServerSnapshot() {
 }
 
 /**
- * Tier A WebGL gate: only mount the PixelBlast canvas (and trigger its
- * three.js + postprocessing chunk download) on desktop viewports. Mobile
- * users see only the static #161616 + brand-red noise floor from
- * `StaticHeroBackground` (which is itself `md:hidden`), saving ~140 KB
- * gz / ~560 KB decoded.
+ * WebGL gate: only mount the PixelBlast canvas (and trigger its three.js +
+ * postprocessing chunk download) on desktop after the first real pointer
+ * interaction. First paint uses `StaticHeroBackground` on every viewport, so
+ * Lighthouse and passive visitors don't pay the decorative WebGL startup cost.
  *
- * Verify after deploy via a mobile network trace — the dynamic chunk
- * (`_next/static/chunks/10v2swpoex55j.js` at audit time) should not be
- * requested at <768 px.
+ * Verify after deploy via a desktop network trace: the PixelBlast dynamic
+ * chunk should not be requested before pointer movement/click.
  */
 export function HeroVisual() {
   const isDesktop = useSyncExternalStore(
@@ -43,8 +41,25 @@ export function HeroVisual() {
     getDesktopSnapshot,
     getDesktopServerSnapshot
   )
+  const [hasPointerIntent, setHasPointerIntent] = useState(false)
 
-  if (!isDesktop) return null
+  useEffect(() => {
+    if (!isDesktop) return
+    if (hasPointerIntent) return
+
+    const activate = () => setHasPointerIntent(true)
+    // `once` cleans up after the first interaction; this effect cleanup covers
+    // viewport changes or unmount before any pointer event fires.
+    window.addEventListener('pointermove', activate, { once: true, passive: true })
+    window.addEventListener('pointerdown', activate, { once: true, passive: true })
+
+    return () => {
+      window.removeEventListener('pointermove', activate)
+      window.removeEventListener('pointerdown', activate)
+    }
+  }, [isDesktop, hasPointerIntent])
+
+  if (!isDesktop || !hasPointerIntent) return null
 
   return (
     <PixelBlast
@@ -60,7 +75,7 @@ export function HeroVisual() {
       rippleIntensityScale={1.5}
       speed={0.5}
       edgeFade={0}
-      transparent
+      transparent={false}
     />
   )
 }
