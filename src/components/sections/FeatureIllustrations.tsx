@@ -127,11 +127,10 @@ export function BatchTrxIllustration({
         strokeLinecap="round"
         strokeDasharray="4 5"
       >
-        {targets.map((t, i) => (
+        {targets.map((t) => (
           <path
             key={t.addr}
             d={`M ${sourceX + 46} ${sourceY} C ${sourceX + 120} ${sourceY}, ${targetX - 30} ${t.y + 12}, ${targetX - 6} ${t.y + 12}`}
-            style={{ animation: `feat-dash-flow 2.8s linear infinite ${i * 0.18}s` }}
           />
         ))}
       </g>
@@ -776,4 +775,3 @@ export function FeesIllustration({
     </svg>
   )
 }
-

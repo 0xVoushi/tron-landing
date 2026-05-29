@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 
 jest.mock('posthog-js', () => ({
   __esModule: true,
@@ -34,21 +34,21 @@ describe('PostHogProvider (always-on, no consent)', () => {
     delete (window as unknown as { requestIdleCallback?: unknown }).requestIdleCallback
   })
 
-  it('initializes PostHog and captures a $pageview with query string', () => {
+  it('initializes PostHog and captures a $pageview with query string', async () => {
     window.history.replaceState(null, '', '/?x=1')
     render(<PostHogProvider>child</PostHogProvider>)
 
-    expect(mockPosthog.init).toHaveBeenCalledTimes(1)
+    await waitFor(() => expect(mockPosthog.init).toHaveBeenCalledTimes(1))
     const pvs = pageviews()
     expect(pvs).toHaveLength(1)
     expect(pvs[0][1]).toEqual({ $current_url: '/?x=1' })
   })
 
-  it('does nothing when no PostHog key is configured', () => {
+  it('does nothing when no PostHog key is configured', async () => {
     delete process.env.NEXT_PUBLIC_POSTHOG_KEY
     render(<PostHogProvider>child</PostHogProvider>)
 
-    expect(mockPosthog.init).not.toHaveBeenCalled()
+    await waitFor(() => expect(mockPosthog.init).not.toHaveBeenCalled())
     expect(pageviews()).toHaveLength(0)
   })
 })

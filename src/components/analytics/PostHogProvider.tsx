@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import posthog from 'posthog-js'
 import { usePathname } from '@/i18n/routing'
+import { loadPostHog, type PostHogClient } from '@/lib/posthog'
 
 function currentUrl(pathname: string): string {
   const query =
@@ -22,36 +22,57 @@ function scheduleIdle(callback: IdleRequestCallback) {
   )
 }
 
+function cancelIdle(handle: number) {
+  if (typeof window.cancelIdleCallback === 'function') {
+    window.cancelIdleCallback(handle)
+    return
+  }
+  window.clearTimeout(handle)
+}
+
+/**
+ * Keeps the imported PostHog client in state so the pageview effect re-runs
+ * after idle init and captures the initial pageview without a ref race.
+ */
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  // `initialized` is state (not a ref) so the pageview effect re-runs once
-  // init completes and can capture the initial pageview itself. Avoids the
-  // double-capture race that arises when both effects try to fire the first
-  // pageview.
-  const [initialized, setInitialized] = useState(false)
+  const [posthogClient, setPosthogClient] = useState<PostHogClient | null>(null)
 
   useEffect(() => {
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY
     if (!key) return
-    if (initialized) return
+    if (posthogClient) return
 
-    scheduleIdle(() => {
-      posthog.init(key, {
-        api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com',
-        person_profiles: 'identified_only',
-        capture_pageview: false,
-        capture_pageleave: true,
-        persistence: 'localStorage+cookie',
-      })
-      setInitialized(true)
+    let cancelled = false
+    const idleHandle = scheduleIdle(() => {
+      void loadPostHog()
+        .then((client) => {
+          if (cancelled) return
+          client.init(key, {
+            api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com',
+            person_profiles: 'identified_only',
+            capture_pageview: false,
+            capture_pageleave: true,
+            persistence: 'localStorage+cookie',
+          })
+          setPosthogClient(client)
+        })
+        .catch(() => {
+          /* Analytics must never block rendering. */
+        })
     })
-  }, [initialized])
+
+    return () => {
+      cancelled = true
+      cancelIdle(idleHandle)
+    }
+  }, [posthogClient])
 
   useEffect(() => {
     if (!process.env.NEXT_PUBLIC_POSTHOG_KEY || !pathname) return
-    if (!initialized) return
-    posthog.capture('$pageview', { $current_url: currentUrl(pathname) })
-  }, [pathname, initialized])
+    if (!posthogClient) return
+    posthogClient.capture('$pageview', { $current_url: currentUrl(pathname) })
+  }, [pathname, posthogClient])
 
   return children as React.ReactElement
 }
