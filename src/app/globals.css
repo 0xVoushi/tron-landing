@@ -145,9 +145,6 @@
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-6px); }
 }
-@keyframes feat-dash-flow {
-  to { stroke-dashoffset: -160; }
-}
 @keyframes feat-rise-row {
   0%   { opacity: 0; transform: translateY(18px); }
   60%  { opacity: 1; transform: translateY(0); }
@@ -165,9 +162,9 @@
   to   { transform: translateY(-112px); }
 }
 @keyframes feat-progress-fill {
-  0%    { width: 0%; }
-  62.5% { width: 100%; }
-  100%  { width: 100%; }
+  0%    { transform: scaleX(0); }
+  62.5% { transform: scaleX(1); }
+  100%  { transform: scaleX(1); }
 }
 @keyframes feat-cost-bar {
   0%   { opacity: 0; }
@@ -214,6 +211,8 @@
     color: rgba(255, 255, 255, 0.05);
   }
   .feat-progress-fill {
+    transform-origin: left center;
+    will-change: transform;
     animation: feat-progress-fill 8s linear infinite;
   }
 }
